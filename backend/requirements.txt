@@ -1,13 +1,9 @@
 # Core website
-Django
+Django>=3.0,<4.0
 django-cors-headers
 djangorestframework
 dj-rest-auth
 # Deployment
 gunicorn
-# Development
-black
-pylint
-pylint-django
 # PqSQL adapter
 psycopg2
