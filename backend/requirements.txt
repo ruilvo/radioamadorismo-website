@@ -1,0 +1,11 @@
+# Core website
+Django
+django-cors-headers
+djangorestframework
+dj-rest-auth
+# Deployment
+gunicorn
+# Development
+black
+pylint
+pylint-django
