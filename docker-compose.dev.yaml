@@ -10,3 +10,7 @@ services:
       - 8000:8000
     env_file:
       - ./.env.dev
+    environment:
+      - DEBUG=${DEBUG}
+      - SECRET_KEY=${SECRET_KEY}
+      - DJANGO_ALLOWED_HOSTS=${DJANGO_ALLOWED_HOSTS}
