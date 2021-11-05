@@ -8,8 +8,7 @@ services:
     command: python manage.py runserver 0.0.0.0:8000
     ports:
       - 8000:8000
-    env_file:
-      - ./.env.dev
+    env_file: ./.env.dev
     # You can pass environment variables from your shell straight through to a
     # service’s containers with the ‘environment’ key by not giving them a
     # value, just like with docker run -e VARIABLE ...:
