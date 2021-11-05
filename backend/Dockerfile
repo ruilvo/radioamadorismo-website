@@ -21,4 +21,4 @@ RUN pip install -r requirements.txt
 COPY . .
 
 # Make files executable
-RUN chmod +x start.dev.sh
+RUN chmod +x entrypoint.dev.sh
