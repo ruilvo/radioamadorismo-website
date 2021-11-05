@@ -20,6 +20,5 @@ RUN pip install -r requirements.txt
 # Copy project files
 COPY . .
 
-# Deploy files
-# TODO: add collectstatic
-RUN python manage.py migrate
+# Make files executable
+RUN chmod +x start.dev.sh
