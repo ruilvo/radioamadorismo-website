@@ -1,9 +1,13 @@
 # Base image
-FROM python:latest
+FROM python:3.9-bullseye
 
 # Env variables
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
+
+# Update the system, install postgres adapter
+RUN apt-get update && apt-get upgrade -y \
+    && apt-get install -y libpq-dev python3-dev gcc
 
 # TODO: run as much as possible as non-root
 

@@ -9,3 +9,5 @@ gunicorn
 black
 pylint
 pylint-django
+# PqSQL adapter
+psycopg2
