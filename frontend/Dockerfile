@@ -2,7 +2,7 @@
 FROM node:16.13-bullseye
 
 # Update the system
-RUN apt-get update && apt-get upgrade
+RUN apt-get update && apt-get upgrade -y
 
 # TODO: run as much as possible as non-root
 
