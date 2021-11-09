@@ -26,3 +26,6 @@ COPY . .
 
 # Make files executable
 RUN chmod +x entrypoint.dev.sh
+
+# Expose the ports
+EXPOSE 8000
