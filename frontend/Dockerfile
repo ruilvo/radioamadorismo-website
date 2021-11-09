@@ -13,7 +13,7 @@ WORKDIR /node
 COPY package*.json .
 
 # Handle requirements
-RUN npm install --silent
+RUN npm install
 
 # Copy project files
 COPY . .
