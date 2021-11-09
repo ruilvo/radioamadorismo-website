@@ -27,6 +27,9 @@ services:
       - dev.env
     depends_on:
       - db
+    # To allow hot reloading
+    volumes:
+      - ./backend:/django
   db:
     image: postgres:13-bullseye
     volumes:
