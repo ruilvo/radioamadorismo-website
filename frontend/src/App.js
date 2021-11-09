@@ -2,12 +2,12 @@ import { Helmet } from "react-helmet-async";
 
 function App() {
   return (
-    <div className="App">
+    <h1 className="site-heading">
       <Helmet>
         <title>Hello World</title>
       </Helmet>
       Hello world!
-    </div>
+    </h1>
   );
 }
 
