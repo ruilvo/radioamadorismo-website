@@ -14,7 +14,8 @@ services:
       - backend
     # To allow hot reloading
     volumes:
-      - ./frontend:/node
+      - ./frontend/public:/node/public
+      - ./frontend/src:/node/src
   backend:
     build:
       context: ./backend
