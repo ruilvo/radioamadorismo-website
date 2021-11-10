@@ -10,7 +10,7 @@ RUN apt-get update && apt-get upgrade -y
 WORKDIR /node
 
 # Install dependencies
-COPY package*.json .
+COPY package.json .
 
 # Handle requirements
 RUN npm install
