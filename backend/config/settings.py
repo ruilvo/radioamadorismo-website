@@ -154,7 +154,11 @@ REST_FRAMEWORK = {
     ],
 }
 
-CORS_ORIGIN_WHITELIST = (
+_CORS_ORIGIN_WHITELIST_DEFAULTS = (
     "http://localhost:3000",
+    "http://frontend:3000",
     "http://localhost:8000",
+    "http://backend:8000",
 )
+
+CORS_ORIGIN_WHITELIST = os.environ.get("CORS_ORIGIN_WHITELIST").split(" ")
