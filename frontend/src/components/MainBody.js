@@ -5,7 +5,7 @@ import RepeatersView from "./RepeatersView";
 class MainBody extends React.Component {
   render() {
     return (
-      <Container fluid="xl">
+      <Container>
         <RepeatersView />
       </Container>
     );
