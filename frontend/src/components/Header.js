@@ -16,7 +16,6 @@ class Header extends React.Component {
         </Helmet>
         <Container>
           <Navbar.Brand>{this.state.title}</Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
         </Container>
       </Navbar>
     );
