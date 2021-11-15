@@ -4,10 +4,10 @@ import MainBody from "./components/MainBody";
 
 function App() {
   return (
-    <div>
+    <React.Fragment>
       <Header />
       <MainBody />
-    </div>
+    </React.Fragment>
   );
 }
 
