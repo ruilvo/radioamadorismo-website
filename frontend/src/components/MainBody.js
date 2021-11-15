@@ -1,12 +1,12 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-import RepeatersView from "./RepeatersView";
+import { Outlet } from "react-router-dom";
 
 class MainBody extends React.Component {
   render() {
     return (
       <Container>
-        <RepeatersView />
+        <Outlet />
       </Container>
     );
   }

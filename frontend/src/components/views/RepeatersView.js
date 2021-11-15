@@ -15,8 +15,12 @@ class RepeatersView extends React.Component {
   refreshList = () => {
     axios
       .get("/api/v1/")
-      .then((res) => this.setState({ repeaters: res.data }))
-      .catch((err) => console.log(err));
+      .then((res) => {
+        this.setState({ repeaters: res.data });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   getRepeatersAsRows = () => {
