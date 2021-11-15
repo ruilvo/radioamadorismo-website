@@ -20,7 +20,7 @@ class RepeatersView extends React.Component {
   };
 
   getRepeatersAsRows = () => {
-    return this.state.repeaters.map((repeater, i) => (
+    return this.state.repeaters.map((repeater) => (
       <tr key={repeater.id}>
         <td>{repeater.id}</td>
         <td>{repeater.callsign}</td>
