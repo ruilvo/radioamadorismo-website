@@ -1,6 +1,8 @@
 <template>
-  <div class="home">
-    <h1>Hello World!</h1>
+  <div class="home" id="bananas">
+    <h1>Portal do Radioamadorismo</h1>
+    <p>Um projecto de CT7ALW</p>
+    <router-view />
   </div>
 </template>
 

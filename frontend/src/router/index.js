@@ -6,6 +6,14 @@ const routes = [
     path: "/",
     name: "Home",
     component: Home,
+    children: [
+      {
+        path: "",
+        name: "Repeaters",
+        component: () =>
+          import(/* webpackChunkName: "repeaters" */ "../views/Repeaters.vue"),
+      },
+    ],
   },
 ];
 
