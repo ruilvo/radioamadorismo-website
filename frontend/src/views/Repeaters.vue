@@ -1,17 +1,22 @@
 <template>
   <div>
     <h2>Base de dados dos repetidores</h2>
-    <table>
-      <tr>
-        <th>Indicativo</th>
-        <th>Região</th>
-        <th>Local</th>
-      </tr>
-      <tr v-for="item in repeaters" :key="item.callsign">
-        <th>{{ item.callsign }}</th>
-        <th>{{ item.info_location.region }}</th>
-        <th>{{ item.info_location.place }}</th>
-      </tr>
+
+    <table class="table thead-light table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th>Indicativo</th>
+          <th>Região</th>
+          <th>Local</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="item in repeaters" :key="item.callsign">
+          <th>{{ item.callsign }}</th>
+          <th>{{ item.info_location.region }}</th>
+          <th>{{ item.info_location.place }}</th>
+        </tr>
+      </tbody>
     </table>
   </div>
 </template>
