@@ -24,7 +24,7 @@
 
 <style lang="scss" scoped>
 #map {
-  width: 600px;
+  max-width: 600px;
   height: 400px;
   margin: auto;
 }
