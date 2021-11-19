@@ -22,4 +22,4 @@ COPY . .
 RUN chmod +x entrypoint.dev.sh
 
 # Expose the ports
-EXPOSE 3000
+EXPOSE 8080
