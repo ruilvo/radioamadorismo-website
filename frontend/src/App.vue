@@ -5,6 +5,13 @@
   <router-view />
 </template>
 
+<script>
+export default {
+  name: "App",
+  title: "Portal do radioamadorismo"
+};
+</script>
+
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
