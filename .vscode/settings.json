@@ -4,5 +4,10 @@
     "pylint_django",
     "--django-settings-module",
     "config.settings"
+  ],
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "vue"
   ]
 }
