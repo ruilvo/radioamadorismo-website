@@ -9,5 +9,8 @@
     "javascript",
     "javascriptreact",
     "vue"
-  ]
+  ],
+  "eslint.workingDirectories": [
+    "./frontend"
+]
 }
