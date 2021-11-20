@@ -1,3 +1,4 @@
+from django.db.models import Q
 from rest_framework import viewsets
 from django_filters import rest_framework as filters
 from .models import FactRepeater
@@ -5,6 +6,58 @@ from .serializers import FactRepeaterSerializer
 
 
 class FactRepeaterFilter(filters.FilterSet):
+    # https://stackoverflow.com/a/62878113/5168563
+    modulation = filters.CharFilter(label="modulation", method="modulation_search")
+    holder = filters.CharFilter(label="holder", method="holder_search")
+
+    freq_mhz = filters.NumberFilter(label="freq_mhz", method="freq_mhz_search")
+    freq_mhz__gte = filters.NumberFilter(
+        label="freq_mhz__gte", method="freq_mhz_search__gte"
+    )
+    freq_mhz__lte = filters.NumberFilter(
+        label="freq_mhz__lte", method="freq_mhz_search__lte"
+    )
+
+    def modulation_search(self, queryset, name, value):
+        queryset = queryset.filter(
+            Q(info_fm__modulation__icontains=value)
+            | Q(info_dstar__modulation__icontains=value)
+            | Q(info_fusion__modulation__icontains=value)
+            | Q(info_dmr__modulation__icontains=value)
+        )
+        return queryset
+
+    def holder_search(self, queryset, name, value):
+        queryset = queryset.filter(
+            Q(info_holder__abrv__icontains=value)
+            | Q(info_holder__name__icontains=value)
+        )
+        return queryset
+
+    def freq_mhz_search(self, queryset, name, value):
+        queryset = queryset.filter(
+            Q(info_half_duplex__tx_mhz__exact=value)
+            | Q(info_half_duplex__rx_mhz__exact=value)
+            | Q(info_simplex__freq_mhz__exact=value)
+        )
+        return queryset
+
+    def freq_mhz_search__gte(self, queryset, name, value):
+        queryset = queryset.filter(
+            Q(info_half_duplex__tx_mhz__gte=value)
+            | Q(info_half_duplex__rx_mhz__gte=value)
+            | Q(info_simplex__freq_mhz__gte=value)
+        )
+        return queryset
+
+    def freq_mhz_search__lte(self, queryset, name, value):
+        queryset = queryset.filter(
+            Q(info_half_duplex__tx_mhz__lte=value)
+            | Q(info_half_duplex__rx_mhz__lte=value)
+            | Q(info_simplex__freq_mhz__lte=value)
+        )
+        return queryset
+
     class Meta:
         model = FactRepeater
         fields = {
