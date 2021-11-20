@@ -21,12 +21,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = os.environ.get("SECRET_KEY", "P9uUn8KWhJ7sQhxW3AkvGHqPSZ9Tap")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(os.environ.get("DEBUG", default=0))
 
-ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
+ALLOWED_HOSTS = os.environ.get(
+    "DJANGO_ALLOWED_HOSTS", "localhost 127.0.0.1 [::1] backend"
+).split(" ")
 
 
 # Application definition
@@ -88,9 +90,11 @@ WSGI_APPLICATION = "config.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.environ.get("POSTGRES_DB"),
-        "USER": os.environ.get("POSTGRES_USER"),
-        "PASSWORD": os.environ.get("POSTGRES_PASSWORD"),
+        "NAME": os.environ.get("POSTGRES_DB", "radioamadorismo_website_default"),
+        "USER": os.environ.get("POSTGRES_USER", "radioamadorismo_website_user"),
+        "PASSWORD": os.environ.get(
+            "POSTGRES_PASSWORD", "radioamadorismo_website_password"
+        ),
         "HOST": os.environ.get("SQL_HOST", "localhost"),
         "PORT": os.environ.get("SQL_PORT", "5432"),
     }
@@ -154,4 +158,6 @@ REST_FRAMEWORK = {
     ],
 }
 
-CORS_ORIGIN_WHITELIST = os.environ.get("CORS_ORIGIN_WHITELIST").split(" ")
+CORS_ORIGIN_WHITELIST = os.environ.get(
+    "CORS_ORIGIN_WHITELIST", "http://localhost:8080 http://frontend:8080"
+).split(" ")
