@@ -1,0 +1,14 @@
+name: djangoenv
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - psycopg2
+  - djangorestframework
+  - pylint-django
+  - dj-rest-auth
+  - python
+  - pylint
+  - django-cors-headers
+  - django
+  - black
