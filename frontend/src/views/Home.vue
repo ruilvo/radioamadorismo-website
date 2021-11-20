@@ -1,7 +1,5 @@
 <template>
-  <div class="d-flex justify-content-center">
-    <h1>Bem vindos!</h1>
-  </div>
+  <h1 class="text-center">Bem vindos!</h1>
 </template>
 
 <script>
