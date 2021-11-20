@@ -45,7 +45,7 @@ export default {
   methods: {
     getRepeaters() {
       axios
-        .get("/api/v1/")
+        .get("/api/v1/repeaters/")
         .then((res) => {
           this.repeaters = res.data;
         })
