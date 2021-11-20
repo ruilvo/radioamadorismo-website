@@ -140,6 +140,17 @@ class DimHolder(models.Model):
 
 
 class DimLocation(models.Model):
+    CONTINENT = "CPT"
+    AZORES = "AZR"
+    MADEIRA = "MDA"
+    OTHER = "OT"
+    REGION_CHOICES = (
+        (CONTINENT, "Continental PT"),
+        (AZORES, "Azores"),
+        (MADEIRA, "Madeira"),
+        (OTHER, "other"),
+    )
+
     # In the future, update this to GeoDjango
     # https://docs.djangoproject.com/en/3.2/ref/contrib/gis/
     latitude = models.DecimalField(
@@ -153,7 +164,9 @@ class DimLocation(models.Model):
         verbose_name="longitude",
     )
     # -
-    region = models.CharField(max_length=200, blank=True, verbose_name="region")
+    region = models.CharField(
+        max_length=50, verbose_name="region", choices=REGION_CHOICES, default=CONTINENT
+    )
     place = models.CharField(max_length=500, blank=True, verbose_name="place")
     qth_loc = models.CharField(max_length=20, blank=True, verbose_name="QTH loc.")
 
@@ -167,7 +180,14 @@ class DimLocation(models.Model):
         ]
 
     def __str__(self) -> str:
-        return f"{self.qth_loc}: {self.region} ({self.latitude}, {self.longitude})"
+        to_return = ""
+        if self.place is not None:
+            to_return += f"{self.place}"
+        if self.qth_loc is not None:
+            to_return += f"/{self.qth_loc}"
+        if self.latitude is not None and self.longitude is not None:
+            to_return += f"/({self.latitude}, {self.longitude})"
+        return to_return
 
 
 # Base ----
