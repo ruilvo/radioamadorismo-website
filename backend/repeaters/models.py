@@ -183,7 +183,7 @@ class DimLocation(models.Model):
         to_return = ""
         if self.place is not None:
             to_return += f"{self.place}"
-        if self.qth_loc is not None:
+        if self.qth_loc is not None and self.qth_loc != "":
             to_return += f"/{self.qth_loc}"
         if self.latitude is not None and self.longitude is not None:
             to_return += f"/({self.latitude}, {self.longitude})"
