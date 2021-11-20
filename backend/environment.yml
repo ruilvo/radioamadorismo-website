@@ -11,4 +11,5 @@ dependencies:
   - pylint
   - django-cors-headers
   - django
+  - django-filter
   - black
