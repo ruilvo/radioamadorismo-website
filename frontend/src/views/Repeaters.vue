@@ -1,7 +1,7 @@
 <template>
   <h2 class="text-center">Base de dados dos repetidores</h2>
 
-  <div class="container-fluid">
+  <div class="container-fluid" style="max-width: 1920px">
     <div class="row">
       <div class="col-sm-3">
         <div class="text-center">
