@@ -43,25 +43,29 @@ class FactRepeaterFilter(filters.FilterSet):
         modes = value.split(",").split(" ")
         filter = None
         if "fm" in modes:
+            new_filter = Q(info_fm__isnull=False)
             if filter is None:
-                filter = Q(info_fm__isnull=False)
+                filter = new_filter
             else:
-                filter = filter | Q(info_fm__isnull=False)
+                filter |= new_filter
         if "dstar" in modes:
+            new_filter = Q(info_dstar__isnull=False)
             if filter is None:
-                filter = Q(info_dstar__isnull=False)
+                filter = new_filter
             else:
-                filter = filter | Q(info_dstar__isnull=False)
+                filter |= new_filter
         if "fusion" in modes:
+            new_filter = Q(info_fusion__isnull=False)
             if filter is None:
-                filter = Q(info_fusion__isnull=False)
+                filter = new_filter
             else:
-                filter = filter | Q(info_fusion__isnull=False)
+                filter |= new_filter
         if "dmr" in modes:
+            new_filter = Q(info_dmr__isnull=False)
             if filter is None:
-                filter = Q(info_dmr__isnull=False)
+                filter = new_filter
             else:
-                filter = filter | Q(info_dmr__isnull=False)
+                filter |= new_filter
         return queryset.filter(filter)
 
     def rf_search(self, queryset, name, value):
@@ -71,12 +75,12 @@ class FactRepeaterFilter(filters.FilterSet):
             if filter is None:
                 filter = Q(info_half_duplex__isnull=False)
             else:
-                filter = filter | Q(info_half_duplex__isnull=False)
+                filter |= Q(info_half_duplex__isnull=False)
         if "simplex" in modes:
             if filter is None:
                 filter = Q(info_simplex__isnull=False)
             else:
-                filter = filter | Q(info_simplex__isnull=False)
+                filter |= Q(info_simplex__isnull=False)
         return queryset.filter(filter)
 
     def freq_mhz_search(self, queryset, name, value):
