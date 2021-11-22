@@ -1,7 +1,7 @@
 from django.db.models import Q
 from rest_framework import viewsets
 from django_filters import rest_framework as filters
-from .models import FactRepeater
+from .models import FactRepeater, DimLocation
 from .serializers import FactRepeaterSerializer
 
 
@@ -20,6 +20,8 @@ class FactRepeaterFilter(filters.FilterSet):
     freq_mhz__lte = filters.NumberFilter(
         label="freq_mhz__lte", method="freq_mhz_search__lte"
     )
+
+    region = filters.CharFilter(label="region", method="region_search")
 
     def modulation_search(self, queryset, name, value):
         queryset = queryset.filter(
@@ -100,6 +102,24 @@ class FactRepeaterFilter(filters.FilterSet):
             | Q(info_simplex__freq_mhz__lte=value)
         )
         return queryset
+
+    def region_search(self, queryset, name, value):
+        regions = value.split(",").split(" ")
+        possible_regions = [
+            DimLocation.CONTINENT,
+            DimLocation.AZORES,
+            DimLocation.MADEIRA,
+            DimLocation.OTHER,
+        ]
+        filter = None
+        for region in possible_regions:
+            if region in regions:
+                new_filter = Q(info_location__region=region)
+                if filter is None:
+                    filter = new_filter
+                else:
+                    filter |= new_filter
+        return queryset.filter(filter)
 
     class Meta:
         model = FactRepeater
