@@ -1,7 +1,5 @@
 from django.db import models
 
-# Create your models here.
-
 # RF ----
 
 
@@ -49,7 +47,7 @@ class DimSimplex(models.Model):
         return f"{self.freq_mhz}"
 
 
-# Modulacao ----
+# Modulation ----
 
 
 class DimFm(models.Model):
@@ -199,7 +197,6 @@ class FactRepeater(models.Model):
     sysop = models.CharField(max_length=20, blank=True, verbose_name="sysop")
     pwr_w = models.IntegerField(blank=True, null=True, verbose_name="pwr. (W)")
 
-    # E agora dados opcionais
     # RF
     info_half_duplex = models.ForeignKey(
         DimHalfDuplex,
@@ -215,7 +212,7 @@ class FactRepeater(models.Model):
         null=True,
         verbose_name="info - simplex",
     )
-    # Modulacao
+    # Modulation
     info_fm = models.ForeignKey(
         DimFm,
         on_delete=models.SET_NULL,
