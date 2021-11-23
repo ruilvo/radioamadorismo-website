@@ -13,3 +13,5 @@ dependencies:
   - django
   - django-filter
   - black
+  - pyyaml
+  - uritemplate
