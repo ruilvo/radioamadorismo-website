@@ -81,6 +81,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "django.template.context_processors.media",
             ],
         },
     },
@@ -143,6 +144,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = "/static/"
+MEDIA_URL = "/media/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -183,3 +185,6 @@ EMAIL_USE_SSL = os.environ.get("EMAIL_USE_SSL", "")
 EMAIL_TIMEOUT = os.environ.get("EMAIL_TIMEOUT", None)
 EMAIL_SSL_KEYFILE = os.environ.get("EMAIL_SSL_KEYFILE", None)
 EMAIL_SSL_CERTFILE = os.environ.get("EMAIL_SSL_CERTFILE", None)
+
+STATIC_ROOT = os.environ.get("MEDIA_ROOT", "/django_files/static_root/")
+MEDIA_ROOT = os.environ.get("MEDIA_ROOT", "/django_files/media_root/")

@@ -12,8 +12,8 @@ services:
       - dev.env
     depends_on:
       - backend
-    # To allow hot reloading
     volumes:
+      # To allow hot reloading
       - ./frontend/public:/node/public
       - ./frontend/src:/node/src
   backend:
@@ -27,6 +27,8 @@ services:
       - dev.env
     depends_on:
       - db
+    volumes:
+      - django_files_dev:/django_files/
   db:
     image: postgres:13-bullseye
     volumes:
@@ -36,3 +38,4 @@ services:
 
 volumes:
   postgres_data_dev:
+  django_files_dev:
