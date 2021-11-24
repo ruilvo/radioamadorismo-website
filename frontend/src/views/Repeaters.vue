@@ -34,7 +34,7 @@
 
 <script>
 import axios from "axios";
-import Map from "../components/Map.vue";
+import Map from "../components/repeaters/Map.vue";
 
 export default {
   name: "Repeaters",
