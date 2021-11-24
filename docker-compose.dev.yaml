@@ -14,8 +14,8 @@ services:
       - backend
     volumes:
       # To allow hot reloading
-      - ./frontend/public:/node/public
-      - ./frontend/src:/node/src
+      - ./frontend/public/:/frontend/public/
+      - ./frontend/src/:/frontend/src/
   backend:
     build:
       context: ./backend
@@ -28,7 +28,13 @@ services:
     depends_on:
       - db
     volumes:
-      - django_files_dev:/django_files/
+      - backend_static_root_dev:/static_root/
+      - backend_media_root_dev:/media_root/
+      # To allow hot reloading
+      - ./backend/config/:/backend/config/
+      - ./backend/repeaters/:/backend/repeaters/
+      - ./backend/templates/:/backend/templates/
+      - ./backend/users/:/backend/users/
   db:
     image: postgres:13-bullseye
     volumes:
@@ -38,4 +44,5 @@ services:
 
 volumes:
   postgres_data_dev:
-  django_files_dev:
+  backend_static_root_dev:
+  backend_media_root_dev:
