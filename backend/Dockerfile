@@ -9,20 +9,29 @@ ENV PYTHONUNBUFFERED 1
 RUN apt-get update && apt-get upgrade -y \
     && apt-get install -y libpq-dev python3-dev gcc
 
-# TODO: run as much as possible as non-root
-
 # Update pip
 RUN pip install --upgrade pip
 
 # Make a working dir
-WORKDIR /django
+WORKDIR /backend
+
+# Creates a non-root user and adds permission to access the working dir
+RUN adduser --disabled-password --gecos "" appuser \
+    && mkdir /static_root \
+    && mkdir /media_root \
+    && chown -R appuser /static_root \
+    && chown -R appuser /media_root \
+    && chown -R appuser /backend
+USER appuser
 
 # Handle requirements
-COPY requirements.txt requirements.txt
-RUN pip install -r requirements.txt
+COPY --chown=appuser:appuser requirements.txt requirements.txt
+RUN pip install --user -r requirements.txt
+
+ENV PATH="/home/worker/.local/bin:${PATH}"
 
 # Copy project files
-COPY . .
+COPY --chown=appuser:appuser . .
 
 # Make files executable
 RUN chmod +x entrypoint.dev.sh
