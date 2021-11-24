@@ -186,5 +186,5 @@ EMAIL_TIMEOUT = os.environ.get("EMAIL_TIMEOUT", None)
 EMAIL_SSL_KEYFILE = os.environ.get("EMAIL_SSL_KEYFILE", None)
 EMAIL_SSL_CERTFILE = os.environ.get("EMAIL_SSL_CERTFILE", None)
 
-STATIC_ROOT = os.environ.get("MEDIA_ROOT", "/django_files/static_root/")
-MEDIA_ROOT = os.environ.get("MEDIA_ROOT", "/django_files/media_root/")
+STATIC_ROOT = os.environ.get("MEDIA_ROOT", "/static_root/")
+MEDIA_ROOT = os.environ.get("MEDIA_ROOT", "/media_root/")
