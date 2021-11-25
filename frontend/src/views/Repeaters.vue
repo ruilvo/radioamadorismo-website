@@ -4,29 +4,11 @@
   <div class="container-fluid" style="max-width: 1920px">
     <div class="row">
       <div class="col-sm-3">
-        <div class="text-center">
-          <h4>Filtros</h4>
-        </div>
-        Em construção...
+        <Filters />
       </div>
       <div class="col-sm-9">
-        <table class="table thead-light table-striped">
-          <thead class="table-dark">
-            <tr>
-              <th>Indicativo</th>
-              <th>Região</th>
-              <th>Local</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="item in repeaters" :key="item.callsign">
-              <th>{{ item.callsign }}</th>
-              <th>{{ item.info_location.region }}</th>
-              <th>{{ item.info_location.place }}</th>
-            </tr>
-          </tbody>
-        </table>
-        <Map />
+        <Table :repeaters="repeaters" />
+        <Map :repeaters="repeaters" />
       </div>
     </div>
   </div>
@@ -35,6 +17,8 @@
 <script>
 import axios from "axios";
 import Map from "../components/repeaters/Map.vue";
+import Table from "../components/repeaters/Table.vue";
+import Filters from "../components/repeaters/Filters.vue";
 
 export default {
   name: "Repeaters",
@@ -46,6 +30,8 @@ export default {
 
   components: {
     Map,
+    Table,
+    Filters,
   },
 
   mounted() {

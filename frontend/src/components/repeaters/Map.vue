@@ -16,7 +16,7 @@ import * as L from "leaflet";
 export default {
   name: "Repeaters",
   props: {
-    markers: [],
+    repeaters: Array,
   },
 
   mounted() {
