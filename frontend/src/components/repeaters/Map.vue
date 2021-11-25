@@ -14,7 +14,7 @@
 import * as L from "leaflet";
 
 export default {
-  name: "Repeaters",
+  name: "Map",
   props: {
     repeaters: Array,
   },
