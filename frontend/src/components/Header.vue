@@ -43,8 +43,14 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li>
+                <a class="dropdown-item" href="/swagger-ui"
+                  >Documentação (🇬🇧)</a
+                >
+              </li>
+              <li><hr class="dropdown-divider" /></li>
+              <li>
                 <a class="dropdown-item" href="/api/v1/repeaters"
-                  >Repetidores</a
+                  >Repetidores (🇬🇧)</a
                 >
               </li>
             </ul>
