@@ -18,15 +18,13 @@
 </template>
 
 <script>
-import { state } from "../../shared/repeaters.js";
+import { repeaters } from "../../shared/repeaters.js";
 
 export default {
   name: "Table",
 
   data() {
-    return {
-      repeaters: state.repeaters,
-    };
+    return { repeaters };
   },
 };
 </script>

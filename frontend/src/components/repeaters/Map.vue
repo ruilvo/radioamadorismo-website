@@ -12,14 +12,12 @@
 
 <script>
 import * as L from "leaflet";
-import { state } from "../../shared/repeaters.js";
+import { repeaters } from "../../shared/repeaters.js";
 
 export default {
   name: "Map",
   data() {
-    return {
-      repeaters: state.repeaters,
-    };
+    return repeaters;
   },
 
   mounted() {

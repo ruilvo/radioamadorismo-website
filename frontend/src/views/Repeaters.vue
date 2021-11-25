@@ -32,16 +32,15 @@
 </template>
 
 <script>
+import { ref } from "vue";
 import axios from "axios";
 import Filters from "../components/repeaters/Filters.vue";
-import { state } from "../shared/repeaters.js";
+import repeaters from "../shared/repeaters.js";
 
 export default {
   name: "Repeaters",
   data() {
-    return {
-      repeaters: [],
-    };
+    return { repeaters };
   },
 
   components: {
@@ -54,15 +53,16 @@ export default {
 
   methods: {
     getRepeaters() {
+      let data = ref([]);
       axios
         .get("/api/v1/repeaters/")
         .then((res) => {
-          this.repeaters = res.data;
+          data.value = res.data;
         })
         .catch((err) => {
           console.log(err);
         })
-        .then((repeaters) => (state.repeaters = repeaters));
+        .then((data) => (self.repeaters = data));
     },
   },
 };

@@ -1,6 +1,4 @@
-import { reactive } from "vue";
+import { ref } from "vue";
 
 // reactive state
-export const state = reactive({
-  repeaters: [],
-});
+export const repeaters = ref(Array);
