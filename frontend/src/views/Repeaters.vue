@@ -7,6 +7,22 @@
         <Filters />
       </div>
       <div class="col-sm-9">
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <router-link
+              class="nav-link"
+              exact-active-class="active"
+              to="#table"
+              >Tabela</router-link
+            >
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" exact-active-class="active" to="#map"
+              >Mapa</router-link
+            >
+          </li>
+        </ul>
+        <router-view />
         <Table :repeaters="repeaters" />
         <Map :repeaters="repeaters" />
       </div>
