@@ -12,19 +12,20 @@
             <router-link
               class="nav-link"
               exact-active-class="active"
-              to="#table"
+              to="/repetidores"
               >Tabela</router-link
             >
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" exact-active-class="active" to="#map"
+            <router-link
+              class="nav-link"
+              exact-active-class="active"
+              to="/repetidores/mapa"
               >Mapa</router-link
             >
           </li>
         </ul>
         <router-view />
-        <Table :repeaters="repeaters" />
-        <Map :repeaters="repeaters" />
       </div>
     </div>
   </div>
@@ -32,8 +33,6 @@
 
 <script>
 import axios from "axios";
-import Map from "../components/repeaters/Map.vue";
-import Table from "../components/repeaters/Table.vue";
 import Filters from "../components/repeaters/Filters.vue";
 import { state } from "../shared/repeaters.js";
 
@@ -46,8 +45,6 @@ export default {
   },
 
   components: {
-    Map,
-    Table,
     Filters,
   },
 

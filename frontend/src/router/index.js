@@ -12,6 +12,24 @@ const routes = [
     name: "Repeaters",
     component: () =>
       import(/* webpackChunkName: "repeaters" */ "../views/Repeaters.vue"),
+    children: [
+      {
+        path: "",
+        name: "Repeaters-Table",
+        component: () =>
+          import(
+            /* webpackChunkName: "repeaters-table" */ "../components/repeaters/Table.vue"
+          ),
+      },
+      {
+        path: "mapa/",
+        name: "Repeaters-Map",
+        component: () =>
+          import(
+            /* webpackChunkName: "repeaters-table" */ "../components/repeaters/Map.vue"
+          ),
+      },
+    ],
   },
   {
     path: "/swagger-ui",
