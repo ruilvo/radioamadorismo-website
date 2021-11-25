@@ -35,6 +35,7 @@ import axios from "axios";
 import Map from "../components/repeaters/Map.vue";
 import Table from "../components/repeaters/Table.vue";
 import Filters from "../components/repeaters/Filters.vue";
+import { state } from "../shared/repeaters.js";
 
 export default {
   name: "Repeaters",
@@ -63,7 +64,8 @@ export default {
         })
         .catch((err) => {
           console.log(err);
-        });
+        })
+        .then((repeaters) => (state.repeaters = repeaters));
     },
   },
 };

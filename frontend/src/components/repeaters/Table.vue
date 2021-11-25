@@ -18,10 +18,15 @@
 </template>
 
 <script>
+import { state } from "../../shared/repeaters.js";
+
 export default {
   name: "Table",
-  props: {
-    repeaters: Array,
+
+  data() {
+    return {
+      repeaters: state.repeaters,
+    };
   },
 };
 </script>
