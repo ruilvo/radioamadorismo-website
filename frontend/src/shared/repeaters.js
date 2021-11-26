@@ -5,7 +5,7 @@ export default reactive({
   repeaters: Array,
   isBusy: false,
 
-  async getRepeaters() {
+  getRepeaters() {
     this.isBusy = true;
     axios
       .get("/api/v1/repeaters/")
