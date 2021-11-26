@@ -25,7 +25,7 @@
           <li class="nav-item">
             <router-link
               class="nav-link"
-              exact-active-class="active"
+              active-class="active"
               to="/repetidores"
               >Repetidores</router-link
             >
