@@ -8,7 +8,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="item in repeaters" :key="item.callsign">
+      <tr v-for="item in state.repeaters" :key="item.callsign">
         <th>{{ item.callsign }}</th>
         <th>{{ item.info_location.region }}</th>
         <th>{{ item.info_location.place }}</th>
@@ -18,13 +18,13 @@
 </template>
 
 <script>
-import { repeaters } from "../../shared/repeaters.js";
+import state from "../../shared/repeaters.js";
 
 export default {
   name: "Table",
 
   data() {
-    return { repeaters };
+    return { state };
   },
 };
 </script>

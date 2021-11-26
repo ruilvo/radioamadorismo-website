@@ -12,13 +12,9 @@
 
 <script>
 import * as L from "leaflet";
-import { repeaters } from "../../shared/repeaters.js";
 
 export default {
   name: "Map",
-  data() {
-    return repeaters;
-  },
 
   mounted() {
     var mymap = L.map("map").setView([40, -8.0], 6);
