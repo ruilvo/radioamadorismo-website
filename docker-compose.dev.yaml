@@ -29,8 +29,6 @@ services:
     depends_on:
       - db
     volumes:
-      - backend_static_root_dev:/static_root/
-      - backend_media_root_dev:/media_root/
       # To allow hot reloading
       - ./backend/config/:/backend/config/
       - ./backend/repeaters/:/backend/repeaters/
@@ -45,5 +43,3 @@ services:
 
 volumes:
   postgres_data_dev:
-  backend_static_root_dev:
-  backend_media_root_dev:
