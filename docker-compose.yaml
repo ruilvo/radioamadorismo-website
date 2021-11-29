@@ -1,0 +1,47 @@
+version: "3"
+
+services:
+  reverse-proxy:
+    image: nginx:stable
+    ports:
+      - 8100:80
+    volumes:
+      - frontend_data:/frontend/
+      - backend_data:/backend/
+      - ./nginx:/etc/nginx/conf.d
+    depends_on:
+      - backend
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    entrypoint: ./entrypoint.sh
+    env_file:
+      - dev.env
+    depends_on:
+      - backend
+    volumes:
+      - frontend_data:/frontend/
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    entrypoint: ./entrypoint.sh
+    env_file:
+      - dev.env
+    stop_signal: SIGINT
+    depends_on:
+      - db
+    volumes:
+      - backend_data:/backend/
+  db:
+    image: postgres:13-bullseye
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    env_file:
+      - dev.env
+
+volumes:
+  frontend_data:
+  backend_data:
+  postgres_data:
