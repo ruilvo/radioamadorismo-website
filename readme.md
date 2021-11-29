@@ -17,3 +17,9 @@ To clear/clean all Docker images, run:
 docker system prune -a -f
 docker volume prune -f
 ```
+
+To access a backend shell:
+
+```sh
+docker exec -it radioamadorismo-website-backend-1 /bin/bash
+```
