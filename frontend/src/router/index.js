@@ -26,7 +26,7 @@ const routes = [
         name: "Repeaters-Map",
         component: () =>
           import(
-            /* webpackChunkName: "repeaters-table" */ "../components/repeaters/Map.vue"
+            /* webpackChunkName: "repeaters-map" */ "../components/repeaters/Map.vue"
           ),
       },
     ],
