@@ -169,9 +169,7 @@ REST_FRAMEWORK = {
     ],
 }
 
-CORS_ORIGIN_WHITELIST = os.environ.get(
-    "CORS_ORIGIN_WHITELIST", "http://localhost:8080 http://frontend:8080"
-).split(" ")
+CORS_ORIGIN_WHITELIST = os.environ.get("CORS_ORIGIN_WHITELIST", "").split(" ")
 
 EMAIL_BACKEND = os.environ.get(
     "EMAIL_BACKEND", "django.core.mail.backends.console.EmailBackend"
