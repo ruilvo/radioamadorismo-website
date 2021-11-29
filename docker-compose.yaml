@@ -17,7 +17,7 @@ services:
       dockerfile: Dockerfile
     entrypoint: ./entrypoint.sh
     env_file:
-      - dev.env
+      - prod.sample.env
     depends_on:
       - backend
     volumes:
@@ -28,7 +28,7 @@ services:
       dockerfile: Dockerfile
     entrypoint: ./entrypoint.sh
     env_file:
-      - dev.env
+      - prod.sample.env
     stop_signal: SIGINT
     depends_on:
       - db
@@ -39,7 +39,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     env_file:
-      - dev.env
+      - prod.sample.env
 
 volumes:
   frontend_data:
