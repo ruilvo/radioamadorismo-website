@@ -17,20 +17,6 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY", "DO_NOT_USE_THIS_IN_PRODUCTION_")
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(os.environ.get("DEBUG", default=0))
-
-ALLOWED_HOSTS = os.environ.get(
-    "DJANGO_ALLOWED_HOSTS", "localhost 127.0.0.1 [::1] backend"
-).split(" ")
-
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -139,19 +125,12 @@ USE_L10N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.2/howto/static-files/
-
-STATIC_URL = "/static/"
-MEDIA_URL = "/media/"
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-# Local
+# Local ----------------------------------------------------------------------------------
 
 AUTH_USER_MODEL = "users.User"
 
@@ -169,7 +148,28 @@ REST_FRAMEWORK = {
     ],
 }
 
-CORS_ORIGIN_WHITELIST = os.environ.get("CORS_ORIGIN_WHITELIST", "").split(" ")
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/3.2/howto/static-files/
+
+STATIC_URL = "/static/"
+MEDIA_URL = "/media/"
+
+STATIC_ROOT = os.environ.get("MEDIA_ROOT", os.path.join(BASE_DIR, "static_root/"))
+MEDIA_ROOT = os.environ.get("MEDIA_ROOT", os.path.join(BASE_DIR, "media_root/"))
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = os.environ.get("SECRET_KEY", "DO_NOT_USE_THIS_IN_PRODUCTION_")
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = int(os.environ.get("DEBUG", default=0))
+
+ALLOWED_HOSTS = os.environ.get(
+    "DJANGO_ALLOWED_HOSTS", "localhost 127.0.0.1 [::1] backend"
+).split(" ")
+
+CORS_ORIGIN_WHITELIST = os.environ.get(
+    "CORS_ORIGIN_WHITELIST", "http://localhost:8080 http://frontend:8080"
+).split(" ")
 
 EMAIL_BACKEND = os.environ.get(
     "EMAIL_BACKEND", "django.core.mail.backends.console.EmailBackend"
@@ -184,7 +184,4 @@ EMAIL_TIMEOUT = os.environ.get("EMAIL_TIMEOUT", None)
 EMAIL_SSL_KEYFILE = os.environ.get("EMAIL_SSL_KEYFILE", None)
 EMAIL_SSL_CERTFILE = os.environ.get("EMAIL_SSL_CERTFILE", None)
 
-STATIC_ROOT = os.environ.get("MEDIA_ROOT", os.path.join(BASE_DIR, "static_root/"))
-MEDIA_ROOT = os.environ.get("MEDIA_ROOT", os.path.join(BASE_DIR, "media_root/"))
-
-USE_X_FORWARDED_HOST = bool(os.environ.get("USE_X_FORWARDED_HOST", False))
+USE_X_FORWARDED_HOST = int(os.environ.get("USE_X_FORWARDED_HOST", False))
