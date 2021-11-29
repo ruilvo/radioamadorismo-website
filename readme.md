@@ -14,5 +14,6 @@ docker-compose -f "docker-compose.dev.yaml" up -d --build
 To clear/clean all Docker images, run:
 
 ```sh
-docker system prune -a
+docker system prune -a -f
+docker volume prune -f
 ```
