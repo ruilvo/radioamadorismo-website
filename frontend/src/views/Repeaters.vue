@@ -33,20 +33,12 @@
 
 <script>
 import Filters from "../components/repeaters/Filters.vue";
-import state from "../shared/repeaters.js";
 
 export default {
   name: "Repeaters",
-  data() {
-    return { state };
-  },
 
   components: {
     Filters,
-  },
-
-  mounted() {
-    state.getRepeaters();
   },
 };
 </script>
