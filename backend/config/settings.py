@@ -158,30 +158,31 @@ STATIC_ROOT = os.environ.get("MEDIA_ROOT", os.path.join(BASE_DIR, "static_root/"
 MEDIA_ROOT = os.environ.get("MEDIA_ROOT", os.path.join(BASE_DIR, "media_root/"))
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY", "DO_NOT_USE_THIS_IN_PRODUCTION_")
+SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "DO_NOT_USE_THIS_IN_PRODUCTION_")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = int(os.environ.get("DEBUG", default=0))
+DEBUG = int(os.environ.get("DJANGO_DEBUG", default=0))
 
 ALLOWED_HOSTS = os.environ.get(
     "DJANGO_ALLOWED_HOSTS", "localhost 127.0.0.1 [::1] backend"
 ).split(" ")
 
 CORS_ORIGIN_WHITELIST = os.environ.get(
-    "CORS_ORIGIN_WHITELIST", "http://localhost:8080 http://frontend:8080"
+    "DJANGO_CORS_ORIGIN_WHITELIST", "http://localhost:8080 http://frontend:8080"
 ).split(" ")
 
-EMAIL_BACKEND = os.environ.get(
-    "EMAIL_BACKEND", "django.core.mail.backends.console.EmailBackend"
-)
-EMAIL_HOST = os.environ.get("EMAIL_HOST", "localhost")
-EMAIL_PORT = os.environ.get("EMAIL_PORT", "25")
-EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER", "")
-EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD", "")
-EMAIL_USE_TLS = os.environ.get("EMAIL_USE_TLS", "")
-EMAIL_USE_SSL = os.environ.get("EMAIL_USE_SSL", "")
-EMAIL_TIMEOUT = os.environ.get("EMAIL_TIMEOUT", None)
-EMAIL_SSL_KEYFILE = os.environ.get("EMAIL_SSL_KEYFILE", None)
-EMAIL_SSL_CERTFILE = os.environ.get("EMAIL_SSL_CERTFILE", None)
+USE_X_FORWARDED_HOST = int(os.environ.get("DJANGO_USE_X_FORWARDED_HOST", False))
 
-USE_X_FORWARDED_HOST = int(os.environ.get("USE_X_FORWARDED_HOST", False))
+EMAIL_BACKEND = os.environ.get(
+    "DJANGO_EMAIL_BACKEND", "django.core.mail.backends.console.EmailBackend"
+)
+EMAIL_HOST = os.environ.get("DJANGO_EMAIL_HOST", "localhost")
+EMAIL_PORT = int(os.environ.get("DJANGO_EMAIL_PORT", 25))
+EMAIL_HOST_USER = os.environ.get("DJANGO_EMAIL_HOST_USER", "")
+EMAIL_HOST_PASSWORD = os.environ.get("DJANGO_EMAIL_HOST_PASSWORD", "")
+EMAIL_USE_TLS = int(os.environ.get("DJANGO_EMAIL_USE_TLS", 0))
+EMAIL_USE_SSL = int(os.environ.get("DJANGO_EMAIL_USE_SSL", 0))
+
+EMAIL_TIMEOUT = os.environ.get("DJANGO_EMAIL_TIMEOUT", None)
+EMAIL_SSL_KEYFILE = os.environ.get("DJANGO_EMAIL_SSL_KEYFILE", None)
+EMAIL_SSL_CERTFILE = os.environ.get("DJANGO_EMAIL_SSL_CERTFILE", None)
