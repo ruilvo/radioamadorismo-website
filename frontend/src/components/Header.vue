@@ -43,8 +43,8 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li>
-                <a class="dropdown-item" href="/swagger-ui"
-                  >Documentação (🇬🇧)</a
+                <router-link class="dropdown-item" to="/swagger-ui"
+                  >Documentação (🇬🇧)</router-link
                 >
               </li>
               <li><hr class="dropdown-divider" /></li>
