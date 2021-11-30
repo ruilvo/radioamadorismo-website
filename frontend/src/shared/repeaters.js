@@ -5,16 +5,16 @@ export default reactive({
   repeaters: Array,
   isBusy: false,
 
-  getRepeaters() {
+  getRepeaters(params = {}) {
     this.isBusy = true;
     axios
-      .get("/api/v1/repeaters/")
+      .get("/api/v1/repeaters/", { params: params })
       .then((res) => {
         this.repeaters = res.data;
       })
       .catch((err) => {
         console.log(err);
       })
-      .then(() => (this.isBusy = false));
+      .finally(() => (this.isBusy = false));
   },
 });
