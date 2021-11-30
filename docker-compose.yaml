@@ -8,7 +8,7 @@ services:
     volumes:
       - frontend_data:/frontend/
       - backend_data:/backend/
-      - ./nginx/prod:/etc/nginx/conf.d
+      - ./nginx:/etc/nginx/conf.d
     depends_on:
       - backend
   frontend:
