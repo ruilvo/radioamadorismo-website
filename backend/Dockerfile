@@ -7,7 +7,7 @@ ENV PYTHONUNBUFFERED 1
 
 # Update the system, install postgres adapter
 RUN apt-get update && apt-get upgrade -y \
-    && apt-get install -y libpq-dev python3-dev gcc
+    && apt-get install -y libpq-dev python3-dev gcc netcat
 
 # Update pip
 RUN pip install --upgrade pip
