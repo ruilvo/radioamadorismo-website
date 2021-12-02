@@ -75,8 +75,18 @@ export default {
   },
 
   methods: {
+    updateRoute() {
+      this.$router.replace({
+        query: {
+          region: this.selectedRegions,
+          mode: this.selectedModes,
+          band: this.selectedBands,
+        },
+      });
+    },
     submitFilters() {
       console.log("Submited!");
+      this.updateRoute();
     },
   },
 };
