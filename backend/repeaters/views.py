@@ -1,3 +1,4 @@
+import re
 from django.db.models import Q
 from rest_framework import viewsets
 from django_filters import rest_framework as filters
@@ -40,7 +41,7 @@ class FactRepeaterFilter(filters.FilterSet):
         return queryset
 
     def mode_search(self, queryset, name, value):
-        modes = value.split(",").split(" ")
+        modes = re.findall(r"[\w']+", value)
         filter = None
         if "fm" in modes:
             new_filter = Q(info_fm__isnull=False)
@@ -69,7 +70,7 @@ class FactRepeaterFilter(filters.FilterSet):
         return queryset.filter(filter)
 
     def rf_search(self, queryset, name, value):
-        modes = value.split(",").split(" ")
+        modes = re.findall(r"[\w']+", value)
         filter = None
         if "half_duplex" in modes:
             if filter is None:
@@ -108,7 +109,7 @@ class FactRepeaterFilter(filters.FilterSet):
         return queryset
 
     def region_search(self, queryset, name, value):
-        regions = value.split(",").split(" ")
+        regions = re.findall(r"[\w']+", value)
         possible_regions = [
             DimLocation.CONTINENT,
             DimLocation.AZORES,
