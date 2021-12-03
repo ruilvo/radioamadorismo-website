@@ -80,6 +80,36 @@ export default {
   },
 
   methods: {
+    updateApiQuery() {
+      state.api_query = Object;
+      state.api_query.region = this.selectedRegions.join(",");
+      state.api_query.mode = this.selectedModes.join(",");
+
+      if (this.selectedBands.length.contains("g2m")) {
+        // Do nothing
+      } else if (this.selectedBands.contains("2m")) {
+        state.api_query.freq_mhz__gte = 144.0;
+      } else if (this.selectedBands.contains("70cm")) {
+        state.api_query.freq_mhz__gte = 430.0;
+      } else if (this.selectedBands.contains("l70cm")) {
+        state.api_query.freq_mhz__gte = 440.0;
+      }
+
+      var max_freq = 0;
+      if (this.selectedBands.contains("70cm")) {
+        max_freq = 440.0;
+      } else if (this.selectedBands.contains("2m")) {
+        max_freq = 146.0;
+      }
+
+      if (!this.selectedBands.contains("g2m")) {
+        state.api_query.freq_mhz__gte = min_freq;
+      }
+
+      if (!this.selectedBands.contains("l70cm")) {
+        state.api_query.freq_mhz__lte = max_freq;
+      }
+    },
     updateFromQuery() {
       this.selectedRegions = [].concat(
         this.$route.query.region || this.selectedRegions
