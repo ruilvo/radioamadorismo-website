@@ -3,10 +3,9 @@ import axios from "axios";
 
 export default reactive({
   repeaters: Array,
-  isBusy: false,
+  route_query: Object,
 
-  getRepeaters(params = {}) {
-    this.isBusy = true;
+  updateRepeaters(params = {}) {
     axios
       .get("/api/v1/repeaters/", { params: params })
       .then((res) => {
@@ -14,7 +13,6 @@ export default reactive({
       })
       .catch((err) => {
         console.log(err);
-      })
-      .finally(() => (this.isBusy = false));
+      });
   },
 });

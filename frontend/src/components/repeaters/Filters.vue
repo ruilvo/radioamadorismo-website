@@ -71,21 +71,39 @@ export default {
   },
 
   mounted() {
-    state.getRepeaters();
+    this.updateFromQuery();
+    state.updateRepeaters();
+  },
+
+  beforeUnmount() {
+    state.route_query = Object;
   },
 
   methods: {
+    updateFromQuery() {
+      this.selectedRegions = [].concat(
+        this.$route.query.region || this.selectedRegions
+      );
+      this.selectedModes = [].concat(
+        this.$route.query.mode || this.selectedModes
+      );
+      this.selectedBands = [].concat(
+        this.$route.query.band || this.selectedBands
+      );
+      state.route_query = this.$route.query;
+    },
     updateRoute() {
-      this.$router.replace({
-        query: {
-          region: this.selectedRegions,
-          mode: this.selectedModes,
-          band: this.selectedBands,
-        },
+      const query = {
+        region: this.selectedRegions,
+        mode: this.selectedModes,
+        band: this.selectedBands,
+      };
+      this.$router.push({
+        query: query,
       });
+      state.route_query = query;
     },
     submitFilters() {
-      console.log("Submited!");
       this.updateRoute();
     },
   },

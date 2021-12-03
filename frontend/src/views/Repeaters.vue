@@ -12,7 +12,7 @@
             <router-link
               class="nav-link"
               exact-active-class="active"
-              :to="{ path: '/repetidores', query: this.$route.query }"
+              :to="{ path: '/repetidores', query: state.route_query }"
               >Tabela</router-link
             >
           </li>
@@ -20,7 +20,7 @@
             <router-link
               class="nav-link"
               exact-active-class="active"
-              :to="{ path: '/repetidores/mapa', query: this.$route.query }"
+              :to="{ path: '/repetidores/mapa', query: state.route_query }"
               >Mapa</router-link
             >
           </li>
@@ -32,10 +32,16 @@
 </template>
 
 <script>
+import state from "../shared/repeaters.js";
 import Filters from "../components/repeaters/Filters.vue";
 
 export default {
   name: "Repeaters",
+  data() {
+    return {
+      state,
+    };
+  },
 
   components: {
     Filters,
