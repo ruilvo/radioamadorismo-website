@@ -83,6 +83,7 @@ export default {
 
   beforeUnmount() {
     state.query = {};
+    state.repeaters = [];
   },
 
   methods: {
