@@ -12,7 +12,7 @@
             <router-link
               class="nav-link"
               exact-active-class="active"
-              :to="{ path: '/repetidores', query: state.route_query }"
+              :to="{ path: '/repetidores', query: state.query }"
               >Tabela</router-link
             >
           </li>
@@ -20,7 +20,7 @@
             <router-link
               class="nav-link"
               exact-active-class="active"
-              :to="{ path: '/repetidores/mapa', query: state.route_query }"
+              :to="{ path: '/repetidores/mapa', query: state.query }"
               >Mapa</router-link
             >
           </li>

@@ -76,50 +76,42 @@ export default {
   },
 
   mounted() {
-    this.updateFromQuery();
-    this.updateApiQuery();
-    this.updateRouteQuery();
+    this.updateDataFromRouter();
+    this.updateQueryFromData();
     state.updateRepeaters();
   },
 
   beforeUnmount() {
-    state.route_query = Object;
+    state.route_query = {};
   },
 
   methods: {
-    updateApiQuery() {
-      state.api_query = Object;
-      state.api_query.region = this.selectedRegions.join(",");
-      state.api_query.mode = this.selectedModes.join(",");
-      state.api_query.freq_mhz__gte = this.minFreq;
-      state.api_query.freq_mhz__lte = this.maxFreq;
+    updateQueryFromData() {
+      state.query = {
+        region: this.selectedRegions.join(","),
+        mode: this.selectedModes.join(","),
+        freq_mhz__gte: this.minFreq,
+        freq_mhz__lte: this.maxFreq,
+      };
     },
-    updateRouteQuery() {
-      state.route_query = Object;
-      state.route_query.region = this.selectedRegions;
-      state.route_query.mode = this.selectedModes;
-      state.route_query.minfreq = this.minFreq;
-      state.route_query.maxfreq = this.maxFreq;
-    },
-    updateFromQuery() {
+    updateDataFromRouter() {
       this.selectedRegions = [].concat(
         this.$route.query.region || this.selectedRegions
       );
       this.selectedModes = [].concat(
         this.$route.query.mode || this.selectedModes
       );
-      this.minFreq = this.$route.query.minfreq || this.minFreq;
-      this.maxFreq = this.$route.query.maxfreq || this.maxFreq;
+      this.minFreq = this.$route.query.freq_mhz__gte || this.minFreq;
+      this.maxFreq = this.$route.query.freq_mhz__lte || this.maxFreq;
     },
-    updateRoute() {
+    updateRouteFromQuery() {
       this.$router.push({
-        query: state.route_query,
+        query: state.query,
       });
     },
     submitFilters() {
-      this.updateApiQuery();
-      this.updateRouteQuery();
-      this.updateRoute();
+      this.updateQueryFromData();
+      this.updateRouteFromQuery();
       state.updateRepeaters();
     },
   },
