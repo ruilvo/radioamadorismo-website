@@ -82,7 +82,7 @@ export default {
   },
 
   beforeUnmount() {
-    state.route_query = {};
+    state.query = {};
   },
 
   methods: {
