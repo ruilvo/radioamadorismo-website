@@ -35,18 +35,22 @@
     </div>
 
     <div class="mb-3">
-      <label for="band-filter">Banda</label>
-      <select
-        class="form-select"
-        multiple
-        v-model="selectedBands"
-        id="band-filter"
-      >
-        <option value="g2m">&gt; 2m</option>
-        <option value="2m">2m</option>
-        <option value="70cm">70cm</option>
-        <option value="l70cm">&lt; 70cm</option>
-      </select>
+      <label for="band-filter">Freq.</label>
+      <div class="input-group" id="band-filter">
+        <input
+          type="number"
+          step="any"
+          class="form-control"
+          v-model="minFreq"
+        />
+        <span class="input-group-addon">-</span>
+        <input
+          type="number"
+          step="any"
+          class="form-control"
+          v-model="maxFreq"
+        />
+      </div>
     </div>
 
     <div class="mb-3">
@@ -66,12 +70,15 @@ export default {
     return {
       selectedRegions: ["CPT", "AZR", "MDA"],
       selectedModes: ["fm", "dstar", "fusion", "dmr"],
-      selectedBands: ["2m", "70cm"],
+      minFreq: 144.0,
+      maxFreq: 440.0,
     };
   },
 
   mounted() {
     this.updateFromQuery();
+    this.updateApiQuery();
+    this.updateRouteQuery();
     state.updateRepeaters();
   },
 
@@ -84,31 +91,15 @@ export default {
       state.api_query = Object;
       state.api_query.region = this.selectedRegions.join(",");
       state.api_query.mode = this.selectedModes.join(",");
-
-      if (this.selectedBands.length.contains("g2m")) {
-        // Do nothing
-      } else if (this.selectedBands.contains("2m")) {
-        state.api_query.freq_mhz__gte = 144.0;
-      } else if (this.selectedBands.contains("70cm")) {
-        state.api_query.freq_mhz__gte = 430.0;
-      } else if (this.selectedBands.contains("l70cm")) {
-        state.api_query.freq_mhz__gte = 440.0;
-      }
-
-      var max_freq = 0;
-      if (this.selectedBands.contains("70cm")) {
-        max_freq = 440.0;
-      } else if (this.selectedBands.contains("2m")) {
-        max_freq = 146.0;
-      }
-
-      if (!this.selectedBands.contains("g2m")) {
-        state.api_query.freq_mhz__gte = min_freq;
-      }
-
-      if (!this.selectedBands.contains("l70cm")) {
-        state.api_query.freq_mhz__lte = max_freq;
-      }
+      state.api_query.freq_mhz__gte = this.minFreq;
+      state.api_query.freq_mhz__lte = this.maxFreq;
+    },
+    updateRouteQuery() {
+      state.route_query = Object;
+      state.route_query.region = this.selectedRegions;
+      state.route_query.mode = this.selectedModes;
+      state.route_query.minfreq = this.minFreq;
+      state.route_query.maxfreq = this.maxFreq;
     },
     updateFromQuery() {
       this.selectedRegions = [].concat(
@@ -117,24 +108,19 @@ export default {
       this.selectedModes = [].concat(
         this.$route.query.mode || this.selectedModes
       );
-      this.selectedBands = [].concat(
-        this.$route.query.band || this.selectedBands
-      );
-      state.route_query = this.$route.query;
+      this.minFreq = this.$route.query.minfreq || this.minFreq;
+      this.maxFreq = this.$route.query.maxfreq || this.maxFreq;
     },
     updateRoute() {
-      const query = {
-        region: this.selectedRegions,
-        mode: this.selectedModes,
-        band: this.selectedBands,
-      };
       this.$router.push({
-        query: query,
+        query: state.route_query,
       });
-      state.route_query = query;
     },
     submitFilters() {
+      this.updateApiQuery();
+      this.updateRouteQuery();
       this.updateRoute();
+      state.updateRepeaters();
     },
   },
 };
