@@ -21,7 +21,7 @@ docker volume prune -f
 To access a backend shell:
 
 ```sh
-docker exec -it radioamadorismo-website-backend-1 /bin/bash
+docker exec -it radioamadorismo-website_backend_1 /bin/bash
 ```
 
 To pull up the **deployment** server:
