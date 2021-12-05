@@ -27,3 +27,10 @@ npm run lint
 ### Customize configuration
 
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Importing tips
+
+```js
+// @ is an alias to /src
+import HelloWorld from "@/components/HelloWorld.vue";
+```
