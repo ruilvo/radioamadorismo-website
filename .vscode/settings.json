@@ -6,6 +6,6 @@
     "config.settings"
   ],
   "eslint.validate": ["javascript", "javascriptreact", "vue"],
-  "eslint.workingDirectories": ["./frontend"],
+  "eslint.workingDirectories": [{ "mode": "auto" }],
   "editor.formatOnSaveMode": "file"
 }
