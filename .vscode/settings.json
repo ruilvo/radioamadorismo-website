@@ -4,7 +4,5 @@
     "pylint_django",
     "--django-settings-module",
     "config.settings"
-  ],
-  "eslint.workingDirectories": [{ "mode": "auto" }],
-  "editor.formatOnSaveMode": "file"
+  ]
 }
