@@ -5,7 +5,6 @@
     "--django-settings-module",
     "config.settings"
   ],
-  "eslint.validate": ["javascript", "javascriptreact", "vue"],
   "eslint.workingDirectories": [{ "mode": "auto" }],
   "editor.formatOnSaveMode": "file"
 }
