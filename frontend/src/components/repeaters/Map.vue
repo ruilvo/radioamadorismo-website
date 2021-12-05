@@ -2,7 +2,7 @@
   <div id="map"></div>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 #map {
   max-width: 600px;
   height: 400px;
