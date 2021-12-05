@@ -4,5 +4,9 @@
     "pylint_django",
     "--django-settings-module",
     "config.settings"
-  ]
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.fixAll.eslint": true
+  },
 }
