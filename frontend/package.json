@@ -21,6 +21,7 @@
     "vuex": "^4.0.0-0"
   },
   "devDependencies": {
+    "@types/swagger-ui": "^3.52.0",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-router": "~4.5.0",
