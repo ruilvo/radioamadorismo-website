@@ -1,12 +1,11 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
+import store from "./store";
 import titleMixin from "./mixins/titleMixin";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap";
-import "leaflet/dist/leaflet.css";
 import axios from "axios";
+import "./assets/tailwind.css";
 
 axios.defaults.withCredentials = true;
 
-createApp(App).mixin(titleMixin).use(router).mount("#app");
+createApp(App).mixin(titleMixin).use(store).use(router).mount("#app");
