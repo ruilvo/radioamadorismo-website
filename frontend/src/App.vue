@@ -1,18 +1,11 @@
 <template>
-  <Header />
-  <div class="container-fluid">
-    <router-view />
-  </div>
+  <h1>Portal do radioamadorismo</h1>
+  <router-view />
 </template>
 
 <script>
-import Header from "./components/Header.vue";
-
 export default {
   name: "App",
   title: "Portal do radioamadorismo",
-  components: {
-    Header,
-  },
 };
 </script>
