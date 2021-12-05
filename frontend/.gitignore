@@ -1,11 +1,12 @@
-.DS_Store
-node_modules
-/dist
-
 # dependencies
 /node_modules
 /.pnp
 .pnp.js
+
+# artifacts
+.DS_Store
+node_modules
+/dist
 
 # local env files
 .env.local
