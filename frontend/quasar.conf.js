@@ -77,6 +77,28 @@ module.exports = configure(function (ctx) {
       },
       port: 8080,
       open: true, // opens browser window automatically
+      proxy: {
+        "^/api": {
+          target: "http://backend:8000",
+          changeOrigin: true,
+        },
+        "^/static": {
+          target: "http://backend:8000",
+          changeOrigin: true,
+        },
+        "^/openapi": {
+          target: "http://backend:8000",
+          changeOrigin: true,
+        },
+        "^/admin": {
+          target: "http://backend:8000",
+          changeOrigin: true,
+        },
+        "^/media": {
+          target: "http://backend:8000",
+          changeOrigin: true,
+        },
+      },
     },
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-framework
@@ -147,33 +169,6 @@ module.exports = configure(function (ctx) {
         orientation: "portrait",
         background_color: "#ffffff",
         theme_color: "#027be3",
-        // icons: [
-        //   {
-        //     src: "icons/icon-128x128.png",
-        //     sizes: "128x128",
-        //     type: "image/png",
-        //   },
-        //   {
-        //     src: "icons/icon-192x192.png",
-        //     sizes: "192x192",
-        //     type: "image/png",
-        //   },
-        //   {
-        //     src: "icons/icon-256x256.png",
-        //     sizes: "256x256",
-        //     type: "image/png",
-        //   },
-        //   {
-        //     src: "icons/icon-384x384.png",
-        //     sizes: "384x384",
-        //     type: "image/png",
-        //   },
-        //   {
-        //     src: "icons/icon-512x512.png",
-        //     sizes: "512x512",
-        //     type: "image/png",
-        //   },
-        // ],
       },
     },
 
