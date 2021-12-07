@@ -1,40 +1,49 @@
 {
   "name": "frontend",
-  "version": "0.1.0",
+  "version": "0.0.1",
+  "description": "Um projeto de Rui \"CT7ALW\" Oliveira",
+  "productName": "Portal do Radioamadorismo",
+  "author": "Rui Oliveira <ruimail24@gmail.com>",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "eslint --ext .js,.vue ./",
+    "test": "echo \"No test specified\" && exit 0",
+    "dev": "quasar dev",
+    "build": "quasar build",
+    "build:pwa": "quasar build -m pwa"
   },
   "dependencies": {
-    "@tailwindcss/postcss7-compat": "^2.2.17",
-    "autoprefixer": "^9",
-    "axios": "^0.24.0",
+    "@quasar/extras": "^1.0.0",
+    "axios": "^0.21.1",
     "core-js": "^3.6.5",
-    "leaflet": "^1.7.1",
-    "postcss": "^7",
-    "swagger-ui": "^4.1.2",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17",
-    "vue": "^3.0.0",
-    "vue-router": "^4.0.0-0",
-    "vuex": "^4.0.0-0"
+    "quasar": "^2.0.0",
+    "vue-i18n": "^9.0.0",
+    "vuex": "^4.0.1"
   },
   "devDependencies": {
-    "@types/swagger-ui": "^3.52.0",
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-eslint": "~4.5.0",
-    "@vue/cli-plugin-router": "~4.5.0",
-    "@vue/cli-plugin-vuex": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
-    "@vue/compiler-sfc": "^3.0.0",
-    "@vue/eslint-config-prettier": "^6.0.0",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-prettier": "^3.3.1",
+    "@babel/eslint-parser": "^7.13.14",
+    "@quasar/app": "^3.0.0",
+    "crc-32": "^1.2.0",
+    "eslint": "^7.14.0",
+    "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-vue": "^7.0.0",
-    "prettier": "^2.2.1",
-    "source-map": "^0.7.3",
-    "vue-cli-plugin-tailwind": "~2.2.17"
+    "eslint-webpack-plugin": "^2.4.0",
+    "source-map": "^0.7.3"
+  },
+  "browserslist": [
+    "last 10 Chrome versions",
+    "last 10 Firefox versions",
+    "last 4 Edge versions",
+    "last 7 Safari versions",
+    "last 8 Android versions",
+    "last 8 ChromeAndroid versions",
+    "last 8 FirefoxAndroid versions",
+    "last 10 iOS versions",
+    "last 5 Opera versions"
+  ],
+  "engines": {
+    "node": ">= 12.22.1",
+    "npm": ">= 6.13.4",
+    "yarn": ">= 1.21.1"
   }
 }

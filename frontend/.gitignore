@@ -1,12 +1,30 @@
+# artifacts
+.DS_Store
+.thumbs.db
+node_modules
+
 # dependencies
 /node_modules
 /.pnp
 .pnp.js
 
-# artifacts
-.DS_Store
-node_modules
+# Quasar core related directories
+.quasar
 /dist
+
+# Cordova related directories and files
+/src-cordova/node_modules
+/src-cordova/platforms
+/src-cordova/plugins
+/src-cordova/www
+
+# Capacitor related directories and files
+/src-capacitor/www
+/src-capacitor/node_modules
+
+# BEX related directories and files
+/src-bex/www
+/src-bex/js/core
 
 # local env files
 .env.local
@@ -27,4 +45,5 @@ pnpm-debug.log*
 *.sln
 *.sw?
 
+# package-lock
 package-lock.json

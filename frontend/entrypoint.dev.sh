@@ -1,2 +1,2 @@
 #!/bin/bash
-exec npm run serve
+exec npm run dev
