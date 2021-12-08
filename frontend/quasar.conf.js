@@ -75,6 +75,12 @@ module.exports = configure(function (ctx) {
       server: {
         type: "http",
       },
+      watchFiles: {
+        paths: ["src/**/*", "public/**/*"],
+        options: {
+          usePolling: true,
+        },
+      },
       port: 8080,
       open: true, // opens browser window automatically
       proxy: {
