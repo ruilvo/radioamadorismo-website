@@ -22,7 +22,7 @@ services:
       dockerfile: Dockerfile
     entrypoint: ./entrypoint.dev.sh
     ports:
-      - 8098:8000
+      - 8000:8000
     env_file:
       - dev.env
     stop_signal: SIGINT
