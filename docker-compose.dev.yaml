@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile
     entrypoint: ./entrypoint.dev.sh
     ports:
-      - 8099:8080
+      - 8080:8080
     env_file:
       - dev.env
     depends_on:
