@@ -85,6 +85,28 @@ module.exports = configure(function (ctx) {
       },
       port: 8080,
       open: true, // opens browser window automatically
+      proxy: {
+        "^/api": {
+          target: "http://backend:8000",
+          changeOrigin: true,
+        },
+        "^/static": {
+          target: "http://backend:8000",
+          changeOrigin: true,
+        },
+        "^/openapi": {
+          target: "http://backend:8000",
+          changeOrigin: true,
+        },
+        "^/admin": {
+          target: "http://backend:8000",
+          changeOrigin: true,
+        },
+        "^/media": {
+          target: "http://backend:8000",
+          changeOrigin: true,
+        },
+      },
     },
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-framework
