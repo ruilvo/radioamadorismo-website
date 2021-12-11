@@ -9,6 +9,7 @@
 /* eslint-env node */
 const ESLintPlugin = require("eslint-webpack-plugin");
 const { configure } = require("quasar/wrappers");
+const brand = require("./brand.config.js");
 
 module.exports = configure(function (ctx) {
   return {
@@ -24,7 +25,7 @@ module.exports = configure(function (ctx) {
     boot: ["i18n", "axios"],
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css
-    css: ["app.scss"],
+    css: ["app.scss", "tw.css"],
 
     // https://github.com/quasarframework/quasar/tree/dev/extras
     extras: [
@@ -111,7 +112,7 @@ module.exports = configure(function (ctx) {
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-framework
     framework: {
-      config: {},
+      config: { brand: brand },
 
       // iconSet: 'material-icons', // Quasar icon set
       // lang: 'en-US', // Quasar language pack
