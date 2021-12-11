@@ -1,7 +1,7 @@
 import { store } from "quasar/wrappers";
-import { createStore } from "vuex";
+import { createPinia } from "pinia";
 
-// import example from './module-example'
+// I'm not sure Pinia plays well with quasar/wrappers/store...
 
 /*
  * If not building with SSR mode, you can
@@ -13,15 +13,7 @@ import { createStore } from "vuex";
  */
 
 export default store(function (/* { ssrContext } */) {
-  const Store = createStore({
-    modules: {
-      // example
-    },
-
-    // enable strict mode (adds overhead!)
-    // for dev mode and --debug builds only
-    strict: process.env.DEBUGGING,
-  });
+  const Store = createPinia();
 
   return Store;
 });
