@@ -87,23 +87,23 @@ module.exports = configure(function (ctx) {
       port: 8080,
       open: true, // opens browser window automatically
       proxy: {
-        "^/api": {
+        "/api": {
           target: "http://backend:8000",
           changeOrigin: true,
         },
-        "^/static": {
+        "/static": {
           target: "http://backend:8000",
           changeOrigin: true,
         },
-        "^/openapi": {
+        "/openapi": {
           target: "http://backend:8000",
           changeOrigin: true,
         },
-        "^/admin": {
+        "/admin": {
           target: "http://backend:8000",
           changeOrigin: true,
         },
-        "^/media": {
+        "/media": {
           target: "http://backend:8000",
           changeOrigin: true,
         },
