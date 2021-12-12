@@ -23,6 +23,21 @@
     >
       <q-scroll-area class="fit">
         <q-list>
+          <q-item clickable v-ripple to="/" key="start" exact>
+            <q-item-section avatar>
+              <q-icon name="home" />
+            </q-item-section>
+            <q-item-section>Página inicial</q-item-section>
+          </q-item>
+          <q-separator key="sep1" />
+          <q-item clickable v-ripple key="repeaters" to="/repetidores">
+            <q-item-section avatar>
+              <q-icon name="room" />
+            </q-item-section>
+            <q-item-section>Repetidores</q-item-section>
+          </q-item>
+
+          <!--
           <template v-for="(menuItem, index) in menuList" :key="index">
             <q-item clickable :active="menuItem.label === 'Outbox'" v-ripple>
               <q-item-section avatar>
@@ -34,19 +49,10 @@
             </q-item>
             <q-separator :key="'sep' + index" v-if="menuItem.separator" />
           </template>
+          -->
         </q-list>
       </q-scroll-area>
     </q-drawer>
-
-    <!-- <q-drawer
-      v-model="drawer"
-      show-if-above
-
-
-      bordered
-      class="bg-grey-3"
-    >
-    </q-drawer> -->
 
     <q-page-container>
       <router-view />
@@ -60,44 +66,6 @@ export default {
   data() {
     return {
       leftDrawerOpen: false,
-      menuList: [
-        {
-          icon: "inbox",
-          label: "Inbox",
-          separator: true,
-        },
-        {
-          icon: "send",
-          label: "Outbox",
-          separator: false,
-        },
-        {
-          icon: "delete",
-          label: "Trash",
-          separator: false,
-        },
-        {
-          icon: "error",
-          label: "Spam",
-          separator: true,
-        },
-        {
-          icon: "settings",
-          label: "Settings",
-          separator: false,
-        },
-        {
-          icon: "feedback",
-          label: "Send Feedback",
-          separator: false,
-        },
-        {
-          icon: "help",
-          iconColor: "primary",
-          label: "Help",
-          separator: false,
-        },
-      ],
     };
   },
   methods: {
