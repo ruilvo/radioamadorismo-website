@@ -18,8 +18,6 @@
       side="left"
       bordered
       class="bg-grey-3"
-      :width="200"
-      :breakpoint="500"
     >
       <q-scroll-area class="fit">
         <q-list>
