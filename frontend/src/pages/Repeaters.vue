@@ -1,13 +1,11 @@
 <template>
   <q-page class="flex flex-center">
-    <span>Repetidores</span>
+    <router-view />
   </q-page>
 </template>
 
 <script>
-import { defineComponent } from "vue";
-
-export default defineComponent({
+export default {
   name: "Repeaters",
-});
+};
 </script>

@@ -41,6 +41,7 @@
             <q-item
               clickable
               to="/repetidores"
+              exact
               key="repeaters-list"
               :inset-level="1"
             >
@@ -51,7 +52,6 @@
               to="/repetidores/mapa"
               key="repeaters-map"
               :inset-level="1"
-              exact
             >
               <q-item-section>Mapa</q-item-section>
             </q-item>

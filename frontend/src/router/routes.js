@@ -4,7 +4,20 @@ const routes = [
     component: () => import("layouts/MainLayout.vue"),
     children: [
       { path: "", component: () => import("pages/Index.vue") },
-      { path: "repetidores/", component: () => import("pages/Repeaters.vue") },
+      {
+        path: "repetidores/",
+        component: () => import("pages/Repeaters.vue"),
+        children: [
+          {
+            path: "",
+            component: () => import("components/repeaters/RepeatersList.vue"),
+          },
+          {
+            path: "mapa/",
+            component: () => import("components/repeaters/RepeatersMap.vue"),
+          },
+        ],
+      },
     ],
   },
 
