@@ -23,52 +23,39 @@
     >
       <q-scroll-area class="fit">
         <q-list>
-          <q-item clickable v-ripple to="/" key="start" exact>
+          <q-item clickable to="/" key="start" exact>
             <q-item-section avatar>
               <q-icon name="home" />
             </q-item-section>
             <q-item-section>Página inicial</q-item-section>
           </q-item>
           <q-separator key="sep1" />
-          <q-item clickable v-ripple key="repeaters" to="/repetidores">
-            <q-item-section avatar>
-              <q-icon name="room" />
-            </q-item-section>
-            <q-item-section>Repetidores</q-item-section>
-          </q-item>
-          <q-item
-            inset-level="1"
-            v-if="currentRoutePath.includes('/repetidores')"
-            key="repeaters-menu"
+          <q-expansion-item
+            expand-separator
+            icon="room"
+            key="repeaters"
+            to="/repetidores"
+            label="Repetidores"
+            v-model="repeaters_expanded"
           >
-            <q-list>
-              <q-item
-                clickable
-                v-ripple
-                to="/repetidores"
-                key="repeaters-menu-list"
-              >
-                <q-item-section>Lista</q-item-section>
-              </q-item>
-              <q-item clickable v-ripple key="repeaters-menu-map">
-                <q-item-section>Mapa</q-item-section>
-              </q-item>
-            </q-list>
-          </q-item>
-
-          <!--
-          <template v-for="(menuItem, index) in menuList" :key="index">
-            <q-item clickable :active="menuItem.label === 'Outbox'" v-ripple>
-              <q-item-section avatar>
-                <q-icon :name="menuItem.icon" />
-              </q-item-section>
-              <q-item-section>
-                {{ menuItem.label }}
-              </q-item-section>
+            <q-item
+              clickable
+              to="/repetidores"
+              key="repeaters-list"
+              :inset-level="1"
+            >
+              <q-item-section>Lista</q-item-section>
             </q-item>
-            <q-separator :key="'sep' + index" v-if="menuItem.separator" />
-          </template>
-          -->
+            <q-item
+              clickable
+              to="/repetidores/mapa"
+              key="repeaters-map"
+              :inset-level="1"
+              exact
+            >
+              <q-item-section>Mapa</q-item-section>
+            </q-item>
+          </q-expansion-item>
         </q-list>
       </q-scroll-area>
     </q-drawer>
@@ -85,6 +72,7 @@ export default {
   data() {
     return {
       leftDrawerOpen: false,
+      repeaters_expanded: this.$route.path.includes("/repetidores"),
     };
   },
   methods: {
@@ -95,6 +83,13 @@ export default {
   computed: {
     currentRoutePath() {
       return this.$route.path;
+    },
+  },
+  watch: {
+    currentRoutePath: function (to, from) {
+      if (to.includes("/repetidores")) {
+        this.repeaters_expanded = true;
+      }
     },
   },
 };
