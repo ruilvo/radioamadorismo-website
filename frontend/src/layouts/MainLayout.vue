@@ -56,6 +56,19 @@
               <q-item-section>Mapa</q-item-section>
             </q-item>
           </q-expansion-item>
+          <q-separator key="sep2" />
+          <q-item clickable key="api-url">
+            <q-item-section avatar>
+              <q-icon name="api" />
+            </q-item-section>
+            <q-item-section>API</q-item-section>
+          </q-item>
+          <q-item clickable key="about-url">
+            <q-item-section avatar>
+              <q-icon name="help_outline" />
+            </q-item-section>
+            <q-item-section>Sobre</q-item-section>
+          </q-item>
         </q-list>
       </q-scroll-area>
     </q-drawer>
