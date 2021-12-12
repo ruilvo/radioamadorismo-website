@@ -32,7 +32,7 @@
           <q-separator key="sep1" />
           <q-expansion-item
             expand-separator
-            icon="room"
+            icon="cell_tower"
             key="repeaters"
             to="/repetidores"
             label="Repetidores"
