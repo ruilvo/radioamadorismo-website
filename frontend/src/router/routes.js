@@ -18,6 +18,7 @@ const routes = [
           },
         ],
       },
+      { path: "swagger/", component: () => import("pages/Swagger.vue") },
     ],
   },
 

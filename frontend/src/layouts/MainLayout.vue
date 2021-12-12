@@ -43,6 +43,9 @@
               key="repeaters-list"
               :inset-level="1"
             >
+              <q-item-section avatar>
+                <q-icon name="list" />
+              </q-item-section>
               <q-item-section>Lista</q-item-section>
             </q-item>
             <q-item
@@ -51,16 +54,49 @@
               key="repeaters-map"
               :inset-level="1"
             >
+              <q-item-section avatar>
+                <q-icon name="map" />
+              </q-item-section>
               <q-item-section>Mapa</q-item-section>
             </q-item>
           </q-expansion-item>
           <q-separator key="sep2" />
-          <q-item clickable key="api-url">
-            <q-item-section avatar>
-              <q-icon name="api" />
-            </q-item-section>
-            <q-item-section>API</q-item-section>
-          </q-item>
+          <q-expansion-item
+            expand-separator
+            icon="api"
+            key="api-tab"
+            label="API"
+            v-model="api_expanded"
+          >
+            <q-item
+              clickable
+              to="/swagger"
+              exact
+              key="swagger-ui"
+              :inset-level="1"
+            >
+              <q-item-section avatar>
+                <q-icon name="description" />
+              </q-item-section>
+              <q-item-section>Documentação (🇬🇧)</q-item-section>
+            </q-item>
+            <q-item
+              clickable
+              tag="a"
+              href="/api/v1/repeaters/"
+              exact
+              key="repeaters-api"
+              :inset-level="1"
+            >
+              <q-item-section avatar>
+                <q-icon name="cell_tower" />
+              </q-item-section>
+              <q-item-section>Repetidores (🇬🇧)</q-item-section>
+              <q-item-section side
+                ><q-icon name="launch" size="xs"
+              /></q-item-section>
+            </q-item>
+          </q-expansion-item>
           <q-item clickable key="about-url">
             <q-item-section avatar>
               <q-icon name="help_outline" />
@@ -84,6 +120,7 @@ export default {
     return {
       leftDrawerOpen: false,
       repeaters_expanded: this.$route.path.includes("/repetidores"),
+      api_expanded: this.$route.path.includes("/swagger"),
     };
   },
   methods: {
@@ -100,6 +137,9 @@ export default {
     currentRoutePath: function (to, from) {
       if (to.includes("/repetidores")) {
         this.repeaters_expanded = true;
+      }
+      if (to.includes("/swagger")) {
+        this.api_expanded = true;
       }
     },
   },
