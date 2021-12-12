@@ -36,6 +36,25 @@
             </q-item-section>
             <q-item-section>Repetidores</q-item-section>
           </q-item>
+          <q-item
+            inset-level="1"
+            v-if="currentRoutePath.includes('/repetidores')"
+            key="repeaters-menu"
+          >
+            <q-list>
+              <q-item
+                clickable
+                v-ripple
+                to="/repetidores"
+                key="repeaters-menu-list"
+              >
+                <q-item-section>Lista</q-item-section>
+              </q-item>
+              <q-item clickable v-ripple key="repeaters-menu-map">
+                <q-item-section>Mapa</q-item-section>
+              </q-item>
+            </q-list>
+          </q-item>
 
           <!--
           <template v-for="(menuItem, index) in menuList" :key="index">
@@ -71,6 +90,11 @@ export default {
   methods: {
     toggleLeftDrawer() {
       this.leftDrawerOpen = !this.leftDrawerOpen;
+    },
+  },
+  computed: {
+    currentRoutePath() {
+      return this.$route.path;
     },
   },
 };
