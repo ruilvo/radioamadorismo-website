@@ -104,23 +104,22 @@ export default {
         }
 
         // Create the holder child node
+        var info_holder = {
+          id: repeater_node.id + "holder" + repeater_node.id,
+          label: "Titular",
+          data: null,
+          children: [],
+        };
+
         if (repeater.info_holder) {
-          var info_holder = {
-            id: repeater_node.id + "holder" + repeater.info_holder.id,
-            label: "Titular",
-            data: repeater.info_holder.name
-              ? repeater.info_holder.name +
-                "(" +
-                repeater.info_holder.abrv +
-                ")"
-              : repeater.info_holder.abrv,
-            children: [],
-          };
-
-          push_if_qtree(repeater.sysop, "Sysop.", info_holder);
-
-          repeater_node.children.push(info_holder);
+          info_holder.data = repeater.info_holder.name
+            ? repeater.info_holder.name + "(" + repeater.info_holder.abrv + ")"
+            : repeater.info_holder.abrv;
         }
+
+        push_if_qtree(repeater.sysop, "Sysop.", info_holder);
+
+        repeater_node.children.push(info_holder);
 
         // Create the modulation child node
         var modulation_node = {
