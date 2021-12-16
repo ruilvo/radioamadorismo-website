@@ -119,7 +119,9 @@ export default {
 
         push_if_qtree(repeater.sysop, "Sysop.", info_holder);
 
-        repeater_node.children.push(info_holder);
+        if (repeater.info_holder || repeater.sysop) {
+          repeater_node.children.push(info_holder);
+        }
 
         // Create the modulation child node
         var modulation_node = {
