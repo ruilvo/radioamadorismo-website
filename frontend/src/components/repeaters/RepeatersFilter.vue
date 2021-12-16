@@ -1,6 +1,6 @@
 <template>
   <div class="text-h6 q-ml-sm">Filtros</div>
-  <div class="q-pa-md" style="max-width: 400px">
+  <div class="q-pa-md" style="max-width: 300px">
     <q-form @submit="onSubmit" @reset="onReset" class="q-gutter-md">
       <q-input
         filled
