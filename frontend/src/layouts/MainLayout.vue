@@ -97,7 +97,7 @@
               /></q-item-section>
             </q-item>
           </q-expansion-item>
-          <q-item clickable key="about-url">
+          <q-item clickable key="about-url" to="/sobre">
             <q-item-section avatar>
               <q-icon name="help_outline" />
             </q-item-section>
