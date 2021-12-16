@@ -1,8 +1,13 @@
 <template>
   <q-page>
     <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-4"><RepeatersFilter /></div>
-      <div class="col-xs-12 col-sm-12 col-md-4"><router-view /></div>
+      <div
+        class="col-xs-12 col-sm-6 col-md-3"
+        style="width: 100%; max-width: 300px"
+      >
+        <RepeatersFilter />
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-7"><router-view /></div>
     </div>
   </q-page>
 </template>
