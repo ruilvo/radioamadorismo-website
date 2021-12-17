@@ -3,16 +3,20 @@
 </template>
 
 <script>
+import { defineComponent, onMounted } from "vue";
+
 import "swagger-ui/dist/swagger-ui.css";
 import SwaggerUI from "swagger-ui";
 
-export default {
+export default defineComponent({
   name: "Swagger",
-  mounted() {
-    SwaggerUI({
-      url: "/openapi/",
-      dom_id: "#swagger-ui",
+  setup() {
+    onMounted(() => {
+      SwaggerUI({
+        url: "/openapi/",
+        dom_id: "#swagger-ui",
+      });
     });
   },
-};
+});
 </script>
