@@ -74,47 +74,5 @@ export default {
       maxFreq: 440.0,
     };
   },
-
-  mounted() {
-    this.updateDataFromRouter();
-    this.updateQueryFromData();
-    state.updateRepeaters();
-  },
-
-  beforeUnmount() {
-    state.query = {};
-    state.repeaters = [];
-  },
-
-  methods: {
-    updateQueryFromData() {
-      state.query = {
-        region: this.selectedRegions.join(","),
-        mode: this.selectedModes.join(","),
-        freq_mhz__gte: this.minFreq,
-        freq_mhz__lte: this.maxFreq,
-      };
-    },
-    updateDataFromRouter() {
-      this.selectedRegions = [].concat(
-        this.$route.query.region || this.selectedRegions
-      );
-      this.selectedModes = [].concat(
-        this.$route.query.mode || this.selectedModes
-      );
-      this.minFreq = this.$route.query.freq_mhz__gte || this.minFreq;
-      this.maxFreq = this.$route.query.freq_mhz__lte || this.maxFreq;
-    },
-    updateRouteFromQuery() {
-      this.$router.push({
-        query: state.query,
-      });
-    },
-    submitFilters() {
-      this.updateQueryFromData();
-      this.updateRouteFromQuery();
-      state.updateRepeaters();
-    },
-  },
 };
 </script>

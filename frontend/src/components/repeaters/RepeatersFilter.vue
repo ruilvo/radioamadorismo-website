@@ -1,85 +1,65 @@
 <template>
   <div class="text-h6 q-ml-sm">Filtros</div>
-  <div class="q-pa-md" style="max-width: 300px">
-    <q-form @submit="onSubmit" @reset="onReset" class="q-gutter-md">
-      <q-input
-        filled
-        v-model="name"
-        label="Your name *"
-        hint="Name and surname"
-        lazy-rules
-        :rules="[(val) => (val && val.length > 0) || 'Please type something']"
-      />
-
-      <q-input
-        filled
-        type="number"
-        v-model="age"
-        label="Your age *"
-        lazy-rules
-        :rules="[
-          (val) => (val !== null && val !== '') || 'Please type your age',
-          (val) => (val > 0 && val < 100) || 'Please type a real age',
-        ]"
-      />
-
-      <q-toggle v-model="accept" label="I accept the license and terms" />
-
-      <div>
-        <q-btn label="Submit" type="submit" color="primary" />
-        <q-btn
-          label="Reset"
-          type="reset"
-          color="primary"
-          flat
-          class="q-ml-sm"
-        />
-      </div>
-    </q-form>
-  </div>
+  <div class="q-pa-md" style="max-width: 300px">bananas</div>
 </template>
 
 <script>
-import { useQuasar } from "quasar";
-import { ref } from "vue";
+import { defineComponent, ref, onBeforeMount } from "vue";
+import { useRouter, useRoute } from "vue-router";
+import { useRepeatersStore } from "src/stores/repeaters";
 
-export default {
+export default defineComponent({
+  name: "RepeatersFilter",
   setup() {
-    const $q = useQuasar();
+    const $router = useRouter();
+    const $route = useRoute();
 
-    const name = ref(null);
-    const age = ref(null);
-    const accept = ref(false);
+    const repeatersStore = useRepeatersStore();
 
-    return {
-      name,
-      age,
-      accept,
+    const selectedRegions = ref(["CPT", "AZR", "MDA"]);
+    const selectedModes = ref(["fm", "dstar", "fusion", "dmr"]);
+    const minFreq = ref(144.0);
+    const maxFreq = ref(440.0);
 
-      onSubmit() {
-        if (accept.value !== true) {
-          $q.notify({
-            color: "red-5",
-            textColor: "white",
-            icon: "warning",
-            message: "You need to accept the license and terms first",
-          });
-        } else {
-          $q.notify({
-            color: "green-4",
-            textColor: "white",
-            icon: "cloud_done",
-            message: "Submitted",
-          });
-        }
-      },
+    function updateQueryFromData() {
+      repeatersStore.query = {
+        region: selectedRegions.value.join(","),
+        mode: selectedModes.value.join(","),
+        freq_mhz__gte: minFreq.value,
+        freq_mhz__lte: maxFreq.value,
+      };
+    }
 
-      onReset() {
-        name.value = null;
-        age.value = null;
-        accept.value = false;
-      },
-    };
+    function updateDataFromRouter() {
+      selectedRegions.value = [].concat(
+        $route.query.region || selectedRegions.value
+      );
+      selectedModes.value = [].concat($route.query.mode || selectedModes.value);
+      minFreq.value = $route.query.freq_mhz__gte || minFreq.value;
+      maxFreq.value = $route.query.freq_mhz__lte || maxFreq.value;
+    }
+
+    function updateRouteFromQuery() {
+      $router.push({
+        query: repeatersStore.query,
+      });
+    }
+
+    function submitFilters() {
+      updateQueryFromData();
+      updateRouteFromQuery();
+      repeatersStore.updateRepeaters();
+    }
+
+    onBeforeMount(() => {
+      repeatersStore.$reset;
+    });
+
+    updateDataFromRouter();
+    updateQueryFromData();
+    repeatersStore.updateRepeaters();
+
+    return {};
   },
-};
+});
 </script>
