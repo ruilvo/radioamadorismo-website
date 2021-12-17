@@ -6,6 +6,7 @@
 <script>
 import { defineComponent, ref, onBeforeMount } from "vue";
 import { useRouter, useRoute } from "vue-router";
+
 import { useRepeatersStore } from "src/stores/repeaters";
 
 export default defineComponent({
@@ -59,7 +60,7 @@ export default defineComponent({
     updateQueryFromData();
     repeatersStore.updateRepeaters();
 
-    return {};
+    return { submitFilters, selectedRegions, selectedModes, minFreq, maxFreq };
   },
 });
 </script>
