@@ -37,7 +37,8 @@
 </template>
 
 <script>
-import { mapStores } from "pinia";
+import { defineComponent, computed } from "vue";
+
 import { useRepeatersStore } from "src/stores/repeaters";
 
 function push_if_qtree(cond_and_data, label, parent) {
@@ -50,12 +51,13 @@ function push_if_qtree(cond_and_data, label, parent) {
   }
 }
 
-export default {
+export default defineComponent({
   name: "RepeatersList",
-  computed: {
-    ...mapStores(useRepeatersStore),
-    repeatersAsQtree: function () {
-      return this.repeatersStore.repeaters.map(function (repeater) {
+  setup() {
+    const repeatersStore = useRepeatersStore();
+
+    const repeatersAsQtree = computed(() => {
+      return repeatersStore.repeaters.map(function (repeater) {
         // Prepare the bits to compose the object
         var repeater_node = {
           // q-tree root node
@@ -258,7 +260,9 @@ export default {
 
         return repeater_node;
       });
-    },
+    });
+
+    return { repeatersAsQtree };
   },
-};
+});
 </script>
