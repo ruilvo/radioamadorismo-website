@@ -1,10 +1,51 @@
 <template>
   <div class="text-h6 q-ml-sm">Filtros</div>
-  <div class="q-pa-md" style="max-width: 300px">bananas</div>
+  <div class="q-pa-md" style="max-width: 300px">
+    <q-form @submit="submitFilters" class="q-gutter-md">
+      <q-select
+        filled
+        v-model="selectedRegions"
+        multiple
+        map-options
+        emit-value
+        :options="[
+          { label: 'Continente', value: 'CPT' },
+          { label: 'Açores', value: 'AZR' },
+          { label: 'Madeira', value: 'MDA' },
+          { label: 'Outros', value: 'OT' },
+        ]"
+        label="Região"
+      />
+
+      <q-select
+        filled
+        v-model="selectedModes"
+        multiple
+        map-options
+        emit-value
+        :options="[
+          { label: 'FM', value: 'fm' },
+          { label: 'D-STAR', value: 'dstar' },
+          { label: 'Fusion', value: 'fusion' },
+          { label: 'DMR', value: 'dmr' },
+        ]"
+        label="Modos"
+      />
+
+      <q-badge>
+        Frequência: {{ freqRange.min }} a {{ freqRange.max }} MHz</q-badge
+      >
+      <q-range v-model="freqRange" :min="0" :max="1500" />
+
+      <div>
+        <q-btn label="Filtrar" type="submit" color="primary" />
+      </div>
+    </q-form>
+  </div>
 </template>
 
 <script>
-import { defineComponent, ref, onBeforeMount } from "vue";
+import { defineComponent, ref, computed, onBeforeMount } from "vue";
 import { useRouter, useRoute } from "vue-router";
 
 import { useRepeatersStore } from "src/stores/repeaters";
@@ -19,8 +60,23 @@ export default defineComponent({
 
     const selectedRegions = ref(["CPT", "AZR", "MDA"]);
     const selectedModes = ref(["fm", "dstar", "fusion", "dmr"]);
-    const minFreq = ref(144.0);
-    const maxFreq = ref(440.0);
+    const freqRange = ref({
+      min: 144.0,
+      max: 440.0,
+    });
+
+    const minFreq = computed({
+      get: () => freqRange.value.min,
+      set: (val) => {
+        freqRange.value.min = val;
+      },
+    });
+    const maxFreq = computed({
+      get: () => freqRange.value.max,
+      set: (val) => {
+        freqRange.value.max = val;
+      },
+    });
 
     function updateQueryFromData() {
       repeatersStore.query = {
@@ -32,10 +88,12 @@ export default defineComponent({
     }
 
     function updateDataFromRouter() {
-      selectedRegions.value = [].concat(
-        $route.query.region || selectedRegions.value
-      );
-      selectedModes.value = [].concat($route.query.mode || selectedModes.value);
+      if ($route.query.region) {
+        selectedRegions.value = $route.query.region.split(",");
+      }
+      if ($route.query.mode) {
+        selectedModes.value = $route.query.mode.split(",");
+      }
       minFreq.value = $route.query.freq_mhz__gte || minFreq.value;
       maxFreq.value = $route.query.freq_mhz__lte || maxFreq.value;
     }
@@ -60,7 +118,7 @@ export default defineComponent({
     updateQueryFromData();
     repeatersStore.updateRepeaters();
 
-    return { submitFilters, selectedRegions, selectedModes, minFreq, maxFreq };
+    return { submitFilters, selectedRegions, selectedModes, freqRange };
   },
 });
 </script>
