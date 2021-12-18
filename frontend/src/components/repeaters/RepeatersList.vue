@@ -117,11 +117,9 @@ export default defineComponent({
           info_holder.data = repeater.info_holder.name
             ? repeater.info_holder.name + "(" + repeater.info_holder.abrv + ")"
             : repeater.info_holder.abrv;
-        }
 
-        push_if_qtree(repeater.sysop, "Sysop.", info_holder);
+          push_if_qtree(repeater.info_holder.sysop, "Sysop.", info_holder);
 
-        if (repeater.info_holder || repeater.sysop) {
           repeater_node.children.push(info_holder);
         }
 

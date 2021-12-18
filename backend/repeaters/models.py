@@ -128,6 +128,7 @@ class DimDmr(models.Model):
 class DimHolder(models.Model):
     abrv = models.CharField(max_length=10, verbose_name="abrv.", unique=True)
     name = models.CharField(max_length=500, blank=True, verbose_name="name")
+    sysop = models.CharField(max_length=20, blank=True, verbose_name="sysop")
 
     class Meta:
         verbose_name = "info - holder"
@@ -194,7 +195,6 @@ class DimLocation(models.Model):
 class FactRepeater(models.Model):
     callsign = models.CharField(max_length=10, verbose_name="callsign")
     notes = models.TextField(blank=True, verbose_name="notes")
-    sysop = models.CharField(max_length=20, blank=True, verbose_name="sysop")
     pwr_w = models.IntegerField(blank=True, null=True, verbose_name="pwr. (W)")
 
     # RF
