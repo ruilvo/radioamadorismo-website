@@ -1,13 +1,11 @@
 <template>
   <div class="text-h6 q-ml-sm">Mapa de repetidores</div>
-  <div class="q-ma-md" id="map"></div>
+  <div
+    class="col q-ml-md q-my-sm q-mr-sm"
+    id="map"
+    style="min-height: 200px"
+  ></div>
 </template>
-
-<style scoped>
-#map {
-  height: 500px;
-}
-</style>
 
 <script>
 import { defineComponent, onMounted } from "vue";
