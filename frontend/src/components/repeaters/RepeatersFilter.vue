@@ -1,5 +1,5 @@
 <template>
-  <div class="text-h6 q-ml-sm">Filtros</div>
+  <div class="text-h6 q-mx-sm">Filtros</div>
   <div class="col column no-wrap scroll q-pa-md">
     <q-form @submit="submitFilters" class="q-gutter-md">
       <q-select

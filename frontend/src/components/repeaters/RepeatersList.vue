@@ -1,6 +1,6 @@
 <template>
   <div class="text-h6 q-ml-sm">Lista de repetidores</div>
-  <div class="q-pa-md">
+  <div class="col q-ml-md q-my-sm q-mr-sm">
     <q-tree :nodes="repeatersAsQtree" node-key="id">
       <template v-slot:header-repeater="prop">
         <div class="row items-center">

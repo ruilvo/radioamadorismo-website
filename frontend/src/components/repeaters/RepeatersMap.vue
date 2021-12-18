@@ -1,5 +1,5 @@
 <template>
-  <div class="text-h6 q-ml-sm">Mapa de repetidores</div>
+  <div class="text-h6 q-mx-sm">Mapa de repetidores</div>
   <div
     class="col q-ml-md q-my-sm q-mr-sm"
     id="map"
