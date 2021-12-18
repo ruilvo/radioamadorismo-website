@@ -45,10 +45,14 @@
 </template>
 
 <script>
-import { defineComponent, ref, computed, onBeforeMount } from "vue";
+import { defineComponent, ref, computed, onUnmounted, watch } from "vue";
 import { useRouter, useRoute } from "vue-router";
 
 import { useRepeatersStore } from "src/stores/repeaters";
+
+function isObjectEmpty(value) {
+  return Object.keys(value).length === 0 && value.constructor === Object;
+}
 
 export default defineComponent({
   name: "RepeatersFilter",
@@ -104,19 +108,39 @@ export default defineComponent({
       });
     }
 
+    function initRouteFromQuery() {
+      if (isObjectEmpty($route.query)) {
+        $router.replace({
+          query: repeatersStore.query,
+        });
+      }
+    }
+
     function submitFilters() {
       updateQueryFromData();
       updateRouteFromQuery();
       repeatersStore.updateRepeaters();
     }
 
-    onBeforeMount(() => {
+    onUnmounted(() => {
       repeatersStore.$reset;
     });
 
     updateDataFromRouter();
     updateQueryFromData();
+    initRouteFromQuery();
     repeatersStore.updateRepeaters();
+
+    watch($route, (route, prevRoute) => {
+      // Handle navigating from /repetidores to /repetidores/mapa keeping the query
+      if ($route.path.includes("/repetidores")) {
+        if (isObjectEmpty($route.query)) {
+          $router.replace({
+            query: repeatersStore.query,
+          });
+        }
+      }
+    });
 
     return { submitFilters, selectedRegions, selectedModes, freqRange };
   },
