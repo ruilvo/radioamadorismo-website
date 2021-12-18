@@ -163,7 +163,7 @@ export default defineComponent({
         if (repeater.info_fusion) {
           var info_fusion = {
             id: repeater_node.id + "info_fusion" + repeater.info_fusion.id,
-            label: "FUSION",
+            label: "Fusion (C4FM)",
             children: [],
           };
 
@@ -216,7 +216,7 @@ export default defineComponent({
             info_simplex
           );
           push_if_qtree(repeater.info_simplex.channel, "Canal", info_simplex);
-          push_if_qtree(repeater.pwr_w, "P. (W)", info_simplex);
+          push_if_qtree(repeater.pwr_w, "Potência. (W)", info_simplex);
 
           repeater_node.children.push(info_simplex);
         }
@@ -243,7 +243,7 @@ export default defineComponent({
           );
           push_if_qtree(
             repeater.info_half_duplex.shift,
-            "Shift",
+            "Shift (MHz)",
             info_half_duplex
           );
           push_if_qtree(
@@ -251,7 +251,7 @@ export default defineComponent({
             "Canal",
             info_half_duplex
           );
-          push_if_qtree(repeater.pwr_w, "P. (W)", info_half_duplex);
+          push_if_qtree(repeater.pwr_w, "Potência (W)", info_half_duplex);
 
           repeater_node.children.push(info_half_duplex);
         }
