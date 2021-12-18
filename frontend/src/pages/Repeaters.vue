@@ -7,7 +7,7 @@
       >
         <RepeatersFilter />
       </div>
-      <div class="col-xs-12 col-sm-6 col-md-7"><router-view /></div>
+      <div class="col-xs-12 col-sm col-md"><router-view /></div>
     </div>
   </q-page>
 </template>
