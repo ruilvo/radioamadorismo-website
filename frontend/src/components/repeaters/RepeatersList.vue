@@ -16,7 +16,11 @@
       </template>
 
       <template v-slot:body-repeater="prop">
-        <div v-if="prop.node.notes" class="text-black">
+        <div
+          v-if="prop.node.notes"
+          class="text-black"
+          style="white-space: pre-line"
+        >
           {{ prop.node.notes }}
         </div>
       </template>
