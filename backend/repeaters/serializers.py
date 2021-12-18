@@ -156,8 +156,11 @@ def get_update_DimHolder(info_holder_data: dict) -> DimHolder or None:
             abrv=info_holder_data["abrv"],
             defaults=info_holder_data,
         )
-        if not info_holder_created and info_holder_data["name"] is not None:
-            info_holder.name = info_holder_data["name"]
+        if not info_holder_created:
+            if info_holder_data["name"] is not None:
+                info_holder.name = info_holder_data["name"]
+            if info_holder_data["sysop"] is not None:
+                info_holder.sysop = info_holder_data["sysop"]
             info_holder.save()
         return info_holder
     return None
@@ -274,7 +277,6 @@ class FactRepeaterSerializer(serializers.ModelSerializer):
 
         instance.callsign = validated_data.get("callsign", instance.callsign)
         instance.notes = validated_data.get("notes", instance.notes)
-        instance.sysop = validated_data.get("sysop", instance.sysop)
         instance.pwr_w = validated_data.get("pwr_w", instance.pwr_w)
 
         instance.save()

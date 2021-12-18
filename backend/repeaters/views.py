@@ -132,7 +132,6 @@ class FactRepeaterFilter(filters.FilterSet):
             # FactRepeater
             "callsign": ["exact", "iexact", "icontains"],
             "notes": ["exact", "icontains"],
-            "sysop": ["exact", "iexact", "icontains"],
             "pwr_w": ["exact", "gte", "lte"],
             "info_half_duplex": ["isnull"],
             "info_simplex": ["isnull"],
@@ -169,6 +168,7 @@ class FactRepeaterFilter(filters.FilterSet):
             # DimHolder
             "info_holder__abrv": ["exact", "iexact", "icontains"],
             "info_holder__name": ["exact", "iexact", "icontains"],
+            "info_holder__sysop": ["exact", "iexact", "icontains"],
             # DimLocation
             "info_location__latitude": ["exact", "gte", "lte"],
             "info_location__longitude": ["exact", "gte", "lte"],
