@@ -13,11 +13,12 @@
 </template>
 
 <script>
+import { defineComponent } from "vue";
 import { useQuasar } from "quasar";
 
 import RepeatersFilter from "src/components/repeaters/RepeatersFilter";
 
-export default {
+export default defineComponent({
   name: "Repeaters",
   components: {
     RepeatersFilter,
@@ -33,5 +34,5 @@ export default {
       },
     };
   },
-};
+});
 </script>
