@@ -28,7 +28,7 @@
       </template>
 
       <template v-slot:default-body="prop">
-        <div class="text-black">
+        <div class="text-black" style="white-space: pre-line">
           {{ prop.node.data }}
         </div>
       </template>
