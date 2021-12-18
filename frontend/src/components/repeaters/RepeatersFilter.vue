@@ -32,10 +32,12 @@
         label="Modos"
       />
 
-      <q-badge>
-        Frequência: {{ freqRange.min }} a {{ freqRange.max }} MHz</q-badge
-      >
-      <q-range v-model="freqRange" :min="0" :max="1500" />
+      <div class="q-mr-sm">
+        <q-badge>
+          Frequência: {{ freqRange.min }} a {{ freqRange.max }} MHz</q-badge
+        >
+        <q-range v-model="freqRange" :min="0" :max="1500" />
+      </div>
 
       <div>
         <q-btn label="Filtrar" type="submit" color="primary" />
