@@ -14,7 +14,7 @@ const brand = require("./brand.config.js");
 module.exports = configure(function (ctx) {
   return {
     // https://quasar.dev/quasar-cli/supporting-ts
-    supportTS: false,
+    supportTS: true,
 
     // https://quasar.dev/quasar-cli/prefetch-feature
     // preFetch: true,
@@ -171,9 +171,9 @@ module.exports = configure(function (ctx) {
       },
 
       manifest: {
-        name: `Portal do Radioamadorismo`,
-        short_name: `Portal do Radioamadorismo`,
-        description: `Um projeto de Rui \"CT7ALW\" Oliveira`,
+        name: "Portal do Radioamadorismo",
+        short_name: "Portal do Radioamadorismo",
+        description: 'Um projeto de Rui "CT7ALW" Oliveira',
         display: "standalone",
         orientation: "portrait",
         background_color: "#ffffff",
