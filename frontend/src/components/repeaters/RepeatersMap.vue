@@ -28,6 +28,8 @@ L.Icon.Default.mergeOptions({
   shadowUrl: shadowUrl,
 });
 
+var repeatersMap = null;
+
 import { useRepeatersStore } from "src/stores/repeaters";
 
 export default defineComponent({
@@ -35,7 +37,6 @@ export default defineComponent({
   setup() {
     const repeatersStore = useRepeatersStore();
 
-    var repeatersMap = null;
     const repeaterMarkers = ref([]);
 
     function updateMap() {
