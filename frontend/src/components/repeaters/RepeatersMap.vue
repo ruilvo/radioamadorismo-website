@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { defineComponent, onMounted, ref, watch, unref } from "vue";
+import { defineComponent, onMounted, ref, watch } from "vue";
 
 import "leaflet/dist/leaflet.css";
 
