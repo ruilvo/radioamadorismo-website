@@ -35,11 +35,11 @@ export default defineComponent({
   setup() {
     const repeatersStore = useRepeatersStore();
 
-    const repeatersMap = ref(null);
+    var repeatersMap = null;
     const repeaterMarkers = ref([]);
 
     function updateMap() {
-      if (!repeatersMap.value) return;
+      if (!repeatersMap) return;
       repeaterMarkers.value.forEach((marker) => {
         marker.remove();
       });
@@ -55,7 +55,7 @@ export default defineComponent({
           repeater.info_location.longitude,
         ]);
 
-        marker.addTo(unref(repeatersMap));
+        marker.addTo(repeatersMap);
         marker.bindPopup(repeater.callsign);
         repeaterMarkers.value.push(marker);
       });
@@ -66,7 +66,7 @@ export default defineComponent({
     });
 
     onMounted(() => {
-      repeatersMap.value = L.map("map").setView([40, -8.0], 6);
+      repeatersMap = L.map("map").setView([40, -8.0], 6);
 
       L.tileLayer(
         "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw",
@@ -79,7 +79,7 @@ export default defineComponent({
           tileSize: 512,
           zoomOffset: -1,
         }
-      ).addTo(unref(repeatersMap));
+      ).addTo(repeatersMap);
 
       updateMap();
     });
