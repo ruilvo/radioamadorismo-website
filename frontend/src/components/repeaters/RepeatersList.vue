@@ -2,7 +2,7 @@
   <div class="text-h6 q-ml-sm">Lista de repetidores</div>
   <div class="col q-ml-md q-my-sm q-mr-sm">
     <q-tree :nodes="repeatersAsQtree" node-key="id">
-      <template v-slot:header-repeater="prop">
+      <template #header-repeater="prop">
         <div class="row items-center">
           <q-icon
             v-if="prop.node.icon"
@@ -15,7 +15,7 @@
         </div>
       </template>
 
-      <template v-slot:body-repeater="prop">
+      <template #body-repeater="prop">
         <div
           v-if="prop.node.notes"
           class="text-black"
@@ -25,13 +25,13 @@
         </div>
       </template>
 
-      <template v-slot:default-header="prop">
+      <template #default-header="prop">
         <div class="row items-center">
           <div class="text-weight-bold text-black">{{ prop.node.label }}</div>
         </div>
       </template>
 
-      <template v-slot:default-body="prop">
+      <template #default-body="prop">
         <div class="text-black" style="white-space: pre-line">
           {{ prop.node.data }}
         </div>

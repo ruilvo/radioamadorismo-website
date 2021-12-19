@@ -61,7 +61,7 @@ export default defineComponent({
       });
     }
 
-    watch(repeatersStore, (new_store, old_store) => {
+    watch(repeatersStore, () => {
       updateMap();
     });
 

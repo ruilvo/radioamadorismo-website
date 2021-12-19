@@ -111,7 +111,7 @@ export default defineComponent({
       },
     });
 
-    watch($route, (to, from) => {
+    watch($route, (to) => {
       if (to.path.includes("/repetidores")) {
         repeaters_expanded.value = true;
       }

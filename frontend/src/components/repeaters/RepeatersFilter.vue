@@ -133,7 +133,7 @@ export default defineComponent({
     initRouteFromQuery();
     repeatersStore.updateRepeaters();
 
-    watch($route, (route, prevRoute) => {
+    watch($route, () => {
       // Handle navigating from /repetidores to /repetidores/mapa keeping the query
       if ($route.path.includes("/repetidores")) {
         if (isObjectEmpty($route.query)) {
