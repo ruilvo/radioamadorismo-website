@@ -8,17 +8,55 @@
 </template>
 
 <script>
-import { defineComponent, onMounted } from "vue";
+import { defineComponent, onMounted, ref, watch } from "vue";
 
 import "leaflet/dist/leaflet.css";
-
 import * as L from "leaflet";
+
+import { useRepeatersStore } from "src/stores/repeaters";
 
 export default defineComponent({
   name: "RepeatersMap",
   setup() {
+    const repeatersStore = useRepeatersStore();
+
+    const repeatersMap = ref(null);
+    const repeaterMarkers = ref([]);
+
+    function updateMap() {
+      if (!repeatersMap.value) return;
+      repeaterMarkers.value.forEach((marker) => {
+        marker.remove();
+      });
+      repeaterMarkers.value = [];
+      repeatersStore.repeaters.forEach((repeater) => {
+        if (!repeater.info_location) return;
+        if (
+          !(repeater.info_location.latitude && repeater.info_location.longitude)
+        )
+          return;
+        var marker = L.marker([
+          repeater.info_location.latitude,
+          repeater.info_location.longitude,
+        ]);
+
+        // var circle = L.circle([51.508, -0.11], {
+        //   color: 'red',
+        //   fillColor: '#f03',
+        //   fillOpacity: 0.5,
+        //   radius: 500
+        // }).addTo(map).bindPopup('I am a circle.');
+        marker.addTo(repeatersMap.value);
+        repeaterMarkers.value.push(marker);
+      });
+    }
+
+    watch(repeatersStore, (new_store, old_store) => {
+      updateMap();
+    });
+
     onMounted(() => {
-      var mymap = L.map("map").setView([40, -8.0], 6);
+      repeatersMap.value = L.map("map").setView([40, -8.0], 6);
 
       L.tileLayer(
         "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw",
@@ -31,7 +69,9 @@ export default defineComponent({
           tileSize: 512,
           zoomOffset: -1,
         }
-      ).addTo(mymap);
+      ).addTo(repeatersMap.value);
+
+      updateMap();
     });
   },
 });
