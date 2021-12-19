@@ -6,8 +6,8 @@ services:
     ports:
       - 8100:80
     volumes:
-      - frontend_data:/frontend/
-      - backend_data:/backend/
+      - .volumes/frontend_data:/frontend/
+      - .volumes/backend_data:/backend/
       - ./nginx:/etc/nginx/conf.d
     depends_on:
       - backend
@@ -21,7 +21,7 @@ services:
     depends_on:
       - backend
     volumes:
-      - frontend_data:/frontend/
+      - .volumes/frontend_data:/frontend/
   backend:
     build:
       context: ./backend
@@ -33,15 +33,10 @@ services:
     depends_on:
       - db
     volumes:
-      - backend_data:/backend/
+      - .volumes/backend_data:/backend/
   db:
     image: postgres:13-bullseye
     volumes:
-      - postgres_data:/var/lib/postgresql/data/
+      - .volumes/postgres_data:/var/lib/postgresql/data/
     env_file:
       - prod.sample.env
-
-volumes:
-  frontend_data:
-  backend_data:
-  postgres_data:
