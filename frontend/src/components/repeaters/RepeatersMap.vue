@@ -11,7 +11,22 @@
 import { defineComponent, onMounted, ref, watch } from "vue";
 
 import "leaflet/dist/leaflet.css";
+
+// https://stackoverflow.com/a/55525743/5168563
+import iconRetinaUrl from "leaflet/dist/images/marker-icon-2x.png";
+import iconUrl from "leaflet/dist/images/marker-icon.png";
+import shadowUrl from "leaflet/dist/images/marker-shadow.png";
+
 import * as L from "leaflet";
+
+delete L.Icon.Default.prototype._getIconUrl;
+
+L.Icon.Default.imagePath = ".";
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: iconRetinaUrl,
+  iconUrl: iconUrl,
+  shadowUrl: shadowUrl,
+});
 
 import { useRepeatersStore } from "src/stores/repeaters";
 
@@ -40,13 +55,8 @@ export default defineComponent({
           repeater.info_location.longitude,
         ]);
 
-        // var circle = L.circle([51.508, -0.11], {
-        //   color: 'red',
-        //   fillColor: '#f03',
-        //   fillOpacity: 0.5,
-        //   radius: 500
-        // }).addTo(map).bindPopup('I am a circle.');
         marker.addTo(repeatersMap.value);
+        marker.bindPopup(repeater.callsign);
         repeaterMarkers.value.push(marker);
       });
     }
