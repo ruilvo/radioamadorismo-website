@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { defineComponent, onMounted, ref, watch } from "vue";
+import { defineComponent, onMounted, ref, watch, unref } from "vue";
 
 import "leaflet/dist/leaflet.css";
 
@@ -55,7 +55,7 @@ export default defineComponent({
           repeater.info_location.longitude,
         ]);
 
-        marker.addTo(repeatersMap.value);
+        marker.addTo(unref(repeatersMap));
         marker.bindPopup(repeater.callsign);
         repeaterMarkers.value.push(marker);
       });
@@ -79,7 +79,7 @@ export default defineComponent({
           tileSize: 512,
           zoomOffset: -1,
         }
-      ).addTo(repeatersMap.value);
+      ).addTo(unref(repeatersMap));
 
       updateMap();
     });
