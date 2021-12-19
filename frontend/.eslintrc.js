@@ -14,6 +14,7 @@ module.exports = {
     // Needed to make the parser take into account 'vue' files
     extraFileExtensions: [".vue"],
     parser: "@typescript-eslint/parser",
+    // parser: "@babel/eslint-parser",
     project: resolve(__dirname, "./jsconfig.json"),
     tsconfigRootDir: __dirname,
     ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
@@ -27,7 +28,7 @@ module.exports = {
   // Rules order is important, please avoid shuffling them
   extends: [
     // Base ESLint recommended rules
-    // 'eslint:recommended',
+    "eslint:recommended",
 
     // https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin#usage
     // ESLint typescript rules
