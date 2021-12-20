@@ -4,6 +4,9 @@ FROM node:16.13-bullseye
 # Update the system
 RUN apt-get update && apt-get upgrade -y
 
+# Update node
+RUN npm install -g npm@latest
+
 # Make a working dir
 WORKDIR /frontend
 
