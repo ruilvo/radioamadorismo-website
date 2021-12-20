@@ -11,6 +11,9 @@
             size="28px"
             class="q-mr-sm"
           />
+          <div class="text-black">
+            <div v-html="prop.node.data"></div>
+          </div>
           <div class="text-weight-bold text-primary">{{ prop.node.label }}</div>
         </div>
       </template>
@@ -32,13 +35,17 @@
       </template>
 
       <template #default-body="prop">
-        <div class="text-black" style="white-space: pre-line">
-          {{ prop.node.data }}
-        </div>
+        <div class="text-black default-body" v-html="prop.node.data"></div>
       </template>
     </q-tree>
   </div>
 </template>
+
+<style scoped>
+.default-body >>> p {
+  margin: 0;
+}
+</style>
 
 <script>
 import { defineComponent, computed } from "vue";
