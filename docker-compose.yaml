@@ -22,7 +22,7 @@ services:
     depends_on:
       - backend
     volumes:
-      - frontend_dist_data:/frontend/dist/spa/
+      - frontend_dist_data:/frontend/dist/
   backend:
     build:
       context: ./backend
