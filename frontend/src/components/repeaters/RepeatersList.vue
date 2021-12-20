@@ -16,7 +16,7 @@
       </template>
 
       <template #body-repeater="prop">
-        <div class="text-black" v-html="prop.node.notes"></div>
+        <div class="text-black no-margin-body" v-html="prop.node.notes"></div>
       </template>
 
       <template #default-header="prop">
@@ -26,14 +26,14 @@
       </template>
 
       <template #default-body="prop">
-        <div class="text-black default-body" v-html="prop.node.data"></div>
+        <div class="text-black no-margin-body" v-html="prop.node.data"></div>
       </template>
     </q-tree>
   </div>
 </template>
 
 <style scoped>
-.default-body ::v-deep(p) {
+.no-margin-body ::v-deep(p) {
   margin: 0;
 }
 </style>
