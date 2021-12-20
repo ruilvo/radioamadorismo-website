@@ -107,6 +107,10 @@ module.exports = configure(function (ctx) {
           target: "http://backend:8000",
           changeOrigin: true,
         },
+        "/ckeditor": {
+          target: "http://backend:8000",
+          changeOrigin: true,
+        },
       },
     },
 

@@ -39,4 +39,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/v1/", include(apipatterns)),
     path("", include(schemapatterns)),
+    path("ckeditor/", include("ckeditor_uploader.urls")),
 ]
