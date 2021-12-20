@@ -26,5 +26,7 @@ COPY --chown=appuser:appuser . .
 RUN chmod +x entrypoint.dev.sh
 RUN chmod +x entrypoint.sh
 
+RUN mkdir dist/spa
+
 # Expose the ports
 EXPOSE 8080

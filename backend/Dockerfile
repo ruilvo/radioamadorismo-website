@@ -27,6 +27,9 @@ USER appuser
 # Copy project files
 COPY --chown=appuser:appuser . .
 
+RUN mkdir static_root
+RUN mkdir media_root
+
 # Make files executable
 RUN chmod +x entrypoint.dev.sh
 RUN chmod +x entrypoint.sh
