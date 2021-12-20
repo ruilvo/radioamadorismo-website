@@ -15,4 +15,5 @@ dependencies:
   # - django-ckeditor # not available in conda
   - black
   - pyyaml
+  - "pillow"
   - uritemplate

@@ -157,6 +157,7 @@ STATIC_URL = "/static/"
 MEDIA_URL = "/media/"
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_IMAGE_BACKEND = "pillow"
 
 STATIC_ROOT = os.environ.get("MEDIA_ROOT", os.path.join(BASE_DIR, "static_root/"))
 MEDIA_ROOT = os.environ.get("MEDIA_ROOT", os.path.join(BASE_DIR, "media_root/"))
