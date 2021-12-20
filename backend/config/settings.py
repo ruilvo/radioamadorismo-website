@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     "corsheaders",
     "django_filters",
     "ckeditor",
+    "ckeditor_uploader",
     # Local
     "users",
     "repeaters",
