@@ -16,11 +16,7 @@
       </template>
 
       <template #body-repeater="prop">
-        <div
-          v-if="prop.node.notes"
-          class="text-black"
-          v-html="prop.node.notes"
-        ></div>
+        <div class="text-black" v-html="prop.node.notes"></div>
       </template>
 
       <template #default-header="prop">
@@ -37,7 +33,7 @@
 </template>
 
 <style scoped>
-.default-body >>> p {
+.default-body ::v-deep(p) {
   margin: 0;
 }
 </style>
