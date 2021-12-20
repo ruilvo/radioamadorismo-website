@@ -11,9 +11,6 @@
             size="28px"
             class="q-mr-sm"
           />
-          <div class="text-black">
-            <div v-html="prop.node.data"></div>
-          </div>
           <div class="text-weight-bold text-primary">{{ prop.node.label }}</div>
         </div>
       </template>
@@ -22,10 +19,8 @@
         <div
           v-if="prop.node.notes"
           class="text-black"
-          style="white-space: pre-line"
-        >
-          {{ prop.node.notes }}
-        </div>
+          v-html="prop.node.notes"
+        ></div>
       </template>
 
       <template #default-header="prop">
