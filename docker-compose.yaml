@@ -9,7 +9,6 @@ services:
       - frontend_dist_data:/frontend_dist/
       - backend_media_data:/backend_media/
       - backend_static_data:/backend_static/
-      - backend_data:/backend/
       - ./nginx:/etc/nginx/conf.d
     depends_on:
       - backend
