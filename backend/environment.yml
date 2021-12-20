@@ -12,6 +12,7 @@ dependencies:
   - django-cors-headers
   - django
   - django-filter
+  # - django-ckeditor # not available in conda
   - black
   - pyyaml
   - uritemplate

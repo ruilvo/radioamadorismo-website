@@ -4,6 +4,7 @@ django-cors-headers
 djangorestframework
 dj-rest-auth
 django-filter
+django-ckeditor
 # Deployment
 gunicorn
 # PqSQL adapter
