@@ -1,5 +1,7 @@
 # Required
 Django>=3.2,<4.0
+wagtail
+djangorestframework
 # Development
 pylint
 black
