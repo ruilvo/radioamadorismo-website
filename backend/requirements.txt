@@ -2,6 +2,9 @@
 Django>=3.2,<4.0
 wagtail
 djangorestframework
+dj-rest-auth
+django-filter
+django-cors-headers
 # Development
 pylint
 black

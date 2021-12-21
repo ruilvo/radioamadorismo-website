@@ -16,19 +16,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-0-zj)o7-z510qi+q84#9&wew7qnh!2)cv@m%lyw$&s!@s^*^f9"
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
-
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -53,6 +40,12 @@ INSTALLED_APPS = [
     # Waigtail dependencies
     "modelcluster",
     "taggit",
+    # REST framework
+    "rest_framework",
+    "rest_framework.authtoken",
+    "dj_rest_auth",
+    "corsheaders",
+    "django_filters",
     # Local
     "users",
 ]
@@ -60,6 +53,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",  # CORS, needs to be here
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -71,10 +65,14 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "config.urls"
 
+TEMPLATES_DIR = os.path.join(BASE_DIR, "templates")
+
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [
+            TEMPLATES_DIR,
+        ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -88,18 +86,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "config.wsgi.application"
-
-
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
-}
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -152,6 +138,7 @@ MEDIA_ROOT = os.environ.get(
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+
 # Wagtail settings
 WAGTAIL_SITE_NAME = "Portal do radioamadorismo"
 
@@ -162,5 +149,71 @@ WAGTAILSEARCH_BACKENDS = {
 }
 
 
+# REST framework
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.IsAuthenticatedOrReadOnly",
+    ],
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.SessionAuthentication",
+        "rest_framework.authentication.TokenAuthentication",
+    ],
+    "DEFAULT_FILTER_BACKENDS": [
+        "django_filters.rest_framework.DjangoFilterBackend",
+        "rest_framework.filters.OrderingFilter",
+    ],
+}
+
+
 # Local settings
+
 AUTH_USER_MODEL = "users.User"
+
+
+# Settings that should be able to be set by the environment
+
+# Database
+# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
+    }
+}
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "DO_NOT_USE_THIS_IN_PRODUCTION_")
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = int(os.environ.get("DJANGO_DEBUG", default=0))
+
+ALLOWED_HOSTS = os.environ.get(
+    "DJANGO_ALLOWED_HOSTS", "localhost 127.0.0.1 [::1] backend"
+).split(" ")
+
+CORS_ORIGIN_WHITELIST_DEFAULT = [
+    # Default names used by the frontend and backend
+    "http://localhost:8080",
+    "http://frontend:8080",
+    "http://backend:8000",
+    "http://localhost:8000",
+]
+CORS_ORIGIN_WHITELIST = os.environ.get(
+    "DJANGO_CORS_ORIGIN_WHITELIST", " ".join(CORS_ORIGIN_WHITELIST_DEFAULT)
+).split(" ")
+
+USE_X_FORWARDED_HOST = int(os.environ.get("DJANGO_USE_X_FORWARDED_HOST", False))
+
+EMAIL_BACKEND = os.environ.get(
+    "DJANGO_EMAIL_BACKEND", "django.core.mail.backends.console.EmailBackend"
+)
+EMAIL_HOST = os.environ.get("DJANGO_EMAIL_HOST", "localhost")
+EMAIL_PORT = int(os.environ.get("DJANGO_EMAIL_PORT", 25))
+EMAIL_HOST_USER = os.environ.get("DJANGO_EMAIL_HOST_USER", "")
+EMAIL_HOST_PASSWORD = os.environ.get("DJANGO_EMAIL_HOST_PASSWORD", "")
+EMAIL_USE_TLS = int(os.environ.get("DJANGO_EMAIL_USE_TLS", 0))
+EMAIL_USE_SSL = int(os.environ.get("DJANGO_EMAIL_USE_SSL", 0))
+
+EMAIL_TIMEOUT = os.environ.get("DJANGO_EMAIL_TIMEOUT", None)
+EMAIL_SSL_KEYFILE = os.environ.get("DJANGO_EMAIL_SSL_KEYFILE", None)
+EMAIL_SSL_CERTFILE = os.environ.get("DJANGO_EMAIL_SSL_CERTFILE", None)
