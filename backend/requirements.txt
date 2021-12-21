@@ -6,6 +6,8 @@ djangorestframework
 dj-rest-auth
 django-filter
 django-cors-headers
+# Wagtail plugins
+wagtailmedia
 # PqSQL adapter
 psycopg2
 # Development

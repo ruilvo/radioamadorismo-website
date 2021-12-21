@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     "taggit",
     # Wagtail API
     "wagtail.api.v2",
+    # Waigtail plugins
+    "wagtailmedia",
     # REST framework
     "rest_framework",
     "rest_framework.authtoken",
