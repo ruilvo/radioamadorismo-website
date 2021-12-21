@@ -7,7 +7,23 @@
     "shutdownAction": "none",
     "extensions": [
         "ms-python.python",
-        "ms-python.vscode-pylance"
+        "ms-python.vscode-pylance",
+        "streetsidesoftware.code-spell-checker",
+        "batisteo.vscode-django",
+        "cschlosser.doxdocgen",
+        "editorconfig.editorconfig",
+        "lacroixdavid1.vscode-format-context-menu",
+        "mhutchie.git-graph",
+        "donjayamanne.githistory",
+        "github.copilot",
+        "github.vscode-pull-request-github",
+        "codezombiech.gitignore",
+        "eamodio.gitlens",
+        "sysoev.vscode-open-in-github",
+        "christian-kohler.path-intellisense",
+        "streetsidesoftware.code-spell-checker-portuguese",
+        "njpwerner.autodocstring",
+        "visualstudioexptteam.vscodeintellicode"
     ],
-    "workspaceFolder": "/backend"
+    "workspaceFolder": "/workspace/backend",
 }
