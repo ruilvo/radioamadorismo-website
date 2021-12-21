@@ -15,20 +15,20 @@ RUN pip install --upgrade pip
 # Make a working dir
 WORKDIR /workspace
 
-# Handle requirements
-COPY requirements.txt backend/requirements.txt
-RUN pip install -r backend/requirements.txt
-
 # Creates a non-root user and adds permission to access the working dir
 RUN adduser --disabled-password --gecos "" appuser \
     && chown -R appuser /workspace
 USER appuser
 
+# Handle requirements
+COPY --chown=appuser:appuser requirements.txt backend/requirements.txt
+RUN pip install --user -r backend/requirements.txt
+
+# Now, we have to update the PATH env. variable
+ENV PATH="/home/appuser/.local/bin:${PATH}"
+
 # Copy project files
 COPY --chown=appuser:appuser . backend
-
-RUN mkdir static_root
-RUN mkdir media_root
 
 # Make files executable
 RUN chmod +x backend/entrypoint.sh
