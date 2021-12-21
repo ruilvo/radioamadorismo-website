@@ -12,29 +12,29 @@ RUN apt-get update && apt-get upgrade -y \
 # Update pip
 RUN pip install --upgrade pip
 
-# Handle requirements
-COPY requirements.txt requirements.txt
-RUN pip install -r requirements.txt
-
 # Make a working dir
-WORKDIR /backend
+WORKDIR /workspace
+
+# Handle requirements
+COPY requirements.txt backend/requirements.txt
+RUN pip install -r backend/requirements.txt
 
 # Creates a non-root user and adds permission to access the working dir
 RUN adduser --disabled-password --gecos "" appuser \
-    && chown -R appuser /backend
+    && chown -R appuser /workspace
 USER appuser
 
 # Copy project files
-COPY --chown=appuser:appuser . .
+COPY --chown=appuser:appuser . backend
 
 RUN mkdir static_root
 RUN mkdir media_root
 
 # Make files executable
-RUN chmod +x entrypoint.sh
+RUN chmod +x backend/entrypoint.sh
 
 # Expose the ports
 EXPOSE 8000
 
 # Give it a (replaceable) entrypoint
-ENTRYPOINT ["./entrypoint.sh"]
+ENTRYPOINT ["./backend/entrypoint.sh"]
