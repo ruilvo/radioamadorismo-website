@@ -1,10 +1,13 @@
-# Required
+# Website
 Django>=3.2,<4.0
 wagtail
+# REST framework
 djangorestframework
 dj-rest-auth
 django-filter
 django-cors-headers
+# PqSQL adapter
+psycopg2
 # Development
 pylint
 black

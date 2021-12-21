@@ -176,8 +176,14 @@ AUTH_USER_MODEL = "users.User"
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": os.environ.get("POSTGRES_DB", "radioamadorismo_website_default"),
+        "USER": os.environ.get("POSTGRES_USER", "radioamadorismo_website_user"),
+        "PASSWORD": os.environ.get(
+            "POSTGRES_PASSWORD", "radioamadorismo_website_password"
+        ),
+        "HOST": os.environ.get("SQL_HOST", "db"),  # Name of the docker service
+        "PORT": os.environ.get("SQL_PORT", "5432"),
     }
 }
 
