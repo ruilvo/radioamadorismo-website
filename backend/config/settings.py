@@ -134,12 +134,8 @@ USE_TZ = True
 STATIC_URL = "/static/"
 MEDIA_URL = "/media/"
 
-STATIC_ROOT = os.environ.get(
-    "MEDIA_ROOT", os.path.join(BASE_DIR, "_depoyment/static_root/")
-)
-MEDIA_ROOT = os.environ.get(
-    "MEDIA_ROOT", os.path.join(BASE_DIR, "_depoyment/media_root/")
-)
+STATIC_ROOT = os.path.join(BASE_DIR, "_deployment/static_root/")
+MEDIA_ROOT = os.path.join(BASE_DIR, "_deployment/media_root/")
 
 # WhiteNoise settings
 
