@@ -23,6 +23,8 @@ from wagtail.admin import urls as wagtailadmin_urls
 from wagtail.core import urls as wagtail_urls
 from wagtail.documents import urls as wagtaildocs_urls
 
+from .wagtail_api import api_router as wagtail_api_router
+
 urlpatterns = [
     # Django
     path("admin/", admin.site.urls),
@@ -30,4 +32,6 @@ urlpatterns = [
     path("cms/", include(wagtailadmin_urls)),
     path("documents/", include(wagtaildocs_urls)),
     path("pages/", include(wagtail_urls)),
+    # Wagtail API
+    path("api/v2/wagtail/", wagtail_api_router.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     # Waigtail dependencies
     "modelcluster",
     "taggit",
+    # Wagtail API
+    "wagtail.api.v2",
     # REST framework
     "rest_framework",
     "rest_framework.authtoken",
