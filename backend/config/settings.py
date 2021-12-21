@@ -58,6 +58,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",  # WhiteNoise
     "django.contrib.sessions.middleware.SessionMiddleware",
     "corsheaders.middleware.CorsMiddleware",  # CORS, needs to be here
     "django.middleware.common.CommonMiddleware",
@@ -138,6 +139,11 @@ STATIC_ROOT = os.environ.get(
 MEDIA_ROOT = os.environ.get(
     "MEDIA_ROOT", os.path.join(BASE_DIR, "_depoyment/media_root/")
 )
+
+# WhiteNoise settings
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

@@ -10,6 +10,8 @@ django-cors-headers
 wagtailmedia
 # PqSQL adapter
 psycopg2
+# Deployment
+whitenoise
 # Development
 pylint
 black
