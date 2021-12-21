@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     "django_filters",
     # Local
     "users",
+    "repeaters",
 ]
 
 MIDDLEWARE = [
