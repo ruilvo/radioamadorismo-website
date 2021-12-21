@@ -37,4 +37,4 @@ RUN chmod +x entrypoint.sh
 EXPOSE 8000
 
 # Give it a (replaceable) entrypoint
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["./entrypoint.sh"]
