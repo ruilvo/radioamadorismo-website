@@ -623,5 +623,4 @@ Temporary Items
 .volumes/
 
 # Django files in containers
-backend/static_root/
-backend/media_root/
+backend/_deployment/
