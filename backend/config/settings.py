@@ -53,6 +53,8 @@ INSTALLED_APPS = [
     # Waigtail dependencies
     "modelcluster",
     "taggit",
+    # Local
+    "users",
 ]
 
 MIDDLEWARE = [
@@ -158,3 +160,7 @@ WAGTAILSEARCH_BACKENDS = {
         "BACKEND": "wagtail.search.backends.database",
     }
 }
+
+
+# Local settings
+AUTH_USER_MODEL = "users.User"
