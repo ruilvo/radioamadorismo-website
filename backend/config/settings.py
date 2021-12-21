@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "wagtail.api.v2",
     # Waigtail plugins
     "wagtailmedia",
+    "wagtail.contrib.modeladmin",
     # REST framework
     "rest_framework",
     "rest_framework.authtoken",
