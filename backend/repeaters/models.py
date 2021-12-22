@@ -4,7 +4,13 @@ from django.contrib.postgres.fields import ArrayField
 
 from wagtail.core import fields
 
+from wagtail.snippets.models import register_snippet
 
+from wagtail.admin.edit_handlers import FieldPanel
+from wagtail.snippets.edit_handlers import SnippetChooserPanel
+
+
+@register_snippet
 class DimHalfDuplex(models.Model):
     tx_mhz = models.DecimalField(
         max_digits=20, decimal_places=10, verbose_name="tx (MHz)"
@@ -33,6 +39,7 @@ class DimHalfDuplex(models.Model):
         return f"{self.tx_mhz}/{self.rx_mhz}"
 
 
+@register_snippet
 class DimSimplex(models.Model):
     freq_mhz = models.DecimalField(
         max_digits=20, decimal_places=10, unique=True, verbose_name="freq. (MHz)"
@@ -49,6 +56,7 @@ class DimSimplex(models.Model):
         return f"{self.freq_mhz}"
 
 
+@register_snippet
 class DimFm(models.Model):
     modulation = models.CharField(max_length=20, blank=True, verbose_name="modulation")
     tone = models.DecimalField(
@@ -68,6 +76,7 @@ class DimFm(models.Model):
         return f"{self.modulation}, {self.tone}"
 
 
+@register_snippet
 class DimDStar(models.Model):
     modulation = models.CharField(max_length=20, blank=True, verbose_name="modulation")
     gateway = models.CharField(max_length=20, blank=True, verbose_name="gateway")
@@ -87,6 +96,7 @@ class DimDStar(models.Model):
         return f"{self.modulation}, {self.gateway}, {self.reflector}"
 
 
+@register_snippet
 class DimFusion(models.Model):
     modulation = models.CharField(max_length=20, blank=True, verbose_name="modulation")
     wiresx = models.CharField(max_length=20, blank=True, verbose_name="wiresx")
@@ -106,6 +116,7 @@ class DimFusion(models.Model):
         return f"{self.wiresx}, {self.room_id}"
 
 
+@register_snippet
 class DimDmr(models.Model):
     modulation = models.CharField(max_length=20, blank=True, verbose_name="modulation")
     dmr_id = models.IntegerField(unique=True, verbose_name="DMR ID")
@@ -127,6 +138,7 @@ class DimDmr(models.Model):
         return f"{self.dmr_id}"
 
 
+@register_snippet
 class DimHolder(models.Model):
     abrv = models.CharField(max_length=10, verbose_name="abrv.", unique=True)
     name = models.CharField(max_length=500, blank=True, verbose_name="name")
@@ -140,6 +152,7 @@ class DimHolder(models.Model):
         return f"{self.abrv}"
 
 
+@register_snippet
 class DimLocation(models.Model):
     CONTINENT = "CPT"
     AZORES = "AZR"
@@ -190,6 +203,7 @@ class DimLocation(models.Model):
         return to_return
 
 
+@register_snippet
 class FactRepeater(models.Model):
     callsign = models.CharField(max_length=10, verbose_name="callsign")
     notes = fields.RichTextField(blank=True, verbose_name="notes")
@@ -268,6 +282,20 @@ class FactRepeater(models.Model):
                 name="repeater is only simplex or half-duplex",
             )
         ]
+
+    panels = [
+        FieldPanel("callsign"),
+        FieldPanel("notes"),
+        FieldPanel("pwr_w"),
+        SnippetChooserPanel("info_half_duplex"),
+        SnippetChooserPanel("info_simplex"),
+        SnippetChooserPanel("info_fm"),
+        SnippetChooserPanel("info_dstar"),
+        SnippetChooserPanel("info_fusion"),
+        SnippetChooserPanel("info_dmr"),
+        SnippetChooserPanel("info_holder"),
+        SnippetChooserPanel("info_location"),
+    ]
 
     def __str__(self) -> str:
         return str(self.callsign)
