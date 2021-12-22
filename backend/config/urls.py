@@ -52,9 +52,16 @@ urlpatterns = [
     # Django
     path("admin/", admin.site.urls),
     # Wagtail
-    path("cms/", include(wagtailadmin_urls)),
-    path("documents/", include(wagtaildocs_urls)),
-    path("pages/", include(wagtail_urls)),
+    path(
+        "cms/",
+        include(
+            [
+                path("admin/", include(wagtailadmin_urls)),
+                path("documents/", include(wagtaildocs_urls)),
+                path("pages/", include(wagtail_urls)),
+            ]
+        ),
+    ),
     # Wagtail API
     path("api/v2/wagtail/", wagtail_api_router.urls),
     # Auth
