@@ -624,3 +624,6 @@ Temporary Items
 
 # Django files in containers
 backend/_deployment/
+
+# Production environment
+prod.env
