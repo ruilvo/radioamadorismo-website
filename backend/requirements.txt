@@ -6,10 +6,13 @@ djangorestframework
 dj-rest-auth
 django-filter
 django-cors-headers
+drf_spectacular
+drf-spectacular[sidecar]
 # Wagtail plugins
 wagtailmedia
-# PqSQL adapter
+# Dependencies
 psycopg2
+pyyaml
 # Deployment
 whitenoise
 # Development
