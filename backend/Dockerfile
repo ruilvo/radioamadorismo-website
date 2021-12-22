@@ -21,7 +21,7 @@ RUN adduser --disabled-password --gecos "" appuser && \
     mkdir -p /home/appuser/.vscode-server && \
     chown -R appuser /home/appuser/.vscode-server && \
     mkdir -p backend/_deployment && \
-    chown -R backend/_deployment
+    chown -R appuser backend/_deployment
 USER appuser
 
 # Handle requirements
