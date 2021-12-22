@@ -33,7 +33,9 @@ ENV PATH="/home/appuser/.local/bin:${PATH}"
 COPY --chown=appuser:appuser . backend
 
 # Make files executable
-RUN chmod +x backend/entrypoint.sh
+RUN chmod +x backend/entrypoint.sh &&  \
+    chmod +x backend/run_migration_chores.sh && \
+    chmod +x backend/start_devserver.sh
 
 # Expose the ports
 EXPOSE 8000
