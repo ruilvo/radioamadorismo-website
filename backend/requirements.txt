@@ -16,6 +16,7 @@ psycopg2
 pyyaml
 # Deployment
 whitenoise
+uwsgi
 # Development
 pylint
 black
