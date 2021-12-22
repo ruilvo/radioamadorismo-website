@@ -16,6 +16,10 @@ RUN adduser --disabled-password --gecos "" appuser \
     && chown -R appuser /workspace
 USER appuser
 
+# Handle requirements
+COPY --chown=appuser:appuser package.json frontend/package.json
+RUN cd frontend && npm install
+
 # Copy project files
 COPY --chown=appuser:appuser . frontend
 
