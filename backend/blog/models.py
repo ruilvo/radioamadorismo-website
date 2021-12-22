@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.timezone import now
 
 from wagtail.core.models import Page
 from wagtail.core.fields import RichTextField
@@ -20,7 +21,7 @@ class BlogIndexPage(Page):
 
 
 class BlogPage(Page):
-    date = models.DateField("Post date")
+    date = models.DateTimeField("Post date", default=now)
     intro = models.CharField(max_length=250)
     body = RichTextField(blank=True)
 
