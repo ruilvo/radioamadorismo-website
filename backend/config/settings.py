@@ -52,10 +52,13 @@ INSTALLED_APPS = [
     "dj_rest_auth",
     "corsheaders",
     "django_filters",
+    "drf_spectacular",
+    "drf_spectacular_sidecar",
     # Local
     "users",
     "repeaters",
     "utils",
+    "blog",
 ]
 
 MIDDLEWARE = [
@@ -172,12 +175,39 @@ REST_FRAMEWORK = {
         "django_filters.rest_framework.DjangoFilterBackend",
         "rest_framework.filters.OrderingFilter",
     ],
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+    "DEFAULT_PARSER_CLASSES": [
+        # Default
+        "rest_framework.parsers.JSONParser",
+        "rest_framework.parsers.FormParser",
+        "rest_framework.parsers.MultiPartParser",
+        # 3rd party
+        "rest_framework_yaml.parsers.YAMLParser",
+    ],
+    "DEFAULT_RENDERER_CLASSES": [
+        # Default
+        "rest_framework.renderers.JSONRenderer",
+        "rest_framework.renderers.BrowsableAPIRenderer",
+        # 3rd party
+        "rest_framework_yaml.renderers.YAMLRenderer",
+    ],
 }
 
 
 # Local settings
 
 AUTH_USER_MODEL = "users.User"
+
+# Schema
+SPECTACULAR_SETTINGS = {
+    # Meta
+    "TITLE": "Portal do Radioamadorismo: API",
+    "VERSION": "1.0.0",
+    # Settings
+    "SWAGGER_UI_DIST": "SIDECAR",
+    "SWAGGER_UI_FAVICON_HREF": "SIDECAR",
+    "REDOC_DIST": "SIDECAR",
+}
 
 
 # Settings that should be able to be set by the environment

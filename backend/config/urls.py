@@ -27,31 +27,16 @@ from wagtail.documents import urls as wagtaildocs_urls
 
 from .wagtail_api import api_router as wagtail_api_router
 
-authpatterns = [
-    path("drf-auth/", include("rest_framework.urls")),
-    path("dj-rest-auth/", include("dj_rest_auth.urls")),
-]
-
-apipatterns = [
-    # Local
-    path("repeaters/", include("repeaters.urls")),
-]
-
-schemapatterns = [
-    path(
-        "api/openapi/",
-        get_schema_view(
-            title="Portal do Radioamadorismo: API",
-            version="1.0.0",
-        ),
-        name="openapi-schema",
-    ),
-]
+from drf_spectacular.views import (
+    SpectacularAPIView,
+    SpectacularRedocView,
+    SpectacularSwaggerView,
+)
 
 urlpatterns = [
     # Django
     path("admin/", admin.site.urls),
-    # Wagtail
+    # Wagtail CMS
     path(
         "cms/",
         include(
@@ -62,12 +47,59 @@ urlpatterns = [
             ]
         ),
     ),
-    # Wagtail API
-    path("api/v2/wagtail/", wagtail_api_router.urls),
-    # Auth
-    path("api/auth/", include(authpatterns)),
-    # APIs
-    path("api/v1/", include(apipatterns)),
-    # Schema
-    path("", include(schemapatterns)),
+    # API
+    path(
+        "api/",
+        include(
+            [
+                # Auth
+                path(
+                    "auth/",
+                    include(
+                        [
+                            path("drf-auth/", include("rest_framework.urls")),
+                            path("dj-rest-auth/", include("dj_rest_auth.urls")),
+                        ]
+                    ),
+                ),
+                # Schema
+                path("schema/", SpectacularAPIView.as_view(), name="schema"),
+                path(
+                    "reference/",
+                    include(
+                        [
+                            path(
+                                "swagger-ui/",
+                                SpectacularSwaggerView.as_view(url_name="schema"),
+                                name="swagger-ui",
+                            ),
+                            path(
+                                "redoc/",
+                                SpectacularRedocView.as_view(url_name="schema"),
+                                name="redoc",
+                            ),
+                        ]
+                    ),
+                ),
+                # Local
+                path(
+                    "v1/",
+                    include(
+                        [
+                            path("repeaters/", include("repeaters.urls")),
+                        ]
+                    ),
+                ),
+                # Wagtail CMS
+                path(
+                    "v2/",
+                    include(
+                        [
+                            path("cms/", wagtail_api_router.urls),
+                        ]
+                    ),
+                ),
+            ],
+        ),
+    ),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

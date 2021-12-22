@@ -8,6 +8,7 @@ django-filter
 django-cors-headers
 drf_spectacular
 drf-spectacular[sidecar]
+djangorestframework-yaml
 # Wagtail plugins
 wagtailmedia
 # Dependencies
