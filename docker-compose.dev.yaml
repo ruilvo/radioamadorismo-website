@@ -9,7 +9,7 @@ services:
       - 8000:8000
     env_file:
       - dev.env
-    stop_signal: SIGINT
+    stop_signal: SIGKILL
     volumes:
      - .:/workspace:cached
     depends_on:
