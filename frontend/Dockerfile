@@ -6,6 +6,7 @@ RUN apt-get update && apt-get upgrade -y
 
 # Update node
 RUN npm install -g npm@latest
+RUN npm install -g @quasar/cli
 
 # Make a working dir
 WORKDIR /workspace
