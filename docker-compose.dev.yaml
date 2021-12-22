@@ -11,7 +11,8 @@ services:
       - dev.env
     stop_signal: SIGKILL
     volumes:
-     - .:/workspace:cached
+      - .:/workspace:cached
+      - frontend_vscode_server:/home/appuser/.vscode-server
     depends_on:
       - backend
   backend:
@@ -24,7 +25,8 @@ services:
       - dev.env
     stop_signal: SIGKILL
     volumes:
-     - .:/workspace:cached
+      - .:/workspace:cached
+      - backend_vscode_server:/home/appuser/.vscode-server
     depends_on:
       - db
   db:
@@ -36,3 +38,5 @@ services:
 
 volumes:
   postgres_data_dev:
+  backend_vscode_server:
+  frontend_vscode_server:
