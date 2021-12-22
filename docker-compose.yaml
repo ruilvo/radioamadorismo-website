@@ -15,7 +15,7 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
-    entrypoint: ./entrypoint.prod.sh
+    entrypoint: ./frontend/entrypoint.prod.sh
     env_file:
       - prod.env
     depends_on:
@@ -26,7 +26,7 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    entrypoint: ./entrypoint.prod.sh
+    entrypoint: ./backend/entrypoint.prod.sh
     env_file:
       - prod.env
     depends_on:

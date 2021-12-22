@@ -15,9 +15,7 @@ WORKDIR /workspace
 RUN adduser --disabled-password --gecos "" appuser && \
   chown -R appuser /workspace && \
   mkdir -p /home/appuser/.vscode-server && \
-  chown -R appuser /home/appuser/.vscode-server && \
-  mkdir -p frontend/dist/spa && \
-  chown -R appuser frontend/dist/spa
+  chown -R appuser /home/appuser/.vscode-server
 USER appuser
 
 # Handle requirements
@@ -28,8 +26,12 @@ RUN cd frontend && npm install
 COPY --chown=appuser:appuser . frontend
 
 # Make files executable
-RUN chmod +x backend/entrypoint.dev.sh &&  \
-  chmod +x backend/entrypoint.prod.sh
+RUN chmod +x frontend/entrypoint.dev.sh &&  \
+  chmod +x frontend/entrypoint.prod.sh
+
+# Prepare artifacts dirs
+RUN mkdir -p frontend/dist/spa && \
+  chown -R appuser frontend/dist/spa
 
 # Expose the ports
 EXPOSE 8080

@@ -19,9 +19,7 @@ WORKDIR /workspace
 RUN adduser --disabled-password --gecos "" appuser && \
     chown -R appuser /workspace &&\
     mkdir -p /home/appuser/.vscode-server && \
-    chown -R appuser /home/appuser/.vscode-server && \
-    mkdir -p backend/_deployment && \
-    chown -R appuser backend/_deployment
+    chown -R appuser /home/appuser/.vscode-server
 USER appuser
 
 # Handle requirements
@@ -40,6 +38,10 @@ RUN chmod +x backend/entrypoint.dev.sh &&  \
     chmod +x backend/run_migration_chores.sh && \
     chmod +x backend/start_devserver.sh && \
     chmod +x backend/wait_for_pg.sh
+
+# Prepare artifacts dirs
+RUN mkdir -p backend/_deployment && \
+    chown -R appuser backend/_deployment
 
 # Expose the ports
 EXPOSE 8000

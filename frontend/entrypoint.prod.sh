@@ -1,3 +1,5 @@
 #!/bin/bash
-rm -rf frontend/dist
+
+# This file runs from its parent dir
+cd frontend
 npm run build
