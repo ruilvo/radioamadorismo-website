@@ -16,10 +16,12 @@ RUN pip install --upgrade pip
 WORKDIR /workspace
 
 # Creates a non-root user and adds permission to access the working dir
-RUN adduser --disabled-password --gecos "" appuser \
-    && chown -R appuser /workspace \
-    && mkdir -p /home/appuser/.vscode-server \
-    && chown -R appuser /home/appuser/.vscode-server
+RUN adduser --disabled-password --gecos "" appuser && \
+    chown -R appuser /workspace &&\
+    mkdir -p /home/appuser/.vscode-server && \
+    chown -R appuser /home/appuser/.vscode-server && \
+    mkdir -p backend/_deployment && \
+    chown -R backend/_deployment
 USER appuser
 
 # Handle requirements
@@ -33,12 +35,14 @@ ENV PATH="/home/appuser/.local/bin:${PATH}"
 COPY --chown=appuser:appuser . backend
 
 # Make files executable
-RUN chmod +x backend/entrypoint.sh &&  \
+RUN chmod +x backend/entrypoint.dev.sh &&  \
+    chmod +x backend/entrypoint.prod.sh && \
     chmod +x backend/run_migration_chores.sh && \
-    chmod +x backend/start_devserver.sh
+    chmod +x backend/start_devserver.sh && \
+    chmod +x backend/wait_for_pg.sh
 
 # Expose the ports
 EXPOSE 8000
 
 # Give it a (replaceable) entrypoint
-ENTRYPOINT ["./backend/entrypoint.sh"]
+ENTRYPOINT ["./backend/entrypoint.dev.sh"]
