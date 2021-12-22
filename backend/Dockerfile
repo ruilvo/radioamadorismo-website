@@ -17,7 +17,9 @@ WORKDIR /workspace
 
 # Creates a non-root user and adds permission to access the working dir
 RUN adduser --disabled-password --gecos "" appuser \
-    && chown -R appuser /workspace
+    && chown -R appuser /workspace \
+    && mkdir -p /home/appuser/.vscode-server \
+    && chown -R appuser /home/appuser/.vscode-server
 USER appuser
 
 # Handle requirements
