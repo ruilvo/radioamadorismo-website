@@ -48,8 +48,7 @@ class DimFusionSerializer(serializers.ModelSerializer):
 
 
 class DimDmrSerializer(serializers.ModelSerializer):
-    ts1_configuration = HtmlRichTextSerializer(required=False)
-    ts2_configuration = HtmlRichTextSerializer(required=False)
+    ts_configuration = HtmlRichTextSerializer(required=False)
 
     class Meta:
         model = DimDmr

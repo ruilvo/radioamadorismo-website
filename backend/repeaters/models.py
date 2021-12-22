@@ -1,4 +1,7 @@
 from django.db import models
+
+from django.contrib.postgres.fields import ArrayField
+
 from wagtail.core import fields
 
 
@@ -107,8 +110,14 @@ class DimDmr(models.Model):
     modulation = models.CharField(max_length=20, blank=True, verbose_name="modulation")
     dmr_id = models.IntegerField(unique=True, verbose_name="DMR ID")
     color_code = models.IntegerField(verbose_name="C.C.")
-    ts1_configuration = fields.RichTextField(blank=True, verbose_name="TS1 config.")
-    ts2_configuration = fields.RichTextField(blank=True, verbose_name="TS2 config.")
+    # The default TG will be the first in the list
+    ts1_tgs = ArrayField(
+        models.IntegerField(), verbose_name="TS1 TGs", blank=True, default=list
+    )
+    ts2_tgs = ArrayField(
+        models.IntegerField(), verbose_name="TS2 TGs", blank=True, default=list
+    )
+    ts_configuration = fields.RichTextField(blank=True, verbose_name="TS config.")
 
     class Meta:
         verbose_name = "info - DMR"

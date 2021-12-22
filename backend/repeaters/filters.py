@@ -157,12 +157,10 @@ class FactRepeaterFilter(filters.FilterSet):
             "info_fusion__modulation": ["exact", "iexact", "icontains"],
             "info_fusion__wiresx": ["exact", "iexact", "icontains"],
             "info_fusion__room_id": ["exact", "iexact", "icontains"],
-            # DimDmr
+            # DimDmr (TODO: filter by TGs)
             "info_dmr__modulation": ["exact", "iexact", "icontains"],
             "info_dmr__dmr_id": ["exact", "gte", "lte"],
             "info_dmr__color_code": ["exact", "gte", "lte"],
-            "info_dmr__ts1_configuration": ["exact", "icontains"],
-            "info_dmr__ts2_configuration": ["exact", "icontains"],
             # DimHolder
             "info_holder__abrv": ["exact", "iexact", "icontains"],
             "info_holder__name": ["exact", "iexact", "icontains"],
