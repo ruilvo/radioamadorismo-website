@@ -1,0 +1,25 @@
+version: "3.4"
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - 8000:8000
+    env_file:
+      - dev.env
+    stop_signal: SIGINT
+    volumes:
+     - .:/workspace:cached
+    depends_on:
+      - db
+  db:
+    image: postgres:13-bullseye
+    volumes:
+      - postgres_data_dev:/var/lib/postgresql/data/
+    env_file:
+      - dev.env
+
+volumes:
+  postgres_data_dev:

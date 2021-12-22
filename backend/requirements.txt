@@ -1,0 +1,18 @@
+# Website
+Django>=3.2,<4.0
+wagtail
+# REST framework
+djangorestframework
+dj-rest-auth
+django-filter
+django-cors-headers
+# Wagtail plugins
+wagtailmedia
+# PqSQL adapter
+psycopg2
+# Deployment
+whitenoise
+# Development
+pylint
+black
+pylint-django
