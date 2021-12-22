@@ -1,6 +1,6 @@
 <template>
   <q-page class="flex flex-center">
-    <h1 class="text-center">Bem vindos!</h1>
+    <h1 class="text-center">Em construção</h1>
   </q-page>
 </template>
 
@@ -8,6 +8,6 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "PageIndex",
+  name: "About",
 });
 </script>
