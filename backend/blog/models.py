@@ -6,6 +6,8 @@ from wagtail.admin.edit_handlers import FieldPanel
 from wagtail.search import index
 from wagtail.api import APIField
 
+from utils.fields import HtmlRichTextFieldApiField
+
 
 class BlogIndexPage(Page):
     intro = RichTextField(blank=True)
@@ -36,5 +38,5 @@ class BlogPage(Page):
     api_fields = [
         APIField("date"),
         APIField("intro"),
-        APIField("body"),
+        HtmlRichTextFieldApiField("body"),
     ]
