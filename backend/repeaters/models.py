@@ -1,4 +1,5 @@
 from django.db import models
+from wagtail.core import fields
 
 
 class DimHalfDuplex(models.Model):
@@ -106,8 +107,8 @@ class DimDmr(models.Model):
     modulation = models.CharField(max_length=20, blank=True, verbose_name="modulation")
     dmr_id = models.IntegerField(unique=True, verbose_name="DMR ID")
     color_code = models.IntegerField(verbose_name="C.C.")
-    ts1_configuration = models.TextField(blank=True, verbose_name="TS1 config.")
-    ts2_configuration = models.TextField(blank=True, verbose_name="TS2 config.")
+    ts1_configuration = fields.RichTextField(blank=True, verbose_name="TS1 config.")
+    ts2_configuration = fields.RichTextField(blank=True, verbose_name="TS2 config.")
 
     class Meta:
         verbose_name = "info - DMR"
@@ -182,7 +183,7 @@ class DimLocation(models.Model):
 
 class FactRepeater(models.Model):
     callsign = models.CharField(max_length=10, verbose_name="callsign")
-    notes = models.TextField(blank=True, verbose_name="notes")
+    notes = fields.RichTextField(blank=True, verbose_name="notes")
     pwr_w = models.IntegerField(blank=True, null=True, verbose_name="pwr. (W)")
 
     # RF
