@@ -25,6 +25,16 @@ from wagtail.documents import urls as wagtaildocs_urls
 
 from .wagtail_api import api_router as wagtail_api_router
 
+authpatterns = [
+    path("drf-auth/", include("rest_framework.urls")),
+    path("dj-rest-auth/", include("dj_rest_auth.urls")),
+]
+
+apipatterns = [
+    # Local
+    path("repeaters/", include("repeaters.urls")),
+]
+
 urlpatterns = [
     # Django
     path("admin/", admin.site.urls),
@@ -34,4 +44,8 @@ urlpatterns = [
     path("pages/", include(wagtail_urls)),
     # Wagtail API
     path("api/v2/wagtail/", wagtail_api_router.urls),
+    # Auth
+    path("api/auth/", include(authpatterns)),
+    # APIs
+    path("api/v1/", include(apipatterns)),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
