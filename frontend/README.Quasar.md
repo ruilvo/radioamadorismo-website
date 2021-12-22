@@ -1,6 +1,6 @@
 # Portal do Radioamadorismo (frontend)
 
-Um projeto radioamadoristico 
+Um projeto radioamadoristico
 
 ## Install the dependencies
 ```bash

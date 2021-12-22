@@ -1,7 +1,18 @@
 {
-  "vetur.validation.template": false,
-  "vetur.format.enable": false,
-  "eslint.validate": ["javascript", "javascriptreact", "typescript", "vue"],
-  
-  "vetur.experimental.templateInterpolationService": true
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.fixAll.eslint": true
+  },
+  "[javascript][json][vue][nginx][typescript][scss][yaml][html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSaveMode": "file",
+    "editor.tabSize": 2
+  },
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "vue"
+  ],
+  "typescript.tsdk": "frontend/node_modules/typescript/lib",
 }
