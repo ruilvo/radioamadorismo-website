@@ -19,6 +19,8 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+from rest_framework.schemas import get_schema_view
+
 from wagtail.admin import urls as wagtailadmin_urls
 from wagtail.core import urls as wagtail_urls
 from wagtail.documents import urls as wagtaildocs_urls
@@ -35,6 +37,17 @@ apipatterns = [
     path("repeaters/", include("repeaters.urls")),
 ]
 
+schemapatterns = [
+    path(
+        "api/openapi/",
+        get_schema_view(
+            title="Portal do Radioamadorismo: API",
+            version="1.0.0",
+        ),
+        name="openapi-schema",
+    ),
+]
+
 urlpatterns = [
     # Django
     path("admin/", admin.site.urls),
@@ -48,4 +61,6 @@ urlpatterns = [
     path("api/auth/", include(authpatterns)),
     # APIs
     path("api/v1/", include(apipatterns)),
+    # Schema
+    path("", include(schemapatterns)),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
