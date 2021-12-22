@@ -1,6 +1,19 @@
 version: "3.4"
 
 services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    env_file:
+      - dev.env
+    stop_signal: SIGKILL
+    volumes:
+     - .:/workspace:cached
+    depends_on:
+      - backend
   backend:
     build:
       context: ./backend

@@ -1,0 +1,38 @@
+{
+    "name": "Frontend",
+    "dockerComposeFile": [
+        "../docker-compose.dev.yaml"
+    ],
+    "service": "frontend",
+    "shutdownAction": "none",
+    "extensions": [
+        "formulahendry.auto-close-tag",
+        "steoates.autoimport",
+        "formulahendry.auto-rename-tag",
+        "shakram02.bash-beautify",
+        "streetsidesoftware.code-spell-checker",
+        "firefox-devtools.vscode-firefox-debug",
+        "editorconfig.editorconfig",
+        "tobermory.es6-string-html",
+        "dbaeumer.vscode-eslint",
+        "lacroixdavid1.vscode-format-context-menu",
+        "mhutchie.git-graph",
+        "donjayamanne.githistory",
+        "github.copilot",
+        "github.vscode-pull-request-github",
+        "eamodio.gitlens",
+        "eg2.vscode-npm-script",
+        "christian-kohler.npm-intellisense",
+        "sysoev.vscode-open-in-github",
+        "christian-kohler.path-intellisense",
+        "streetsidesoftware.code-spell-checker-portuguese",
+        "csstools.postcss",
+        "esbenp.prettier-vscode",
+        "stkb.rewrap",
+        "bradlc.vscode-tailwindcss",
+        "visualstudioexptteam.vscodeintellicode",
+        "johnsoncodehk.volar",
+        "dariofuzinato.vue-peek"
+    ],
+    "workspaceFolder": "/workspace/frontend",
+}
