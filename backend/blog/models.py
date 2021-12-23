@@ -2,12 +2,18 @@ from django.db import models
 from django.utils.timezone import now
 
 from wagtail.core.models import Page
-from wagtail.core.fields import RichTextField
-from wagtail.admin.edit_handlers import FieldPanel
+from wagtail.core.fields import RichTextField, StreamField
 from wagtail.search import index
+from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
+from wagtail.images.blocks import ImageChooserBlock
+from wagtail.documents.blocks import DocumentChooserBlock
+from wagtail.embeds.blocks import EmbedBlock
 from wagtail.api import APIField
 
+from wagtailmedia.blocks import AudioChooserBlock, VideoChooserBlock
+
 from utils.fields import HtmlRichTextFieldApiField
+from utils.blocks import HtmlRichTextBlock
 
 
 class BlogIndexPage(Page):
@@ -22,22 +28,30 @@ class BlogIndexPage(Page):
 
 class BlogPage(Page):
     date = models.DateTimeField("Post date", default=now)
-    intro = models.CharField(max_length=250)
-    body = RichTextField(blank=True)
+    intro = RichTextField()
+    body = StreamField(
+        [
+            ("paragraph", HtmlRichTextBlock()),
+            ("image", ImageChooserBlock(required=False)),
+            ("document", DocumentChooserBlock(required=False)),
+            ("embed", EmbedBlock(required=False)),
+            ("audio", AudioChooserBlock(icon="media", required=False)),
+            ("video", VideoChooserBlock(icon="media", required=False)),
+        ]
+    )
 
     search_fields = Page.search_fields + [
         index.SearchField("intro"),
-        index.SearchField("body"),
     ]
 
     content_panels = Page.content_panels + [
         FieldPanel("date"),
-        FieldPanel("intro"),
-        FieldPanel("body", classname="full"),
+        FieldPanel("intro", classname="full"),
+        StreamFieldPanel("body"),
     ]
 
     api_fields = [
         APIField("date"),
-        APIField("intro"),
-        HtmlRichTextFieldApiField("body"),
+        HtmlRichTextFieldApiField("intro"),
+        APIField("body"),
     ]
