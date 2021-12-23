@@ -11,4 +11,5 @@ const brand = {
   warning: "#f2c037",
 };
 
+// eslint-disable-next-line no-undef
 module.exports = brand;
