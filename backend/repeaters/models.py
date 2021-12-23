@@ -117,16 +117,46 @@ class DimFusion(models.Model):
 
 
 @register_snippet
+class DimDmrTg(models.Model):
+    name = models.CharField(max_length=50, verbose_name="name")
+    dmr_id = models.IntegerField(unique=True, verbose_name="DMR ID")
+
+    class Meta:
+        verbose_name = "info - DMR TG"
+        verbose_name_plural = "info - DMR TG"
+
+    def __str__(self) -> str:
+        return f"{self.dmr_id}: {self.name}"
+
+
+@register_snippet
 class DimDmr(models.Model):
     modulation = models.CharField(max_length=20, blank=True, verbose_name="modulation")
     dmr_id = models.IntegerField(unique=True, verbose_name="DMR ID")
     color_code = models.IntegerField(verbose_name="C.C.")
-    # The default TG will be the first in the list
-    ts1_tgs = ArrayField(
-        models.IntegerField(), verbose_name="TS1 TGs", blank=True, default=list
+    ts1_default_tg = models.ForeignKey(
+        DimDmrTg,
+        blank=True,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name="%(class)s_ts1_default_tg",
     )
-    ts2_tgs = ArrayField(
-        models.IntegerField(), verbose_name="TS2 TGs", blank=True, default=list
+    ts2_default_tg = models.ForeignKey(
+        DimDmrTg,
+        blank=True,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name="%(class)s_ts2_default_tg",
+    )
+    ts1_alternative_tgs = models.ManyToManyField(
+        DimDmrTg,
+        blank=True,
+        related_name="%(class)s_ts1_alternative_tgs",
+    )
+    ts2_alternative_tgs = models.ManyToManyField(
+        DimDmrTg,
+        blank=True,
+        related_name="%(class)s_ts2_alternative_tgs",
     )
     ts_configuration = fields.RichTextField(blank=True, verbose_name="TS config.")
 

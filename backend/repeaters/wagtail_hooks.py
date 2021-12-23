@@ -9,6 +9,7 @@ from .models import (
     DimFm,
     DimDStar,
     DimFusion,
+    DimDmrTg,
     DimDmr,
     DimHolder,
     DimLocation,
@@ -36,6 +37,10 @@ class DimFusionAdmin(ModelAdmin):
     model = DimFusion
 
 
+class DimDmrTgAdmin(ModelAdmin):
+    model = DimDmrTg
+
+
 class DimDmrAdmin(ModelAdmin):
     model = DimDmr
 
@@ -60,6 +65,7 @@ class RepeatersGroup(ModelAdminGroup):
         DimFmAdmin,
         DimDStarAdmin,
         DimFusionAdmin,
+        DimDmrTgAdmin,
         DimDmrAdmin,
         DimHolderAdmin,
         DimLocationAdmin,

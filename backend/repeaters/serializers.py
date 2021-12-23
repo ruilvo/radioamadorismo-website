@@ -6,6 +6,7 @@ from .models import (
     DimFm,
     DimDStar,
     DimFusion,
+    DimDmrTg,
     DimDmr,
     DimHolder,
     DimLocation,
@@ -47,7 +48,17 @@ class DimFusionSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
+class DimDmrTgSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DimDmrTg
+        fields = "__all__"
+
+
 class DimDmrSerializer(serializers.ModelSerializer):
+    ts1_default_tg = DimDmrTgSerializer(many=False, required=False)
+    ts2_default_tg = DimDmrTgSerializer(many=False, required=False)
+    ts1_alternative_tgs = DimDmrTgSerializer(many=True, required=False)
+    ts2_alternative_tgs = DimDmrTgSerializer(many=True, required=False)
     ts_configuration = HtmlRichTextField(required=False)
 
     class Meta:
@@ -133,7 +144,28 @@ def get_update_DimFusion(info_fusion_data: dict) -> DimFusion or None:
     return None
 
 
+def get_update_DimDmrTg(tg_data: dict or None) -> DimDmrTg or None:
+    if tg_data is not None:
+        raise NotImplementedError("In development")
+
+
 def get_update_DimDmr(info_dmr_data: dict) -> DimDmr or None:
+    # TODO: Handle ts[1|2]_default_tg and ts[1|2]_alternative_tgs
+    try:
+        ts1_default_tg = get_update_DimDmrTg(info_dmr_data.pop("ts1_default_tg", None))
+        ts2_default_tg = get_update_DimDmrTg(info_dmr_data.pop("ts2_default_tg", None))
+        ts1_alternative_tgs_data = info_dmr_data.pop("ts1_alternative_tgs", None)
+        ts1_alternative_tgs = []
+        if ts1_alternative_tgs_data is not None:
+            for ts1_alternative_tg_data in ts1_alternative_tgs_data:
+                ts1_alternative_tgs.append(get_update_DimDmrTg(ts1_alternative_tg_data))
+        ts2_alternative_tgs_data = info_dmr_data.pop("ts2_alternative_tgs", None)
+        ts2_alternative_tgs = []
+        if ts2_alternative_tgs_data is not None:
+            for ts2_alternative_tg_data in ts2_alternative_tgs_data:
+                ts2_alternative_tgs.append(get_update_DimDmrTg(ts2_alternative_tg_data))
+    except NotImplementedError:
+        pass
     if info_dmr_data is not None:
         info_dmr, info_dmr_created = DimDmr.objects.get_or_create(
             dmr_id=info_dmr_data["dmr_id"],
@@ -145,10 +177,6 @@ def get_update_DimDmr(info_dmr_data: dict) -> DimDmr or None:
                 info_dmr.modulation = info_dmr_data["modulation"]
             if info_dmr_data["color_code"] is not None:
                 info_dmr.color_code = info_dmr_data["color_code"]
-            if info_dmr_data["ts1_configuration"] is not None:
-                info_dmr.ts1_configuration = info_dmr_data["ts1_configuration"]
-            if info_dmr_data["ts2_configuration"] is not None:
-                info_dmr.ts2_configuration = info_dmr_data["ts2_configuration"]
             info_dmr.save()
         return info_dmr
     return None

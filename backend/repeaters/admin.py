@@ -6,6 +6,7 @@ from .models import (
     DimFm,
     DimDStar,
     DimFusion,
+    DimDmrTg,
     DimDmr,
     DimHolder,
     DimLocation,
@@ -17,6 +18,7 @@ admin.site.register(DimSimplex)
 admin.site.register(DimFm)
 admin.site.register(DimDStar)
 admin.site.register(DimFusion)
+admin.site.register(DimDmrTg)
 admin.site.register(DimDmr)
 admin.site.register(DimHolder)
 admin.site.register(DimLocation)
