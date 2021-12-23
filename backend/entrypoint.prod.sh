@@ -2,5 +2,6 @@
 
 # This file runs from its parent dir
 cd backend
-source wait_for_pg.sh
+./run_migration_chores.sh --noinput
+echo "Starting server..."
 exec uwsgi --ini config_uwsgi.ini
