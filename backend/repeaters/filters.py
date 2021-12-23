@@ -40,47 +40,47 @@ class FactRepeaterFilter(filters.FilterSet):
 
     def mode_search(self, queryset, name, value):
         modes = re.findall(r"[\w']+", value)
-        filter = None
+        myfilter = None
         if "fm" in modes:
             new_filter = Q(info_fm__isnull=False)
-            if filter is None:
-                filter = new_filter
+            if myfilter is None:
+                myfilter = new_filter
             else:
-                filter |= new_filter
+                myfilter |= new_filter
         if "dstar" in modes:
             new_filter = Q(info_dstar__isnull=False)
-            if filter is None:
-                filter = new_filter
+            if myfilter is None:
+                myfilter = new_filter
             else:
-                filter |= new_filter
+                myfilter |= new_filter
         if "fusion" in modes:
             new_filter = Q(info_fusion__isnull=False)
-            if filter is None:
-                filter = new_filter
+            if myfilter is None:
+                myfilter = new_filter
             else:
-                filter |= new_filter
+                myfilter |= new_filter
         if "dmr" in modes:
             new_filter = Q(info_dmr__isnull=False)
-            if filter is None:
-                filter = new_filter
+            if myfilter is None:
+                myfilter = new_filter
             else:
-                filter |= new_filter
-        return queryset.filter(filter)
+                myfilter |= new_filter
+        return queryset.filter(myfilter)
 
     def rf_search(self, queryset, name, value):
         modes = re.findall(r"[\w']+", value)
-        filter = None
+        myfilter = None
         if "half_duplex" in modes:
-            if filter is None:
-                filter = Q(info_half_duplex__isnull=False)
+            if myfilter is None:
+                myfilter = Q(info_half_duplex__isnull=False)
             else:
-                filter |= Q(info_half_duplex__isnull=False)
+                myfilter |= Q(info_half_duplex__isnull=False)
         if "simplex" in modes:
-            if filter is None:
-                filter = Q(info_simplex__isnull=False)
+            if myfilter is None:
+                myfilter = Q(info_simplex__isnull=False)
             else:
-                filter |= Q(info_simplex__isnull=False)
-        return queryset.filter(filter)
+                myfilter |= Q(info_simplex__isnull=False)
+        return queryset.filter(myfilter)
 
     def freq_mhz_search(self, queryset, name, value):
         queryset = queryset.filter(
@@ -114,15 +114,15 @@ class FactRepeaterFilter(filters.FilterSet):
             DimLocation.MADEIRA,
             DimLocation.OTHER,
         ]
-        filter = None
+        myfilter = None
         for region in possible_regions:
             if region in regions:
                 new_filter = Q(info_location__region=region)
-                if filter is None:
-                    filter = new_filter
+                if myfilter is None:
+                    myfilter = new_filter
                 else:
-                    filter |= new_filter
-        return queryset.filter(filter)
+                    myfilter |= new_filter
+        return queryset.filter(myfilter)
 
     class Meta:
         model = FactRepeater
