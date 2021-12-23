@@ -8,7 +8,7 @@ from wagtail.api.conf import APIField
 from wagtail.core.rich_text import expand_db_html
 
 
-class HtmlRichTextField(serializers.CharField):
+class HtmlRichTextSerializerField(serializers.CharField):
     def to_representation(self, value):
         representation = super().to_representation(value)
         return expand_db_html(representation)
@@ -16,5 +16,5 @@ class HtmlRichTextField(serializers.CharField):
 
 class HtmlRichTextFieldApiField(APIField):
     def __init__(self, name):
-        serializer = HtmlRichTextField()
+        serializer = HtmlRichTextSerializerField()
         super().__init__(name=name, serializer=serializer)

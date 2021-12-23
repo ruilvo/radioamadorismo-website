@@ -13,7 +13,7 @@ from .models import (
     FactRepeater,
 )
 
-from utils.fields import HtmlRichTextField
+from utils.fields import HtmlRichTextSerializerField
 
 
 class DimHalfDuplexSerializer(serializers.ModelSerializer):
@@ -59,7 +59,7 @@ class DimDmrSerializer(serializers.ModelSerializer):
     ts2_default_tg = DimDmrTgSerializer(many=False, required=False)
     ts1_alternative_tgs = DimDmrTgSerializer(many=True, required=False)
     ts2_alternative_tgs = DimDmrTgSerializer(many=True, required=False)
-    ts_configuration = HtmlRichTextField(required=False)
+    ts_configuration = HtmlRichTextSerializerField(required=False)
 
     class Meta:
         model = DimDmr
@@ -231,7 +231,7 @@ def get_update_DimLocation(info_location_data: dict) -> DimLocation or None:
 
 
 class FactRepeaterSerializer(serializers.ModelSerializer):
-    notes = HtmlRichTextField(required=False)
+    notes = HtmlRichTextSerializerField(required=False)
 
     info_half_duplex = DimHalfDuplexSerializer(many=False, required=False)
     info_simplex = DimSimplexSerializer(many=False, required=False)
