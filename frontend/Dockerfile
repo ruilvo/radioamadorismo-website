@@ -11,27 +11,16 @@ RUN npm install -g @quasar/cli
 # Make a working dir
 WORKDIR /workspace
 
-# Creates a non-root user and adds permission to access the working dir
-RUN adduser --disabled-password --gecos "" appuser && \
-  chown -R appuser /workspace && \
-  mkdir -p /home/appuser/.vscode-server && \
-  chown -R appuser /home/appuser/.vscode-server
-USER appuser
-
 # Handle requirements
-COPY --chown=appuser:appuser package.json frontend/package.json
+COPY package.json frontend/package.json
 RUN cd frontend && npm install
 
 # Copy project files
-COPY --chown=appuser:appuser . frontend
+COPY . frontend
 
 # Make files executable
 RUN chmod +x frontend/entrypoint.dev.sh &&  \
   chmod +x frontend/entrypoint.prod.sh
-
-# Prepare artifacts dirs
-RUN mkdir -p frontend/dist/spa && \
-  chown -R appuser frontend/dist/spa
 
 # Expose the ports
 EXPOSE 8080

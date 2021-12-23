@@ -15,22 +15,15 @@ RUN pip install --upgrade pip
 # Make a working dir
 WORKDIR /workspace
 
-# Creates a non-root user and adds permission to access the working dir
-RUN adduser --disabled-password --gecos "" appuser && \
-    chown -R appuser /workspace &&\
-    mkdir -p /home/appuser/.vscode-server && \
-    chown -R appuser /home/appuser/.vscode-server
-USER appuser
-
 # Handle requirements
-COPY --chown=appuser:appuser requirements.txt backend/requirements.txt
+COPY requirements.txt backend/requirements.txt
 RUN pip install --user -r backend/requirements.txt
 
 # Now, we have to update the PATH env. variable
-ENV PATH="/home/appuser/.local/bin:${PATH}"
+ENV PATH="/root/.local/bin:${PATH}"
 
 # Copy project files
-COPY --chown=appuser:appuser . backend
+COPY . backend
 
 # Make files executable
 RUN chmod +x backend/entrypoint.dev.sh &&  \
@@ -38,10 +31,6 @@ RUN chmod +x backend/entrypoint.dev.sh &&  \
     chmod +x backend/run_migration_chores.sh && \
     chmod +x backend/start_devserver.sh && \
     chmod +x backend/wait_for_pg.sh
-
-# Prepare artifacts dirs
-RUN mkdir -p backend/_deployment && \
-    chown -R appuser backend/_deployment
 
 # Expose the ports
 EXPOSE 8000
