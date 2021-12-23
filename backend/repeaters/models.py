@@ -1,7 +1,5 @@
 from django.db import models
 
-from django.contrib.postgres.fields import ArrayField
-
 from wagtail.core import fields
 
 from wagtail.snippets.models import register_snippet
