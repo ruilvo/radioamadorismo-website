@@ -9,6 +9,7 @@ django-cors-headers
 drf_spectacular
 drf-spectacular[sidecar]
 djangorestframework-yaml
+drf-writable-nested
 # Wagtail plugins
 wagtailmedia
 # Dependencies
