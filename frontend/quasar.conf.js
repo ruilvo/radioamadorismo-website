@@ -43,6 +43,14 @@ module.exports = configure(function () {
           .plugin("eslint-webpack-plugin")
           .use(ESLintPlugin, [{ extensions: ["js", "vue"] }]);
       },
+
+      // This fixed hot-reload issues when using Docker + WSL2
+      extendWebpack(cfg) {
+        cfg.watchOptions = {
+          aggregateTimeout: 200,
+          poll: 1000,
+        };
+      },
     },
 
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-devServer
