@@ -154,19 +154,19 @@ def get_update_DimDmrTg(tg_data: dict) -> DimDmrTg or None:
 
 
 def get_update_DimDmr(info_dmr_data: dict) -> DimDmr or None:
-    ts1_default_tg = get_update_DimDmrTg(info_dmr_data.pop("ts1_default_tg", None))
-    ts2_default_tg = get_update_DimDmrTg(info_dmr_data.pop("ts2_default_tg", None))
-    ts1_alternative_tgs_data = info_dmr_data.pop("ts1_alternative_tgs", None)
-    ts1_alternative_tgs = []
-    if ts1_alternative_tgs_data is not None:
-        for ts1_alternative_tg_data in ts1_alternative_tgs_data:
-            ts1_alternative_tgs.append(get_update_DimDmrTg(ts1_alternative_tg_data))
-    ts2_alternative_tgs_data = info_dmr_data.pop("ts2_alternative_tgs", None)
-    ts2_alternative_tgs = []
-    if ts2_alternative_tgs_data is not None:
-        for ts2_alternative_tg_data in ts2_alternative_tgs_data:
-            ts2_alternative_tgs.append(get_update_DimDmrTg(ts2_alternative_tg_data))
     if info_dmr_data is not None:
+        ts1_default_tg = get_update_DimDmrTg(info_dmr_data.pop("ts1_default_tg", None))
+        ts2_default_tg = get_update_DimDmrTg(info_dmr_data.pop("ts2_default_tg", None))
+        ts1_alternative_tgs_data = info_dmr_data.pop("ts1_alternative_tgs", None)
+        ts1_alternative_tgs = []
+        if ts1_alternative_tgs_data is not None:
+            for ts1_alternative_tg_data in ts1_alternative_tgs_data:
+                ts1_alternative_tgs.append(get_update_DimDmrTg(ts1_alternative_tg_data))
+        ts2_alternative_tgs_data = info_dmr_data.pop("ts2_alternative_tgs", None)
+        ts2_alternative_tgs = []
+        if ts2_alternative_tgs_data is not None:
+            for ts2_alternative_tg_data in ts2_alternative_tgs_data:
+                ts2_alternative_tgs.append(get_update_DimDmrTg(ts2_alternative_tg_data))
         info_dmr, info_dmr_created = DimDmr.objects.get_or_create(
             dmr_id=info_dmr_data["dmr_id"],
             defaults=info_dmr_data,
@@ -272,7 +272,7 @@ class FactRepeaterSerializer(serializers.ModelSerializer):
             info_dmr=info_dmr,
             info_holder=info_holder,
             info_location=info_location,
-            **validated_data
+            **validated_data,
         )
 
         return repeater
