@@ -16,7 +16,7 @@
 import { defineComponent } from "vue";
 import { useQuasar } from "quasar";
 
-import RepeatersFilter from "src/components/repeaters/RepeatersFilter";
+import RepeatersFilter from "components/repeaters/RepeatersFilter";
 
 export default defineComponent({
   name: "Repeaters",

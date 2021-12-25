@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+
 import { api } from "../boot/axios";
 
 export const useRepeatersStore = defineStore("repeaters", {
