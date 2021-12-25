@@ -7,7 +7,6 @@
         <q-toolbar-title>
           <span class="text-italic q-mr-sm">Æ</span>
           <span class="q-mr-sm">Portal do Radioamadorismo</span>
-          <span class="text-caption">Um projeto de Rui "CT7ALW" Oliveira</span>
         </q-toolbar-title>
       </q-toolbar>
     </q-header>
@@ -23,7 +22,7 @@
 <script>
 import { defineComponent, ref } from "vue";
 
-import Drawer from "src/components/drawer/Drawer.vue";
+import Drawer from "components/drawer/Drawer.vue";
 
 export default defineComponent({
   name: "MainLayout",
