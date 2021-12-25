@@ -16,7 +16,7 @@
       </template>
 
       <template #body-repeater="prop">
-        {{/* eslint-disable-next-line vue/no-v-html */}}
+        <!-- eslint-disable-next-line vue/no-v-html -->
         <div class="text-black no-margin-body" v-html="prop.node.notes"></div>
       </template>
 
@@ -27,7 +27,7 @@
       </template>
 
       <template #default-body="prop">
-        {{/* eslint-disable-next-line vue/no-v-html */}}
+        <!-- eslint-disable-next-line vue/no-v-html -->
         <div class="text-black no-margin-body" v-html="prop.node.data"></div>
       </template>
     </q-tree>
