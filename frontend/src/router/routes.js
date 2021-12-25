@@ -5,6 +5,11 @@ const routes = [
     children: [
       { path: "", component: () => import("pages/Index.vue") },
       {
+        path: "login/",
+        // TODO: transform this into an actually decent page
+        component: () => import("components/auth/LoginForm.vue"),
+      },
+      {
         path: "repetidores/",
         component: () => import("pages/Repeaters.vue"),
         children: [
