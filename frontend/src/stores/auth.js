@@ -29,6 +29,10 @@ export const useAuthStore = defineStore("auth", {
         console.log(error);
       }
     },
+    reset() {
+      this.username = null;
+      this.token = null;
+    },
   },
   getters: {
     isLoggedIn: (state) => !!state.token,
