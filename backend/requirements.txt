@@ -9,6 +9,7 @@ drf_spectacular
 drf-spectacular[sidecar]
 djangorestframework-yaml
 drf-writable-nested
+djangorestframework-simplejwt
 # Dependencies
 psycopg2
 pyyaml
