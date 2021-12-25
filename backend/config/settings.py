@@ -26,26 +26,6 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "whitenoise.runserver_nostatic",  # WhiteNoise static files handling
     "django.contrib.staticfiles",
-    # Wagtail
-    "wagtail.contrib.forms",
-    "wagtail.contrib.redirects",
-    "wagtail.embeds",
-    "wagtail.sites",
-    "wagtail.users",
-    "wagtail.snippets",
-    "wagtail.documents",
-    "wagtail.images",
-    "wagtail.search",
-    "wagtail.admin",
-    "wagtail.core",
-    # Waigtail dependencies
-    "modelcluster",
-    "taggit",
-    # Wagtail API
-    "wagtail.api.v2",
-    # Waigtail plugins
-    "wagtailmedia",
-    "wagtail.contrib.modeladmin",
     # REST framework
     "rest_framework",
     "rest_framework.authtoken",
@@ -57,8 +37,6 @@ INSTALLED_APPS = [
     # Local
     "users",
     "repeaters",
-    "utils",
-    "blog",
 ]
 
 MIDDLEWARE = [
@@ -71,8 +49,6 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    # Wagtail
-    "wagtail.contrib.redirects.middleware.RedirectMiddleware",
 ]
 
 ROOT_URLCONF = "config.urls"
@@ -150,16 +126,6 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-
-# Wagtail settings
-WAGTAIL_SITE_NAME = "Portal do radioamadorismo"
-
-WAGTAILSEARCH_BACKENDS = {
-    "default": {
-        "BACKEND": "wagtail.search.backends.database",
-    }
-}
 
 
 # REST framework

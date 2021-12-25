@@ -19,12 +19,6 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from wagtail.admin import urls as wagtailadmin_urls
-from wagtail.core import urls as wagtail_urls
-from wagtail.documents import urls as wagtaildocs_urls
-
-from .wagtail_api import api_router as wagtail_api_router
-
 from drf_spectacular.views import (
     SpectacularAPIView,
     SpectacularRedocView,
@@ -34,17 +28,6 @@ from drf_spectacular.views import (
 urlpatterns = [
     # Django
     path("admin/", admin.site.urls),
-    # Wagtail CMS
-    path(
-        "cms/",
-        include(
-            [
-                path("admin/", include(wagtailadmin_urls)),
-                path("documents/", include(wagtaildocs_urls)),
-                path("pages/", include(wagtail_urls)),
-            ]
-        ),
-    ),
     # API
     path(
         "api/",
@@ -86,15 +69,6 @@ urlpatterns = [
                         [
                             path("repeaters/", include("repeaters.urls")),
                             path("utils/", include("utils.urls")),
-                        ]
-                    ),
-                ),
-                # Wagtail CMS
-                path(
-                    "v2/",
-                    include(
-                        [
-                            path("cms/", wagtail_api_router.urls),
                         ]
                     ),
                 ),

@@ -1,6 +1,5 @@
 # Website
 Django>=3.2,<4.0
-wagtail
 # REST framework
 djangorestframework
 dj-rest-auth
@@ -10,8 +9,6 @@ drf_spectacular
 drf-spectacular[sidecar]
 djangorestframework-yaml
 drf-writable-nested
-# Wagtail plugins
-wagtailmedia
 # Dependencies
 psycopg2
 pyyaml
