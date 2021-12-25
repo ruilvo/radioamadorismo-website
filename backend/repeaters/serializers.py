@@ -5,8 +5,6 @@ from rest_framework import serializers
 from drf_writable_nested.serializers import WritableNestedModelSerializer
 from drf_writable_nested.mixins import UniqueFieldsMixin
 
-from utils.fields import HtmlRichTextSerializerField
-
 from .models import (
     DimHalfDuplex,
     DimSimplex,
@@ -143,7 +141,6 @@ class DimDmrSerializer(UniqueFieldsMixin, WritableNestedModelSerializer):
     ts2_default_tg = DimDmrTgSerializer(many=False, required=False)
     ts1_alternative_tgs = DimDmrTgSerializer(many=True, required=False)
     ts2_alternative_tgs = DimDmrTgSerializer(many=True, required=False)
-    ts_configuration = HtmlRichTextSerializerField(required=False)
 
     class Meta:
         model = DimDmr
@@ -210,8 +207,6 @@ class DimLocationSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
 
 
 class FactRepeaterSerializer(WritableNestedModelSerializer):
-    notes = HtmlRichTextSerializerField(required=False)
-
     info_half_duplex = DimHalfDuplexSerializer(many=False, required=False)
     info_simplex = DimSimplexSerializer(many=False, required=False)
     info_fm = DimFmSerializer(many=False, required=False)
