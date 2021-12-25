@@ -85,7 +85,7 @@ urlpatterns = [
                     include(
                         [
                             path("repeaters/", include("repeaters.urls")),
-                            path("wagtailmediautils/", include("utils.urls")),
+                            path("utils/", include("utils.urls")),
                         ]
                     ),
                 ),

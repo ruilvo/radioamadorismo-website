@@ -1,9 +1,10 @@
 from rest_framework.routers import SimpleRouter
 
-from .views import WagtailMediaViewSet
+from .views import WagtailMediaViewSet, WagtailEmbedViewSet
 
 
 router = SimpleRouter()
-router.register("", WagtailMediaViewSet, basename="wagtailmediautils")
+router.register("media", WagtailMediaViewSet, basename="wagtailmediaviewset")
+router.register("embed", WagtailEmbedViewSet, basename="wagtailembedviewset")
 
 urlpatterns = router.urls
