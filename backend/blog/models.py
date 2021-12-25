@@ -13,7 +13,7 @@ from wagtail.api import APIField
 from wagtailmedia.blocks import AudioChooserBlock, VideoChooserBlock
 
 from utils.fields import HtmlRichTextFieldApiField
-from utils.blocks import HtmlRichTextBlock
+from utils.blocks import HtmlRichTextBlock, BetterEmbedBlock
 
 
 class BlogIndexPage(Page):
@@ -34,7 +34,7 @@ class BlogPage(Page):
             ("paragraph", HtmlRichTextBlock()),
             ("image", ImageChooserBlock(required=False)),
             ("document", DocumentChooserBlock(required=False)),
-            ("embed", EmbedBlock(required=False)),
+            ("embed", BetterEmbedBlock(required=False)),
             ("audio", AudioChooserBlock(icon="media", required=False)),
             ("video", VideoChooserBlock(icon="media", required=False)),
         ]
