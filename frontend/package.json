@@ -17,6 +17,7 @@
     "core-js": "^3.6.5",
     "leaflet": "^1.7.1",
     "pinia": "^2.0.8",
+    "pinia-plugin-persist": "^0.0.92",
     "quasar": "^2.0.0",
     "swagger-ui": "^4.1.3"
   },
