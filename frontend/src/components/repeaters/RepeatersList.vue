@@ -16,6 +16,7 @@
       </template>
 
       <template #body-repeater="prop">
+        {{/* eslint-disable-next-line vue/no-v-html */}}
         <div class="text-black no-margin-body" v-html="prop.node.notes"></div>
       </template>
 
@@ -26,17 +27,12 @@
       </template>
 
       <template #default-body="prop">
+        {{/* eslint-disable-next-line vue/no-v-html */}}
         <div class="text-black no-margin-body" v-html="prop.node.data"></div>
       </template>
     </q-tree>
   </div>
 </template>
-
-<style scoped>
-.no-margin-body ::v-deep(p) {
-  margin: 0;
-}
-</style>
 
 <script>
 import { defineComponent, computed } from "vue";
@@ -266,3 +262,9 @@ export default defineComponent({
   },
 });
 </script>
+
+<style scoped>
+.no-margin-body ::v-deep(p) {
+  margin: 0;
+}
+</style>

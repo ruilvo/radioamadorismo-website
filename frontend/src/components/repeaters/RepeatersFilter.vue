@@ -1,10 +1,10 @@
 <template>
   <div class="text-h6 q-mx-sm">Filtros</div>
   <div class="col column no-wrap scroll q-pa-md">
-    <q-form @submit="submitFilters" class="q-gutter-md">
+    <q-form class="q-gutter-md" @submit="submitFilters">
       <q-select
-        filled
         v-model="selectedRegions"
+        filled
         multiple
         map-options
         emit-value
@@ -18,8 +18,8 @@
       />
 
       <q-select
-        filled
         v-model="selectedModes"
+        filled
         multiple
         map-options
         emit-value

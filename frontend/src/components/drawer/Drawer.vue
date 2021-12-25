@@ -1,13 +1,13 @@
 <template>
   <q-drawer
-    show-if-above
     v-model="leftDrawerOpen"
+    show-if-above
     side="left"
     bordered
     class="bg-grey-3"
   >
     <q-list>
-      <q-item clickable to="/" key="start" exact>
+      <q-item key="start" clickable to="/" exact>
         <q-item-section avatar>
           <q-icon name="home" />
         </q-item-section>
@@ -15,18 +15,18 @@
       </q-item>
       <q-separator key="sep1" />
       <q-expansion-item
+        key="repeaters"
+        v-model="repeaters_expanded"
         expand-separator
         icon="cell_tower"
-        key="repeaters"
         to="/repetidores"
         label="Repetidores"
-        v-model="repeaters_expanded"
       >
         <q-item
+          key="repeaters-list"
           clickable
           to="/repetidores"
           exact
-          key="repeaters-list"
           :inset-level="1"
         >
           <q-item-section avatar>
@@ -35,9 +35,9 @@
           <q-item-section>Lista</q-item-section>
         </q-item>
         <q-item
+          key="repeaters-map"
           clickable
           to="/repetidores/mapa"
-          key="repeaters-map"
           :inset-level="1"
         >
           <q-item-section avatar>
@@ -48,24 +48,24 @@
       </q-expansion-item>
       <q-separator key="sep2" />
       <q-expansion-item
+        key="api-tab"
+        v-model="api_expanded"
         expand-separator
         icon="api"
-        key="api-tab"
         label="API"
-        v-model="api_expanded"
       >
-        <q-item clickable to="/swagger" exact key="swagger-ui" :inset-level="1">
+        <q-item key="swagger-ui" clickable to="/swagger" exact :inset-level="1">
           <q-item-section avatar>
             <q-icon name="description" />
           </q-item-section>
           <q-item-section>Documentação (🇬🇧)</q-item-section>
         </q-item>
         <q-item
+          key="repeaters-api"
           clickable
           tag="a"
           href="/api/v1/repeaters/"
           exact
-          key="repeaters-api"
           :inset-level="1"
         >
           <q-item-section avatar>
@@ -77,7 +77,7 @@
           /></q-item-section>
         </q-item>
       </q-expansion-item>
-      <q-item clickable key="about-url" to="/sobre">
+      <q-item key="about-url" clickable to="/sobre">
         <q-item-section avatar>
           <q-icon name="help_outline" />
         </q-item-section>
