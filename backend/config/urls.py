@@ -62,16 +62,6 @@ urlpatterns = [
                         ]
                     ),
                 ),
-                # Local
-                path(
-                    "v1/",
-                    include(
-                        [
-                            path("repeaters/", include("repeaters.urls")),
-                            path("utils/", include("utils.urls")),
-                        ]
-                    ),
-                ),
             ],
         ),
     ),
