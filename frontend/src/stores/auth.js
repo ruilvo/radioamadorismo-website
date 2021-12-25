@@ -9,25 +9,16 @@ export const useAuthStore = defineStore("auth", {
   }),
   actions: {
     async login({ username, password }) {
-      try {
-        var response = await api.post("/api/auth/dj-rest-auth/login/", {
-          username,
-          password,
-        });
-        this.username = username;
-        this.token = response.data.key;
-      } catch (error) {
-        console.log(error);
-      }
+      var response = await api.post("/api/auth/dj-rest-auth/login/", {
+        username,
+        password,
+      });
+      this.username = username;
+      this.token = response.data.key;
     },
     async logout() {
-      try {
-        await api.post("/api/auth/dj-rest-auth/logout/");
-        this.username = null;
-        this.token = null;
-      } catch (error) {
-        console.log(error);
-      }
+      await api.post("/api/auth/dj-rest-auth/logout/");
+      self.reset();
     },
     reset() {
       this.username = null;
