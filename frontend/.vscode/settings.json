@@ -6,7 +6,9 @@
   "[javascript][json][vue][nginx][typescript][scss][yaml][html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSaveMode": "file",
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "rewrap.autoWrap.enabled": false,
+    "rewrap.reformat": false,
   },
   "eslint.validate": [
     "javascript",
