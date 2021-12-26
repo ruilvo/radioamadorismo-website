@@ -83,6 +83,24 @@
         </q-item-section>
         <q-item-section>Sobre</q-item-section>
       </q-item>
+      <q-separator key="sepAuth" />
+      <q-item v-if="!isAuthenticated" key="login-entry" clickable to="/login">
+        <q-item-section avatar>
+          <q-icon name="login" />
+        </q-item-section>
+        <q-item-section>Entrar</q-item-section>
+      </q-item>
+      <q-item
+        v-if="isAuthenticated"
+        key="logout-entry"
+        clickable
+        @click="logout"
+      >
+        <q-item-section avatar>
+          <q-icon name="logout" />
+        </q-item-section>
+        <q-item-section>Sair</q-item-section>
+      </q-item>
     </q-list>
   </q-drawer>
 </template>
@@ -91,6 +109,8 @@
 import { defineComponent, watch, ref, computed } from "vue";
 
 import { useRoute } from "vue-router";
+
+import useAuthStore from "src/stores/auth/auth";
 
 export default defineComponent({
   name: "Drawer",
@@ -101,8 +121,12 @@ export default defineComponent({
   setup(props, { emit }) {
     const $route = useRoute();
 
+    const authStore = useAuthStore();
+
     const repeaters_expanded = ref($route.path.includes("/repetidores"));
     const api_expanded = ref($route.path.includes("/swagger"));
+
+    const isAuthenticated = computed(() => authStore.isAuthenticated);
 
     const leftDrawerOpen = computed({
       get: () => props.modelValue,
@@ -124,6 +148,11 @@ export default defineComponent({
       leftDrawerOpen,
       repeaters_expanded,
       api_expanded,
+      isAuthenticated,
+
+      async logout() {
+        await authStore.logout();
+      },
     };
   },
 });

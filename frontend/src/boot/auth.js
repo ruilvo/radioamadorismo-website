@@ -11,14 +11,12 @@ export default boot(({ router }) => {
 
   router.beforeEach((to, from, next) => {
     if (to.matched.some((record) => record.meta.requiresAuth)) {
-      if (authStore.isAuthenticated) {
-        next();
+      if (!authStore.isAuthenticated) {
+        next("/login");
         return;
       }
-      next("/login");
-    } else {
-      next();
     }
+    next();
   });
 
   router.beforeEach((to, from, next) => {
@@ -27,21 +25,16 @@ export default boot(({ router }) => {
         next("/");
         return;
       }
-      next();
-    } else {
-      next();
     }
+    next();
   });
 
   api.interceptors.response.use(undefined, function (error) {
     if (error) {
       const originalRequest = error.config;
-      if (
-        (error.response.status === 401 || error.response.status === 403) &&
-        !originalRequest._retry
-      ) {
+      if (error.response.status === 401 && !originalRequest._retry) {
         originalRequest._retry = true;
-        authStore.logout();
+        authStore.reset();
         return router.push("/login");
       }
     }
