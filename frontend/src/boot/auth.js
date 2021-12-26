@@ -1,6 +1,6 @@
 import { boot } from "quasar/wrappers";
 
-import axios from "axios";
+import { api } from "boot/axios";
 
 import useAuthStore from "src/stores/auth/auth";
 
@@ -33,10 +33,13 @@ export default boot(({ router }) => {
     }
   });
 
-  axios.interceptors.response.use(undefined, function (error) {
+  api.interceptors.response.use(undefined, function (error) {
     if (error) {
       const originalRequest = error.config;
-      if (error.response.status === 401 && !originalRequest._retry) {
+      if (
+        (error.response.status === 401 || error.response.status === 403) &&
+        !originalRequest._retry
+      ) {
         originalRequest._retry = true;
         authStore.logout();
         return router.push("/login");
