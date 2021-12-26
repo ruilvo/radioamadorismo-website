@@ -5,11 +5,6 @@ const routes = [
     children: [
       { path: "", component: () => import("pages/portal/Index.vue") },
       {
-        path: "login/",
-        component: () => import("pages/auth/Login.vue"),
-        meta: { guest: true },
-      },
-      {
         path: "repetidores/",
         component: () => import("pages/portal/Repeaters.vue"),
         children: [
@@ -27,6 +22,12 @@ const routes = [
       },
       { path: "sobre/", component: () => import("pages/portal/About.vue") },
     ],
+  },
+  {
+    path: "/login/",
+    component: () => import("layouts/EmptyLayout.vue"),
+    children: [{ path: "", component: () => import("pages/auth/Login.vue") }],
+    meta: { guest: true },
   },
   {
     path: "/:catchAll(.*)*",
