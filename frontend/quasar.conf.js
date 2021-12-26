@@ -36,6 +36,10 @@ module.exports = configure(function () {
     build: {
       vueRouterMode: "history", // available values: 'hash', 'history'
 
+      // this is a configuration passed on
+      // to the underlying Webpack
+      devtool: "source-map",
+
       // https://quasar.dev/quasar-cli/handling-webpack
       // "chain" is a webpack-chain object https://github.com/neutrinojs/webpack-chain
       chainWebpack(chain) {
