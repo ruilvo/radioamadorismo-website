@@ -50,7 +50,7 @@
 import { defineComponent, ref, computed, onUnmounted, watch } from "vue";
 import { useRouter, useRoute } from "vue-router";
 
-import { useRepeatersStore } from "src/stores/repeaters";
+import useRepeatersStore from "src/stores/portal/repeaters";
 
 function isObjectEmpty(value) {
   return Object.keys(value).length === 0 && value.constructor === Object;

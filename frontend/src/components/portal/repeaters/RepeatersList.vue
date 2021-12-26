@@ -37,7 +37,7 @@
 <script>
 import { defineComponent, computed } from "vue";
 
-import { useRepeatersStore } from "src/stores/repeaters";
+import useRepeatersStore from "src/stores/portal/repeaters";
 
 function push_if_qtree(cond_and_data, label, parent) {
   if (cond_and_data) {

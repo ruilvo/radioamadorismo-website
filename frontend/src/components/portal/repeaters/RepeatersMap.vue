@@ -30,7 +30,7 @@ L.Icon.Default.mergeOptions({
 
 var repeatersMap = null;
 
-import { useRepeatersStore } from "src/stores/repeaters";
+import useRepeatersStore from "src/stores/portal/repeaters";
 
 export default defineComponent({
   name: "RepeatersMap",

@@ -3,7 +3,7 @@ const routes = [
     path: "/",
     component: () => import("layouts/MainLayout.vue"),
     children: [
-      { path: "", component: () => import("pages/Index.vue") },
+      { path: "", component: () => import("pages/portal/Index.vue") },
       {
         path: "login/",
         component: () => import("pages/auth/Login.vue"),
@@ -11,19 +11,21 @@ const routes = [
       },
       {
         path: "repetidores/",
-        component: () => import("pages/Repeaters.vue"),
+        component: () => import("pages/portal/Repeaters.vue"),
         children: [
           {
             path: "",
-            component: () => import("components/repeaters/RepeatersList.vue"),
+            component: () =>
+              import("components/portal/repeaters/RepeatersList.vue"),
           },
           {
             path: "mapa/",
-            component: () => import("components/repeaters/RepeatersMap.vue"),
+            component: () =>
+              import("components/portal/repeaters/RepeatersMap.vue"),
           },
         ],
       },
-      { path: "sobre/", component: () => import("pages/About.vue") },
+      { path: "sobre/", component: () => import("pages/portal/About.vue") },
     ],
   },
   {

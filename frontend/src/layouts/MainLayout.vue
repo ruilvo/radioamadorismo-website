@@ -22,7 +22,7 @@
 <script>
 import { defineComponent, ref } from "vue";
 
-import Drawer from "components/drawer/Drawer.vue";
+import Drawer from "components/portal/Drawer.vue";
 
 export default defineComponent({
   name: "MainLayout",

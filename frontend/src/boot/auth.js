@@ -2,7 +2,7 @@ import { boot } from "quasar/wrappers";
 
 import axios from "axios";
 
-import { useAuthStore } from "src/stores/auth";
+import useAuthStore from "src/stores/auth/auth";
 
 export default boot(({ router }) => {
   const authStore = useAuthStore();

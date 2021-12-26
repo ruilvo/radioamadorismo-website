@@ -41,3 +41,5 @@ export const useAuthStore = defineStore("auth", {
     enabled: true,
   },
 });
+
+export default useAuthStore;

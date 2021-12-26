@@ -20,3 +20,5 @@ export const useRepeatersStore = defineStore("repeaters", {
     },
   },
 });
+
+export default useRepeatersStore;
