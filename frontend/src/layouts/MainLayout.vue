@@ -22,6 +22,8 @@
 <script>
 import { defineComponent, ref } from "vue";
 
+import useAuthStore from "src/stores/auth/auth";
+
 import Drawer from "components/portal/Drawer.vue";
 
 export default defineComponent({
@@ -30,6 +32,9 @@ export default defineComponent({
     Drawer,
   },
   setup() {
+    const authStore = useAuthStore();
+    authStore.check();
+
     const leftDrawerOpen = ref(false);
 
     return {
