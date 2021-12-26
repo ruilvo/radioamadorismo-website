@@ -7,13 +7,9 @@ import {
   createWebHashHistory,
 } from "vue-router";
 
-import { useAuthStore } from "src/stores/auth";
-
 import routes from "./routes";
 
 export default route(function () {
-  const authStore = useAuthStore();
-
   const createHistory = process.env.SERVER
     ? createMemoryHistory
     : process.env.VUE_ROUTER_MODE === "history"
@@ -26,30 +22,6 @@ export default route(function () {
     history: createHistory(
       process.env.MODE === "ssr" ? void 0 : process.env.VUE_ROUTER_BASE
     ),
-  });
-
-  Router.beforeEach((to, from, next) => {
-    if (to.matched.some((record) => record.meta.requiresAuth)) {
-      if (authStore.isAuthenticated) {
-        next();
-        return;
-      }
-      next("/login");
-    } else {
-      next();
-    }
-  });
-
-  Router.beforeEach((to, from, next) => {
-    if (to.matched.some((record) => record.meta.guest)) {
-      if (authStore.isAuthenticated) {
-        next("/");
-        return;
-      }
-      next();
-    } else {
-      next();
-    }
   });
 
   return Router;
