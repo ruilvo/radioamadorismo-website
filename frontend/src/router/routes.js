@@ -23,7 +23,6 @@ const routes = [
           },
         ],
       },
-      { path: "swagger/", component: () => import("pages/Swagger.vue") },
       { path: "sobre/", component: () => import("pages/About.vue") },
     ],
   },
