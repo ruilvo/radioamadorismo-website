@@ -15,7 +15,7 @@ export const useRepeatersStore = defineStore("repeaters", {
           this.repeaters = res.data;
         })
         .catch((err) => {
-          console.log(err);
+          console.error(err);
         });
     },
   },
