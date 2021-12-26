@@ -17,7 +17,6 @@ export const useAuthStore = defineStore("auth", {
         this.isAuthenticated = true;
         this.errorMessage = null;
       } catch (error) {
-        console.error(error);
         this.isAuthenticated = false;
         this.errorMessage = error.response.data.non_field_errors[0];
       }
@@ -27,7 +26,6 @@ export const useAuthStore = defineStore("auth", {
         await api.post("/api/auth/dj-rest-auth/logout/");
         this.errorMessage = null;
       } catch (error) {
-        console.error(error);
         this.errorMessage = error.response.data.non_field_errors[0];
       }
       this.isAuthenticated = false;

@@ -38,5 +38,6 @@ export default boot(({ router }) => {
         return router.push("/login");
       }
     }
+    return Promise.reject(error);
   });
 });

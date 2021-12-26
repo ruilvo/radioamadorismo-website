@@ -85,10 +85,8 @@ export default defineComponent({
           username: username.value,
           password: password.value,
         });
-        console.log("Ended login");
         showProgress.value = false;
         if (!hasError.value) {
-          console.log("No error!");
           router.push("/");
         }
       },
