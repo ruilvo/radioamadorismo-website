@@ -4,28 +4,40 @@ import { api } from "boot/axios";
 
 export const useAuthStore = defineStore("auth", {
   state: () => ({
-    username: null,
-    token: null,
+    isAuthenticated: false,
+    errorMessage: null,
   }),
   actions: {
     async login({ username, password }) {
-      var response = await api.post("/api/auth/dj-rest-auth/login/", {
-        username,
-        password,
-      });
-      this.username = username;
-      this.token = response.data.key;
+      try {
+        await api.post("/api/auth/dj-rest-auth/login/", {
+          username,
+          password,
+        });
+        this.isAuthenticated = true;
+        this.errorMessage = null;
+      } catch (error) {
+        console.error(error);
+        this.isAuthenticated = false;
+        this.errorMessage = error.response.data.non_field_errors;
+      }
     },
     async logout() {
-      await api.post("/api/auth/dj-rest-auth/logout/");
-      self.reset();
+      try {
+        await api.post("/api/auth/dj-rest-auth/logout/");
+        this.errorMessage = null;
+      } catch (error) {
+        console.error(error);
+        this.errorMessage = error.response.data.non_field_errors;
+      }
+      this.isAuthenticated = false;
     },
     reset() {
-      this.username = null;
-      this.token = null;
+      this.isAuthenticated = false;
+      this.errorMessage = null;
     },
   },
-  getters: {
-    isLoggedIn: (state) => !!state.token,
+  persist: {
+    enabled: true,
   },
 });
