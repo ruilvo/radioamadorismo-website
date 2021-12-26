@@ -206,7 +206,8 @@ SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "DO_NOT_USE_THIS_IN_PRODUCTION_
 DEBUG = int(os.environ.get("DJANGO_DEBUG", default=0))
 
 ALLOWED_HOSTS = os.environ.get(
-    "DJANGO_ALLOWED_HOSTS", "localhost 127.0.0.1 [::1] backend"
+    "DJANGO_ALLOWED_HOSTS",
+    "localhost 127.0.0.1 [::1] backend localhost:8080 localhost:8000",
 ).split(" ")
 
 CORS_ORIGIN_WHITELIST_DEFAULT = [
