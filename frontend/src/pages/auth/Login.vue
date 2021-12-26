@@ -64,7 +64,7 @@ export default defineComponent({
     const showProgress = ref(false);
 
     const hasError = computed(() => {
-      return !!authStore.errorMessage;
+      return authStore.errorMessage !== null;
     });
 
     const errorMessage = computed(() => {
@@ -79,9 +79,12 @@ export default defineComponent({
       errorMessage,
       showProgress,
 
-      onSubmit() {
+      async onSubmit() {
         showProgress.value = true;
-        authStore.login({ username: username.value, password: password.value });
+        await authStore.login({
+          username: username.value,
+          password: password.value,
+        });
         showProgress.value = false;
         if (!hasError.value) {
           router.push("/");
