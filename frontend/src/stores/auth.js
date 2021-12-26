@@ -19,7 +19,7 @@ export const useAuthStore = defineStore("auth", {
       } catch (error) {
         console.error(error);
         this.isAuthenticated = false;
-        this.errorMessage = error.response.data.non_field_errors;
+        this.errorMessage = error.response.data.non_field_errors[0];
       }
     },
     async logout() {

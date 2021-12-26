@@ -6,8 +6,8 @@ const routes = [
       { path: "", component: () => import("pages/Index.vue") },
       {
         path: "login/",
-        // TODO: transform this into an actually decent page
-        component: () => import("components/auth/LoginForm.vue"),
+        component: () => import("pages/auth/Login.vue"),
+        meta: { guest: true },
       },
       {
         path: "repetidores/",
