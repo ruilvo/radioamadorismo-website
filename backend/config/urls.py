@@ -25,12 +25,6 @@ from drf_spectacular.views import (
     SpectacularSwaggerView,
 )
 
-from rest_framework_simplejwt.views import (
-    TokenObtainPairView,
-    TokenRefreshView,
-    TokenVerifyView,
-)
-
 urlpatterns = [
     # Django
     path("admin/", admin.site.urls),
@@ -53,28 +47,6 @@ urlpatterns = [
                                 "dj-rest-auth/",
                                 include("dj_rest_auth.urls"),
                                 name="dj-rest-auth",
-                            ),
-                            path(
-                                "token/",
-                                include(
-                                    [
-                                        path(
-                                            "",
-                                            TokenObtainPairView.as_view(),
-                                            name="token_obtain_pair",
-                                        ),
-                                        path(
-                                            "refresh/",
-                                            TokenRefreshView.as_view(),
-                                            name="token_refresh",
-                                        ),
-                                        path(
-                                            "verify/",
-                                            TokenVerifyView.as_view(),
-                                            name="token_verify",
-                                        ),
-                                    ]
-                                ),
                             ),
                         ]
                     ),

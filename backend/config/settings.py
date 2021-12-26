@@ -177,6 +177,10 @@ SPECTACULAR_SETTINGS = {
     "REDOC_DIST": "SIDECAR",
 }
 
+REST_USE_JWT = True
+JWT_AUTH_COOKIE = "pr-auth-token"
+JWT_AUTH_REFRESH_COOKIE = "pr-refresh-token"
+
 
 # Settings that should be able to be set by the environment
 
