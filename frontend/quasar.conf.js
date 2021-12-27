@@ -21,7 +21,7 @@ module.exports = configure(function () {
     // app boot file (/src/boot)
     // --> boot files are part of "main.js"
     // https://quasar.dev/quasar-cli/boot-files
-    boot: ["axios", "pinia", "auth"],
+    boot: ["axios", "pinia", "auth", "loading"],
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css
     css: ["app.scss", "tw.css"],
@@ -88,7 +88,7 @@ module.exports = configure(function () {
       lang: "pt", // Quasar language pack
 
       // Quasar plugins
-      plugins: [],
+      plugins: ["LoadingBar"],
     },
 
     // animations: 'all', // --- includes all animations
