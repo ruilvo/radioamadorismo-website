@@ -1,6 +1,6 @@
 <template>
   <q-layout view="hhh lpr fff">
-    <Header @hamburgerClicked="toggleLeftDrawer" />
+    <Header @hamburger-clicked="toggleLeftDrawer" />
     <Drawer v-model="leftDrawerOpen" />
 
     <q-page-container>

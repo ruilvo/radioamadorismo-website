@@ -36,10 +36,8 @@ export default defineComponent({
   props: {
     noHamburger: Boolean,
   },
-  emits: {
-    hamburgerClicked: null,
-  },
-  setup() {
+  emits: ["hamburgerClicked"],
+  setup(props, { emit }) {
     const $route = useRoute();
 
     const authStore = useAuthStore();
@@ -50,7 +48,7 @@ export default defineComponent({
     return {
       isOnCms,
       emitHamburgerClicked() {
-        this.$emit("hamburgerClicked");
+        emit("hamburgerClicked");
       },
     };
   },
