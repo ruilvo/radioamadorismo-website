@@ -68,9 +68,6 @@ module.exports = configure(function () {
         "/admin": {
           target: "http://backend:8000",
         },
-        "/cms": {
-          target: "http://backend:8000",
-        },
         "/api": {
           target: "http://backend:8000",
         },
