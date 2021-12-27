@@ -2,6 +2,10 @@ from django.db import models
 
 
 class DimHalfDuplex(models.Model):
+    """
+    Models enough information for describing half-duplex repeaters.
+    """
+
     tx_mhz = models.DecimalField(
         max_digits=20, decimal_places=10, verbose_name="tx (MHz)"
     )
@@ -30,6 +34,10 @@ class DimHalfDuplex(models.Model):
 
 
 class DimSimplex(models.Model):
+    """
+    Models enough information for describing simplex repeaters.
+    """
+
     freq_mhz = models.DecimalField(
         max_digits=20, decimal_places=10, unique=True, verbose_name="freq. (MHz)"
     )
@@ -46,6 +54,10 @@ class DimSimplex(models.Model):
 
 
 class DimFm(models.Model):
+    """
+    Models enough information for describing FM repeaters.
+    """
+
     modulation = models.CharField(max_length=20, blank=True, verbose_name="modulation")
     tone = models.DecimalField(
         max_digits=20, decimal_places=10, blank=True, null=True, verbose_name="tone"
@@ -65,6 +77,10 @@ class DimFm(models.Model):
 
 
 class DimDStar(models.Model):
+    """
+    Models enough information for describing D-STAR repeaters.
+    """
+
     modulation = models.CharField(max_length=20, blank=True, verbose_name="modulation")
     gateway = models.CharField(max_length=20, blank=True, verbose_name="gateway")
     reflector = models.CharField(max_length=50, blank=True, verbose_name="reflector")
@@ -84,6 +100,10 @@ class DimDStar(models.Model):
 
 
 class DimFusion(models.Model):
+    """
+    Models enough information for describing Fusion/C4FM repeaters.
+    """
+
     modulation = models.CharField(max_length=20, blank=True, verbose_name="modulation")
     wiresx = models.CharField(max_length=20, blank=True, verbose_name="wiresx")
     room_id = models.CharField(max_length=20, blank=True, verbose_name="room ID")
@@ -103,6 +123,10 @@ class DimFusion(models.Model):
 
 
 class DimDmrTg(models.Model):
+    """
+    Models enough information for describing a DMR TG.
+    """
+
     name = models.CharField(max_length=50, verbose_name="name")
     dmr_id = models.IntegerField(unique=True, verbose_name="DMR ID")
 
@@ -115,6 +139,10 @@ class DimDmrTg(models.Model):
 
 
 class DimDmr(models.Model):
+    """
+    Models enough information for describing DMR repeaters.
+    """
+
     modulation = models.CharField(max_length=20, blank=True, verbose_name="modulation")
     dmr_id = models.IntegerField(unique=True, verbose_name="DMR ID")
     color_code = models.IntegerField(verbose_name="C.C.")
@@ -153,6 +181,10 @@ class DimDmr(models.Model):
 
 
 class DimHolder(models.Model):
+    """
+    Models enough information for describing the holder of a repeater.
+    """
+
     abrv = models.CharField(max_length=10, verbose_name="abrv.", unique=True)
     name = models.CharField(max_length=500, blank=True, verbose_name="name")
     sysop = models.CharField(max_length=20, blank=True, verbose_name="sysop")
@@ -166,6 +198,10 @@ class DimHolder(models.Model):
 
 
 class DimLocation(models.Model):
+    """
+    Models enough information for describing a repeater's location.
+    """
+
     CONTINENT = "CPT"
     AZORES = "AZR"
     MADEIRA = "MDA"
@@ -216,6 +252,10 @@ class DimLocation(models.Model):
 
 
 class FactRepeater(models.Model):
+    """
+    Models a repeater's full information.
+    """
+
     callsign = models.CharField(max_length=10, verbose_name="callsign")
     notes = models.TextField(blank=True, verbose_name="notes")
     pwr_w = models.IntegerField(blank=True, null=True, verbose_name="pwr. (W)")

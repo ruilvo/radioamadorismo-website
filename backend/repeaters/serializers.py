@@ -20,6 +20,8 @@ from .models import (
 
 
 class DimHalfDuplexSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
+    __doc__ = DimHalfDuplex.__doc__
+
     shift = serializers.ReadOnlyField()
 
     class Meta:
@@ -40,6 +42,8 @@ class DimHalfDuplexSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
 
 
 class DimSimplexSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
+    __doc__ = DimSimplex.__doc__
+
     class Meta:
         model = DimSimplex
         fields = "__all__"
@@ -57,6 +61,8 @@ class DimSimplexSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
 
 
 class DimFmSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
+    __doc__ = DimFm.__doc__
+
     class Meta:
         model = DimFm
         fields = "__all__"
@@ -73,6 +79,8 @@ class DimFmSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
 
 
 class DimDStarSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
+    __doc__ = DimDStar.__doc__
+
     class Meta:
         model = DimDStar
         fields = "__all__"
@@ -95,6 +103,8 @@ class DimDStarSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
 
 
 class DimFusionSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
+    __doc__ = DimFusion.__doc__
+
     class Meta:
         model = DimFusion
         fields = "__all__"
@@ -117,6 +127,8 @@ class DimFusionSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
 
 
 class DimDmrTgSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
+    __doc__ = DimDmrTg.__doc__
+
     class Meta:
         model = DimDmrTg
         fields = "__all__"
@@ -137,6 +149,8 @@ class DimDmrTgSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
 
 
 class DimDmrSerializer(UniqueFieldsMixin, WritableNestedModelSerializer):
+    __doc__ = DimDmr.__doc__
+
     ts1_default_tg = DimDmrTgSerializer(many=False, required=False)
     ts2_default_tg = DimDmrTgSerializer(many=False, required=False)
     ts1_alternative_tgs = DimDmrTgSerializer(many=True, required=False)
@@ -154,6 +168,8 @@ class DimDmrSerializer(UniqueFieldsMixin, WritableNestedModelSerializer):
 
 
 class DimHolderSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
+    __doc__ = DimHolder.__doc__
+
     class Meta:
         model = DimHolder
         fields = "__all__"
@@ -178,6 +194,8 @@ class DimHolderSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
 
 
 class DimLocationSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
+    __doc__ = DimLocation.__doc__
+
     class Meta:
         model = DimLocation
         fields = "__all__"
@@ -207,6 +225,8 @@ class DimLocationSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
 
 
 class FactRepeaterSerializer(WritableNestedModelSerializer):
+    __doc__ = FactRepeater.__doc__
+
     info_half_duplex = DimHalfDuplexSerializer(many=False, required=False)
     info_simplex = DimSimplexSerializer(many=False, required=False)
     info_fm = DimFmSerializer(many=False, required=False)
