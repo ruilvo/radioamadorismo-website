@@ -38,7 +38,7 @@
       key="repeaters-api"
       clickable
       tag="a"
-      href="/api/v1/repeaters/"
+      href="/api/v1/repeaters/fact-repeaters/"
       exact
       :inset-level="1"
     >

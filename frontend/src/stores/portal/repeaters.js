@@ -10,7 +10,7 @@ export const useRepeatersStore = defineStore("repeaters", {
   actions: {
     updateRepeaters() {
       api
-        .get("/api/v1/repeaters/", { params: this.query })
+        .get("/api/v1/repeaters/fact-repeaters/", { params: this.query })
         .then((res) => {
           this.repeaters = res.data;
         })
