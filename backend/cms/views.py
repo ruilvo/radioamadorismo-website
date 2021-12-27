@@ -5,7 +5,11 @@ from .models import (
     FactBlogPost,
 )
 
-from .serializers import FactImageSerializer, FactBlogPostSerializer
+from .serializers import (
+    FactImageSerializer,
+    FactBlogPostDetailSerializer,
+    FactBlogPostListSerializer,
+)
 
 
 class FactImageViewSet(viewsets.ModelViewSet):
@@ -17,4 +21,12 @@ class FactImageViewSet(viewsets.ModelViewSet):
 class FactBlogPostViewSet(viewsets.ModelViewSet):
 
     queryset = FactBlogPost.objects.all()
-    serializer_class = FactBlogPostSerializer
+    serializer_class = FactBlogPostDetailSerializer
+
+    serializer_class_by_action = {
+        "retrieve": FactBlogPostDetailSerializer,
+        "list": FactBlogPostListSerializer,
+    }
+
+    def get_serializer_class(self):
+        return self.serializer_class_by_action.get(self.action, self.serializer_class)

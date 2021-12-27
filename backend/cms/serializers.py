@@ -12,7 +12,13 @@ class FactImageSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
-class FactBlogPostSerializer(serializers.ModelSerializer):
+class FactBlogPostDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = FactBlogPost
         fields = "__all__"
+
+
+class FactBlogPostListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = FactBlogPost
+        fields = ["id", "title", "added"]
