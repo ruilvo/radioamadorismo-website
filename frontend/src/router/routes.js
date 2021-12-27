@@ -30,6 +30,12 @@ const routes = [
     meta: { guest: true },
   },
   {
+    path: "/cms/",
+    component: () => import("layouts/CmsLayout.vue"),
+    // meta: { requiresAuth: true },
+    children: [{ path: "", component: () => import("pages/portal/Index.vue") }],
+  },
+  {
     path: "/:catchAll(.*)*",
     component: () => import("pages/Error404.vue"),
   },
