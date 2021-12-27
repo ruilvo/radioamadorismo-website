@@ -37,7 +37,6 @@ export default defineComponent({
     const authStore = useAuthStore();
 
     const repeaters_expanded = ref($route.path.includes("/repetidores"));
-    const api_expanded = ref($route.path.includes("/swagger"));
 
     const isAuthenticated = computed(() => authStore.isAuthenticated);
 
@@ -52,15 +51,11 @@ export default defineComponent({
       if (to.path.includes("/repetidores")) {
         repeaters_expanded.value = true;
       }
-      if (to.path.includes("/swagger")) {
-        api_expanded.value = true;
-      }
     });
 
     return {
       leftDrawerOpen,
       repeaters_expanded,
-      api_expanded,
       isAuthenticated,
 
       async logout() {
