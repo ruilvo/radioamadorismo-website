@@ -80,6 +80,11 @@ urlpatterns = [
                                 include("repeaters.urls"),
                                 name="repeaters",
                             ),
+                            path(
+                                "cms/",
+                                include("cms.urls"),
+                                name="cms",
+                            ),
                         ]
                     ),
                 ),

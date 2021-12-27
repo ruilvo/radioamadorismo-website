@@ -1,3 +1,9 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import (
+    FactImage,
+    FactBlogPost,
+)
+
+admin.site.register(FactImage)
+admin.site.register(FactBlogPost)
