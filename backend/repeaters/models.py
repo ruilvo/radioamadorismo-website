@@ -1,3 +1,5 @@
+import decimal
+
 from django.db import models
 
 
@@ -26,7 +28,7 @@ class DimHalfDuplex(models.Model):
         ]
 
     @property
-    def shift(self):
+    def shift(self) -> decimal.Decimal:
         return self.tx_mhz - self.rx_mhz
 
     def __str__(self) -> str:
