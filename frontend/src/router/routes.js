@@ -32,7 +32,7 @@ const routes = [
   {
     path: "/cms/",
     component: () => import("layouts/CmsLayout.vue"),
-    // meta: { requiresAuth: true },
+    meta: { requiresAuth: true },
     children: [{ path: "", component: () => import("pages/portal/Index.vue") }],
   },
   {

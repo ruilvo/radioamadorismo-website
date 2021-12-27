@@ -34,11 +34,10 @@ export const useAuthStore = defineStore("auth", {
       try {
         await api.get("/api/auth/dj-rest-auth/user/");
         this.isAuthenticated = true;
-        this.errorMessage = null;
       } catch (error) {
         this.isAuthenticated = false;
-        this.errorMessage = error.response.data.detail;
       }
+      this.errorMessage = null; // Be silent about it
     },
     reset() {
       this.isAuthenticated = false;

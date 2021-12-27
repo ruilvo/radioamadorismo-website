@@ -1,6 +1,7 @@
 <template>
   <q-page class="flex flex-center">
     <div class="q-pa-md col" style="max-width: 400px">
+      <h4 class="text-center">Bem-vindo administrador(a)</h4>
       <q-banner v-if="hasError" class="text-white text-center bg-red q-mb-xl">
         <div>A autenticação falhou com erro:</div>
         <div>{{ errorMessage }}</div>
@@ -53,7 +54,7 @@ import useAuthStore from "src/stores/auth/auth";
 export default defineComponent({
   name: "LoginPage",
   setup() {
-    const router = useRouter();
+    const $router = useRouter();
 
     const authStore = useAuthStore();
     authStore.errorMessage = null; // Start with an empty error message
@@ -87,7 +88,7 @@ export default defineComponent({
         });
         showProgress.value = false;
         if (!hasError.value) {
-          router.push("/");
+          $router.push("/");
         }
       },
     };

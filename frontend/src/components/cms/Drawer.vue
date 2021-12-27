@@ -7,39 +7,30 @@
     class="bg-grey-3"
   >
     <q-list>
-      <q-item key="start" clickable to="/" exact>
-        <q-item-section avatar>
-          <q-icon name="home" />
-        </q-item-section>
-        <q-item-section>Página inicial</q-item-section>
-      </q-item>
-      <q-separator key="sep1" />
+      <StartPageItem />
+      <q-separator key="home-from-auth" />
+      <AuthItem />
     </q-list>
   </q-drawer>
 </template>
 
 <script>
-import { defineComponent, watch, ref, computed } from "vue";
+import { defineComponent, computed } from "vue";
 
-import { useRoute } from "vue-router";
-
-import useAuthStore from "src/stores/auth/auth";
+import StartPageItem from "components/common/drawer/StartPageItem.vue";
+import AuthItem from "components/common/drawer/AuthItem.vue";
 
 export default defineComponent({
   name: "Drawer",
+  components: {
+    StartPageItem,
+    AuthItem,
+  },
   props: {
     modelValue: Boolean,
   },
   emits: ["update:modelValue"],
   setup(props, { emit }) {
-    const $route = useRoute();
-
-    const authStore = useAuthStore();
-
-    const repeaters_expanded = ref($route.path.includes("/repetidores"));
-
-    const isAuthenticated = computed(() => authStore.isAuthenticated);
-
     const leftDrawerOpen = computed({
       get: () => props.modelValue,
       set: (val) => {
@@ -47,20 +38,8 @@ export default defineComponent({
       },
     });
 
-    watch($route, (to) => {
-      if (to.path.includes("/repetidores")) {
-        repeaters_expanded.value = true;
-      }
-    });
-
     return {
       leftDrawerOpen,
-      repeaters_expanded,
-      isAuthenticated,
-
-      async logout() {
-        await authStore.logout();
-      },
     };
   },
 });

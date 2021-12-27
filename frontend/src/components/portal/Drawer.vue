@@ -23,19 +23,19 @@
 import { defineComponent, computed } from "vue";
 
 import StartPageItem from "components/common/drawer/StartPageItem.vue";
+import AuthItem from "components/common/drawer/AuthItem.vue";
 import RepeatersItem from "components/portal/drawer/RepeatersItem.vue";
 import ApiItem from "components/portal/drawer/ApiItem.vue";
 import AboutItem from "components/portal/drawer/AboutItem.vue";
-import AuthItem from "components/portal/drawer/AuthItem.vue";
 
 export default defineComponent({
   name: "Drawer",
   components: {
     StartPageItem,
+    AuthItem,
     RepeatersItem,
     ApiItem,
     AboutItem,
-    AuthItem,
   },
   props: {
     modelValue: Boolean,

@@ -5,6 +5,12 @@
     </q-item-section>
     <q-item-section>Entrar</q-item-section>
   </q-item>
+  <q-item v-if="isAuthenticated" key="cms-entry" clickable to="/cms">
+    <q-item-section avatar>
+      <q-icon name="settings" />
+    </q-item-section>
+    <q-item-section>Administração</q-item-section>
+  </q-item>
   <q-item v-if="isAuthenticated" key="logout-entry" clickable @click="logout">
     <q-item-section avatar>
       <q-icon name="logout" />
@@ -16,11 +22,16 @@
 <script>
 import { defineComponent, computed } from "vue";
 
+import { useRouter, useRoute } from "vue-router";
+
 import useAuthStore from "src/stores/auth/auth";
 
 export default defineComponent({
   name: "AuthItem",
   setup() {
+    const $router = useRouter();
+    const $route = useRoute();
+
     const authStore = useAuthStore();
 
     const isAuthenticated = computed(() => authStore.isAuthenticated);
@@ -30,6 +41,9 @@ export default defineComponent({
 
       async logout() {
         await authStore.logout();
+        if ($route.path.includes("/cms")) {
+          $router.push("/");
+        }
       },
     };
   },
