@@ -7,127 +7,41 @@
     class="bg-grey-3"
   >
     <q-list>
-      <q-item key="start" clickable to="/" exact>
-        <q-item-section avatar>
-          <q-icon name="home" />
-        </q-item-section>
-        <q-item-section>Página inicial</q-item-section>
-      </q-item>
-      <q-separator key="sep1" />
-      <q-expansion-item
-        key="repeaters"
-        v-model="repeaters_expanded"
-        expand-separator
-        icon="cell_tower"
-        to="/repetidores"
-        label="Repetidores"
-      >
-        <q-item
-          key="repeaters-list"
-          clickable
-          to="/repetidores"
-          exact
-          :inset-level="1"
-        >
-          <q-item-section avatar>
-            <q-icon name="list" />
-          </q-item-section>
-          <q-item-section>Lista</q-item-section>
-        </q-item>
-        <q-item
-          key="repeaters-map"
-          clickable
-          to="/repetidores/mapa"
-          :inset-level="1"
-        >
-          <q-item-section avatar>
-            <q-icon name="map" />
-          </q-item-section>
-          <q-item-section>Mapa</q-item-section>
-        </q-item>
-      </q-expansion-item>
-      <q-separator key="sep2" />
-      <q-expansion-item
-        key="api-tab"
-        v-model="api_expanded"
-        expand-separator
-        icon="api"
-        label="API"
-      >
-        <q-item key="swagger-ui" clickable to="/swagger" exact :inset-level="1">
-          <q-item-section avatar>
-            <q-icon name="description" />
-          </q-item-section>
-          <q-item-section>Documentação (🇬🇧)</q-item-section>
-        </q-item>
-        <q-item
-          key="repeaters-api"
-          clickable
-          tag="a"
-          href="/api/v1/repeaters/"
-          exact
-          :inset-level="1"
-        >
-          <q-item-section avatar>
-            <q-icon name="cell_tower" />
-          </q-item-section>
-          <q-item-section>Repetidores (🇬🇧)</q-item-section>
-          <q-item-section side
-            ><q-icon name="launch" size="xs"
-          /></q-item-section>
-        </q-item>
-      </q-expansion-item>
-      <q-item key="about-url" clickable to="/sobre">
-        <q-item-section avatar>
-          <q-icon name="help_outline" />
-        </q-item-section>
-        <q-item-section>Sobre</q-item-section>
-      </q-item>
-      <q-separator key="sepAuth" />
-      <q-item v-if="!isAuthenticated" key="login-entry" clickable to="/login">
-        <q-item-section avatar>
-          <q-icon name="login" />
-        </q-item-section>
-        <q-item-section>Entrar</q-item-section>
-      </q-item>
-      <q-item
-        v-if="isAuthenticated"
-        key="logout-entry"
-        clickable
-        @click="logout"
-      >
-        <q-item-section avatar>
-          <q-icon name="logout" />
-        </q-item-section>
-        <q-item-section>Sair</q-item-section>
-      </q-item>
+      <StartPageItem />
+      <q-separator key="home-from-items" />
+      <RepeatersItem />
+      <q-separator key="items-from-meta" />
+      <ApiItem />
+      <AboutItem />
+      <q-separator key="meta-from-auth" />
+      <AuthItem />
     </q-list>
   </q-drawer>
 </template>
 
 <script>
-import { defineComponent, watch, ref, computed } from "vue";
+import { defineComponent, computed } from "vue";
 
-import { useRoute } from "vue-router";
-
-import useAuthStore from "src/stores/auth/auth";
+import StartPageItem from "components/common/drawer/StartPageItem.vue";
+import RepeatersItem from "components/portal/drawer/RepeatersItem.vue";
+import ApiItem from "components/portal/drawer/ApiItem.vue";
+import AboutItem from "components/portal/drawer/AboutItem.vue";
+import AuthItem from "components/portal/drawer/AuthItem.vue";
 
 export default defineComponent({
   name: "Drawer",
+  components: {
+    StartPageItem,
+    RepeatersItem,
+    ApiItem,
+    AboutItem,
+    AuthItem,
+  },
   props: {
     modelValue: Boolean,
   },
   emits: ["update:modelValue"],
   setup(props, { emit }) {
-    const $route = useRoute();
-
-    const authStore = useAuthStore();
-
-    const repeaters_expanded = ref($route.path.includes("/repetidores"));
-    const api_expanded = ref($route.path.includes("/swagger"));
-
-    const isAuthenticated = computed(() => authStore.isAuthenticated);
-
     const leftDrawerOpen = computed({
       get: () => props.modelValue,
       set: (val) => {
@@ -135,24 +49,8 @@ export default defineComponent({
       },
     });
 
-    watch($route, (to) => {
-      if (to.path.includes("/repetidores")) {
-        repeaters_expanded.value = true;
-      }
-      if (to.path.includes("/swagger")) {
-        api_expanded.value = true;
-      }
-    });
-
     return {
       leftDrawerOpen,
-      repeaters_expanded,
-      api_expanded,
-      isAuthenticated,
-
-      async logout() {
-        await authStore.logout();
-      },
     };
   },
 });
