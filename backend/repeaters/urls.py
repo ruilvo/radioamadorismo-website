@@ -15,7 +15,7 @@ from .views import (
 
 
 router = SimpleRouter()
-router.register("fact-repeaters", FactRepeaterViewSet, basename="fact-repeaters")
+router.register("fact-repeater", FactRepeaterViewSet, basename="fact-repeater")
 router.register("dim-half-duplex", DimHalfDuplexViewSet, basename="dim-half-duplex")
 router.register("dim-simplex", DimSimplexViewSet, basename="dim-simplex")
 router.register("dim-fm", DimFmViewSet, basename="dim-fm")
