@@ -33,7 +33,13 @@ const routes = [
     path: "/cms/",
     component: () => import("layouts/CmsLayout.vue"),
     meta: { requiresAuth: true },
-    children: [{ path: "", component: () => import("pages/portal/Index.vue") }],
+    children: [
+      { path: "", component: () => import("pages/cms/Index.vue") },
+      {
+        path: "blogue/",
+        component: () => import("pages/cms/blog/BlogPostList.vue"),
+      },
+    ],
   },
   {
     path: "/:catchAll(.*)*",
