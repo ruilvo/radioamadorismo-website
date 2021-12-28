@@ -4,15 +4,14 @@
     {
       "type": "firefox",
       "request": "launch",
-      "name": "quasar: firefox",
+      "name": "Quasar App: firefox",
       "url": "http://localhost:8080",
-      "webRoot": "${workspaceFolder}/src",
-      "pathMappings": [
-        {
-          "url": "webpack:///src/",
-          "path": "${webRoot}/"
-        }
-      ]
+      "webRoot": "/workspace/frontend/src",
+      "breakOnLoad": true,
+      "sourceMaps": true,
+      "sourceMapPathOverrides": {
+        "webpack://frontend/./src/*": "${webRoot}/*"
+      }
     }
   ]
 }
