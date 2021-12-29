@@ -39,6 +39,12 @@ const routes = [
         path: "blogue/",
         component: () => import("pages/cms/blog/BlogPostList.vue"),
       },
+      {
+        name: "blog-post-edit",
+        path: "blogue/editar/:id/",
+        component: () => import("pages/cms/blog/BlogPostEdit.vue"),
+        props: true,
+      },
     ],
   },
   {
