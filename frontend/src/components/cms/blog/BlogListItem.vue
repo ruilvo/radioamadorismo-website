@@ -16,7 +16,11 @@
     </router-link>
 
     <q-card-actions class="col-auto column">
-      <q-btn flat><q-icon name="edit" />Editar</q-btn>
+      <q-btn flat
+        ><q-icon name="edit" /><router-link :to="editUrl"
+          >Editar</router-link
+        ></q-btn
+      >
       <q-btn flat><q-icon name="delete" />Apagar</q-btn>
     </q-card-actions>
   </q-card>
