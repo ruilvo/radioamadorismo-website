@@ -13,6 +13,7 @@ services:
     volumes:
       - .:/workspace:cached
       - frontend_vscode_server:/root/.vscode-server
+      - frontend_node_modules:/workspace/frontend/node_modules
     depends_on:
       - backend
   backend:
@@ -40,3 +41,4 @@ volumes:
   postgres_data_dev:
   backend_vscode_server:
   frontend_vscode_server:
+  frontend_node_modules:
