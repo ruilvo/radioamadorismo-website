@@ -5,7 +5,7 @@
     </q-item-section>
     <q-item-section>Entrar</q-item-section>
   </q-item>
-  <q-item v-if="isAuthenticated" key="cms-entry" clickable to="/cms">
+  <q-item v-if="isAuthenticated" key="cms-entry" clickable exact to="/cms">
     <q-item-section avatar>
       <q-icon name="settings" />
     </q-item-section>
