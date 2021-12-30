@@ -50,7 +50,7 @@ function push_if_qtree(cond_and_data, label, parent) {
 }
 
 export default defineComponent({
-  name: "RepeatersList",
+  name: "List",
   setup() {
     const repeatersStore = useRepeatersStore();
 

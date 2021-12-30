@@ -4,7 +4,7 @@
     <q-btn flat class="q-ma-sm" @click="createPost"
       ><q-icon name="add" />Criar</q-btn
     >
-    <BlogListItem v-for="post in posts" :key="'post' + post.id" :post="post" />
+    <ListItem v-for="post in posts" :key="'post' + post.id" :post="post" />
   </q-page>
 </template>
 
@@ -15,12 +15,12 @@ import { useRouter } from "vue-router";
 
 import useCmsBlogStore from "src/stores/cms/blog";
 
-import BlogListItem from "components/cms/blog/BlogListItem";
+import ListItem from "components/cms/blog/ListItem";
 
 export default defineComponent({
-  name: "BlogPostList",
+  name: "PostList",
   components: {
-    BlogListItem,
+    ListItem,
   },
   setup() {
     const $router = useRouter();

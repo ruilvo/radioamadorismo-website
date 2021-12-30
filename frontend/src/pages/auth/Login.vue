@@ -52,7 +52,7 @@ import { useRouter } from "vue-router";
 import useAuthStore from "src/stores/auth/auth";
 
 export default defineComponent({
-  name: "LoginPage",
+  name: "Login",
   setup() {
     const $router = useRouter();
 

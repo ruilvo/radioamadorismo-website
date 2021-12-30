@@ -8,15 +8,11 @@ export const useRepeatersStore = defineStore("repeaters", {
     query: {},
   }),
   actions: {
-    updateRepeaters() {
-      api
-        .get("/api/v1/repeaters/fact-repeater/", { params: this.query })
-        .then((res) => {
-          this.repeaters = res.data;
-        })
-        .catch((err) => {
-          console.error(err);
-        });
+    async updateRepeaters() {
+      const res = await api.get("/api/v1/repeaters/fact-repeater/", {
+        params: this.query,
+      });
+      this.repeaters = res.data;
     },
   },
 });

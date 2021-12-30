@@ -8,12 +8,9 @@ export const useAuthStore = defineStore("auth", {
     errorMessage: null,
   }),
   actions: {
-    async login({ username, password }) {
+    async login(username, password) {
       try {
-        await api.post("/api/auth/dj-rest-auth/login/", {
-          username,
-          password,
-        });
+        await api.post("/api/auth/dj-rest-auth/login/", { username, password });
         this.isAuthenticated = true;
         this.errorMessage = null;
       } catch (error) {
@@ -28,13 +25,14 @@ export const useAuthStore = defineStore("auth", {
       } catch (error) {
         this.errorMessage = error.response.data.non_field_errors[0];
       }
+      // "Logout" regardless
       this.isAuthenticated = false;
     },
     async check() {
       try {
         await api.get("/api/auth/dj-rest-auth/user/");
         this.isAuthenticated = true;
-      } catch (error) {
+      } catch {
         this.isAuthenticated = false;
       }
       this.errorMessage = null; // Be silent about it

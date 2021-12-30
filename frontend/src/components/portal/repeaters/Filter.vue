@@ -57,7 +57,7 @@ function isObjectEmpty(value) {
 }
 
 export default defineComponent({
-  name: "RepeatersFilter",
+  name: "Filter",
   setup() {
     const $router = useRouter();
     const $route = useRoute();

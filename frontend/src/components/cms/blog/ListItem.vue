@@ -32,7 +32,7 @@ import { defineComponent, computed } from "vue";
 import useCmsBlogStore from "src/stores/cms/blog";
 
 export default defineComponent({
-  name: "BlogListItem",
+  name: "ListItem",
   props: {
     post: {
       type: Object,
@@ -47,7 +47,7 @@ export default defineComponent({
     });
 
     const editUrl = computed(() => {
-      return { name: "blog-post-edit", params: { id: props.post.id } };
+      return { name: "cms-blog-post-edit", params: { id: props.post.id } };
     });
 
     return {

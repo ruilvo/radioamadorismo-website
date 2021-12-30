@@ -8,13 +8,10 @@ export const useCmsBlogStore = defineStore("cms-blog", {
   }),
   actions: {
     updatePosts() {
-      api
+      return api
         .get("/api/v1/cms/fact-blog-post/", { params: this.query })
         .then((res) => {
           this.posts = res.data;
-        })
-        .catch((err) => {
-          console.error(err);
         });
     },
     getPost(id) {

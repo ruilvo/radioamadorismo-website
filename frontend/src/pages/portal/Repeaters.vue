@@ -4,7 +4,7 @@
       class="col-xs-12 col-sm-shrink full-height column no-wrap"
       style="min-width: 300px"
     >
-      <RepeatersFilter />
+      <Filter />
     </div>
     <div class="col-xs-12 col-sm full-height column no-wrap scroll">
       <router-view />
@@ -16,12 +16,12 @@
 import { defineComponent } from "vue";
 import { useQuasar } from "quasar";
 
-import RepeatersFilter from "components/portal/repeaters/RepeatersFilter";
+import Filter from "components/portal/repeaters/Filter";
 
 export default defineComponent({
   name: "Repeaters",
   components: {
-    RepeatersFilter,
+    Filter,
   },
   setup() {
     const $q = useQuasar();

@@ -13,10 +13,10 @@
 import { defineComponent, ref } from "vue";
 
 import Header from "components/common/Header.vue";
-import Drawer from "components/portal/Drawer.vue";
+import Drawer from "components/cms/Drawer.vue";
 
 export default defineComponent({
-  name: "MainLayout",
+  name: "Cms",
   components: {
     Header,
     Drawer,

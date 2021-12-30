@@ -14,7 +14,7 @@ import { defineComponent } from "vue";
 import Header from "components/common/Header.vue";
 
 export default defineComponent({
-  name: "EmptyLayout",
+  name: "Empty",
   components: {
     Header,
   },

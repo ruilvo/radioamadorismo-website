@@ -33,7 +33,7 @@ var repeatersMap = null;
 import useRepeatersStore from "src/stores/portal/repeaters";
 
 export default defineComponent({
-  name: "RepeatersMap",
+  name: "Map",
   setup() {
     const repeatersStore = useRepeatersStore();
 

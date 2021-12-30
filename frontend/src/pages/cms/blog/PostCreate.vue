@@ -1,7 +1,7 @@
 <template>
   <q-page class="row-auto justify-center">
     <h1 class="col-12 text-center">Criando um novo post</h1>
-    <BlogCreateEditItem v-model="post" @submit="onSubmit" />
+    <Editor v-model="post" @submit="onSubmit" />
   </q-page>
 </template>
 
@@ -12,12 +12,12 @@ import { useRouter } from "vue-router";
 
 import useCmsBlogStore from "src/stores/cms/blog";
 
-import BlogCreateEditItem from "src/components/cms/blog/BlogCreateEditItem.vue";
+import Editor from "components/cms/blog/Editor.vue";
 
 export default defineComponent({
-  name: "BlogPostCreate",
+  name: "PostCreate",
   components: {
-    BlogCreateEditItem,
+    Editor,
   },
   setup() {
     const $router = useRouter();

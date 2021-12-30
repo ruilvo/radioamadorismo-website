@@ -1,25 +1,25 @@
 <template>
-  <div class="q-pa-md">
-    <q-form class="q-gutter-md" @submit="onSubmit">
-      <q-input v-model="title" filled label="Título do post" />
+  <q-form class="q-gutter-md" @submit="onSubmit">
+    <q-item-label>Título do post</q-item-label>
+    <q-input v-model="title" filled />
 
-      <q-input v-model="intro" filled type="textarea" label="Introdução" />
+    <q-item-label>Introdução</q-item-label>
+    <q-input v-model="intro" filled type="textarea" />
 
-      <q-item-label>Corpo</q-item-label>
-      <q-editor v-model="body" min-height="5rem" />
+    <q-item-label>Corpo</q-item-label>
+    <q-editor v-model="body" min-height="5rem" />
 
-      <div>
-        <q-btn label="Submeter" type="submit" color="primary" />
-      </div>
-    </q-form>
-  </div>
+    <div>
+      <q-btn label="Submeter" type="submit" color="primary" />
+    </div>
+  </q-form>
 </template>
 
 <script>
 import { defineComponent, ref, computed, watch } from "vue";
 
 export default defineComponent({
-  name: "BlogCreateEditItem",
+  name: "Editor",
   props: {
     modelValue: {
       type: Object,
