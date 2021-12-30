@@ -12,7 +12,7 @@ export const useRepeatersStore = defineStore("repeaters", {
       const res = await api.get("/api/v1/repeaters/fact-repeater/", {
         params: this.query,
       });
-      this.repeaters = res.data;
+      this.repeaters = res.data.results;
     },
   },
 });

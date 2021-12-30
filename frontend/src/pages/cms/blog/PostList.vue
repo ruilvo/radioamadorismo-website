@@ -1,10 +1,12 @@
 <template>
-  <q-page class="row-auto">
+  <q-page class="row-auto q-mx-sm">
     <h1 class="col-12 text-center">Lista de posts do blog</h1>
-    <q-btn flat class="q-ma-sm" @click="createPost"
-      ><q-icon name="add" />Criar</q-btn
-    >
-    <ListItem v-for="post in posts" :key="'post' + post.id" :post="post" />
+    <div class="q-gutter-sm">
+      <q-btn class="q-my-sm" color="primary" @click="createPost"
+        ><q-icon name="add" />Criar</q-btn
+      >
+      <ListItem v-for="post in posts" :key="'post' + post.id" :post="post" />
+    </div>
   </q-page>
 </template>
 

@@ -23,6 +23,8 @@ class FactBlogPostViewSet(viewsets.ModelViewSet):
     queryset = FactBlogPost.objects.all()
     serializer_class = FactBlogPostDetailSerializer
 
+    ordering = ["-added"]
+
     serializer_class_by_action = {
         "retrieve": FactBlogPostDetailSerializer,
         "list": FactBlogPostListSerializer,

@@ -11,7 +11,7 @@ export const useCmsBlogStore = defineStore("cms-blog", {
       return api
         .get("/api/v1/cms/fact-blog-post/", { params: this.query })
         .then((res) => {
-          this.posts = res.data;
+          this.posts = res.data.results;
         });
     },
     getPost(id) {

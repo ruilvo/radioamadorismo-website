@@ -1,12 +1,12 @@
 <template>
   <q-form class="q-gutter-md" @submit="onSubmit">
-    <q-item-label>Título do post</q-item-label>
+    <q-item-label class="text-bold">Título</q-item-label>
     <q-input v-model="title" filled />
 
-    <q-item-label>Introdução</q-item-label>
-    <q-input v-model="intro" filled type="textarea" />
+    <q-item-label class="text-bold">Introdução</q-item-label>
+    <q-editor v-model="intro" min-height="5rem" />
 
-    <q-item-label>Corpo</q-item-label>
+    <q-item-label class="text-bold">Corpo</q-item-label>
     <q-editor v-model="body" min-height="5rem" />
 
     <div>

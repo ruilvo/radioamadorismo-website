@@ -1,5 +1,5 @@
 <template>
-  <q-page class="row-auto justify-center">
+  <q-page class="row-auto justify-center q-mx-sm">
     <h1 class="col-12 text-center">Criando um novo post</h1>
     <Editor v-model="post" @submit="onSubmit" />
   </q-page>
