@@ -1,7 +1,7 @@
 <template>
-  <q-page class="row" :style-fn="pageStyleFn">
+  <q-page class="row q-mx-sm" :style-fn="pageStyleFn">
     <div
-      class="col-xs-12 col-sm-shrink full-height column no-wrap"
+      class="col-xs-12 col-sm-auto full-height column no-wrap"
       style="min-width: 300px"
     >
       <Filter />
@@ -14,6 +14,7 @@
 
 <script>
 import { defineComponent } from "vue";
+
 import { useQuasar } from "quasar";
 
 import Filter from "components/portal/repeaters/Filter";

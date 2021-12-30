@@ -1,6 +1,6 @@
 <template>
-  <div class="text-h6 q-mx-sm">Filtros</div>
-  <div class="col column no-wrap scroll q-pa-md">
+  <div class="text-h6">Filtros</div>
+  <div class="col column no-wrap scroll">
     <q-form class="q-gutter-md" @submit="submitFilters">
       <q-select
         v-model="selectedRegions"
