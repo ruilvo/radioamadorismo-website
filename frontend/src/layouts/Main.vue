@@ -12,8 +12,8 @@
 <script>
 import { defineComponent, ref } from "vue";
 
-import Header from "components/common/Header.vue";
-import Drawer from "components/portal/Drawer.vue";
+import Header from "components/Header.vue";
+import Drawer from "components/Drawer.vue";
 
 export default defineComponent({
   name: "Main",

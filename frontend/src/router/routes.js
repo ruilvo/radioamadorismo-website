@@ -1,9 +1,33 @@
-import routes_portal from "./routes/portal";
-import routes_auth from "./routes/auth";
-
 const routes = [
-  ...routes_portal,
-  ...routes_auth,
+  {
+    path: "/",
+    component: () => import("layouts/Main.vue"),
+    children: [
+      {
+        name: "index",
+        path: "",
+        component: () => import("pages/Index.vue"),
+      },
+      {
+        name: "blog-detail",
+        path: "blogue/:id",
+        component: () => import("pages/BlogPostDetail.vue"),
+        props: true,
+      },
+    ],
+  },
+  {
+    path: "/login/",
+    meta: { guest: true },
+    component: () => import("layouts/Empty.vue"),
+    children: [
+      {
+        name: "login",
+        path: "",
+        component: () => import("pages/Login.vue"),
+      },
+    ],
+  },
   {
     path: "/:catchAll(.*)*",
     component: () => import("pages/Error404.vue"),

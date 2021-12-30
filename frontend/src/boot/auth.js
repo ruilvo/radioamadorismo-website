@@ -12,7 +12,7 @@ export default boot(({ router }) => {
   router.beforeEach((to, from, next) => {
     if (to.matched.some((record) => record.meta.requiresAuth)) {
       if (!authStore.isAuthenticated) {
-        next({ name: "auth-login" });
+        next({ name: "login" });
         return;
       }
     }

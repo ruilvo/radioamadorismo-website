@@ -10,7 +10,7 @@
 <script>
 import { defineComponent } from "vue";
 
-import BlogPosts from "components/portal/BlogPosts.vue";
+import BlogPosts from "components/BlogPosts.vue";
 
 export default defineComponent({
   name: "Index",

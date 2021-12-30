@@ -11,7 +11,7 @@
 <script>
 import { defineComponent } from "vue";
 
-import Header from "components/common/Header.vue";
+import Header from "components/Header.vue";
 
 export default defineComponent({
   name: "Empty",

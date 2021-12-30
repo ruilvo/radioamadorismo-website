@@ -19,9 +19,8 @@
 <script>
 import { defineComponent, computed } from "vue";
 
-import StartPageItem from "components/common/drawer/StartPageItem.vue";
-import AuthItem from "components/common/drawer/AuthItem.vue";
-
+import StartPageItem from "./drawer/StartPageItem.vue";
+import AuthItem from "./drawer/AuthItem.vue";
 import ApiItem from "./drawer/ApiItem.vue";
 
 export default defineComponent({

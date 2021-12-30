@@ -3,7 +3,7 @@
     v-if="!isAuthenticated"
     key="login-entry"
     clickable
-    :to="{ name: 'auth-login' }"
+    :to="{ name: 'login' }"
   >
     <q-item-section avatar>
       <q-icon name="login" />
