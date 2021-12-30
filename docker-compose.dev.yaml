@@ -28,6 +28,7 @@ services:
     volumes:
       - .:/workspace:cached
       - backend_vscode_server:/root/.vscode-server
+      - backend_deployment:/workspace/backend/_deployment/
     depends_on:
       - db
   db:
