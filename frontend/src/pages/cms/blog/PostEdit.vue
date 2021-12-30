@@ -10,7 +10,7 @@ import { defineComponent, ref } from "vue";
 
 import { useRouter } from "vue-router";
 
-import useCmsBlogStore from "src/stores/cms/blog";
+import useCmsBlogStore from "src/stores/blog";
 
 import Editor from "components/cms/blog/Editor.vue";
 

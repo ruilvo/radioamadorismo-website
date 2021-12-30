@@ -15,7 +15,7 @@ import { defineComponent, computed } from "vue";
 
 import { useRouter } from "vue-router";
 
-import useCmsBlogStore from "src/stores/cms/blog";
+import useCmsBlogStore from "src/stores/blog";
 
 import ListItem from "components/cms/blog/ListItem";
 

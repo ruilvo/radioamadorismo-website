@@ -2,7 +2,7 @@ import { boot } from "quasar/wrappers";
 
 import { api } from "boot/axios";
 
-import useAuthStore from "src/stores/auth/auth";
+import useAuthStore from "src/stores/auth";
 
 export default boot(({ router }) => {
   const authStore = useAuthStore();
@@ -12,7 +12,7 @@ export default boot(({ router }) => {
   router.beforeEach((to, from, next) => {
     if (to.matched.some((record) => record.meta.requiresAuth)) {
       if (!authStore.isAuthenticated) {
-        next("/login");
+        next({ name: "auth-login" });
         return;
       }
     }
@@ -35,7 +35,7 @@ export default boot(({ router }) => {
       if (error.response.status === 401 && !originalRequest._retry) {
         originalRequest._retry = true;
         authStore.reset();
-        return router.push("/login");
+        return router.push({ name: "auth-login" });
       }
     }
     return Promise.reject(error);

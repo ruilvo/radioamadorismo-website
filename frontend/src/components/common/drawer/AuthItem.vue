@@ -1,5 +1,10 @@
 <template>
-  <q-item v-if="!isAuthenticated" key="login-entry" clickable to="/login">
+  <q-item
+    v-if="!isAuthenticated"
+    key="login-entry"
+    clickable
+    :to="{ name: 'auth-login' }"
+  >
     <q-item-section avatar>
       <q-icon name="login" />
     </q-item-section>
@@ -24,7 +29,7 @@ import { defineComponent, computed } from "vue";
 
 import { useRouter, useRoute } from "vue-router";
 
-import useAuthStore from "src/stores/auth/auth";
+import useAuthStore from "src/stores/auth";
 
 export default defineComponent({
   name: "AuthItem",

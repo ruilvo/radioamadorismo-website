@@ -31,7 +31,7 @@
 <script>
 import { defineComponent, computed } from "vue";
 
-import useCmsBlogStore from "src/stores/cms/blog";
+import useCmsBlogStore from "src/stores/blog";
 
 export default defineComponent({
   name: "ListItem",

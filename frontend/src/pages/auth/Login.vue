@@ -49,7 +49,7 @@ import { defineComponent, ref, computed } from "vue";
 
 import { useRouter } from "vue-router";
 
-import useAuthStore from "src/stores/auth/auth";
+import useAuthStore from "src/stores/auth";
 
 export default defineComponent({
   name: "Login",
@@ -82,10 +82,7 @@ export default defineComponent({
 
       async onSubmit() {
         showProgress.value = true;
-        await authStore.login({
-          username: username.value,
-          password: password.value,
-        });
+        await authStore.login(username.value, password.value);
         showProgress.value = false;
         if (!hasError.value) {
           $router.push("/");

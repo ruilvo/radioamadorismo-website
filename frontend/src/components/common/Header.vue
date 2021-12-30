@@ -29,8 +29,6 @@ import { defineComponent, computed } from "vue";
 
 import { useRoute } from "vue-router";
 
-import useAuthStore from "src/stores/auth/auth";
-
 export default defineComponent({
   name: "Header",
   props: {
@@ -39,9 +37,6 @@ export default defineComponent({
   emits: ["hamburgerClicked"],
   setup(props, { emit }) {
     const $route = useRoute();
-
-    const authStore = useAuthStore();
-    authStore.check();
 
     const isOnCms = computed(() => $route.path.includes("/cms"));
 
