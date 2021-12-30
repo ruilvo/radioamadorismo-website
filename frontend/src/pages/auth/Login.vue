@@ -1,12 +1,12 @@
 <template>
-  <q-page class="flex flex-center">
-    <div class="q-pa-md col" style="max-width: 400px">
-      <h4 class="text-center">Bem-vindo administrador(a)</h4>
+  <q-page class="flex flex-center" padding>
+    <div class="column col-auto">
+      <h4 class="text-center q-mb-md">Bem-vindo administrador(a)</h4>
       <q-banner v-if="hasError" class="text-white text-center bg-red q-mb-xl">
         <div>A autenticação falhou com erro:</div>
         <div>{{ errorMessage }}</div>
       </q-banner>
-      <q-form class="q-gutter-md" @submit="onSubmit">
+      <q-form class="q-gutter-sm" @submit="onSubmit">
         <q-input
           v-model="username"
           filled
@@ -57,7 +57,7 @@ export default defineComponent({
     const $router = useRouter();
 
     const authStore = useAuthStore();
-    authStore.errorMessage = null; // Start with an empty error message
+    authStore.$reset();
 
     const username = ref(null);
     const password = ref(null);
@@ -85,7 +85,7 @@ export default defineComponent({
         await authStore.login(username.value, password.value);
         showProgress.value = false;
         if (!hasError.value) {
-          $router.push("/");
+          $router.push({ name: "portal-index" });
         }
       },
     };
