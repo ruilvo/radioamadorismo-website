@@ -1,6 +1,9 @@
 <template>
   <div class="overflow-auto">
     <div class="q-gutter-md">
+      <q-btn v-if="authStore.isAuthenticated" icon="add" color="primary"
+        >Novo</q-btn
+      >
       <BlogPostItem
         v-for="post in blogStore.posts"
         :key="'post' + post.id"
@@ -22,6 +25,7 @@
 import { defineComponent, ref, computed, watch } from "vue";
 
 import useBlogStore from "src/stores/blog";
+import useAuthStore from "src/stores/auth";
 
 import BlogPostItem from "./blog_posts/BlogPostItem.vue";
 
@@ -32,6 +36,7 @@ export default defineComponent({
   },
   setup() {
     const blogStore = useBlogStore();
+    const authStore = useAuthStore();
 
     const limit = 10;
 
@@ -50,6 +55,7 @@ export default defineComponent({
 
     return {
       blogStore,
+      authStore,
       currentPage,
       numberPages,
     };

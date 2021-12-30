@@ -11,6 +11,13 @@
 
       <!-- eslint-disable-next-line vue/no-v-html -->
       <div v-html="post.body"></div>
+
+      <div v-if="authStore.isAuthenticated" class="overflow-auto q-mt-md">
+        <div class="q-gutter-md">
+          <q-btn icon="edit" color="primary">Editar</q-btn>
+          <q-btn icon="delete" color="red">Apagar</q-btn>
+        </div>
+      </div>
     </div>
     <div v-if="!post" class="row justify-center">
       <q-circular-progress
@@ -29,6 +36,7 @@
 import { defineComponent, computed, ref } from "vue";
 
 import useBlogStore from "src/stores/blog";
+import useAuthStore from "src/stores/auth";
 
 export default defineComponent({
   name: "BlogPostDetail",
@@ -40,6 +48,7 @@ export default defineComponent({
   },
   setup(props) {
     const blogStore = useBlogStore();
+    const authStore = useAuthStore();
 
     const post = ref(null);
 
@@ -52,6 +61,7 @@ export default defineComponent({
     });
 
     return {
+      authStore,
       post,
       added,
     };
