@@ -9,22 +9,26 @@ const routes = [
         component: () => import("pages/Index.vue"),
       },
       {
+        name: "login",
+        path: "login/",
+        component: () => import("pages/Login.vue"),
+      },
+      {
         name: "blog-detail",
-        path: "blogue/:id",
+        path: "blogue/:id/",
         component: () => import("pages/BlogPostDetail.vue"),
         props: true,
       },
-    ],
-  },
-  {
-    path: "/login/",
-    meta: { guest: true },
-    component: () => import("layouts/Empty.vue"),
-    children: [
       {
-        name: "login",
-        path: "",
-        component: () => import("pages/Login.vue"),
+        name: "blog-edit",
+        path: "blogue/edit/:id/",
+        component: () => import("pages/BlogPostCreateEdit.vue"),
+        props: true,
+      },
+      {
+        name: "blog-new",
+        path: "blogue/novo/",
+        component: () => import("pages/BlogPostCreateEdit.vue"),
       },
     ],
   },
