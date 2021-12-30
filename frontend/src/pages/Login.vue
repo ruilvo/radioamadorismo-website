@@ -85,7 +85,7 @@ export default defineComponent({
         await authStore.login(username.value, password.value);
         showProgress.value = false;
         if (!hasError.value) {
-          $router.push({ name: "portal-index" });
+          $router.push({ name: "index" });
         }
       },
     };

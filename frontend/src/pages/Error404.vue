@@ -10,7 +10,7 @@
         color="white"
         text-color="blue"
         unelevated
-        :to="{ name: 'portal-index' }"
+        :to="{ name: 'index' }"
         label="Voltar à pagina inicial"
         no-caps
       />
