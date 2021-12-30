@@ -9,11 +9,6 @@ const routes_portal = [
         path: "",
         component: () => import("pages/portal/Index.vue"),
       },
-      {
-        name: "about",
-        path: "sobre/",
-        component: () => import("pages/portal/About.vue"),
-      },
     ],
   },
 ];
