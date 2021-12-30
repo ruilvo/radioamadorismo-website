@@ -26,6 +26,9 @@ export const useCmsBlogStore = defineStore("cms-blog", {
     updatePost(id, newPost) {
       return api.patch(`/api/v1/cms/fact-blog-post/${id}/`, newPost);
     },
+    createPost(newPost) {
+      return api.post("/api/v1/cms/fact-blog-post/", newPost);
+    },
   },
 });
 

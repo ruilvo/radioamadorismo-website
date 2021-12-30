@@ -45,6 +45,12 @@ const routes = [
         component: () => import("pages/cms/blog/BlogPostEdit.vue"),
         props: true,
       },
+      {
+        name: "blog-post-new",
+        path: "blogue/novo/",
+        component: () => import("pages/cms/blog/BlogPostCreate.vue"),
+        props: true,
+      },
     ],
   },
   {

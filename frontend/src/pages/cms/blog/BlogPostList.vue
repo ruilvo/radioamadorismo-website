@@ -11,6 +11,8 @@
 <script>
 import { defineComponent, computed } from "vue";
 
+import { useRouter } from "vue-router";
+
 import useCmsBlogStore from "src/stores/cms/blog";
 
 import BlogListItem from "components/cms/blog/BlogListItem";
@@ -21,6 +23,8 @@ export default defineComponent({
     BlogListItem,
   },
   setup() {
+    const $router = useRouter();
+
     const cmsBlogStore = useCmsBlogStore();
 
     cmsBlogStore.updatePosts();
@@ -32,7 +36,7 @@ export default defineComponent({
     return {
       posts,
       createPost() {
-        console.log("createPost");
+        $router.push("/cms/blogue/novo");
       },
     };
   },
