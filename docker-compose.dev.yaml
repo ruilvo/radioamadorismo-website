@@ -43,3 +43,4 @@ volumes:
   backend_vscode_server:
   frontend_vscode_server:
   frontend_node_modules:
+  backend_deployment:
