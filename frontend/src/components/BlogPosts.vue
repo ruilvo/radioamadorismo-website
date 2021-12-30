@@ -24,10 +24,12 @@
 <script>
 import { defineComponent, ref, computed, watch } from "vue";
 
+import { useRouter } from "vue-router";
+
 import useBlogStore from "src/stores/blog";
 import useAuthStore from "src/stores/auth";
 
-import BlogPostItem from "./blog_posts/BlogPostItem.vue";
+import BlogPostItem from "./BlogPostItem.vue";
 
 export default defineComponent({
   name: "BlogPosts",
@@ -35,6 +37,8 @@ export default defineComponent({
     BlogPostItem,
   },
   setup() {
+    const $router = useRouter();
+
     const blogStore = useBlogStore();
     const authStore = useAuthStore();
 
@@ -58,6 +62,9 @@ export default defineComponent({
       authStore,
       currentPage,
       numberPages,
+      addAction() {
+        $router.push({ name: "blog-edit" });
+      },
     };
   },
 });

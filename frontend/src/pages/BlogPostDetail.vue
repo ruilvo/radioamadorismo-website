@@ -14,8 +14,8 @@
 
       <div v-if="authStore.isAuthenticated" class="overflow-auto q-mt-md">
         <div class="q-gutter-md">
-          <q-btn icon="edit" color="primary">Editar</q-btn>
-          <q-btn icon="delete" color="red">Apagar</q-btn>
+          <q-btn icon="edit" color="primary" @click="editAction">Editar</q-btn>
+          <q-btn icon="delete" color="red" @click="deleteAction">Apagar</q-btn>
         </div>
       </div>
     </div>
@@ -35,6 +35,8 @@
 <script>
 import { defineComponent, computed, ref } from "vue";
 
+import { useRouter } from "vue-router";
+
 import useBlogStore from "src/stores/blog";
 import useAuthStore from "src/stores/auth";
 
@@ -47,6 +49,8 @@ export default defineComponent({
     },
   },
   setup(props) {
+    const $router = useRouter();
+
     const blogStore = useBlogStore();
     const authStore = useAuthStore();
 
@@ -64,6 +68,18 @@ export default defineComponent({
       authStore,
       post,
       added,
+      deleteAction() {
+        const res = confirm("Are you sure you want to delete this post?");
+        if (res)
+          blogStore
+            .delete(props.id)
+            .then(() =>
+              $router.push({ name: "index", params: { id: props.id } })
+            );
+      },
+      editAction() {
+        $router.push({ name: "blog-edit", params: { id: props.id } });
+      },
     };
   },
 });

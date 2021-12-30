@@ -12,8 +12,8 @@
         <div class="text-subtitle2">Criado em: {{ added }}</div>
       </q-card-section>
       <q-card-actions v-if="authStore.isAuthenticated" vertical>
-        <q-btn icon="edit" color="primary">Editar</q-btn>
-        <q-btn icon="delete" color="red">Apagar</q-btn>
+        <q-btn icon="edit" color="primary" @click="editAction">Editar</q-btn>
+        <q-btn icon="delete" color="red" @click="deleteAction">Apagar</q-btn>
       </q-card-actions>
     </div>
 
@@ -29,6 +29,9 @@
 <script>
 import { defineComponent, computed } from "vue";
 
+import { useRouter } from "vue-router";
+
+import useBlogStore from "src/stores/blog";
 import useAuthStore from "src/stores/auth";
 
 export default defineComponent({
@@ -40,6 +43,9 @@ export default defineComponent({
     },
   },
   setup(props) {
+    const $router = useRouter();
+
+    const blogStore = useBlogStore();
     const authStore = useAuthStore();
 
     const added = computed(() => {
@@ -49,6 +55,18 @@ export default defineComponent({
     return {
       authStore,
       added,
+      deleteAction() {
+        const res = confirm("Are you sure you want to delete this post?");
+        if (res)
+          blogStore
+            .delete(props.id)
+            .then(() =>
+              $router.push({ name: "index", params: { id: props.post.id } })
+            );
+      },
+      editAction() {
+        $router.push({ name: "blog-edit", params: { id: props.post.id } });
+      },
     };
   },
 });
