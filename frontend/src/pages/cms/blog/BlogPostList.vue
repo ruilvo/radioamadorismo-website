@@ -1,6 +1,9 @@
 <template>
   <q-page class="row-auto">
     <h1 class="col-12 text-center">Lista de posts do blog</h1>
+    <q-btn flat class="q-ma-sm" @click="createPost"
+      ><q-icon name="add" />Criar</q-btn
+    >
     <BlogListItem v-for="post in posts" :key="'post' + post.id" :post="post" />
   </q-page>
 </template>
@@ -28,6 +31,9 @@ export default defineComponent({
 
     return {
       posts,
+      createPost() {
+        console.log("createPost");
+      },
     };
   },
 });

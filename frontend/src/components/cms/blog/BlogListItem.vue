@@ -21,13 +21,15 @@
           >Editar</router-link
         ></q-btn
       >
-      <q-btn flat><q-icon name="delete" />Apagar</q-btn>
+      <q-btn flat @click="deletePost"><q-icon name="delete" />Apagar</q-btn>
     </q-card-actions>
   </q-card>
 </template>
 
 <script>
 import { defineComponent, computed } from "vue";
+
+import useCmsBlogStore from "src/stores/cms/blog";
 
 export default defineComponent({
   name: "BlogListItem",
@@ -38,6 +40,8 @@ export default defineComponent({
     },
   },
   setup(props) {
+    const cmsBlogStore = useCmsBlogStore();
+
     const added = computed(() => {
       return new Date(props.post.added).toLocaleString();
     });
@@ -49,6 +53,11 @@ export default defineComponent({
     return {
       added,
       editUrl,
+      deletePost() {
+        if (confirm("Tem a certeza que quer apagar o post?")) {
+          cmsBlogStore.deletePost(props.post.id).then(cmsBlogStore.updatePosts);
+        }
+      },
     };
   },
 });
