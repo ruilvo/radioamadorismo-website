@@ -1,13 +1,27 @@
 <template>
   <q-page padding>
-    <div class="text-h6">{{ post.title }}</div>
-    <!-- eslint-disable-next-line vue/no-v-html -->
-    <div v-html="post.intro"></div>
+    <div v-if="!!post">
+      <div class="text-h4">{{ post.title }}</div>
+      <div class="text-subtitle2">Criado em: {{ added }}</div>
 
-    <!-- eslint-disable-next-line vue/no-v-html -->
-    <div v-html="post.body"></div>
+      <div class="q-my-lg">
+        <!-- eslint-disable-next-line vue/no-v-html -->
+        <div v-html="post.intro"></div>
+      </div>
 
-    <p>Criado em: {{ added }}</p>
+      <!-- eslint-disable-next-line vue/no-v-html -->
+      <div v-html="post.body"></div>
+    </div>
+    <div v-if="!post" class="row justify-center">
+      <q-circular-progress
+        indeterminate
+        size="50px"
+        :thickness="0.22"
+        color="lime"
+        track-color="grey-3"
+        class="q-ma-md"
+      />
+    </div>
   </q-page>
 </template>
 
@@ -27,7 +41,7 @@ export default defineComponent({
   setup(props) {
     const blogStore = useBlogStore();
 
-    const post = ref({});
+    const post = ref(null);
 
     blogStore.getPost(props.id).then((response) => {
       post.value = response.data;

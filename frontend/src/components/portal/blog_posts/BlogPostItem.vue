@@ -1,16 +1,23 @@
 <template>
-  <router-link
-    class="text-h6"
-    :to="{ name: 'blog-detail', params: { id: post.id } }"
-    style="text-decoration: none; color: inherit"
-  >
-    {{ post.title }}
-  </router-link>
+  <q-card bordered>
+    <q-card-section>
+      <router-link
+        class="text-h5"
+        :to="{ name: 'blog-detail', params: { id: post.id } }"
+        style="text-decoration: none; color: inherit"
+      >
+        {{ post.title }}
+      </router-link>
+      <div class="text-subtitle2">Criado em: {{ added }}</div>
+    </q-card-section>
 
-  <!-- eslint-disable-next-line vue/no-v-html -->
-  <div v-html="post.intro"></div>
+    <q-separator inset />
 
-  <p>Criado em: {{ added }}</p>
+    <q-card-section>
+      <!-- eslint-disable-next-line vue/no-v-html -->
+      <div v-html="post.intro"></div>
+    </q-card-section>
+  </q-card>
 </template>
 
 <script>

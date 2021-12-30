@@ -1,19 +1,21 @@
 <template>
-  <div class="q-gutter-sm">
-    <BlogPostItem
-      v-for="post in blogStore.posts"
-      :key="'post' + post.id"
-      :post="post"
-    />
-  </div>
+  <div class="overflow-auto">
+    <div class="q-gutter-md">
+      <BlogPostItem
+        v-for="post in blogStore.posts"
+        :key="'post' + post.id"
+        :post="post"
+      />
 
-  <q-pagination
-    v-model="currentPage"
-    :max="numberPages"
-    :max-pages="6"
-    boundary-numbers
-    class="row justify-center"
-  />
+      <q-pagination
+        v-model="currentPage"
+        :max="numberPages"
+        :max-pages="6"
+        boundary-numbers
+        class="row justify-center"
+      />
+    </div>
+  </div>
 </template>
 
 <script>
