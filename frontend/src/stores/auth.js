@@ -37,10 +37,6 @@ export const useAuthStore = defineStore("auth", {
       }
       this.errorMessage = null; // Be silent about it
     },
-    reset() {
-      this.isAuthenticated = false;
-      this.errorMessage = null;
-    },
   },
   persist: {
     enabled: true,

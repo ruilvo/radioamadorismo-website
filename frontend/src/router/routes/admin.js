@@ -1,29 +1,29 @@
 import { RouterView } from "vue-router";
 
-const routes_cms = [
+const routes_admin = [
   {
-    name: "cms",
-    path: "/cms/",
+    name: "admin",
+    path: "/admin/",
     meta: { requiresAuth: true },
     component: () => import("layouts/Cms.vue"),
     children: [
       {
-        name: "cms-index",
+        name: "admin-index",
         path: "",
         component: () => import("pages/cms/Index.vue"),
       },
       {
-        name: "cms-blog",
+        name: "admin-blog",
         path: "blogue/",
         component: RouterView,
         children: [
           {
-            name: "cms-blog-list",
+            name: "admin-blog-list",
             path: "",
             component: () => import("pages/cms/blog/PostList.vue"),
           },
           {
-            name: "cms-blog-post-edit",
+            name: "admin-blog-post-edit",
             path: "editar/:id/",
             component: () => import("pages/cms/blog/PostEdit.vue"),
             props: true,
@@ -40,4 +40,4 @@ const routes_cms = [
   },
 ];
 
-export default routes_cms;
+export default routes_admin;

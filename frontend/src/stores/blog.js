@@ -2,17 +2,23 @@ import { defineStore } from "pinia";
 
 import { api } from "boot/axios";
 
-export const useCmsBlogStore = defineStore("cms-blog", {
+export const useBlogStore = defineStore("blog", {
   state: () => ({
+    count: 0,
     posts: [],
   }),
   actions: {
-    updatePosts() {
-      return api
-        .get("/api/v1/cms/fact-blog-post/", { params: this.query })
-        .then((res) => {
-          this.posts = res.data.results;
-        });
+    async updatePosts(offset = 0, limit = 100, append = false) {
+      const query = { offset, limit };
+      const res = await api.get("/api/v1/cms/fact-blog-post/", {
+        params: query,
+      });
+      if (!append) {
+        this.posts = res.data.results;
+      } else {
+        this.posts = [...this.posts, ...res.data.results];
+      }
+      this.count = res.data.count;
     },
     getPost(id) {
       return api.get(`/api/v1/cms/fact-blog-post/${id}/`);
@@ -29,4 +35,4 @@ export const useCmsBlogStore = defineStore("cms-blog", {
   },
 });
 
-export default useCmsBlogStore;
+export default useBlogStore;
