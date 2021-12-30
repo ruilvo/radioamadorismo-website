@@ -8,13 +8,20 @@
       perferendis voluptate?
     </p>
     <hr />
+    <h2 class="q-mb-md">Notícias e posts</h2>
+    <BlogPosts />
   </q-page>
 </template>
 
 <script>
 import { defineComponent } from "vue";
 
+import BlogPosts from "components/portal/BlogPosts.vue";
+
 export default defineComponent({
   name: "Index",
+  components: {
+    BlogPosts,
+  },
 });
 </script>

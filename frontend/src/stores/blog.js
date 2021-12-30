@@ -9,9 +9,11 @@ export const useBlogStore = defineStore("blog", {
   }),
   actions: {
     async updatePosts(offset = 0, limit = 100, append = false) {
-      const query = { offset, limit };
       const res = await api.get("/api/v1/cms/fact-blog-post/", {
-        params: query,
+        params: {
+          offset: offset,
+          limit: limit,
+        },
       });
       if (!append) {
         this.posts = res.data.results;

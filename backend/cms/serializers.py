@@ -21,4 +21,4 @@ class FactBlogPostDetailSerializer(serializers.ModelSerializer):
 class FactBlogPostListSerializer(serializers.ModelSerializer):
     class Meta:
         model = FactBlogPost
-        fields = ["id", "title", "added"]
+        fields = ["id", "title", "added", "intro"]
