@@ -10,12 +10,6 @@
     </q-item-section>
     <q-item-section>Entrar</q-item-section>
   </q-item>
-  <q-item v-if="isAuthenticated" key="cms-entry" clickable exact to="/cms">
-    <q-item-section avatar>
-      <q-icon name="settings" />
-    </q-item-section>
-    <q-item-section>Administração</q-item-section>
-  </q-item>
   <q-item v-if="isAuthenticated" key="logout-entry" clickable @click="logout">
     <q-item-section avatar>
       <q-icon name="logout" />

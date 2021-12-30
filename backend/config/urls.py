@@ -27,7 +27,7 @@ from drf_spectacular.views import (
 
 urlpatterns = [
     # Django
-    path("django-admin/", admin.site.urls),
+    path("admin/", admin.site.urls),
     # API
     path(
         "api/",
