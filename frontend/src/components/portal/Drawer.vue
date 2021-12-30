@@ -8,9 +8,7 @@
   >
     <q-list>
       <StartPageItem />
-      <q-separator key="home-from-items" />
-      <RepeatersItem />
-      <q-separator key="items-from-meta" />
+      <q-separator key="home-from-meta" />
       <ApiItem />
       <AboutItem />
       <q-separator key="meta-from-auth" />
@@ -25,7 +23,6 @@ import { defineComponent, computed } from "vue";
 import StartPageItem from "components/common/drawer/StartPageItem.vue";
 import AuthItem from "components/common/drawer/AuthItem.vue";
 
-import RepeatersItem from "./drawer/RepeatersItem.vue";
 import ApiItem from "./drawer/ApiItem.vue";
 import AboutItem from "./drawer/AboutItem.vue";
 
@@ -34,7 +31,6 @@ export default defineComponent({
   components: {
     StartPageItem,
     AuthItem,
-    RepeatersItem,
     ApiItem,
     AboutItem,
   },
