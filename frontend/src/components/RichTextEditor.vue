@@ -1,8 +1,17 @@
 <template>
   <q-editor
+    ref="editorRef"
     v-model="editorContent"
     min-height="5rem"
     :dense="$q.screen.lt.md"
+    :definitions="{
+      image: {
+        tip: 'Selecionar uma imagem',
+        icon: 'image',
+        label: 'Imagem',
+        handler: selectImage,
+      },
+    }"
     :toolbar="[
       [
         {
@@ -41,13 +50,18 @@
       ],
       ['quote', 'unordered', 'ordered', 'outdent', 'indent'],
       ['undo', 'redo'],
+      ['image'],
       ['viewsource'],
     ]"
   />
 </template>
 
 <script>
-import { defineComponent, computed } from "vue";
+import { defineComponent, computed, ref } from "vue";
+
+import { useQuasar } from "quasar";
+
+import ImageSelectorDialog from "components/ImagesSelectorDialog";
 
 export default defineComponent({
   name: "RichTextEditor",
@@ -59,6 +73,10 @@ export default defineComponent({
   },
   emits: ["update:modelValue"],
   setup(props, { emit }) {
+    const $q = useQuasar();
+
+    const editorRef = ref(null);
+
     const editorContent = computed({
       get: () => props.modelValue,
       set: (val) => {
@@ -67,7 +85,23 @@ export default defineComponent({
     });
 
     return {
+      editorRef,
       editorContent,
+      selectImage() {
+        $q.dialog({
+          component: ImageSelectorDialog,
+        }).onOk((payload) => {
+          if (!payload.selectedImageSource) {
+            return;
+          }
+          console.log("OK");
+          console.log(payload);
+          editorRef.value.runCmd(
+            "insertHTML",
+            `<img src="${payload.selectedImageSource}" />`
+          );
+        });
+      },
     };
   },
 });

@@ -88,7 +88,7 @@ module.exports = configure(function () {
       lang: "pt", // Quasar language pack
 
       // Quasar plugins
-      plugins: ["LoadingBar"],
+      plugins: ["LoadingBar", "Dialog"],
     },
 
     // animations: 'all', // --- includes all animations

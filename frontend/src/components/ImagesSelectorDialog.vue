@@ -1,36 +1,49 @@
 <template>
-  <q-select v-model="selectedImage" :options="imageOptions" label="Imagem" />
+  <q-dialog ref="dialogRef" full-width full-height @hide="onDialogHide">
+    <q-card class="q-dialog-plugin">
+      <q-card-section>
+        <q-select
+          v-model="selectedImage"
+          :options="imageOptions"
+          label="Imagem"
+        />
+        <div class="row justify-center">
+          <img
+            v-if="selectedImageSource"
+            :src="selectedImageSource"
+            class="q-mt-md"
+            width="400"
+          />
+        </div>
+      </q-card-section>
 
-  <div class="row justify-center">
-    <img
-      v-if="selectedImageSource"
-      :src="selectedImageSource"
-      class="q-mt-md"
-      width="400"
-    />
-  </div>
-
-  <q-card-actions align="right" class="text-primary">
-    <q-btn v-close-popup flat icon="close" label="Fechar" />
-  </q-card-actions>
+      <q-card-actions align="center">
+        <q-btn
+          color="red"
+          icon="cancel"
+          label="Cancelar"
+          @click="onCancelClick"
+        />
+        <q-btn color="primary" icon="done" label="OK" @click="onOKClick" />
+      </q-card-actions>
+    </q-card>
+  </q-dialog>
 </template>
 
 <script>
 import { defineComponent, ref, computed, watch } from "vue";
 
+import { useDialogPluginComponent } from "quasar";
+
 import useImagestore from "src/stores/images";
 
 export default defineComponent({
   name: "ImagesSelectorDialog",
-  props: {
-    modelValue: {
-      type: String,
-      required: false,
-      default: null,
-    },
-  },
-  emits: ["update:modelValue"],
-  setup(props, { emit }) {
+  emits: [...useDialogPluginComponent.emits],
+  setup() {
+    const { dialogRef, onDialogHide, onDialogOK, onDialogCancel } =
+      useDialogPluginComponent();
+
     const imageStore = useImagestore();
 
     // Obtain the count then obtain the whole lot
@@ -50,12 +63,6 @@ export default defineComponent({
       }
     });
 
-    watch(selectedImageSource, (val) => {
-      if (val) {
-        emit("update:modelValue", val);
-      }
-    });
-
     const imageOptions = computed(() => {
       return imageStore.images.map((image) => {
         return {
@@ -69,6 +76,14 @@ export default defineComponent({
       selectedImage,
       imageOptions,
       selectedImageSource,
+      dialogRef,
+      onDialogHide,
+      onCancelClick: onDialogCancel,
+      onOKClick() {
+        onDialogOK({
+          selectedImageSource: selectedImageSource.value,
+        });
+      },
     };
   },
 });
