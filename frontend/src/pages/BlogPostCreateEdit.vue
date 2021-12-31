@@ -4,10 +4,10 @@
       <q-input v-model="title" filled label="Título" />
 
       <q-item-label>Introdução</q-item-label>
-      <q-editor v-model="intro" min-height="5rem" />
+      <RichTextEditor v-model="intro" />
 
       <q-item-label>Corpo</q-item-label>
-      <q-editor v-model="body" min-height="5rem" />
+      <RichTextEditor v-model="body" />
 
       <div>
         <q-btn label="Enviar" type="submit" color="primary" />
@@ -23,8 +23,13 @@ import { useRouter } from "vue-router";
 
 import useBlogStore from "src/stores/blog";
 
+import RichTextEditor from "components/RichTextEditor";
+
 export default defineComponent({
   name: "BlogPostCreateEdit",
+  components: {
+    RichTextEditor,
+  },
   props: {
     id: {
       type: String,
