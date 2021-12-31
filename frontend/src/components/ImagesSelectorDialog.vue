@@ -7,12 +7,33 @@
           :options="imageOptions"
           label="Imagem"
         />
+        <div class="row justify-center q-my-md">
+          <q-input
+            v-model="imageWidth"
+            type="number"
+            class="col-auto"
+            label="Largura"
+          />
+          <q-btn
+            color="primary"
+            :icon="keepAspectRatio ? 'lock' : 'lock_open'"
+            class="col-auto q-mx-md"
+            @click="keepAspectRatio = !keepAspectRatio"
+          />
+          <q-input
+            v-model="imageHeight"
+            type="number"
+            class="col-auto"
+            label="Altura"
+          />
+        </div>
         <div class="row justify-center">
           <img
             v-if="selectedImageSource"
             :src="selectedImageSource"
             class="q-mt-md"
-            width="400"
+            :width="imageWidth"
+            :height="imageHeight"
           />
         </div>
       </q-card-section>
@@ -53,12 +74,43 @@ export default defineComponent({
 
     const selectedImage = ref(null);
     const selectedImageSource = ref(null);
+    const imageHeight = ref(null);
+    const imageWidth = ref(null);
+    const aspectRatio = ref(null);
+    const keepAspectRatio = ref(true);
+
+    const avoidRecall = ref(false);
+    watch([imageHeight, imageWidth], (newValues, oldValues) => {
+      console.log(avoidRecall.value);
+      if (avoidRecall.value) {
+        avoidRecall.value = false;
+        return;
+      }
+      avoidRecall.value = true;
+      const oldHeight = oldValues[0];
+      const oldWidth = oldValues[1];
+      const newHeight = newValues[0];
+      const newWidth = newValues[1];
+      const heightChanged = oldHeight !== newHeight;
+      const widthChanged = oldWidth !== newHeight;
+
+      if (oldHeight && heightChanged && aspectRatio && keepAspectRatio.value) {
+        imageWidth.value = Math.round(newHeight * aspectRatio.value);
+      }
+
+      if (oldWidth && widthChanged && aspectRatio && keepAspectRatio.value) {
+        imageHeight.value = Math.round(newWidth / aspectRatio.value);
+      }
+    });
 
     watch(selectedImage, (val) => {
       if (val) {
         imageStore.getImage(val.value).then((result) => {
+          avoidRecall.value = true;
           selectedImageSource.value = result.data.file;
-          console.log(selectedImageSource.value);
+          imageHeight.value = result.data.height;
+          imageWidth.value = result.data.width;
+          aspectRatio.value = imageWidth.value / imageHeight.value;
         });
       }
     });
@@ -76,12 +128,17 @@ export default defineComponent({
       selectedImage,
       imageOptions,
       selectedImageSource,
+      imageHeight,
+      imageWidth,
+      keepAspectRatio,
       dialogRef,
       onDialogHide,
       onCancelClick: onDialogCancel,
       onOKClick() {
         onDialogOK({
           selectedImageSource: selectedImageSource.value,
+          imageHeight: imageHeight.value,
+          imageWidth: imageWidth.value,
         });
       },
     };

@@ -98,7 +98,7 @@ export default defineComponent({
           console.log(payload);
           editorRef.value.runCmd(
             "insertHTML",
-            `<img src="${payload.selectedImageSource}" />`
+            `<img src="${payload.selectedImageSource}" width="${payload.imageWidth}" height="${payload.imageHeight}" />`
           );
         });
       },
