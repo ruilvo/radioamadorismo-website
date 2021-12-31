@@ -8,7 +8,7 @@ class FactPdf(models.Model):
     """
 
     title = models.CharField(max_length=255)
-    file = models.ImageField(
+    file = models.FileField(
         upload_to="pdfs/%Y/%m/",
         max_length=255,
         validators=[FileExtensionValidator(allowed_extensions=["pdf"])],
