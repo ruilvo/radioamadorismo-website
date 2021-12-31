@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 
 import { api } from "boot/axios";
 
-export const useImagestore = defineStore("images", {
+export const useImageStore = defineStore("images", {
   state: () => ({
     count: 0,
     images: [],
@@ -37,4 +37,4 @@ export const useImagestore = defineStore("images", {
   },
 });
 
-export default useImagestore;
+export default useImageStore;

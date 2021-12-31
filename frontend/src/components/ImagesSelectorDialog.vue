@@ -56,7 +56,7 @@ import { defineComponent, ref, computed, watch } from "vue";
 
 import { useDialogPluginComponent } from "quasar";
 
-import useImagestore from "src/stores/images";
+import useImageStore from "src/stores/images";
 
 export default defineComponent({
   name: "ImagesSelectorDialog",
@@ -65,7 +65,7 @@ export default defineComponent({
     const { dialogRef, onDialogHide, onDialogOK, onDialogCancel } =
       useDialogPluginComponent();
 
-    const imageStore = useImagestore();
+    const imageStore = useImageStore();
 
     // Obtain the count then obtain the whole lot
     imageStore.updateImages(0, 1).then(() => {

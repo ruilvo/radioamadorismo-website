@@ -7,6 +7,12 @@
     :definitions="{
       image: {
         tip: 'Selecionar uma imagem',
+        icon: 'picture_as_pdf',
+        label: 'PDF',
+        handler: selectPdf,
+      },
+      pdf: {
+        tip: 'Selecionar um PDF',
         icon: 'image',
         label: 'Imagem',
         handler: selectImage,
@@ -50,7 +56,7 @@
       ],
       ['quote', 'unordered', 'ordered', 'outdent', 'indent'],
       ['undo', 'redo'],
-      ['image'],
+      ['image', 'pdf'],
       ['viewsource'],
     ]"
   />
@@ -62,6 +68,7 @@ import { defineComponent, computed, ref } from "vue";
 import { useQuasar } from "quasar";
 
 import ImageSelectorDialog from "components/ImagesSelectorDialog";
+import PdfSelectorDialog from "components/PdfSelectorDialog";
 
 export default defineComponent({
   name: "RichTextEditor",
@@ -94,11 +101,22 @@ export default defineComponent({
           if (!payload.selectedImageSource) {
             return;
           }
-          console.log("OK");
-          console.log(payload);
           editorRef.value.runCmd(
             "insertHTML",
             `<img src="${payload.selectedImageSource}" width="${payload.imageWidth}" height="${payload.imageHeight}" />`
+          );
+        });
+      },
+      selectPdf() {
+        $q.dialog({
+          component: PdfSelectorDialog,
+        }).onOk((payload) => {
+          if (!payload.selectedPdfSource) {
+            return;
+          }
+          editorRef.value.runCmd(
+            "insertHTML",
+            `<iframe src="${payload.selectedPdfSource}" width="${payload.pdfWidth}" height="${payload.pdfHeight}" type="application/pdf" />`
           );
         });
       },
