@@ -12,6 +12,8 @@
 <script>
 import { defineComponent, ref } from "vue";
 
+import useAuthStore from "src/stores/auth";
+
 import Header from "components/Header.vue";
 import Drawer from "components/Drawer.vue";
 
@@ -22,6 +24,9 @@ export default defineComponent({
     Drawer,
   },
   setup() {
+    const authStore = useAuthStore();
+    authStore.check();
+
     const leftDrawerOpen = ref(false);
 
     return {
