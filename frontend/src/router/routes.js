@@ -12,6 +12,9 @@ const routes = [
         name: "login",
         path: "login/",
         component: () => import("pages/Login.vue"),
+        meta: {
+          guest: true,
+        },
       },
       {
         name: "blog-detail",
@@ -24,11 +27,17 @@ const routes = [
         path: "blogue/edit/:id/",
         component: () => import("pages/BlogPostCreateEdit.vue"),
         props: true,
+        meta: {
+          requiresAuth: true,
+        },
       },
       {
         name: "blog-new",
         path: "blogue/novo/",
         component: () => import("pages/BlogPostCreateEdit.vue"),
+        meta: {
+          requiresAuth: true,
+        },
       },
     ],
   },

@@ -1,7 +1,11 @@
 <template>
   <div class="overflow-auto">
     <div class="q-gutter-md">
-      <q-btn v-if="authStore.isAuthenticated" icon="add" color="primary"
+      <q-btn
+        v-if="authStore.isAuthenticated"
+        icon="add"
+        color="primary"
+        @click="addAction"
         >Novo</q-btn
       >
       <BlogPostItem
@@ -63,7 +67,7 @@ export default defineComponent({
       currentPage,
       numberPages,
       addAction() {
-        $router.push({ name: "blog-edit" });
+        $router.push({ name: "blog-new" });
       },
     };
   },
