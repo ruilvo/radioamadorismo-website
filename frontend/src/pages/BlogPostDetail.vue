@@ -72,7 +72,7 @@ export default defineComponent({
         const res = confirm("Are you sure you want to delete this post?");
         if (res)
           blogStore
-            .delete(props.id)
+            .deletePost(props.id)
             .then(() =>
               $router.push({ name: "index", params: { id: props.id } })
             );
