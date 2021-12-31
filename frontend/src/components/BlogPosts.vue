@@ -59,7 +59,7 @@ export default defineComponent({
       blogStore.updatePosts(offset.value, limit, false);
     });
 
-    blogStore.updatePosts(offset, limit, false);
+    blogStore.updatePosts(offset.value, limit, false);
 
     return {
       blogStore,
