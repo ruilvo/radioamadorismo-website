@@ -168,6 +168,7 @@ REST_FRAMEWORK = {
 # Local settings
 
 AUTH_USER_MODEL = "users.User"
+X_FRAME_OPTIONS = "SAMEORIGIN"
 
 # Schema
 SPECTACULAR_SETTINGS = {
