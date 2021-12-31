@@ -1,15 +1,23 @@
 from rest_framework import viewsets
 
 from .models import (
+    FactPdf,
     FactImage,
     FactBlogPost,
 )
 
 from .serializers import (
+    FactPdfSerializer,
     FactImageSerializer,
     FactBlogPostDetailSerializer,
     FactBlogPostListSerializer,
 )
+
+
+class FactPdfViewSet(viewsets.ModelViewSet):
+
+    queryset = FactPdf.objects.all()
+    serializer_class = FactPdfSerializer
 
 
 class FactImageViewSet(viewsets.ModelViewSet):

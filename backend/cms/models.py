@@ -1,4 +1,21 @@
+from django.core.validators import FileExtensionValidator
 from django.db import models
+
+
+class FactPdf(models.Model):
+    """
+    Model to store records of uploaded PDFs to the server
+    """
+
+    title = models.CharField(max_length=255)
+    file = models.ImageField(
+        upload_to="pdfs/%Y/%m/",
+        max_length=255,
+        validators=[FileExtensionValidator(allowed_extensions=["pdf"])],
+    )
+
+    def __str__(self):
+        return self.title
 
 
 class FactImage(models.Model):
