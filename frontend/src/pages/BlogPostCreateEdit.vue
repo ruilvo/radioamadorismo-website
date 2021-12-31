@@ -1,5 +1,8 @@
 <template>
   <q-page padding class="overflow-auto">
+    <q-banner v-if="hasError" class="text-white text-center bg-red q-mb-xl">
+      <div>Todos os campos são obrigatórios!</div>
+    </q-banner>
     <q-form class="q-gutter-md" @submit="onSubmit">
       <q-input v-model="title" filled label="Título" />
 
@@ -42,12 +45,32 @@ export default defineComponent({
 
     const blogStore = useBlogStore();
 
+    const hasError = ref(false);
+
     const title = ref("");
     const intro = ref("");
     const body = ref("");
 
+    const validateForm = () => {
+      hasError.value = false;
+
+      if (!title.value || title.value === "") {
+        hasError.value = true;
+      }
+
+      if (!intro.value || intro.value === "") {
+        hasError.value = true;
+      }
+
+      if (!body.value || body.value === "") {
+        hasError.value = true;
+      }
+    };
+
     // Default to create
     var onSubmit = (onSubmit = () => {
+      validateForm();
+      if (hasError.value) return;
       blogStore
         .createPost({
           title: title.value,
@@ -67,6 +90,8 @@ export default defineComponent({
         body.value = response.data.body;
       });
       onSubmit = () => {
+        validateForm();
+        if (hasError.value) return;
         blogStore
           .updatePost(props.id, {
             title: title.value,
@@ -80,6 +105,7 @@ export default defineComponent({
     }
 
     return {
+      hasError,
       onSubmit,
       title,
       intro,
