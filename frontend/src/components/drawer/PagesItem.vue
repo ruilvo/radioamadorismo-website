@@ -1,5 +1,5 @@
 <template>
-  <q-item key="repeaters-item" clickable :to="{ name: 'repeaters' }" exact>
+  <q-item key="repeaters-item" clickable :to="{ name: 'repeaters-list' }" exact>
     <q-item-section avatar>
       <q-icon name="cell_tower" />
     </q-item-section>

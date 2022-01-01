@@ -17,6 +17,13 @@ const routes = [
         name: "repeaters",
         path: "repetidores/",
         component: () => import("pages/Repeaters.vue"),
+        children: [
+          {
+            name: "repeaters-list",
+            path: "",
+            component: () => import("components/RepeatersList.vue"),
+          },
+        ],
       },
       {
         name: "login",
