@@ -11,13 +11,47 @@
             size="28px"
             class="q-mr-sm"
           />
-          <div class="text-weight-bold text-primary">{{ prop.node.label }}</div>
+          <div class="text-weight-bold text-primary">
+            {{ prop.node.label }}
+            <div class="q-gutter-xs">
+              <q-badge
+                v-if="prop.node.badge_half_duplex"
+                color="info"
+                align="top"
+                >Semi-duplex</q-badge
+              >
+              <q-badge
+                v-if="prop.node.badge_simplex"
+                color="warning"
+                align="top"
+                >Simplex</q-badge
+              >
+            </div>
+            <div class="q-gutter-xs">
+              <q-badge v-if="prop.node.badge_fm" color="secondary" align="top"
+                >FM</q-badge
+              >
+              <q-badge v-if="prop.node.badge_dstar" color="accent" align="top"
+                >D-STAR</q-badge
+              >
+              <q-badge
+                v-if="prop.node.badge_fusion"
+                color="negative"
+                align="top"
+                >Fusion/C4FM</q-badge
+              >
+              <q-badge v-if="prop.node.badge_dmr" color="positive" align="top"
+                >DMR</q-badge
+              >
+            </div>
+          </div>
         </div>
       </template>
 
       <template #body-repeater="prop">
-        <!-- eslint-disable-next-line vue/no-v-html -->
-        <div class="text-black no-margin-body" v-html="prop.node.notes"></div>
+        <div class="text-black no-margin-body" style="white-space: pre-wrap">
+          {{ prop.node.notes }}
+        </div>
       </template>
 
       <template #default-header="prop">
@@ -27,8 +61,9 @@
       </template>
 
       <template #default-body="prop">
-        <!-- eslint-disable-next-line vue/no-v-html -->
-        <div class="text-black no-margin-body" v-html="prop.node.data"></div>
+        <div class="text-black no-margin-body" style="white-space: pre-wrap">
+          {{ prop.node.data }}
+        </div>
       </template>
     </q-tree>
 
@@ -81,6 +116,14 @@ export default defineComponent({
           // Style
           header: "repeater",
           body: "repeater",
+
+          // Badges
+          badge_simplex: false,
+          badge_half_duplex: false,
+          badge_fm: false,
+          badge_dstar: false,
+          badge_fusion: false,
+          badge_dmr: false,
         };
 
         // Create the location child node
@@ -91,7 +134,16 @@ export default defineComponent({
             children: [],
           };
 
-          push_if_qtree(repeater.info_location.region, "Região", info_location);
+          var region_name = "Outra (não Portugal ou não especificado)";
+          if (repeater.info_location.region === "CPT") {
+            region_name = "Portugal Continental";
+          } else if (repeater.info_location.region === "AZR") {
+            region_name = "Açores";
+          } else if (repeater.info_location.region === "MDA") {
+            region_name = "Madeira";
+          }
+
+          push_if_qtree(region_name, "Região", info_location);
           push_if_qtree(
             repeater.info_location.latitude,
             "Latitude",
@@ -139,6 +191,7 @@ export default defineComponent({
 
         // Check what modes the repeater has:
         if (repeater.info_fm) {
+          repeater_node.badge_fm = true;
           var info_fm = {
             id: repeater_node.id + "info_fm" + repeater.info_fm.id,
             label: "FM",
@@ -151,6 +204,7 @@ export default defineComponent({
           modulation_node.children.push(info_fm);
         }
         if (repeater.info_dstar) {
+          repeater_node.badge_dstar = true;
           const info_dstar = {
             id: repeater_node.id + "info_dstar" + repeater.info_dstar.id,
             label: "D-STAR",
@@ -168,6 +222,7 @@ export default defineComponent({
           modulation_node.children.push(info_dstar);
         }
         if (repeater.info_fusion) {
+          repeater_node.badge_fusion = true;
           var info_fusion = {
             id: repeater_node.id + "info_fusion" + repeater.info_fusion.id,
             label: "Fusion (C4FM)",
@@ -185,6 +240,7 @@ export default defineComponent({
           modulation_node.children.push(info_fusion);
         }
         if (repeater.info_dmr) {
+          repeater_node.badge_dmr = true;
           var info_dmr = {
             id: repeater_node.id + "info_dmr" + repeater.info_dmr.id,
             label: "DMR",
@@ -211,6 +267,7 @@ export default defineComponent({
         repeater_node.children.push(modulation_node);
 
         if (repeater.info_simplex) {
+          repeater_node.badge_simplex = true;
           var info_simplex = {
             id: repeater_node.id + "info_simplex" + repeater.info_simplex.id,
             label: "RF: Simplex",
@@ -229,6 +286,7 @@ export default defineComponent({
         }
 
         if (repeater.info_half_duplex) {
+          repeater_node.badge_half_duplex = true;
           var info_half_duplex = {
             id:
               repeater_node.id +
