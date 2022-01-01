@@ -66,15 +66,6 @@
         </div>
       </template>
     </q-tree>
-
-    <q-btn
-      color="primary"
-      class="full-width q-mt-md"
-      :disable="repeatersAsQtree.length >= repeatersStore.count"
-      @click="loadMore"
-      >Mostrando {{ repeatersAsQtree.length }} de {{ repeatersStore.count }} na
-      base de dados. Clique aqui para carregar mais.</q-btn
-    >
   </div>
 </template>
 
@@ -322,14 +313,6 @@ export default defineComponent({
 
     return {
       repeatersAsQtree,
-      repeatersStore,
-      loadMore() {
-        repeatersStore.updateRepeaters(
-          repeatersStore.lastOffset + repeatersStore.lastLimit,
-          repeatersStore.lastLimit,
-          true
-        );
-      },
     };
   },
 });

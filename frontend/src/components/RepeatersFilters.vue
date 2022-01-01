@@ -39,6 +39,9 @@
         <q-range v-model="freqRange" :min="0" :max="1500" />
       </div>
     </q-form>
+    <div class="row">
+      <q-btn color="primary" label="Submeter" @click="submitFilters" />
+    </div>
   </div>
 </template>
 
@@ -117,7 +120,9 @@ export default defineComponent({
     function submitFilters() {
       updateQueryFromData();
       updateRouteFromQuery();
-      repeatersStore.updateRepeaters();
+      repeatersStore
+        .updateRepeaters(0, 1)
+        .then(repeatersStore.updateRepeaters(0, repeatersStore.count));
     }
 
     onUnmounted(() => {
