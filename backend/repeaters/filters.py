@@ -1,10 +1,12 @@
 import re
 from django.db.models import Q
 from django_filters import rest_framework as filters
+import django_filters
+
 from .models import FactRepeater, DimLocation
 
 
-class FactRepeaterFilter(filters.FilterSet):
+class FactRepeaterFilter:
     # https://stackoverflow.com/a/62878113/5168563
     modulation = filters.CharFilter(label="modulation", method="modulation_search")
     holder = filters.CharFilter(label="holder", method="holder_search")
@@ -172,3 +174,11 @@ class FactRepeaterFilter(filters.FilterSet):
             "info_location__place": ["exact", "icontains"],
             "info_location__qth_loc": ["exact", "iexact"],
         }
+
+
+class FactRepeaterFilterDRF(FactRepeaterFilter, filters.FilterSet):
+    pass
+
+
+class FactRepeaterFilterDjango(FactRepeaterFilter, django_filters.FilterSet):
+    pass
