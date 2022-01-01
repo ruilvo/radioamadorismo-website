@@ -251,13 +251,8 @@ export default defineComponent({
           push_if_qtree(repeater.info_dmr.dmr_id, "ID DMR", info_dmr);
           push_if_qtree(repeater.info_dmr.color_code, "C.C.", info_dmr);
           push_if_qtree(
-            repeater.info_dmr.ts1_configuration,
-            "T.S. 1",
-            info_dmr
-          );
-          push_if_qtree(
-            repeater.info_dmr.ts2_configuration,
-            "T.S. 2",
+            repeater.info_dmr.ts_configuration,
+            "Configuração das Time Slots",
             info_dmr
           );
 
