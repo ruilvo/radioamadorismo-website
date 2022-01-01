@@ -8,7 +8,9 @@
   >
     <q-list>
       <StartPageItem />
-      <q-separator key="home-from-meta" />
+      <q-separator key="home-from-items" />
+      <PagesItem />
+      <q-separator key="items-from-meta" />
       <ApiItem />
       <q-separator key="meta-from-auth" />
       <AuthItem />
@@ -22,6 +24,7 @@ import { defineComponent, computed } from "vue";
 import StartPageItem from "./drawer/StartPageItem.vue";
 import AuthItem from "./drawer/AuthItem.vue";
 import ApiItem from "./drawer/ApiItem.vue";
+import PagesItem from "./drawer/PagesItem.vue";
 
 export default defineComponent({
   name: "Drawer",
@@ -29,6 +32,7 @@ export default defineComponent({
     StartPageItem,
     AuthItem,
     ApiItem,
+    PagesItem,
   },
   props: {
     modelValue: Boolean,

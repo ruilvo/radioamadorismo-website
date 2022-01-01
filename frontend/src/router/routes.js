@@ -9,6 +9,11 @@ const routes = [
         component: () => import("pages/Index.vue"),
       },
       {
+        name: "aprs-passcode",
+        path: "aprs/passcode/",
+        component: () => import("pages/AprsPasscode.vue"),
+      },
+      {
         name: "login",
         path: "login/",
         component: () => import("pages/Login.vue"),
