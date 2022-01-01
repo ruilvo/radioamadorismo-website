@@ -85,6 +85,11 @@ urlpatterns = [
                                 include("cms.urls"),
                                 name="cms",
                             ),
+                            path(
+                                "aprs/",
+                                include("aprs.urls"),
+                                name="aprs",
+                            ),
                         ]
                     ),
                 ),
