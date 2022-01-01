@@ -14,6 +14,11 @@ const routes = [
         component: () => import("pages/AprsPasscode.vue"),
       },
       {
+        name: "repeaters",
+        path: "repetidores/",
+        component: () => import("pages/Repeaters.vue"),
+      },
+      {
         name: "login",
         path: "login/",
         component: () => import("pages/Login.vue"),
