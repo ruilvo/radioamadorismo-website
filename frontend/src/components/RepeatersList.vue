@@ -1,7 +1,17 @@
 <template>
   <div class="text-h6">Lista de repetidores</div>
   <div class="col">
-    <q-tree :nodes="repeatersAsQtree" node-key="id">
+    <q-input ref="filterRef" v-model="filter" filled label="Filtrar">
+      <template #append>
+        <q-icon
+          v-if="filter !== ''"
+          name="clear"
+          class="cursor-pointer"
+          @click="resetFilter"
+        />
+      </template>
+    </q-input>
+    <q-tree :filter="filter" :nodes="repeatersAsQtree" node-key="id">
       <template #header-repeater="prop">
         <div class="row items-center">
           <q-icon
@@ -70,7 +80,7 @@
 </template>
 
 <script>
-import { defineComponent, computed } from "vue";
+import { defineComponent, computed, ref } from "vue";
 
 import useRepeatersStore from "src/stores/repeaters";
 
@@ -87,6 +97,9 @@ function push_if_qtree(cond_and_data, label, parent) {
 export default defineComponent({
   name: "RepeatersList",
   setup() {
+    const filter = ref("");
+    const filterRef = ref(null);
+
     const repeatersStore = useRepeatersStore();
 
     const repeatersAsQtree = computed(() => {
@@ -312,6 +325,12 @@ export default defineComponent({
     });
 
     return {
+      filter,
+      filterRef,
+      resetFilter() {
+        filter.value = "";
+        filterRef.value.focus();
+      },
       repeatersAsQtree,
     };
   },
