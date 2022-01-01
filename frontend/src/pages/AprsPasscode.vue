@@ -1,6 +1,6 @@
 <template>
   <q-page padding>
-    <h2>Gerador de Passcodes de APRS</h2>
+    <h2>Gerador de Passcodes de APRS-IS</h2>
     <div class="row">
       <h4 class="q-mr-md">Indicativo:</h4>
       <q-input v-model="callsign" filled />
