@@ -12,7 +12,12 @@
           />
         </template>
       </q-input>
-      <q-tree :filter="filter" :nodes="repeatersAsQtree" node-key="id">
+      <q-tree
+        :filter="filter"
+        :filter-method="filterMethod"
+        :nodes="repeatersAsQtree"
+        node-key="id"
+      >
         <template #header-repeater="prop">
           <div class="row items-center">
             <q-icon
@@ -121,6 +126,34 @@ function push_if_qtree(cond_and_data, label, parent) {
       data: cond_and_data,
     });
   }
+}
+
+function filterMethod(node, filter) {
+  if (node.repeater_id !== undefined) {
+    // Root node (let's match everything from the root node)
+    // label: "label"
+    // body: "notes"
+    if (node.label.toString().toLowerCase().includes(filter.toLowerCase())) {
+      return true;
+    }
+    if (node.notes.toString().toLowerCase().includes(filter.toLowerCase())) {
+      return true;
+    }
+  } else {
+    // Other nodes:
+    // label: "label"
+    // body: "data"
+    if (node.label.toString().toLowerCase().includes(filter.toLowerCase())) {
+      return true;
+    }
+    if (
+      node.data !== undefined &&
+      node.data.toString().toLowerCase().includes(filter.toLowerCase())
+    ) {
+      return true;
+    }
+  }
+  return false;
 }
 
 export default defineComponent({
@@ -384,6 +417,7 @@ export default defineComponent({
     });
 
     return {
+      filterMethod,
       authStore,
       filter,
       filterRef,
