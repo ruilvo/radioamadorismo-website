@@ -59,8 +59,24 @@
       </template>
 
       <template #body-repeater="prop">
-        <div class="text-black no-margin-body" style="white-space: pre-wrap">
-          {{ prop.node.notes }}
+        <div class="row">
+          <div class="full-width q-mb-sm">
+            <q-btn
+              v-if="authStore.isAuthenticated"
+              icon="edit"
+              color="primary"
+              @click="
+                $router.push({
+                  name: 'repeater-notes-edit',
+                  params: { id: prop.node.repeater_id },
+                })
+              "
+              >Editar notas</q-btn
+            >
+          </div>
+
+          <!-- eslint-disable-next-line vue/no-v-html -->
+          <div class="text-black no-margin-body" v-html="prop.node.notes" />
         </div>
       </template>
 
@@ -82,6 +98,8 @@
 <script>
 import { defineComponent, computed, ref } from "vue";
 
+import useAuthStore from "src/stores/auth";
+
 import useRepeatersStore from "src/stores/repeaters";
 
 function push_if_qtree(cond_and_data, label, parent) {
@@ -97,6 +115,8 @@ function push_if_qtree(cond_and_data, label, parent) {
 export default defineComponent({
   name: "RepeatersList",
   setup() {
+    const authStore = useAuthStore();
+
     const filter = ref("");
     const filterRef = ref(null);
 
@@ -108,6 +128,7 @@ export default defineComponent({
         var repeater_node = {
           // q-tree root node
           id: repeater.callsign + repeater.id,
+          repeater_id: repeater.id,
           icon: "cell_tower",
           label: repeater.callsign,
 
@@ -325,6 +346,7 @@ export default defineComponent({
     });
 
     return {
+      authStore,
       filter,
       filterRef,
       resetFilter() {

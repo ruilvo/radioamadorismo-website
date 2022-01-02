@@ -68,7 +68,7 @@ export default defineComponent({
     };
 
     // Default to create
-    var onSubmit = (onSubmit = () => {
+    var onSubmit = () => {
       validateForm();
       if (hasError.value) return;
       blogStore
@@ -80,7 +80,7 @@ export default defineComponent({
         .then(() => {
           $router.push({ name: "index" });
         });
-    });
+    };
 
     if (props.id !== null) {
       // Means we are editing

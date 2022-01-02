@@ -14,6 +14,15 @@ const routes = [
         component: () => import("pages/AprsPasscode.vue"),
       },
       {
+        name: "repeater-notes-edit",
+        path: "repetidores/editar/:id/",
+        component: () => import("pages/RepeaterNotesEdit.vue"),
+        props: true,
+        meta: {
+          requiresAuth: true,
+        },
+      },
+      {
         name: "repeaters",
         path: "repetidores/",
         component: () => import("pages/Repeaters.vue"),
@@ -41,7 +50,7 @@ const routes = [
       },
       {
         name: "blog-edit",
-        path: "blogue/edit/:id/",
+        path: "blogue/editar/:id/",
         component: () => import("pages/BlogPostCreateEdit.vue"),
         props: true,
         meta: {
