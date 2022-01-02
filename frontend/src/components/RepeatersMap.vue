@@ -1,6 +1,8 @@
 <template>
-  <div class="text-h6">Mapa de repetidores</div>
-  <div id="map" class="row col" style="min-height: 300px"></div>
+  <div class="col column full-height">
+    <div class="text-h6 col-auto">Mapa de repetidores</div>
+    <div id="map" class="col" style="min-height: 300px"></div>
+  </div>
 </template>
 
 <script>

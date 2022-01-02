@@ -1,106 +1,108 @@
 <template>
-  <div class="text-h6">Lista de repetidores</div>
-  <div class="col">
-    <q-input ref="filterRef" v-model="filter" filled label="Procurar">
-      <template #append>
-        <q-icon
-          v-if="filter !== ''"
-          name="clear"
-          class="cursor-pointer"
-          @click="resetFilter"
-        />
-      </template>
-    </q-input>
-    <q-tree :filter="filter" :nodes="repeatersAsQtree" node-key="id">
-      <template #header-repeater="prop">
-        <div class="row items-center">
+  <div class="col column">
+    <div class="text-h6 col-auto">Lista de repetidores</div>
+    <div class="col">
+      <q-input ref="filterRef" v-model="filter" filled label="Procurar">
+        <template #append>
           <q-icon
-            v-if="prop.node.icon"
-            :name="prop.node.icon"
-            color="orange"
-            size="28px"
-            class="q-mr-sm"
+            v-if="filter !== ''"
+            name="clear"
+            class="cursor-pointer"
+            @click="resetFilter"
           />
-          <div class="text-weight-bold text-primary">
-            {{ prop.node.label }}
-            <div class="q-gutter-xs">
-              <q-badge
-                v-if="prop.node.badge_half_duplex"
-                color="info"
-                align="top"
-                >Semi-duplex</q-badge
-              >
-              <q-badge
-                v-if="prop.node.badge_simplex"
-                color="warning"
-                align="top"
-                >Simplex</q-badge
-              >
-              <q-badge v-if="prop.node.badge_2m" color="brown-8" align="top"
-                >2m</q-badge
-              >
-              <q-badge
-                v-if="prop.node.badge_70cm"
-                color="deep-orange-6"
-                align="top"
-                >70cm</q-badge
-              >
-            </div>
-            <div class="q-gutter-xs">
-              <q-badge v-if="prop.node.badge_fm" color="secondary" align="top"
-                >FM</q-badge
-              >
-              <q-badge v-if="prop.node.badge_dstar" color="accent" align="top"
-                >D-STAR</q-badge
-              >
-              <q-badge
-                v-if="prop.node.badge_fusion"
-                color="negative"
-                align="top"
-                >Fusion/C4FM</q-badge
-              >
-              <q-badge v-if="prop.node.badge_dmr" color="positive" align="top"
-                >DMR</q-badge
-              >
+        </template>
+      </q-input>
+      <q-tree :filter="filter" :nodes="repeatersAsQtree" node-key="id">
+        <template #header-repeater="prop">
+          <div class="row items-center">
+            <q-icon
+              v-if="prop.node.icon"
+              :name="prop.node.icon"
+              color="orange"
+              size="28px"
+              class="q-mr-sm"
+            />
+            <div class="text-weight-bold text-primary">
+              {{ prop.node.label }}
+              <div class="q-gutter-xs">
+                <q-badge
+                  v-if="prop.node.badge_half_duplex"
+                  color="info"
+                  align="top"
+                  >Semi-duplex</q-badge
+                >
+                <q-badge
+                  v-if="prop.node.badge_simplex"
+                  color="warning"
+                  align="top"
+                  >Simplex</q-badge
+                >
+                <q-badge v-if="prop.node.badge_2m" color="brown-8" align="top"
+                  >2m</q-badge
+                >
+                <q-badge
+                  v-if="prop.node.badge_70cm"
+                  color="deep-orange-6"
+                  align="top"
+                  >70cm</q-badge
+                >
+              </div>
+              <div class="q-gutter-xs">
+                <q-badge v-if="prop.node.badge_fm" color="secondary" align="top"
+                  >FM</q-badge
+                >
+                <q-badge v-if="prop.node.badge_dstar" color="accent" align="top"
+                  >D-STAR</q-badge
+                >
+                <q-badge
+                  v-if="prop.node.badge_fusion"
+                  color="negative"
+                  align="top"
+                  >Fusion/C4FM</q-badge
+                >
+                <q-badge v-if="prop.node.badge_dmr" color="positive" align="top"
+                  >DMR</q-badge
+                >
+              </div>
             </div>
           </div>
-        </div>
-      </template>
+        </template>
 
-      <template #body-repeater="prop">
-        <div class="row">
-          <div class="full-width q-mb-sm">
-            <q-btn
-              v-if="authStore.isAuthenticated"
-              icon="edit"
-              color="primary"
-              @click="
-                $router.push({
-                  name: 'repeater-notes-edit',
-                  params: { id: prop.node.repeater_id },
-                })
-              "
-              >Editar notas</q-btn
-            >
+        <template #body-repeater="prop">
+          <div class="row">
+            <div class="full-width q-mb-sm">
+              <q-btn
+                v-if="authStore.isAuthenticated"
+                icon="edit"
+                color="primary"
+                @click="
+                  $router.push({
+                    name: 'repeater-notes-edit',
+                    params: { id: prop.node.repeater_id },
+                  })
+                "
+                >Editar notas</q-btn
+              >
+            </div>
+
+            <!-- eslint-disable-next-line vue/no-v-html -->
+            <div class="text-black no-margin-body" v-html="prop.node.notes" />
           </div>
+        </template>
 
-          <!-- eslint-disable-next-line vue/no-v-html -->
-          <div class="text-black no-margin-body" v-html="prop.node.notes" />
-        </div>
-      </template>
+        <template #default-header="prop">
+          <div class="row items-center">
+            <div class="text-weight-bold text-black">{{ prop.node.label }}</div>
+          </div>
+        </template>
 
-      <template #default-header="prop">
-        <div class="row items-center">
-          <div class="text-weight-bold text-black">{{ prop.node.label }}</div>
-        </div>
-      </template>
-
-      <template #default-body="prop">
-        <div class="text-black no-margin-body" style="white-space: pre-wrap">
-          {{ prop.node.data }}
-        </div>
-      </template>
-    </q-tree>
+        <template #default-body="prop">
+          <div class="text-black no-margin-body" style="white-space: pre-wrap">
+            {{ prop.node.data }}
+          </div>
+        </template>
+      </q-tree>
+    </div>
   </div>
 </template>
 

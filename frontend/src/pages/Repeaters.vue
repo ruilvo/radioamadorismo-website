@@ -1,12 +1,12 @@
 <template>
   <q-page padding :style-fn="pageStyleFn">
-    <h2>Repetidores</h2>
-    <div class="row" style="height: 90%">
-      <div class="row q-gutter-sm col">
+    <div class="column full-height">
+      <h2 class="col-auto">Repetidores</h2>
+      <div class="col row q-gutter-sm">
         <div class="col-xs-12 col-sm-auto">
           <RepeatersFilters />
         </div>
-        <div class="row col-xs-12 col-sm column">
+        <div class="row col-xs-12 col-sm">
           <router-view />
         </div>
       </div>
