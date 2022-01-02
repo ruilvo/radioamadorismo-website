@@ -13,6 +13,7 @@ WORKDIR /workspace
 
 # Handle requirements
 COPY package.json frontend/package.json
+COPY package-lock.json frontend/package-lock.json
 RUN cd frontend && npm install
 
 # Copy project files
