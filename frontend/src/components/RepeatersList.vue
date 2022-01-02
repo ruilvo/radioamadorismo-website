@@ -36,6 +36,15 @@
                 align="top"
                 >Simplex</q-badge
               >
+              <q-badge v-if="prop.node.badge_2m" color="brown-8" align="top"
+                >2m</q-badge
+              >
+              <q-badge
+                v-if="prop.node.badge_70cm"
+                color="deep-orange-6"
+                align="top"
+                >70cm</q-badge
+              >
             </div>
             <div class="q-gutter-xs">
               <q-badge v-if="prop.node.badge_fm" color="secondary" align="top"
@@ -145,6 +154,8 @@ export default defineComponent({
           // Badges
           badge_simplex: false,
           badge_half_duplex: false,
+          badge_2m: false,
+          badge_70cm: false,
           badge_fm: false,
           badge_dstar: false,
           badge_fusion: false,
@@ -287,6 +298,19 @@ export default defineComponent({
         repeater_node.children.push(modulation_node);
 
         if (repeater.info_simplex) {
+          if (
+            parseInt(repeater.info_simplex.freq_mhz) >= 144 &&
+            parseInt(repeater.info_simplex.freq_mhz) <= 146
+          ) {
+            repeater_node.badge_2m = true;
+          }
+          if (
+            parseInt(repeater.info_simplex.freq_mhz) >= 430 &&
+            parseInt(repeater.info_simplex.freq_mhz) <= 440
+          ) {
+            repeater_node.badge_70cm = true;
+          }
+
           repeater_node.badge_simplex = true;
           var info_simplex = {
             id: repeater_node.id + "info_simplex" + repeater.info_simplex.id,
@@ -306,6 +330,18 @@ export default defineComponent({
         }
 
         if (repeater.info_half_duplex) {
+          if (
+            parseInt(repeater.info_half_duplex.tx_mhz) >= 144 &&
+            parseInt(repeater.info_half_duplex.tx_mhz) <= 146
+          ) {
+            repeater_node.badge_2m = true;
+          }
+          if (
+            parseInt(repeater.info_half_duplex.tx_mhz) >= 430 &&
+            parseInt(repeater.info_half_duplex.tx_mhz) <= 440
+          ) {
+            repeater_node.badge_70cm = true;
+          }
           repeater_node.badge_half_duplex = true;
           var info_half_duplex = {
             id:
