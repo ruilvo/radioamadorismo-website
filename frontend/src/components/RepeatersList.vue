@@ -1,7 +1,7 @@
 <template>
   <div class="text-h6">Lista de repetidores</div>
   <div class="col">
-    <q-input ref="filterRef" v-model="filter" filled label="Filtrar">
+    <q-input ref="filterRef" v-model="filter" filled label="Procurar">
       <template #append>
         <q-icon
           v-if="filter !== ''"

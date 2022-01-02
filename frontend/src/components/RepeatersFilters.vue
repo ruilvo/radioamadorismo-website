@@ -32,7 +32,7 @@
         label="Modos"
       />
 
-      <div class="q-mr-sm">
+      <div class="q-mx-md">
         <q-badge>
           Frequência: {{ freqRange.min }} a {{ freqRange.max }} MHz</q-badge
         >
