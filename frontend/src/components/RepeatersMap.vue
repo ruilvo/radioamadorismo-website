@@ -1,10 +1,6 @@
 <template>
-  <div class="text-h6 q-mx-sm">Mapa de repetidores</div>
-  <div
-    id="map"
-    class="col q-ml-md q-my-sm q-mr-sm"
-    style="min-height: 500px"
-  ></div>
+  <div class="text-h6">Mapa de repetidores</div>
+  <div id="map" class="row col" style="min-height: 300px"></div>
 </template>
 
 <script>
