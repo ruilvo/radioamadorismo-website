@@ -1,10 +1,5 @@
 <template>
-  <q-item key="repeaters-item" clickable :to="{ name: 'repeaters-list' }" exact>
-    <q-item-section avatar>
-      <q-icon name="cell_tower" />
-    </q-item-section>
-    <q-item-section>Repetidores</q-item-section>
-  </q-item>
+  <RepeatersSubItem />
   <q-item
     key="aprs-passcode-item"
     clickable
@@ -21,7 +16,12 @@
 <script>
 import { defineComponent } from "vue";
 
+import RepeatersSubItem from "./RepeatersSubItem.vue";
+
 export default defineComponent({
   name: "StartPageItem",
+  components: {
+    RepeatersSubItem,
+  },
 });
 </script>

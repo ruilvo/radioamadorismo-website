@@ -136,7 +136,10 @@ export default defineComponent({
 
     watch($route, () => {
       // Handle navigating from /repetidores to /repetidores/mapa keeping the query
-      if ($route.path.includes("/repetidores")) {
+      if (
+        $route.path.includes("/repetidores") &&
+        !$route.path.includes("editar")
+      ) {
         if (isObjectEmpty($route.query)) {
           $router.replace({
             query: repeatersStore.query,

@@ -32,6 +32,11 @@ const routes = [
             path: "",
             component: () => import("components/RepeatersList.vue"),
           },
+          {
+            name: "repeaters-map",
+            path: "mapa/",
+            component: () => import("components/RepeatersMap.vue"),
+          },
         ],
       },
       {

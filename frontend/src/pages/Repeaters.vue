@@ -1,5 +1,5 @@
 <template>
-  <q-page padding>
+  <q-page padding :style-fn="pageStyleFn">
     <h2>Repetidores</h2>
     <div class="overflow-auto">
       <div class="row q-gutter-sm">
@@ -17,12 +17,25 @@
 <script>
 import { defineComponent } from "vue";
 
+import { useQuasar } from "quasar";
+
 import RepeatersFilters from "components/RepeatersFilters";
 
 export default defineComponent({
   name: "Repeaters",
   components: {
     RepeatersFilters,
+  },
+  setup() {
+    const $q = useQuasar();
+
+    return {
+      pageStyleFn(offset, height) {
+        return {
+          [$q.screen.gt.xs ? "height" : "minHeight"]: `${height - offset}px`,
+        };
+      },
+    };
   },
 });
 </script>
