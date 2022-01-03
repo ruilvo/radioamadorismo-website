@@ -1,4 +1,5 @@
 # TODO
 
 - [ ] Sistema de exames
-- [ ] SOTA stuff
+- [ ] SOTA/POTA/WWFF
+- [ ] disclaimers
