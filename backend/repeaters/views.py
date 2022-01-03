@@ -25,7 +25,7 @@ from .serializers import (
     FactRepeaterSerializer,
 )
 
-from .filters import FactRepeaterFilterDRF
+from .filters import FactRepeaterFilterDrf
 
 
 class FactRepeaterViewSet(viewsets.ModelViewSet):
@@ -33,7 +33,7 @@ class FactRepeaterViewSet(viewsets.ModelViewSet):
     queryset = FactRepeater.objects.all()
     serializer_class = FactRepeaterSerializer
 
-    filterset_class = FactRepeaterFilterDRF
+    filterset_class = FactRepeaterFilterDrf
 
 
 class DimHalfDuplexViewSet(viewsets.ModelViewSet):

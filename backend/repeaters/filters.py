@@ -176,9 +176,9 @@ class FactRepeaterFilter:
         }
 
 
-class FactRepeaterFilterDRF(FactRepeaterFilter, filters.FilterSet):
+class FactRepeaterFilterDrf(FactRepeaterFilter, filters.FilterSet):
     pass
 
 
-class FactRepeaterFilterDjango(FactRepeaterFilter, django_filters.FilterSet):
+class FactRepeaterFilterView(FactRepeaterFilter, django_filters.FilterSet):
     pass

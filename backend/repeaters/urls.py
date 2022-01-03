@@ -1,3 +1,4 @@
+from django.urls import path, include
 from rest_framework.routers import SimpleRouter
 
 from .views import (
@@ -11,6 +12,7 @@ from .views import (
     DimHolderViewSet,
     DimLocationViewSet,
     FactRepeaterViewSet,
+    chirp_view,
 )
 
 
@@ -26,4 +28,15 @@ router.register("dim-dmr", DimDmrViewSet, basename="dim-dmr")
 router.register("dim-holder", DimHolderViewSet, basename="dim-holder")
 router.register("dim-location", DimLocationViewSet, basename="dim-location")
 
-urlpatterns = router.urls
+viewpatterns = [
+    path(
+        "export/",
+        include(
+            [
+                path("chirp/", chirp_view),
+            ]
+        ),
+    )
+]
+
+urlpatterns = router.urls + viewpatterns
