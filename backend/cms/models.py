@@ -14,6 +14,10 @@ class FactPdf(models.Model):
         validators=[FileExtensionValidator(allowed_extensions=["pdf"])],
     )
 
+    class Meta:
+        verbose_name = "PDF file"
+        verbose_name_plural = "PDF files"
+
     def __str__(self):
         return self.title
 
@@ -33,6 +37,10 @@ class FactImage(models.Model):
         max_length=255,
     )
 
+    class Meta:
+        verbose_name = "image file"
+        verbose_name_plural = "image files"
+
     def __str__(self):
         return self.title
 
@@ -46,6 +54,10 @@ class FactBlogPost(models.Model):
     intro = models.TextField()
     body = models.TextField()
     added = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = "blog post"
+        verbose_name_plural = "blog posts"
 
     def __str__(self):
         return self.title
