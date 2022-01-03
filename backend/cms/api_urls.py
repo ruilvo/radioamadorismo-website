@@ -1,6 +1,6 @@
 from rest_framework.routers import SimpleRouter
 
-from .views import FactPdfViewSet, FactImageViewSet, FactBlogPostViewSet
+from .api_views import FactPdfViewSet, FactImageViewSet, FactBlogPostViewSet
 
 router = SimpleRouter()
 router.register("fact-pdf", FactPdfViewSet, basename="fact-pdf")

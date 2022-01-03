@@ -30,6 +30,14 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     # API
     path(
+        "backend/",
+        include(
+            [
+                path("repeaters/", include("repeaters.urls")),
+            ]
+        ),
+    ),
+    path(
         "api/",
         include(
             [
@@ -77,17 +85,17 @@ urlpatterns = [
                         [
                             path(
                                 "repeaters/",
-                                include("repeaters.urls"),
+                                include("repeaters.api_urls"),
                                 name="repeaters",
                             ),
                             path(
                                 "cms/",
-                                include("cms.urls"),
+                                include("cms.api_urls"),
                                 name="cms",
                             ),
                             path(
                                 "aprs/",
-                                include("aprs.urls"),
+                                include("aprs.api_urls"),
                                 name="aprs",
                             ),
                         ]

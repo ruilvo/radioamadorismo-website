@@ -77,6 +77,9 @@ module.exports = configure(function () {
         "/media": {
           target: "http://backend:8000",
         },
+        "/backend": {
+          target: "http://backend:8000",
+        },
       },
     },
 
