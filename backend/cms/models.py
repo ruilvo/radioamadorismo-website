@@ -7,7 +7,7 @@ class FactPdf(models.Model):
     Model to store records of uploaded PDFs to the server
     """
 
-    title = models.CharField(max_length=255)
+    title = models.CharField(max_length=255, unique=True)
     file = models.FileField(
         upload_to="pdfs/%Y/%m/",
         max_length=255,
@@ -27,7 +27,7 @@ class FactImage(models.Model):
     Model to store records of uploaded images to the server
     """
 
-    title = models.CharField(max_length=255)
+    title = models.CharField(max_length=255, unique=True)
     width = models.PositiveIntegerField(editable=False)
     height = models.PositiveIntegerField(editable=False)
     file = models.ImageField(
