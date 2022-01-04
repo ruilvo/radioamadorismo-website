@@ -68,7 +68,7 @@ export default defineComponent({
     };
 
     // Default to create
-    var onSubmit = () => {
+    let onSubmit = () => {
       validateForm();
       if (hasError.value) return;
       blogStore

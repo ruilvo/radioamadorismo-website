@@ -193,7 +193,7 @@ export default defineComponent({
     const repeatersAsQtree = computed(() => {
       return repeatersStore.repeaters.map(function (repeater) {
         // Prepare the bits to compose the object
-        var repeater_node = {
+        let repeater_node = {
           // q-tree root node
           id: repeater.callsign + repeater.id,
           repeater_id: repeater.id,
@@ -237,13 +237,13 @@ export default defineComponent({
 
         // Create the location child node
         if (repeater.info_location) {
-          var info_location = {
+          let info_location = {
             id: repeater_node.id + "location" + repeater.info_location.id,
             label: "Localização",
             children: [],
           };
 
-          var region_name = "Outra (não Portugal ou não especificado)";
+          let region_name = "Outra (não Portugal ou não especificado)";
           if (repeater.info_location.region === "CPT") {
             region_name = "Portugal Continental";
           } else if (repeater.info_location.region === "AZR") {
@@ -274,7 +274,7 @@ export default defineComponent({
         }
 
         // Create the holder child node
-        var info_holder = {
+        let info_holder = {
           id: repeater_node.id + "holder" + repeater_node.id,
           label: "Titular",
           data: null,
@@ -292,7 +292,7 @@ export default defineComponent({
         }
 
         // Create the modulation child node
-        var modulation_node = {
+        let modulation_node = {
           id: repeater_node.id + "modulation_nodes" + repeater_node.id,
           label: "Modulação",
           children: [],
@@ -301,7 +301,7 @@ export default defineComponent({
         // Check what modes the repeater has:
         if (repeater.info_fm) {
           repeater_node.badge_fm = true;
-          var info_fm = {
+          let info_fm = {
             id: repeater_node.id + "info_fm" + repeater.info_fm.id,
             label: "FM",
             children: [],
@@ -332,7 +332,7 @@ export default defineComponent({
         }
         if (repeater.info_fusion) {
           repeater_node.badge_fusion = true;
-          var info_fusion = {
+          let info_fusion = {
             id: repeater_node.id + "info_fusion" + repeater.info_fusion.id,
             label: "Fusion (C4FM)",
             children: [],
@@ -350,7 +350,7 @@ export default defineComponent({
         }
         if (repeater.info_dmr) {
           repeater_node.badge_dmr = true;
-          var info_dmr = {
+          let info_dmr = {
             id: repeater_node.id + "info_dmr" + repeater.info_dmr.id,
             label: "DMR",
             children: [],
@@ -385,7 +385,7 @@ export default defineComponent({
           }
 
           repeater_node.badge_simplex = true;
-          var info_simplex = {
+          let info_simplex = {
             id: repeater_node.id + "info_simplex" + repeater.info_simplex.id,
             label: "RF: Simplex",
             children: [],
@@ -416,7 +416,7 @@ export default defineComponent({
             repeater_node.badge_70cm = true;
           }
           repeater_node.badge_half_duplex = true;
-          var info_half_duplex = {
+          let info_half_duplex = {
             id:
               repeater_node.id +
               "info_half_duplex" +

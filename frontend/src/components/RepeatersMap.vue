@@ -26,7 +26,7 @@ L.Icon.Default.mergeOptions({
   shadowUrl: shadowUrl,
 });
 
-var repeatersMap = null;
+let repeatersMap = null;
 
 import useRepeatersStore from "src/stores/repeaters";
 
@@ -49,7 +49,7 @@ export default defineComponent({
           !(repeater.info_location.latitude && repeater.info_location.longitude)
         )
           return;
-        var marker = L.marker([
+        let marker = L.marker([
           repeater.info_location.latitude,
           repeater.info_location.longitude,
         ]);
