@@ -13,7 +13,7 @@
       <q-toolbar-title class="row">
         <router-link to="/" style="text-decoration: none; color: inherit">
           <span class="text-italic q-mr-sm">Æ</span>
-          <span class="q-mr-sm">Portal do Radioamadorismo</span>
+          <span class="q-mr-sm">Portal do Radioamador</span>
         </router-link>
       </q-toolbar-title>
     </q-toolbar>

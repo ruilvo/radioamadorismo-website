@@ -1,8 +1,8 @@
 {
   "name": "frontend",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Um projeto radioamadoristico",
-  "productName": "Portal do Radioamadorismo",
+  "productName": "Portal do Radioamador",
   "author": "Rui Oliveira <ruimail24@gmail.com>",
   "private": true,
   "scripts": {
