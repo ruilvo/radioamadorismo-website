@@ -258,9 +258,25 @@ class FactRepeater(models.Model):
     Models a repeater's full information.
     """
 
+    OFF = "OFF"
+    ON = "ON"
+    PROJECT = "PROJECT"
+    PROBLEMS = "PROBLEMS"
+    OTHER = "OT"
+    STATUS_CHOICES = (
+        (OFF, "off"),
+        (ON, "on"),
+        (PROJECT, "project"),
+        (PROBLEMS, "problems"),
+        (OTHER, "other"),
+    )
+
     callsign = models.CharField(max_length=10, verbose_name="callsign")
     notes = models.TextField(blank=True, verbose_name="notes")
     pwr_w = models.IntegerField(blank=True, null=True, verbose_name="pwr. (W)")
+    status = models.CharField(
+        max_length=50, verbose_name="status", choices=STATUS_CHOICES, default=OTHER
+    )
 
     # RF
     info_half_duplex = models.ForeignKey(

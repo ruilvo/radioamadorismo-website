@@ -30,6 +30,30 @@
             <div class="text-weight-bold text-primary">
               {{ prop.node.label }}
               <div class="q-gutter-xs">
+                <q-badge v-if="prop.node.badge_on" color="positive" align="top"
+                  >ON</q-badge
+                >
+                <q-badge v-if="prop.node.badge_off" color="negative" align="top"
+                  >OFF</q-badge
+                >
+                <q-badge
+                  v-if="prop.node.badge_project"
+                  color="orange-8"
+                  align="top"
+                  >Projeto</q-badge
+                >
+                <q-badge
+                  v-if="prop.node.badge_problems"
+                  color="warning"
+                  align="top"
+                  >Problemas</q-badge
+                >
+                <q-badge
+                  v-if="prop.node.badge_other"
+                  color="warning"
+                  align="top"
+                  >Situação desconhecida</q-badge
+                >
                 <q-badge
                   v-if="prop.node.badge_half_duplex"
                   color="info"
@@ -187,6 +211,11 @@ export default defineComponent({
           body: "repeater",
 
           // Badges
+          badge_on: false,
+          badge_off: false,
+          badge_project: false,
+          badge_problems: false,
+          badge_other: false,
           badge_simplex: false,
           badge_half_duplex: false,
           badge_2m: false,
@@ -196,6 +225,15 @@ export default defineComponent({
           badge_fusion: false,
           badge_dmr: false,
         };
+
+        // Status badges
+        if (repeater.status == "OFF") repeater_node.badge_off = true;
+        else if (repeater.status == "ON") repeater_node.badge_on = true;
+        else if (repeater.status == "PROJECT")
+          repeater_node.badge_project = true;
+        else if (repeater.status == "PROBLEMS")
+          repeater_node.badge_problems = true;
+        else repeater_node.badge_other = true;
 
         // Create the location child node
         if (repeater.info_location) {
