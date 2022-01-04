@@ -59,7 +59,7 @@ import { useDialogPluginComponent } from "quasar";
 import useImageStore from "src/stores/images";
 
 export default defineComponent({
-  name: "ImagesSelectorDialog",
+  name: "ImageSelectorDialog",
   emits: [...useDialogPluginComponent.emits],
   setup() {
     const { dialogRef, onDialogHide, onDialogOK, onDialogCancel } =

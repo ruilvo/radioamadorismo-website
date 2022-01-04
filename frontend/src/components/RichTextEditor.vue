@@ -67,7 +67,7 @@ import { defineComponent, computed, ref } from "vue";
 
 import { useQuasar } from "quasar";
 
-import ImageSelectorDialog from "components/ImagesSelectorDialog";
+import ImageSelectorDialog from "components/ImageSelectorDialog";
 import PdfSelectorDialog from "components/PdfSelectorDialog";
 
 export default defineComponent({
