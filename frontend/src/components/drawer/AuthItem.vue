@@ -10,6 +10,18 @@
     </q-item-section>
     <q-item-section>Entrar</q-item-section>
   </q-item>
+  <q-item
+    v-if="isAuthenticated"
+    key="django-admin-entry"
+    tag="a"
+    href="/admin"
+    clickable
+  >
+    <q-item-section avatar>
+      <q-icon name="settings" />
+    </q-item-section>
+    <q-item-section>Django-admin</q-item-section>
+  </q-item>
   <q-item v-if="isAuthenticated" key="logout-entry" clickable @click="logout">
     <q-item-section avatar>
       <q-icon name="logout" />
