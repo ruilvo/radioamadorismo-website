@@ -2,6 +2,7 @@ from rest_framework import serializers
 
 from .models import (
     FactPdf,
+    FactAudio,
     FactImage,
     FactBlogPost,
 )
@@ -10,6 +11,12 @@ from .models import (
 class FactPdfSerializer(serializers.ModelSerializer):
     class Meta:
         model = FactPdf
+        fields = "__all__"
+
+
+class FactAudioSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = FactAudio
         fields = "__all__"
 
 

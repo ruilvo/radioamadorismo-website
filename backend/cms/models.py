@@ -22,6 +22,27 @@ class FactPdf(models.Model):
         return self.title
 
 
+class FactAudio(models.Model):
+    """
+    Model to store records of uploaded audio files to the server
+    """
+
+    title = models.CharField(max_length=255, unique=True)
+    file = models.FileField(
+        upload_to="pdfs/%Y/%m/",
+        max_length=255,
+        # https://whowillbethenextonline.com/html5-audio-formats.php
+        validators=[FileExtensionValidator(allowed_extensions=["mp3", "wav", "ogg"])],
+    )
+
+    class Meta:
+        verbose_name = "audio file"
+        verbose_name_plural = "audio files"
+
+    def __str__(self):
+        return self.title
+
+
 class FactImage(models.Model):
     """
     Model to store records of uploaded images to the server

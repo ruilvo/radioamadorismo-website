@@ -17,6 +17,12 @@
         label: 'Imagem',
         handler: selectImage,
       },
+      audio: {
+        tip: 'Selecionar um som',
+        icon: 'audio_file',
+        label: 'Som',
+        handler: selectAudio,
+      },
     }"
     :toolbar="[
       [
@@ -56,7 +62,7 @@
       ],
       ['quote', 'unordered', 'ordered', 'outdent', 'indent'],
       ['undo', 'redo'],
-      ['image', 'pdf'],
+      ['image', 'pdf', 'audio'],
       ['viewsource'],
     ]"
   />
@@ -69,6 +75,7 @@ import { useQuasar } from "quasar";
 
 import ImageSelectorDialog from "components/ImageSelectorDialog";
 import PdfSelectorDialog from "components/PdfSelectorDialog";
+import AudioSelectorDialog from "components/AudioSelectorDialog";
 
 export default defineComponent({
   name: "RichTextEditor",
@@ -117,6 +124,19 @@ export default defineComponent({
           editorRef.value.runCmd(
             "insertHTML",
             `<iframe src="${payload.selectedPdfSource}" width="${payload.pdfWidth}" height="${payload.pdfHeight}" type="application/pdf" />`
+          );
+        });
+      },
+      selectAudio() {
+        $q.dialog({
+          component: AudioSelectorDialog,
+        }).onOk((payload) => {
+          if (!payload.selectedAudioSource) {
+            return;
+          }
+          editorRef.value.runCmd(
+            "insertHTML",
+            `<audio controls src="${payload.selectedAudioSource}" style="width: ${payload.audioWidth}">Your browser does not support the <code>audio</code> element.</audio>`
           );
         });
       },
