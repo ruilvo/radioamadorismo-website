@@ -17,9 +17,9 @@ class FactExamQuestion(models.Model):
         (D, D),
     )
 
-    CAT1 = "CAT1"
-    CAT2 = "CAT2"
-    CAT3 = "CAT3"
+    CAT1 = "1"
+    CAT2 = "2"
+    CAT3 = "3"
     CATEGORY_CHOICES = (
         (CAT1, "Category 1"),
         (CAT2, "Category 2"),
