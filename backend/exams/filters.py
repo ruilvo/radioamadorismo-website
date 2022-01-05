@@ -4,31 +4,34 @@ import re
 from django.db.models import Q
 import django_filters as df
 from django_filters import rest_framework as df_rf
-from django_filters import filters
 
 from .models import FactExamQuestion
 
 
-class FactExamQuestionFilter:
-    category = filters.CharFilter(label="category", method="category_search")
+def category_search(queryset, name, value):
+    categories = re.findall(r"[\w]+", value)
+    queryset_filtered = queryset.filter(
+        reduce(lambda x, y: x | y, [Q(category=c) for c in categories])
+    )
+    return queryset_filtered
 
-    def category_search(self, queryset, name, value):
-        categories = re.findall(r"[\w]+", value)
-        queryset_filtered = queryset.filter(
-            reduce(lambda x, y: x | y, [Q(category=c) for c in categories])
-        )
-        return queryset_filtered
+
+automatic_fields = {
+    "question": ["exact", "iexact", "icontains"],
+}
+
+
+class FactRepeaterFilterDrf(df_rf.FilterSet):
+    category = df_rf.filters.CharFilter(label="category", method=category_search)
 
     class Meta:
         model = FactExamQuestion
-        fields = {
-            "question": ["exact", "iexact", "icontains"],
-        }
+        fields = automatic_fields
 
 
-class FactRepeaterFilterDrf(FactExamQuestionFilter, df_rf.FilterSet):
-    pass
+class FactRepeaterFilterView(df.FilterSet):
+    category = df.filters.CharFilter(label="category", method=category_search)
 
-
-class FactRepeaterFilterView(FactExamQuestionFilter, df.FilterSet):
-    pass
+    class Meta:
+        model = FactExamQuestion
+        fields = automatic_fields
