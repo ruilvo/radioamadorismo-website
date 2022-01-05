@@ -44,7 +44,7 @@ class FactRepeaterFilter:
         return queryset
 
     def mode_search(self, queryset, name, value):
-        modes = re.findall(r"[\w']+", value)
+        modes = re.findall(r"[\w]+", value)
         queryset_filter = None
         if "fm" in modes:
             new_filter = Q(info_fm__isnull=False)
@@ -112,7 +112,7 @@ class FactRepeaterFilter:
         return queryset
 
     def region_search(self, queryset, name, value):
-        regions = re.findall(r"[\w']+", value)
+        regions = re.findall(r"[\w]+", value)
         queryset_filtered = queryset.filter(
             reduce(lambda x, y: x | y, [Q(info_location__region=r) for r in regions])
         )

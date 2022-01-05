@@ -13,7 +13,7 @@ class FactExamQuestionFilter:
     category = filters.CharFilter(label="category", method="category_search")
 
     def category_search(self, queryset, name, value):
-        categories = re.findall(r"[\w']+", value)
+        categories = re.findall(r"[\w]+", value)
         queryset_filtered = queryset.filter(
             reduce(lambda x, y: x | y, [Q(category=c) for c in categories])
         )
