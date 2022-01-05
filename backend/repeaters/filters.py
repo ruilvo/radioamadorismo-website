@@ -6,7 +6,7 @@ import django_filters as dj
 from django_filters import rest_framework as dj_rf
 from django_filters import filters
 
-from .models import FactRepeater, DimLocation
+from .models import FactRepeater
 
 
 class FactRepeaterFilter:
