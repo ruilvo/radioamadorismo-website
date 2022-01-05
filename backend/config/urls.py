@@ -98,6 +98,11 @@ urlpatterns = [
                                 include("aprs.api_urls"),
                                 name="aprs",
                             ),
+                            path(
+                                "exams/",
+                                include("exams.api_urls"),
+                                name="exams",
+                            ),
                         ]
                     ),
                 ),
