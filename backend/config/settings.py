@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "repeaters",
     "cms",
     "aprs",
+    "exams",
 ]
 
 MIDDLEWARE = [
