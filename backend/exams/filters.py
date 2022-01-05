@@ -14,10 +14,10 @@ class FactExamQuestionFilter:
 
     def category_search(self, queryset, name, value):
         categories = re.findall(r"[\w']+", value)
-        queryset = queryset.filter(
+        queryset_filtered = queryset.filter(
             reduce(lambda x, y: x | y, [Q(category=c) for c in categories])
         )
-        return queryset
+        return queryset_filtered
 
     class Meta:
         model = FactExamQuestion
