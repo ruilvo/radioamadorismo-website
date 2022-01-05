@@ -14,7 +14,6 @@ class FactExamQuestionFilter:
 
     def category_search(self, queryset, name, value):
         categories = re.findall(r"[\w']+", value)
-        [Q(category=c) for c in categories]
         queryset = queryset.filter(
             reduce(lambda x, y: x | y, [Q(category=c) for c in categories])
         )
