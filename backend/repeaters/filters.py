@@ -1,7 +1,10 @@
 import re
+from functools import reduce
+
 from django.db.models import Q
-from django_filters import rest_framework as filters
-import django_filters
+import django_filters as dj
+from django_filters import rest_framework as dj_rf
+from django_filters import filters
 
 from .models import FactRepeater, DimLocation
 
@@ -42,47 +45,47 @@ class FactRepeaterFilter:
 
     def mode_search(self, queryset, name, value):
         modes = re.findall(r"[\w']+", value)
-        myfilter = None
+        queryset_filter = None
         if "fm" in modes:
             new_filter = Q(info_fm__isnull=False)
-            if myfilter is None:
-                myfilter = new_filter
+            if queryset_filter is None:
+                queryset_filter = new_filter
             else:
-                myfilter |= new_filter
+                queryset_filter |= new_filter
         if "dstar" in modes:
             new_filter = Q(info_dstar__isnull=False)
-            if myfilter is None:
-                myfilter = new_filter
+            if queryset_filter is None:
+                queryset_filter = new_filter
             else:
-                myfilter |= new_filter
+                queryset_filter |= new_filter
         if "fusion" in modes:
             new_filter = Q(info_fusion__isnull=False)
-            if myfilter is None:
-                myfilter = new_filter
+            if queryset_filter is None:
+                queryset_filter = new_filter
             else:
-                myfilter |= new_filter
+                queryset_filter |= new_filter
         if "dmr" in modes:
             new_filter = Q(info_dmr__isnull=False)
-            if myfilter is None:
-                myfilter = new_filter
+            if queryset_filter is None:
+                queryset_filter = new_filter
             else:
-                myfilter |= new_filter
-        return queryset.filter(myfilter)
+                queryset_filter |= new_filter
+        return queryset.filter(queryset_filter)
 
     def rf_search(self, queryset, name, value):
         modes = re.findall(r"[\w']+", value)
-        myfilter = None
+        queryset_filter = None
         if "half_duplex" in modes:
-            if myfilter is None:
-                myfilter = Q(info_half_duplex__isnull=False)
+            if queryset_filter is None:
+                queryset_filter = Q(info_half_duplex__isnull=False)
             else:
-                myfilter |= Q(info_half_duplex__isnull=False)
+                queryset_filter |= Q(info_half_duplex__isnull=False)
         if "simplex" in modes:
-            if myfilter is None:
-                myfilter = Q(info_simplex__isnull=False)
+            if queryset_filter is None:
+                queryset_filter = Q(info_simplex__isnull=False)
             else:
-                myfilter |= Q(info_simplex__isnull=False)
-        return queryset.filter(myfilter)
+                queryset_filter |= Q(info_simplex__isnull=False)
+        return queryset.filter(queryset_filter)
 
     def freq_mhz_search(self, queryset, name, value):
         queryset = queryset.filter(
@@ -110,21 +113,10 @@ class FactRepeaterFilter:
 
     def region_search(self, queryset, name, value):
         regions = re.findall(r"[\w']+", value)
-        possible_regions = [
-            DimLocation.CONTINENT,
-            DimLocation.AZORES,
-            DimLocation.MADEIRA,
-            DimLocation.OTHER,
-        ]
-        myfilter = None
-        for region in possible_regions:
-            if region in regions:
-                new_filter = Q(info_location__region=region)
-                if myfilter is None:
-                    myfilter = new_filter
-                else:
-                    myfilter |= new_filter
-        return queryset.filter(myfilter)
+        queryset_filtered = queryset.filter(
+            reduce(lambda x, y: x | y, [Q(info_location__region=r) for r in regions])
+        )
+        return queryset_filtered
 
     class Meta:
         model = FactRepeater
@@ -176,9 +168,9 @@ class FactRepeaterFilter:
         }
 
 
-class FactRepeaterFilterDrf(FactRepeaterFilter, filters.FilterSet):
+class FactRepeaterFilterDrf(FactRepeaterFilter, dj_rf.FilterSet):
     pass
 
 
-class FactRepeaterFilterView(FactRepeaterFilter, django_filters.FilterSet):
+class FactRepeaterFilterView(FactRepeaterFilter, dj.FilterSet):
     pass
