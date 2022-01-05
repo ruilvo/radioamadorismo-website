@@ -35,12 +35,8 @@ class FactExamQuestion(models.Model):
 
     category = models.CharField(max_length=5, choices=CATEGORY_CHOICES)
 
-    question_image_width = models.PositiveIntegerField(editable=False)
-    question_image_height = models.PositiveIntegerField(editable=False)
     question_image = models.ImageField(
         upload_to="exams/%Y/%m/",
-        height_field="question_image_height",
-        width_field="question_image_width",
         max_length=255,
         blank=True,
         null=True,
