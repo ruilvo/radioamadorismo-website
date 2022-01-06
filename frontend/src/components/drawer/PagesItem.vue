@@ -1,5 +1,6 @@
 <template>
   <RepeatersSubItem />
+  <ExamsSubItem />
   <q-item
     key="aprs-passcode-item"
     clickable
@@ -17,11 +18,13 @@
 import { defineComponent } from "vue";
 
 import RepeatersSubItem from "./RepeatersSubItem.vue";
+import ExamsSubItem from "./ExamsSubItem.vue";
 
 export default defineComponent({
   name: "StartPageItem",
   components: {
     RepeatersSubItem,
+    ExamsSubItem,
   },
 });
 </script>

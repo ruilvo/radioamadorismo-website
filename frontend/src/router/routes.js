@@ -9,6 +9,23 @@ const routes = [
         component: () => import("pages/Index.vue"),
       },
       {
+        name: "exams",
+        path: "exames/",
+        component: () => import("pages/Exams.vue"),
+      },
+      {
+        name: "exams-category",
+        path: "exames/:category/",
+        component: () => import("pages/Exams.vue"),
+        props: true,
+      },
+      {
+        name: "exams-question",
+        path: "exames/:category/:id/",
+        component: () => import("pages/Exams.vue"),
+        props: true,
+      },
+      {
         name: "aprs-passcode",
         path: "aprs/passcode/",
         component: () => import("pages/AprsPasscode.vue"),

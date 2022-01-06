@@ -23,7 +23,7 @@ class FactExamQuestion(models.Model):
     CATEGORY_CHOICES = (
         (CAT1, "Category 1"),
         (CAT2, "Category 2"),
-        (CAT2, "Category 3"),
+        (CAT3, "Category 3"),
     )
 
     question = models.TextField()
