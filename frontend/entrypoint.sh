@@ -1,10 +1,12 @@
 #!/bin/bash
 
-DEVLOPMENT_ENV=${DEVELOPMENT:-0}
+# The script starts from /workspace
+cd frontend
 
-if [ !DEVLOPMENT_ENV ] then
+if [[ -z "${DEVELOPMENT}" ]]
+then
     npm run build
 fi
 
-# Keep container alive
+echo "Keeping alive..."
 exec tail -f /dev/null

@@ -1,13 +1,14 @@
 #!/bin/bash
 
-DEVLOPMENT_ENV=${DEVELOPMENT:-0}
+# The script starts from /workspace
+cd backend
 
-if [ !DEVLOPMENT_ENV ] then
+if [[ -z "${DEVELOPMENT}" ]]
+then
     ./run_migration_chores.sh --noinput
     echo "Starting server..."
     exec uwsgi --ini config_uwsgi.ini
-
 else
-    # Keep container alive
+    echo "Keeping alive..."
     exec tail -f /dev/null
 fi
