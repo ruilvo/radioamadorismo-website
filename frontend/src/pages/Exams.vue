@@ -2,10 +2,14 @@
   <q-page padding>
     <h2>Perguntas de exame</h2>
     <hr />
-    <p v-if="!question_mode">
-      Aqui nesta secção está disponível um sistema de perguntas de exame.
-      Escolha a categoria no menu de navegação.
-    </p>
+    <div v-if="!question_mode">
+      <p>Aqui nesta secção está disponível um sistema de perguntas de exame.</p>
+      <p>
+        Escolha a categoria no menu de navegação. Uma pergunta ao acaso da
+        categoria correspondente será selecionada.
+      </p>
+    </div>
+
     <div v-if="question_mode && !question_data">
       <q-circular-progress
         indeterminate
@@ -113,6 +117,8 @@ export default defineComponent({
     const answer_incorrect = ref(false);
 
     const resolve_question = () => {
+      question_mode.value = false;
+      // question_data.value = null;
       answer.value = null;
       answer_correct.value = false;
       answer_incorrect.value = false;
