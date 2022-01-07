@@ -19,12 +19,11 @@ RUN cd frontend && npm install
 # Copy project files
 COPY . frontend
 
-# Make files executable
-RUN chmod +x frontend/entrypoint.dev.sh &&  \
-  chmod +x frontend/entrypoint.prod.sh
+# Make entrypoint executable
+RUN chmod +x frontend/entrypoint.sh
 
 # Expose the ports
 EXPOSE 8080
 
 # Give it a (replaceable) entrypoint
-ENTRYPOINT ["./frontend/entrypoint.dev.sh"]
+ENTRYPOINT ["./frontend/entrypoint.sh"]

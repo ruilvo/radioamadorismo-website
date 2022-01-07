@@ -26,8 +26,7 @@ ENV PATH="/root/.local/bin:${PATH}"
 COPY . backend
 
 # Make files executable
-RUN chmod +x backend/entrypoint.dev.sh &&  \
-    chmod +x backend/entrypoint.prod.sh && \
+RUN chmod +x backend/entrypoint.sh &&  \
     chmod +x backend/run_migration_chores.sh && \
     chmod +x backend/start_devserver.sh && \
     chmod +x backend/wait_for_pg.sh
@@ -36,4 +35,4 @@ RUN chmod +x backend/entrypoint.dev.sh &&  \
 EXPOSE 8000
 
 # Give it a (replaceable) entrypoint
-ENTRYPOINT ["./backend/entrypoint.dev.sh"]
+ENTRYPOINT ["./backend/entrypoint.sh"]

@@ -15,7 +15,6 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
-    entrypoint: ./frontend/entrypoint.prod.sh
     stop_signal: SIGKILL
     env_file:
       - prod.env
@@ -27,7 +26,6 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    entrypoint: ./backend/entrypoint.prod.sh
     stop_signal: SIGINT
     env_file:
       - prod.env
