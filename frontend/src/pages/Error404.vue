@@ -10,7 +10,7 @@
         color="white"
         text-color="blue"
         unelevated
-        :to="{ name: 'index' }"
+        :to="{ name: 'home' }"
         label="Voltar à pagina inicial"
         no-caps
       />

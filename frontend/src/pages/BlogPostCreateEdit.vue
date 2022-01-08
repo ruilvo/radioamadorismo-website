@@ -78,7 +78,7 @@ export default defineComponent({
           body: body.value,
         })
         .then(() => {
-          $router.push({ name: "index" });
+          $router.push({ name: "home" });
         });
     };
 
@@ -99,7 +99,7 @@ export default defineComponent({
             body: body.value,
           })
           .then(() => {
-            $router.push({ name: "index" });
+            $router.push({ name: "home" });
           });
       };
     }
