@@ -1,12 +1,14 @@
 <template>
   <div class="flex flex-center full-height">
-    <div class="column col-auto">
-      <h4 class="text-center q-mb-md">Bem-vindo administrador(a)</h4>
-      <q-banner v-if="hasError" class="text-white text-center bg-red q-mb-xl">
-        <div>A autenticação falhou com erro:</div>
-        <div>{{ errorMessage }}</div>
-      </q-banner>
-      <q-form class="q-gutter-sm" @submit="onSubmit">
+    <div class="column q-col-gutter-md">
+      <h4 class="text-center col-auto">Bem-vindo administrador(a)</h4>
+      <div v-if="hasError" class="col-auto">
+        <q-banner class="text-white text-center bg-red">
+          <div>A autenticação falhou com erro:</div>
+          <div>{{ errorMessage }}</div>
+        </q-banner>
+      </div>
+      <q-form class="col-auto column q-gutter-sm" @submit="onSubmit">
         <q-input
           v-model="username"
           filled
@@ -39,7 +41,9 @@
         </div>
       </q-form>
 
-      <q-linear-progress v-if="showProgress" query class="q-mt-md" />
+      <div v-if="showProgress" class="col-auto">
+        <q-linear-progress query />
+      </div>
     </div>
   </div>
 </template>
