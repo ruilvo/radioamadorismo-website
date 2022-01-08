@@ -1,11 +1,5 @@
 <template>
-  <q-expansion-item
-    key="api-tab"
-    v-model="api_expanded"
-    expand-separator
-    icon="api"
-    label="API"
-  >
+  <q-expansion-item key="api-tab" expand-separator icon="api" label="API">
     <q-item
       key="swagger-api"
       clickable
@@ -66,26 +60,9 @@
 </template>
 
 <script>
-import { defineComponent, ref, watch } from "vue";
-
-import { useRoute } from "vue-router";
+import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "ApiItem",
-  setup() {
-    const $route = useRoute();
-
-    const api_expanded = ref($route.path.includes("/swagger"));
-
-    watch($route, (to) => {
-      if (to.path.includes("/swagger")) {
-        api_expanded.value = true;
-      }
-    });
-
-    return {
-      api_expanded,
-    };
-  },
 });
 </script>
