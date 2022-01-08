@@ -22,7 +22,7 @@ export default boot(({ router }) => {
   router.beforeEach((to, from, next) => {
     if (to.matched.some((record) => record.meta.guest)) {
       if (authStore.isAuthenticated) {
-        next("/");
+        next({ name: "home" });
         return;
       }
     }
@@ -34,8 +34,8 @@ export default boot(({ router }) => {
       const originalRequest = error.config;
       if (error.response.status === 401 && !originalRequest._retry) {
         originalRequest._retry = true;
-        authStore.reset();
-        return router.push({ name: "auth-login" });
+        authStore.$reset();
+        return router.push({ name: "login" });
       }
     }
     return Promise.reject(error);

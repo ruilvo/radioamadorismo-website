@@ -25,15 +25,6 @@ export const usePdfStore = defineStore("pdfs", {
     getPdf(id) {
       return api.get(`/api/v1/cms/fact-pdf/${id}/`);
     },
-    deletePdf(id) {
-      return api.delete(`/api/v1/cms/fact-pdf/${id}/`);
-    },
-    updatePdf(id, newPdf) {
-      return api.patch(`/api/v1/cms/fact-pdf/${id}/`, newPdf);
-    },
-    createPdf(newPdf) {
-      return api.post("/api/v1/cms/fact-pdf/", newPdf);
-    },
   },
 });
 

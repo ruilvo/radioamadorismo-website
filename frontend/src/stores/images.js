@@ -25,15 +25,6 @@ export const useImageStore = defineStore("images", {
     getImage(id) {
       return api.get(`/api/v1/cms/fact-image/${id}/`);
     },
-    deleteImage(id) {
-      return api.delete(`/api/v1/cms/fact-image/${id}/`);
-    },
-    updateImage(id, newImage) {
-      return api.patch(`/api/v1/cms/fact-image/${id}/`, newImage);
-    },
-    createImage(newImage) {
-      return api.post("/api/v1/cms/fact-image/", newImage);
-    },
   },
 });
 

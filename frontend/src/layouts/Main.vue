@@ -4,13 +4,17 @@
     <Drawer v-model="leftDrawerOpen" />
 
     <q-page-container>
-      <router-view />
+      <q-page padding :style-fn="pageStyleFn" class="scroll">
+        <router-view />
+      </q-page>
     </q-page-container>
   </q-layout>
 </template>
 
 <script>
 import { defineComponent, ref } from "vue";
+
+import { useQuasar } from "quasar";
 
 import useAuthStore from "src/stores/auth";
 
@@ -24,6 +28,8 @@ export default defineComponent({
     Drawer,
   },
   setup() {
+    const $q = useQuasar();
+
     const authStore = useAuthStore();
     authStore.check();
 
@@ -33,6 +39,11 @@ export default defineComponent({
       leftDrawerOpen,
       toggleLeftDrawer() {
         leftDrawerOpen.value = !leftDrawerOpen.value;
+      },
+      pageStyleFn(offset, height) {
+        return {
+          [$q.screen.gt.xs ? "height" : "minHeight"]: `${height - offset}px`,
+        };
       },
     };
   },

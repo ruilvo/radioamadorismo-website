@@ -4,7 +4,7 @@
     show-if-above
     side="left"
     bordered
-    class="bg-grey-3"
+    class="scroll bg-grey-3"
   >
     <q-list>
       <StartPageItem />

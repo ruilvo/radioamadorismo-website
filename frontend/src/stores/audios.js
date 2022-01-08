@@ -25,15 +25,6 @@ export const useAudioStore = defineStore("audios", {
     getAudio(id) {
       return api.get(`/api/v1/cms/fact-audio/${id}/`);
     },
-    deleteAudio(id) {
-      return api.delete(`/api/v1/cms/fact-audio/${id}/`);
-    },
-    updateAudio(id, newAudio) {
-      return api.patch(`/api/v1/cms/fact-audio/${id}/`, newAudio);
-    },
-    createPdf(newAudio) {
-      return api.post("/api/v1/cms/fact-audio/", newAudio);
-    },
   },
 });
 
