@@ -33,7 +33,7 @@
 <script>
 import { defineComponent, computed } from "vue";
 
-import { useRouter, useRoute } from "vue-router";
+import { useRouter } from "vue-router";
 
 import useAuthStore from "src/stores/auth";
 
@@ -41,7 +41,6 @@ export default defineComponent({
   name: "AuthItem",
   setup() {
     const $router = useRouter();
-    const $route = useRoute();
 
     const authStore = useAuthStore();
 
@@ -52,9 +51,7 @@ export default defineComponent({
 
       async logout() {
         await authStore.logout();
-        if ($route.path.includes("/cms")) {
-          $router.push("/");
-        }
+        $router.push({ name: "home" });
       },
     };
   },
