@@ -16,13 +16,14 @@
       :post="post"
     />
 
-    <div class="col-auto">
+    <div class="col-auto row justify-center">
       <q-pagination
         v-model="currentPage"
         :max="numberPages"
         :max-pages="6"
         boundary-numbers
-        class="row justify-center"
+        direction-links
+        boundary-links
       />
     </div>
   </div>
