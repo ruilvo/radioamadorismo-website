@@ -4,12 +4,19 @@ def passcode_generator(callsign: str) -> int:
 
     hash = 0x73E2
 
-    i = 0
-    while i < len(callsign_bytes):
-        hash ^= callsign_bytes[i] << 8
-        hash ^= callsign_bytes[i + 1]
-        i += 2
+    shift = True
+    for c in callsign_bytes:
+        if shift:
+            hash ^= c << 8
+        else:
+            hash ^= c
+        shift = not shift
 
     hash &= 0x7FFF
 
     return hash
+
+
+if __name__ == "__main__":
+    print(passcode_generator("N0C"))
+    print(passcode_generator("N0CALL"))
