@@ -45,15 +45,17 @@ import { defineComponent, ref, watch } from "vue";
 
 import { useRoute } from "vue-router";
 
+import routeMatchesName from "src/scripts/route_matches_name";
+
 export default defineComponent({
   name: "ExamsItem",
   setup() {
     const $route = useRoute();
 
-    const exams_expanded = ref($route.path.includes("/exames"));
+    const exams_expanded = ref(routeMatchesName($route, "exams"));
 
-    watch($route, (to) => {
-      if (to.path.includes("/exames")) {
+    watch($route, () => {
+      if (routeMatchesName($route, "exams")) {
         exams_expanded.value = true;
       }
     });

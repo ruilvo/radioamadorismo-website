@@ -38,15 +38,17 @@ import { defineComponent, ref, watch } from "vue";
 
 import { useRoute } from "vue-router";
 
+import routeMatchesName from "src/scripts/route_matches_name";
+
 export default defineComponent({
   name: "RepeatersItem",
   setup() {
     const $route = useRoute();
 
-    const repeaters_expanded = ref($route.path.includes("/repetidores"));
+    const repeaters_expanded = ref(routeMatchesName($route, "repeaters"));
 
-    watch($route, (to) => {
-      if (to.path.includes("/repetidores")) {
+    watch($route, () => {
+      if (routeMatchesName($route, "repeaters")) {
         repeaters_expanded.value = true;
       }
     });
