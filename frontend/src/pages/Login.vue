@@ -1,5 +1,5 @@
 <template>
-  <q-page class="flex flex-center" padding>
+  <div class="flex flex-center full-height">
     <div class="column col-auto">
       <h4 class="text-center q-mb-md">Bem-vindo administrador(a)</h4>
       <q-banner v-if="hasError" class="text-white text-center bg-red q-mb-xl">
@@ -41,7 +41,7 @@
 
       <q-linear-progress v-if="showProgress" query class="q-mt-md" />
     </div>
-  </q-page>
+  </div>
 </template>
 
 <script>
