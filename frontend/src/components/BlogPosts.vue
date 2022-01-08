@@ -1,6 +1,6 @@
 <template>
-  <div class="overflow-auto">
-    <div class="q-gutter-md">
+  <div class="column q-gutter-md">
+    <div class="col-auto">
       <q-btn
         v-if="authStore.isAuthenticated"
         icon="add"
@@ -8,12 +8,15 @@
         @click="addAction"
         >Novo</q-btn
       >
-      <BlogPostItem
-        v-for="post in blogStore.posts"
-        :key="'post' + post.id"
-        :post="post"
-      />
+    </div>
 
+    <BlogPostItem
+      v-for="post in blogStore.posts"
+      :key="'post' + post.id"
+      :post="post"
+    />
+
+    <div class="col-auto">
       <q-pagination
         v-model="currentPage"
         :max="numberPages"
@@ -67,7 +70,7 @@ export default defineComponent({
       currentPage,
       numberPages,
       addAction() {
-        $router.push({ name: "blog-new" });
+        $router.push({ name: "blog-post-new" });
       },
     };
   },

@@ -1,17 +1,21 @@
 <template>
   <q-card bordered>
     <div class="row">
-      <q-card-section class="col">
+      <q-card-section class="col-xs-12 col-sm">
         <router-link
           class="text-h5"
-          :to="{ name: 'blog-detail', params: { id: post.id } }"
+          :to="{ name: 'blog-post-detail', params: { id: post.id } }"
           style="text-decoration: none; color: inherit"
         >
           {{ post.title }}
         </router-link>
         <div class="text-subtitle2">Criado em: {{ added }}</div>
       </q-card-section>
-      <q-card-actions v-if="authStore.isAuthenticated" vertical>
+      <q-card-actions
+        v-if="authStore.isAuthenticated"
+        :vertical="$q.screen.gt.xs"
+        class="col-auto"
+      >
         <q-btn icon="edit" color="primary" @click="editAction">Editar</q-btn>
         <q-btn icon="delete" color="red" @click="deleteAction">Apagar</q-btn>
       </q-card-actions>
@@ -56,14 +60,14 @@ export default defineComponent({
       authStore,
       added,
       deleteAction() {
-        const res = confirm("Are you sure you want to delete this post?");
+        const res = confirm("Tem a certeza que deseja apagar este post?");
         if (res)
           blogStore
             .deletePost(props.post.id)
-            .then(() => $router.push({ name: "index" }));
+            .then(() => $router.push({ name: "home" }));
       },
       editAction() {
-        $router.push({ name: "blog-edit", params: { id: props.post.id } });
+        $router.push({ name: "blog-post-edit", params: { id: props.post.id } });
       },
     };
   },

@@ -1,5 +1,5 @@
 <template>
-  <q-page padding>
+  <div>
     <h2>Perguntas de exame</h2>
     <hr />
     <div v-if="!question_mode">
@@ -80,7 +80,7 @@
         @click="next_question"
       />
     </div>
-  </q-page>
+  </div>
 </template>
 
 <script>

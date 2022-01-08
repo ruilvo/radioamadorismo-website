@@ -1,5 +1,5 @@
 <template>
-  <q-page padding class="overflow-auto">
+  <div class="overflow-auto">
     <q-banner v-if="hasError" class="text-white text-center bg-red q-mb-xl">
       <div>Todos os campos são obrigatórios!</div>
     </q-banner>
@@ -16,7 +16,7 @@
         <q-btn label="Enviar" type="submit" color="primary" />
       </div>
     </q-form>
-  </q-page>
+  </div>
 </template>
 
 <script>

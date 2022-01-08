@@ -1,35 +1,33 @@
 <template>
-  <q-page padding>
-    <div v-if="!!post">
-      <div class="text-h4">{{ post.title }}</div>
-      <div class="text-subtitle2">Criado em: {{ added }}</div>
+  <div v-if="!!post">
+    <div class="text-h4">{{ post.title }}</div>
+    <div class="text-subtitle2">Criado em: {{ added }}</div>
 
-      <div class="q-my-lg">
-        <!-- eslint-disable-next-line vue/no-v-html -->
-        <div v-html="post.intro"></div>
-      </div>
-
+    <div class="q-my-lg">
       <!-- eslint-disable-next-line vue/no-v-html -->
-      <div v-html="post.body"></div>
+      <div v-html="post.intro"></div>
+    </div>
 
-      <div v-if="authStore.isAuthenticated" class="overflow-auto q-mt-md">
-        <div class="q-gutter-md">
-          <q-btn icon="edit" color="primary" @click="editAction">Editar</q-btn>
-          <q-btn icon="delete" color="red" @click="deleteAction">Apagar</q-btn>
-        </div>
+    <!-- eslint-disable-next-line vue/no-v-html -->
+    <div v-html="post.body"></div>
+
+    <div v-if="authStore.isAuthenticated" class="overflow-auto q-mt-md">
+      <div class="q-gutter-md">
+        <q-btn icon="edit" color="primary" @click="editAction">Editar</q-btn>
+        <q-btn icon="delete" color="red" @click="deleteAction">Apagar</q-btn>
       </div>
     </div>
-    <div v-if="!post" class="row justify-center">
-      <q-circular-progress
-        indeterminate
-        size="50px"
-        :thickness="0.22"
-        color="lime"
-        track-color="grey-3"
-        class="q-ma-md"
-      />
-    </div>
-  </q-page>
+  </div>
+  <div v-if="!post" class="row justify-center">
+    <q-circular-progress
+      indeterminate
+      size="50px"
+      :thickness="0.22"
+      color="lime"
+      track-color="grey-3"
+      class="q-ma-md"
+    />
+  </div>
 </template>
 
 <script>

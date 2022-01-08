@@ -1,5 +1,5 @@
 <template>
-  <q-page padding class="overflow-auto">
+  <div class="overflow-auto">
     <h4>Editando as notas do repetidor {{ id }}: {{ callsign }}</h4>
     <div class="q-mt-md overflow-auto">
       <q-form class="q-gutter-sm" @submit="onSubmit">
@@ -10,7 +10,7 @@
         </div>
       </q-form>
     </div>
-  </q-page>
+  </div>
 </template>
 
 <script>

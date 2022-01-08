@@ -1,5 +1,5 @@
 <template>
-  <q-page padding :style-fn="pageStyleFn">
+  <div>
     <div class="column full-height">
       <h2 class="col-auto">Repetidores</h2>
       <div class="col row q-gutter-sm">
@@ -11,7 +11,7 @@
         </div>
       </div>
     </div>
-  </q-page>
+  </div>
 </template>
 
 <script>
