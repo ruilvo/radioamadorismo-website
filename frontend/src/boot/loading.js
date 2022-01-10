@@ -4,9 +4,7 @@ import { LoadingBar } from "quasar";
 
 export default boot(({ router }) => {
   router.beforeResolve((to, from, next) => {
-    if (to.name) {
-      LoadingBar.start();
-    }
+    LoadingBar.start();
     next();
   });
 
