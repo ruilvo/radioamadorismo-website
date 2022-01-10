@@ -9,23 +9,23 @@ export const exams_routes = [
       {
         name: "exams",
         path: "",
-        component: () => import("pages/Exams.vue"),
+        component: () => import("pages/exams/Exams.vue"),
       },
       {
         name: "exams-category-root",
         path: ":category/",
-        ccomponent: RouterView,
+        component: RouterView,
         children: [
           {
             name: "exams-category",
             path: "",
-            component: () => import("pages/Exams.vue"),
+            component: () => import("pages/exams/Exams.vue"),
             props: true,
           },
           {
             name: "exams-question",
             path: ":id/",
-            component: () => import("pages/Exams.vue"),
+            component: () => import("pages/exams/Exams.vue"),
             props: true,
           },
         ],

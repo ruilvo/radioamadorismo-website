@@ -11,7 +11,6 @@
       key="exams-cat3-item"
       clickable
       :to="{ name: 'exams-category', params: { category: 3 } }"
-      exact
       :inset-level="1"
     >
       <q-item-section avatar>3️⃣</q-item-section>
@@ -21,7 +20,6 @@
       key="exams-cat2-item"
       clickable
       :to="{ name: 'exams-category', params: { category: 2 } }"
-      exact
       :inset-level="1"
     >
       <q-item-section avatar>2️⃣</q-item-section>
@@ -31,7 +29,6 @@
       key="exams-cat1-item"
       clickable
       :to="{ name: 'exams-category', params: { category: 1 } }"
-      exact
       :inset-level="1"
     >
       <q-item-section avatar>1️⃣</q-item-section>
@@ -48,14 +45,14 @@ import { useRoute } from "vue-router";
 import routeMatchesName from "src/scripts/route_matches_name";
 
 export default defineComponent({
-  name: "ExamsItem",
+  name: "ExamsPageItem",
   setup() {
     const $route = useRoute();
 
-    const exams_expanded = ref(routeMatchesName($route, "exams"));
+    const exams_expanded = ref(routeMatchesName($route, "exams-root"));
 
     watch($route, () => {
-      if (routeMatchesName($route, "exams")) {
+      if (routeMatchesName($route, "exams-root")) {
         exams_expanded.value = true;
       }
     });
