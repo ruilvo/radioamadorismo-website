@@ -19,14 +19,7 @@
     </div>
   </div>
   <div v-if="!post" class="row justify-center">
-    <q-circular-progress
-      indeterminate
-      size="50px"
-      :thickness="0.22"
-      color="lime"
-      track-color="grey-3"
-      class="q-ma-md"
-    />
+    <CircularProgress />
   </div>
 </template>
 
@@ -38,8 +31,13 @@ import { useRouter } from "vue-router";
 import useBlogStore from "src/stores/blog";
 import useAuthStore from "src/stores/auth";
 
+import CircularProgress from "components/utils/CircularProgress.vue";
+
 export default defineComponent({
   name: "BlogPostDetail",
+  components: {
+    CircularProgress,
+  },
   props: {
     id: {
       type: String,
@@ -71,12 +69,10 @@ export default defineComponent({
         if (res)
           blogStore
             .deletePost(props.id)
-            .then(() =>
-              $router.push({ name: "index", params: { id: props.id } })
-            );
+            .then(() => $router.push({ name: "home" }));
       },
       editAction() {
-        $router.push({ name: "blog-edit", params: { id: props.id } });
+        $router.push({ name: "blog-post-edit", params: { id: props.id } });
       },
     };
   },

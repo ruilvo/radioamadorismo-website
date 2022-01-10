@@ -4,8 +4,8 @@
       <q-card-section class="col-xs-12 col-sm">
         <router-link
           class="text-h5"
-          :to="{ name: 'blog-post-detail', params: { id: post.id } }"
           style="text-decoration: none; color: inherit"
+          :to="{ name: 'blog-post-detail', params: { id: post.id } }"
         >
           {{ post.title }}
         </router-link>
@@ -16,8 +16,12 @@
         :vertical="$q.screen.gt.xs"
         class="col-auto"
       >
-        <q-btn icon="edit" color="primary" @click="editAction">Editar</q-btn>
-        <q-btn icon="delete" color="red" @click="deleteAction">Apagar</q-btn>
+        <q-btn unelevated icon="edit" color="primary" @click="editAction"
+          >Editar</q-btn
+        >
+        <q-btn unelevated icon="delete" color="red" @click="deleteAction"
+          >Apagar</q-btn
+        >
       </q-card-actions>
     </div>
 
@@ -39,7 +43,7 @@ import useBlogStore from "src/stores/blog";
 import useAuthStore from "src/stores/auth";
 
 export default defineComponent({
-  name: "BlogPostItem",
+  name: "PostListItem",
   props: {
     post: {
       type: Object,

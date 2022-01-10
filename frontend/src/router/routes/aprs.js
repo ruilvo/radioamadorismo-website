@@ -9,7 +9,7 @@ export const aprs_routes = [
       {
         name: "aprs-passcode",
         path: "passcode/",
-        component: () => import("pages/AprsPasscode.vue"),
+        component: () => import("pages/aprs/AprsPasscode.vue"),
       },
     ],
   },

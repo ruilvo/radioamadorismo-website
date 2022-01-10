@@ -4,13 +4,13 @@
     v-model="repeaters_expanded"
     expand-separator
     icon="cell_tower"
-    :to="{ name: 'repeaters-list' }"
+    :to="{ name: 'repeaters-tree' }"
     label="Repetidores"
   >
     <q-item
-      key="repeaters-list-item"
+      key="repeaters-tree-item"
       clickable
-      :to="{ name: 'repeaters-list' }"
+      :to="{ name: 'repeaters-tree' }"
       exact
       :inset-level="1"
     >
@@ -41,7 +41,7 @@ import { useRoute } from "vue-router";
 import routeMatchesName from "src/scripts/route_matches_name";
 
 export default defineComponent({
-  name: "RepeatersItem",
+  name: "RepeatersPageItem",
   setup() {
     const $route = useRoute();
 

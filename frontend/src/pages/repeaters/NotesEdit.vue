@@ -3,8 +3,11 @@
     <h4>Editando as notas do repetidor {{ id }}: {{ callsign }}</h4>
     <div class="q-mt-md overflow-auto">
       <q-form class="q-gutter-sm" @submit="onSubmit">
-        <q-item-label>Notas</q-item-label>
-        <RichTextEditor v-model="notes" />
+        <div>
+          <q-item-label>Notas</q-item-label>
+          <RichTextEditor v-model="notes" />
+        </div>
+
         <div>
           <q-btn label="Enviar" type="submit" color="primary" />
         </div>
@@ -22,10 +25,10 @@ import { api } from "boot/axios";
 
 import useRepeatersStore from "src/stores/repeaters";
 
-import RichTextEditor from "components/RichTextEditor";
+import RichTextEditor from "components/utils/RichTextEditor";
 
 export default defineComponent({
-  name: "BlogPostCreateEdit",
+  name: "NotesEdit",
   components: {
     RichTextEditor,
   },
@@ -54,7 +57,7 @@ export default defineComponent({
           notes: notes.value,
         })
         .then(() => {
-          $router.push({ name: "repeaters-list" });
+          $router.push({ name: "repeaters-tree" });
         });
     };
 

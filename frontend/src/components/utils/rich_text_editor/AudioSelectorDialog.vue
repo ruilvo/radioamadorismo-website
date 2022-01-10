@@ -5,14 +5,16 @@
         <q-select
           v-model="selectedAudio"
           :options="audioOptions"
-          label="Audio"
+          emit-value
+          map-options
+          label="Som"
         />
         <div class="row justify-center q-my-md">
           <q-input
             v-model="audioWidth"
             type="text"
             class="col-auto"
-            label="Largura"
+            label="Largura (HTML)"
           />
         </div>
         <div class="row justify-center">
@@ -31,7 +33,6 @@
           </div>
         </div>
       </q-card-section>
-
       <q-card-actions align="center">
         <q-btn
           color="red"
@@ -46,7 +47,7 @@
 </template>
 
 <script>
-import { defineComponent, ref, computed, watch } from "vue";
+import { defineComponent, computed, ref } from "vue";
 
 import { useDialogPluginComponent } from "quasar";
 
@@ -60,24 +61,12 @@ export default defineComponent({
       useDialogPluginComponent();
 
     const audioStore = useAudioStore();
-
     // Obtain the count then obtain the whole lot
     audioStore.updateAudios(0, 1).then(() => {
       audioStore.updateAudios(0, audioStore.count);
     });
 
     const selectedAudio = ref(null);
-    const selectedAudioSource = ref(null);
-    const audioWidth = ref("50%");
-
-    watch(selectedAudio, (val) => {
-      if (val) {
-        audioStore.getAudio(val.value).then((result) => {
-          selectedAudioSource.value = result.data.file;
-        });
-      }
-    });
-
     const audioOptions = computed(() => {
       return audioStore.audios.map((audio) => {
         return {
@@ -87,18 +76,26 @@ export default defineComponent({
       });
     });
 
+    const selectedAudioSource = computed(() => {
+      const elem = audioStore.audios.find(
+        (audio) => audio.id === selectedAudio.value
+      );
+      return elem ? elem.file : null;
+    });
+    const audioWidth = ref("80%");
+
     return {
       selectedAudio,
       audioOptions,
       selectedAudioSource,
-      dialogRef,
       audioWidth,
+      // Dialog
+      dialogRef,
       onDialogHide,
       onCancelClick: onDialogCancel,
       onOKClick() {
         onDialogOK({
-          selectedAudioSource: selectedAudioSource.value,
-          audioWidth: audioWidth.value,
+          audioHtml: `<audio controls src="${selectedAudioSource.value}" style="width: ${audioWidth.value}">Your browser does not support the <code>audio</code> element.</audio>`,
         });
       },
     };

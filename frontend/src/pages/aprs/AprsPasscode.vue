@@ -1,23 +1,17 @@
 <template>
   <h2>Gerador de Passcodes de APRS-IS</h2>
   <div class="column q-col-gutter-md">
-    <div class="col-auto row q-col-gutter-sm">
-      <h4 class="col-auto">Indicativo:</h4>
-      <q-input v-model="callsign" class="col-auto" filled />
+    <div class="col-auto">
+      <div class="row q-col-gutter-sm">
+        <h4 class="col-auto">Indicativo:</h4>
+        <q-input v-model="callsign" class="col-auto" filled />
+      </div>
     </div>
+
     <div class="col-auto">
       <q-btn color="primary" label="Submeter" @click="submit" />
     </div>
-    <div v-if="thinking" class="col-auto">
-      <q-circular-progress
-        indeterminate
-        size="50px"
-        :thickness="0.22"
-        color="lime"
-        track-color="grey-3"
-        class="q-ma-md"
-      />
-    </div>
+    <div v-if="thinking" class="col-auto"><CircularProgress /></div>
     <div v-if="passcode != null && !thinking" class="col-auto">
       <h4 class="q-mr-md">
         O Passcode para o APRS-IS é:
@@ -32,8 +26,13 @@ import { defineComponent, ref } from "vue";
 
 import { api } from "boot/axios";
 
+import CircularProgress from "components/utils/CircularProgress.vue";
+
 export default defineComponent({
   name: "AprsPasscode",
+  components: {
+    CircularProgress,
+  },
   setup() {
     const callsign = ref("");
     const passcode = ref(null);

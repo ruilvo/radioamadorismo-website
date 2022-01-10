@@ -18,8 +18,8 @@ import { useQuasar } from "quasar";
 
 import useAuthStore from "src/stores/auth";
 
-import Header from "components/Header.vue";
-import Drawer from "components/Drawer.vue";
+import Header from "components/identity/Header.vue";
+import Drawer from "components/identity/Drawer.vue";
 
 export default defineComponent({
   name: "Main",

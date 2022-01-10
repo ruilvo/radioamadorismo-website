@@ -9,17 +9,17 @@ export const repeaters_routes = [
       {
         name: "repeaters-items",
         path: "",
-        component: () => import("pages/Repeaters.vue"),
+        component: () => import("pages/repeaters/Repeaters.vue"),
         children: [
           {
-            name: "repeaters-list",
+            name: "repeaters-tree",
             path: "",
-            component: () => import("components/RepeatersList.vue"),
+            component: () => import("components/repeaters/RepeatersTree.vue"),
           },
           {
             name: "repeaters-map",
             path: "mapa/",
-            component: () => import("components/RepeatersMap.vue"),
+            component: () => import("components/repeaters/RepeatersMap.vue"),
           },
         ],
       },
@@ -29,9 +29,9 @@ export const repeaters_routes = [
         component: RouterView,
         children: [
           {
-            name: "repeater-item-edit",
+            name: "repeater-notes-edit",
             path: "editar/",
-            component: () => import("pages/RepeaterNotesEdit.vue"),
+            component: () => import("pages/repeaters/NotesEdit.vue"),
             props: true,
             meta: {
               requiresAuth: true,

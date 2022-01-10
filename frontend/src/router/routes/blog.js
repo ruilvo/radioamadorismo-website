@@ -7,34 +7,46 @@ export const blog_routes = [
     component: RouterView,
     children: [
       {
+        name: "blog-posts",
+        path: "",
+        component: () => import("pages/blog/Blog.vue"),
+      },
+      {
+        name: "blog-posts-page",
+        path: ":page/",
+        component: () => import("pages/blog/Blog.vue"),
+        props: true,
+      },
+      {
         name: "blog-post",
-        path: ":id/",
+        path: "posts/",
         component: RouterView,
         children: [
           {
-            name: "blog-post-detail",
-            path: "",
-            component: () => import("pages/BlogPostDetail.vue"),
-            props: true,
+            name: "blog-post-create",
+            path: "novo/",
+            component: () => import("pages/blog/CreateEdit.vue"),
           },
           {
-            name: "blog-post-edit",
-            path: "editar/",
-            component: () => import("pages/BlogPostCreateEdit.vue"),
-            props: true,
-            meta: {
-              requiresAuth: true,
-            },
+            name: "blog-post-item",
+            path: ":id/",
+            component: RouterView,
+            children: [
+              {
+                name: "blog-post-detail",
+                path: "",
+                component: () => import("pages/blog/Post.vue"),
+                props: true,
+              },
+              {
+                name: "blog-post-edit",
+                path: "editar/",
+                component: () => import("pages/blog/CreateEdit.vue"),
+                props: true,
+              },
+            ],
           },
         ],
-      },
-      {
-        name: "blog-post-new",
-        path: "novo/",
-        component: () => import("pages/BlogPostCreateEdit.vue"),
-        meta: {
-          requiresAuth: true,
-        },
       },
     ],
   },

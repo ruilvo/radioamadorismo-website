@@ -7,12 +7,6 @@
     :definitions="{
       image: {
         tip: 'Selecionar uma imagem',
-        icon: 'picture_as_pdf',
-        label: 'PDF',
-        handler: selectPdf,
-      },
-      pdf: {
-        tip: 'Selecionar um PDF',
         icon: 'image',
         label: 'Imagem',
         handler: selectImage,
@@ -22,6 +16,12 @@
         icon: 'audio_file',
         label: 'Som',
         handler: selectAudio,
+      },
+      pdf: {
+        tip: 'Selecionar um PDF',
+        icon: 'picture_as_pdf',
+        label: 'PDF',
+        handler: selectPdf,
       },
     }"
     :toolbar="[
@@ -62,7 +62,7 @@
       ],
       ['quote', 'unordered', 'ordered', 'outdent', 'indent'],
       ['undo', 'redo'],
-      ['image', 'pdf', 'audio'],
+      ['image', 'audio', 'pdf'],
       ['viewsource'],
     ]"
   />
@@ -73,9 +73,9 @@ import { defineComponent, computed, ref } from "vue";
 
 import { useQuasar } from "quasar";
 
-import ImageSelectorDialog from "components/ImageSelectorDialog";
-import PdfSelectorDialog from "components/PdfSelectorDialog";
-import AudioSelectorDialog from "components/AudioSelectorDialog";
+import ImageSelectorDialog from "./rich_text_editor/ImageSelectorDialog.vue";
+import AudioSelectorDialog from "./rich_text_editor/AudioSelectorDialog.vue";
+import PdfSelectorDialog from "./rich_text_editor/PdfSelectorDialog.vue";
 
 export default defineComponent({
   name: "RichTextEditor",
@@ -105,39 +105,30 @@ export default defineComponent({
         $q.dialog({
           component: ImageSelectorDialog,
         }).onOk((payload) => {
-          if (!payload.selectedImageSource) {
+          if (!payload.imageHtml) {
             return;
           }
-          editorRef.value.runCmd(
-            "insertHTML",
-            `<img src="${payload.selectedImageSource}" width="${payload.imageWidth}" height="${payload.imageHeight}" />`
-          );
-        });
-      },
-      selectPdf() {
-        $q.dialog({
-          component: PdfSelectorDialog,
-        }).onOk((payload) => {
-          if (!payload.selectedPdfSource) {
-            return;
-          }
-          editorRef.value.runCmd(
-            "insertHTML",
-            `<iframe src="${payload.selectedPdfSource}" width="${payload.pdfWidth}" height="${payload.pdfHeight}" type="application/pdf" />`
-          );
+          editorRef.value.runCmd("insertHTML", payload.imageHtml);
         });
       },
       selectAudio() {
         $q.dialog({
           component: AudioSelectorDialog,
         }).onOk((payload) => {
-          if (!payload.selectedAudioSource) {
+          if (!payload.audioHtml) {
             return;
           }
-          editorRef.value.runCmd(
-            "insertHTML",
-            `<audio controls src="${payload.selectedAudioSource}" style="width: ${payload.audioWidth}">Your browser does not support the <code>audio</code> element.</audio>`
-          );
+          editorRef.value.runCmd("insertHTML", payload.audioHtml);
+        });
+      },
+      selectPdf() {
+        $q.dialog({
+          component: PdfSelectorDialog,
+        }).onOk((payload) => {
+          if (!payload.pdfHtml) {
+            return;
+          }
+          editorRef.value.runCmd("insertHTML", payload.pdfHtml);
         });
       },
     };

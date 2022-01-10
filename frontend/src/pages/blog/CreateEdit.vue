@@ -1,16 +1,20 @@
 <template>
+  <q-banner v-if="hasError" class="text-white text-center bg-red q-mb-xl">
+    <div>Todos os campos são obrigatórios!</div>
+  </q-banner>
   <div class="overflow-auto">
-    <q-banner v-if="hasError" class="text-white text-center bg-red q-mb-xl">
-      <div>Todos os campos são obrigatórios!</div>
-    </q-banner>
     <q-form class="q-gutter-md" @submit="onSubmit">
       <q-input v-model="title" filled label="Título" />
 
-      <q-item-label>Introdução</q-item-label>
-      <RichTextEditor v-model="intro" />
+      <div>
+        <q-item-label class="q-mb-sm">Introdução</q-item-label>
+        <RichTextEditor v-model="intro" />
+      </div>
 
-      <q-item-label>Corpo</q-item-label>
-      <RichTextEditor v-model="body" />
+      <div>
+        <q-item-label class="q-mb-sm">Corpo</q-item-label>
+        <RichTextEditor v-model="body" />
+      </div>
 
       <div>
         <q-btn label="Enviar" type="submit" color="primary" />
@@ -26,10 +30,10 @@ import { useRouter } from "vue-router";
 
 import useBlogStore from "src/stores/blog";
 
-import RichTextEditor from "components/RichTextEditor";
+import RichTextEditor from "components/utils/RichTextEditor";
 
 export default defineComponent({
-  name: "BlogPostCreateEdit",
+  name: "CreateEdit",
   components: {
     RichTextEditor,
   },
