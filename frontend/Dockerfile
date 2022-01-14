@@ -12,8 +12,7 @@ RUN npm install -g @quasar/cli
 WORKDIR /workspace
 
 # Handle requirements
-COPY package.json frontend/package.json
-COPY package-lock.json frontend/package-lock.json
+COPY package.json package-lock.jso[n] frontend/
 RUN cd frontend && npm install
 
 # Copy project files
