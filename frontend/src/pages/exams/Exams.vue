@@ -144,6 +144,9 @@ export default defineComponent({
             })
             .then((response) => {
               question_count.value = response.data.count;
+              if (question_count.value < 1) {
+                return;
+              }
               // Then get a random question
               api
                 .get("/api/v1/exams/fact-exam-question/", {
