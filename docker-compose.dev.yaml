@@ -16,6 +16,7 @@ services:
       - frontend_node_modules:/workspace/frontend/node_modules
     depends_on:
       - backend
+    restart: always
   backend:
     build:
       context: ./backend
@@ -31,12 +32,14 @@ services:
       - backend_deployment:/workspace/backend/_deployment/
     depends_on:
       - db
+    restart: always
   db:
     image: postgres:13-bullseye
     volumes:
       - postgres_data_dev:/var/lib/postgresql/data/
     env_file:
       - dev.env
+    restart: always
 
 volumes:
   postgres_data_dev:
