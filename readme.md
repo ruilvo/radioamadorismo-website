@@ -12,7 +12,7 @@ docker-compose -f "docker-compose.dev.yaml" up -d --build
 To pull up the **production** server:
 
 ```sh
-docker-compose -f "docker-compose.yaml" up -d --build
+docker-compose -f "docker-compose.prod.yaml" up -d --build
 ```
 
 ### Development
@@ -33,7 +33,7 @@ docker exec -it radioamadorismo-website_backend_1 /bin/bash
 ### Turning down the server
 
 ```sh
-docker-compose -f "docker-compose.yaml" down
+docker-compose -f "docker-compose.prod.yaml" down
 ```
 
 To clear/clean all Docker images, run:
