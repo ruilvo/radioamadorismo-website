@@ -24,5 +24,8 @@ RUN chmod +x frontend/entrypoint.sh
 # Expose the ports
 EXPOSE 8080
 
+# Change to the frontend dir
+WORKDIR /workspace/frontend
+
 # Give it a (replaceable) entrypoint
-ENTRYPOINT ["./frontend/entrypoint.sh"]
+ENTRYPOINT ["./entrypoint.sh"]

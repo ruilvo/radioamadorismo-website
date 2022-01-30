@@ -34,5 +34,8 @@ RUN chmod +x backend/entrypoint.sh &&  \
 # Expose the ports
 EXPOSE 8000
 
+# Change to the backend dir
+WORKDIR /workspace/backend
+
 # Give it a (replaceable) entrypoint
-ENTRYPOINT ["./backend/entrypoint.sh"]
+ENTRYPOINT ["./entrypoint.sh"]

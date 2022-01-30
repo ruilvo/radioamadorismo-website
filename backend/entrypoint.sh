@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# The script starts from /workspace
-cd backend
-
 if [[ -z "${DEVELOPMENT}" ]]
 then
     ./run_migration_chores.sh --noinput
