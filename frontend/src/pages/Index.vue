@@ -1,5 +1,5 @@
 <template>
-  <h2>Bem vindo(a) ao Portal do Radioamadorismo</h2>
+  <h2>Bem-vindo(a) ao Portal do Radioamadorismo</h2>
   <hr />
   <Blog />
 </template>
