@@ -89,19 +89,9 @@ urlpatterns = [
                                 name="repeaters",
                             ),
                             path(
-                                "cms/",
-                                include("cms.api_urls"),
-                                name="cms",
-                            ),
-                            path(
                                 "aprs/",
                                 include("aprs.api_urls"),
                                 name="aprs",
-                            ),
-                            path(
-                                "exams/",
-                                include("exams.api_urls"),
-                                name="exams",
                             ),
                         ]
                     ),

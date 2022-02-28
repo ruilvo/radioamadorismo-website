@@ -1,6 +1,4 @@
 import aprs_routes from "./routes/aprs";
-import blog_routes from "./routes/blog";
-import exams_routes from "./routes/exams";
 import repeaters_routes from "./routes/repeaters";
 
 const routes = [
@@ -25,8 +23,6 @@ const routes = [
         },
       },
       ...aprs_routes,
-      ...blog_routes,
-      ...exams_routes,
       ...repeaters_routes,
     ],
   },

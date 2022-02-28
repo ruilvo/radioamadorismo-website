@@ -38,9 +38,7 @@ INSTALLED_APPS = [
     # Local
     "users",
     "repeaters",
-    "cms",
     "aprs",
-    "exams",
 ]
 
 MIDDLEWARE = [

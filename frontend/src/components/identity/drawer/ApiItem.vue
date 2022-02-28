@@ -42,20 +42,6 @@
       <q-item-section>Repetidores (🇬🇧)</q-item-section>
       <q-item-section side><q-icon name="launch" size="xs" /></q-item-section>
     </q-item>
-    <q-item
-      key="exams-api"
-      clickable
-      tag="a"
-      href="/api/v1/exams/fact-exam-question/"
-      exact
-      :inset-level="1"
-    >
-      <q-item-section avatar>
-        <q-icon name="quiz" />
-      </q-item-section>
-      <q-item-section>Perguntas de exame (🇬🇧)</q-item-section>
-      <q-item-section side><q-icon name="launch" size="xs" /></q-item-section>
-    </q-item>
   </q-expansion-item>
 </template>
 
