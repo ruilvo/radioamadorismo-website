@@ -34,7 +34,7 @@ from .passcode_generator import passcode_generator
 def get_passcode(request):
     callsign = request.data.get("callsign", None)
     if callsign is None:
-        raise Response(
+        return Response(
             {"error": "Missing callsign"}, status=status.HTTP_400_BAD_REQUEST
         )
     return Response({"passcode": passcode_generator(callsign)})
