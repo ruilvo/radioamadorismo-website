@@ -27,6 +27,7 @@ import ApiItem from "./drawer/ApiItem.vue";
 import PagesItem from "./drawer/PagesItem.vue";
 
 export default defineComponent({
+  // eslint-disable-next-line vue/multi-word-component-names
   name: "Drawer",
   components: {
     StartPageItem,

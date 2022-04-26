@@ -22,6 +22,7 @@ import Header from "components/identity/Header.vue";
 import Drawer from "components/identity/Drawer.vue";
 
 export default defineComponent({
+  // eslint-disable-next-line vue/multi-word-component-names
   name: "Main",
   components: {
     Header,

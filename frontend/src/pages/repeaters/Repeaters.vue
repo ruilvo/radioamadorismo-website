@@ -20,6 +20,7 @@ import { defineComponent } from "vue";
 import RepeatersFilters from "components/repeaters/RepeatersFilters.vue";
 
 export default defineComponent({
+  // eslint-disable-next-line vue/multi-word-component-names
   name: "Repeaters",
   components: {
     RepeatersFilters,

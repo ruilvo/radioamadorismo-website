@@ -56,6 +56,7 @@ import { useRouter } from "vue-router";
 import useAuthStore from "src/stores/auth";
 
 export default defineComponent({
+  // eslint-disable-next-line vue/multi-word-component-names
   name: "Login",
   setup() {
     const $router = useRouter();
