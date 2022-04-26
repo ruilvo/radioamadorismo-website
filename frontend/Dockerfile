@@ -1,5 +1,5 @@
 # Base image (last LTS)
-FROM node:16.13-bullseye
+FROM node:16.14-bullseye
 
 # Update the system
 RUN apt-get update && apt-get upgrade -y
