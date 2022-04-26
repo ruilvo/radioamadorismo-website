@@ -2,19 +2,19 @@ def passcode_generator(callsign: str) -> int:
     callsign_clean = callsign.split("-")[0].upper()
     callsign_bytes = callsign_clean.encode("ascii")
 
-    hash = 0x73E2
+    chash = 0x73E2
 
     shift = True
     for c in callsign_bytes:
         if shift:
-            hash ^= c << 8
+            chash ^= c << 8
         else:
-            hash ^= c
+            chash ^= c
         shift = not shift
 
-    hash &= 0x7FFF
+    chash &= 0x7FFF
 
-    return hash
+    return chash
 
 
 if __name__ == "__main__":
