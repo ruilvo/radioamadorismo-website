@@ -60,9 +60,19 @@ class DimFm(models.Model):
     Models enough information for describing FM repeaters.
     """
 
+    NFM = "NFM"
+    WFM = "WFM"
+    BANDWIDTH_CHOICES = (
+        (NFM, "nfm"),
+        (WFM, "wfm"),
+    )
+
     modulation = models.CharField(max_length=20, blank=True, verbose_name="modulation")
     tone = models.DecimalField(
         max_digits=20, decimal_places=10, blank=True, null=True, verbose_name="tone"
+    )
+    bandwidth = models.CharField(
+        max_length=50, verbose_name="bandwidth", choices=BANDWIDTH_CHOICES, default=NFM
     )
 
     class Meta:
