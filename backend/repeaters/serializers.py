@@ -177,7 +177,6 @@ class DimHolderSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
     def create(self, validated_data):
         abrv = validated_data.get("abrv", None)
         name = validated_data.get("name", None)
-        sysop = validated_data.get("sysop", None)
         if abrv is not None:
             new_object, new_object_created = DimHolder.objects.get_or_create(
                 abrv=abrv,
@@ -186,8 +185,6 @@ class DimHolderSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
             if not new_object_created:
                 if name is not None:
                     new_object.name = name
-                if sysop is not None:
-                    new_object.sysop = sysop
                 new_object.save()
             return new_object
         return DimHolder.objects.create(**validated_data)

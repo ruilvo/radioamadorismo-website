@@ -189,7 +189,6 @@ class DimHolder(models.Model):
 
     abrv = models.CharField(max_length=10, verbose_name="abrv.", unique=True)
     name = models.CharField(max_length=500, blank=True, verbose_name="name")
-    sysop = models.CharField(max_length=20, blank=True, verbose_name="sysop")
 
     class Meta:
         verbose_name = "info - holder"
@@ -277,6 +276,7 @@ class FactRepeater(models.Model):
     status = models.CharField(
         max_length=50, verbose_name="status", choices=STATUS_CHOICES, default=OTHER
     )
+    sysop = models.CharField(max_length=20, blank=True, verbose_name="sysop")
 
     # RF
     info_half_duplex = models.ForeignKey(

@@ -119,6 +119,7 @@ automatic_fields = {
     "info_dmr": ["isnull"],
     "info_holder": ["isnull"],
     "info_location": ["isnull"],
+    "sysop": ["exact", "iexact", "icontains"],
     # DimHalfDuplex
     "info_half_duplex__tx_mhz": ["exact", "gte", "lte"],
     "info_half_duplex__rx_mhz": ["exact", "gte", "lte"],
@@ -144,7 +145,6 @@ automatic_fields = {
     # DimHolder
     "info_holder__abrv": ["exact", "iexact", "icontains"],
     "info_holder__name": ["exact", "iexact", "icontains"],
-    "info_holder__sysop": ["exact", "iexact", "icontains"],
     # DimLocation
     "info_location__latitude": ["exact", "gte", "lte"],
     "info_location__longitude": ["exact", "gte", "lte"],
