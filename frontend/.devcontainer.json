@@ -32,7 +32,9 @@
         "bradlc.vscode-tailwindcss",
         "visualstudioexptteam.vscodeintellicode",
         "johnsoncodehk.volar",
-        "dariofuzinato.vue-peek"
+        "dariofuzinato.vue-peek",
+        "VisualStudioExptTeam.intellicode-api-usage-examples",
+        "syler.sass-indented",
     ],
     "workspaceFolder": "/workspace/frontend",
 }

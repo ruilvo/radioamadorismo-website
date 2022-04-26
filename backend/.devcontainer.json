@@ -23,7 +23,8 @@
         "christian-kohler.path-intellisense",
         "streetsidesoftware.code-spell-checker-portuguese",
         "njpwerner.autodocstring",
-        "visualstudioexptteam.vscodeintellicode"
+        "visualstudioexptteam.vscodeintellicode",
+        "VisualStudioExptTeam.intellicode-api-usage-examples"
     ],
     "workspaceFolder": "/workspace/backend",
 }
