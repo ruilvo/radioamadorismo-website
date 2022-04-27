@@ -2,6 +2,8 @@ import decimal
 
 from django.db import models
 
+str_placeholder = "-----"
+
 
 class DimHalfDuplex(models.Model):
     """
@@ -32,7 +34,10 @@ class DimHalfDuplex(models.Model):
         return self.tx_mhz - self.rx_mhz
 
     def __str__(self) -> str:
-        return f"{self.tx_mhz}/{self.rx_mhz}"
+        return (
+            f"{self.channel if self.channel else str_placeholder}: "
+            + f"{float(self.tx_mhz):.5f}/{float(self.rx_mhz):.5f}"
+        )
 
 
 class DimSimplex(models.Model):
@@ -52,7 +57,10 @@ class DimSimplex(models.Model):
         verbose_name_plural = "info - simplex"
 
     def __str__(self) -> str:
-        return f"{self.freq_mhz}"
+        return (
+            f"{self.channel if self.channel else str_placeholder}: "
+            + f"{float(self.freq_mhz):.5f}"
+        )
 
 
 class DimFm(models.Model):
@@ -85,7 +93,11 @@ class DimFm(models.Model):
         ]
 
     def __str__(self) -> str:
-        return f"{self.modulation}, {self.tone}"
+        return (
+            f"{self.modulation if self.modulation else str_placeholder}, "
+            + f"{float(self.tone):.5f}, "
+            + f"{self.bandwidth}"
+        )
 
 
 class DimDStar(models.Model):
@@ -108,7 +120,11 @@ class DimDStar(models.Model):
         ]
 
     def __str__(self) -> str:
-        return f"{self.modulation}, {self.gateway}, {self.reflector}"
+        return (
+            f"{self.modulation if self.modulation else str_placeholder}, "
+            + f"{self.gateway if self.gateway else str_placeholder}, "
+            + f"{self.reflector if self.reflector else str_placeholder}"
+        )
 
 
 class DimFusion(models.Model):
@@ -131,7 +147,11 @@ class DimFusion(models.Model):
         ]
 
     def __str__(self) -> str:
-        return f"{self.wiresx}, {self.room_id}"
+        return (
+            f"{self.modulation if self.modulation else str_placeholder}, "
+            + f"{self.wiresx if self.wiresx else str_placeholder}, "
+            + f"{self.room_id if self.room_id else str_placeholder}"
+        )
 
 
 class DimDmrTg(models.Model):
@@ -205,7 +225,7 @@ class DimHolder(models.Model):
         verbose_name_plural = "info - holders"
 
     def __str__(self) -> str:
-        return f"{self.abrv}"
+        return f"{self.abrv}: {self.name if self.name else str_placeholder}"
 
 
 class DimLocation(models.Model):
@@ -252,14 +272,15 @@ class DimLocation(models.Model):
         ]
 
     def __str__(self) -> str:
-        to_return = ""
-        if self.place is not None:
-            to_return += f"{self.place}"
-        if self.qth_loc is not None and self.qth_loc != "":
-            to_return += f"/{self.qth_loc}"
+        coordinates_str = ""
         if self.latitude is not None and self.longitude is not None:
-            to_return += f"/({self.latitude}, {self.longitude})"
-        return to_return
+            coordinates_str = f" ({self.latitude}, {self.longitude})"
+        return (
+            f"{self.region if self.region else str_placeholder}, "
+            + f"{self.place if self.place else str_placeholder}, "
+            + f"{self.qth_loc if self.qth_loc else str_placeholder}, "
+            + coordinates_str
+        )
 
 
 class FactRepeater(models.Model):
