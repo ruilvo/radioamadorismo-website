@@ -95,7 +95,7 @@ class DimFm(models.Model):
     def __str__(self) -> str:
         return (
             f"{self.modulation if self.modulation else str_placeholder}, "
-            + f"{float(self.tone):.5f}, "
+            + f"{float(self.tone):.1f}, "
             + f"{self.bandwidth}"
         )
 
