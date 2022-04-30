@@ -2,7 +2,7 @@
 On the Anytone D878UVII, names are limited to 16 chars.
 """
 
-import io, csv
+import io, csv, textwrap
 
 
 from repeaters.models import (
@@ -24,20 +24,21 @@ def tgs_csv() -> io.StringIO:
     Generates `TalkGroups.csv` as a StringIO object.
     """
 
-    tgs_qs = DimDmrTg.objects.all()
+    qs = DimDmrTg.objects.all()
 
-    tgs_header = ['"No."', '"Radio ID"', '"Name"', '"Call Type"', '"Call Alert"']
+    header = ['"No."', '"Radio ID"', '"Name"', '"Call Type"', '"Call Alert"']
+
     call_type_str = '"Group Call"'
     call_alert_str = '"None"'
 
-    tg_sio = io.StringIO()
-    tg_writer = csv.writer(tg_sio, dialect="d878uvii")
-    tg_writer.writerow(tgs_header)
+    sio = io.StringIO()
+    writer = csv.writer(sio, dialect="d878uvii")
+    writer.writerow(header)
 
     idx: int
     item: DimDmrTg
-    for idx, item in enumerate(tgs_qs):
-        tg_writer.writerow(
+    for idx, item in enumerate(qs):
+        writer.writerow(
             [
                 f'"{idx+1}"',
                 f'"{str(item.dmr_id):.16}"',
@@ -47,7 +48,7 @@ def tgs_csv() -> io.StringIO:
             ]
         )
 
-    return tg_sio
+    return sio
 
 
 def receive_groups_csv() -> io.StringIO:
@@ -70,31 +71,144 @@ def receive_groups_csv() -> io.StringIO:
     tgs_qs = DimDmrTg.objects.all()
 
     # RG's definition
-    rgs_input = [
+    data_input = [
         ("TS1 Tipicos", ts1_tgs_qs),
         ("Todos TGs", tgs_qs),
     ]
 
-    rgs_data = []
-    for rg_name, rg_qs in rgs_input:
-        rg_contact = "|".join(f"{str(tg.name):.16}" for tg in rg_qs)
-        rg_ids = "|".join(f"{str(tg.dmr_id):.16}" for tg in rg_qs)
-        rgs_data.append((rg_name, rg_contact, rg_ids))
+    data = []
+    for name, qs in data_input:
+        contact = "|".join(f"{str(tg.name):.16}" for tg in qs)
+        ids = "|".join(f"{str(tg.dmr_id):.16}" for tg in qs)
+        data.append((name, contact, ids))
 
-    rgs_header = ['"No."', '"Group Name"', '"Contact"', '"Contact TG/DMR ID"']
+    header = ['"No."', '"Group Name"', '"Contact"', '"Contact TG/DMR ID"']
 
-    rgs_sio = io.StringIO()
-    rgs_writer = csv.writer(rgs_sio, dialect="d878uvii")
-    rgs_writer.writerow(rgs_header)
+    sio = io.StringIO()
+    writer = csv.writer(sio, dialect="d878uvii")
+    writer.writerow(header)
 
-    for idx, (rg_name, rg_contact, rg_ids) in enumerate(rgs_data):
-        rgs_writer.writerow(
+    for idx, (name, contact, ids) in enumerate(data):
+        writer.writerow(
             [
                 f'"{idx+1}"',
-                f'"{rg_name}"',
-                f'"{rg_contact}"',
-                f'"{rg_ids}"',
+                f'"{name}"',
+                f'"{contact}"',
+                f'"{ids}"',
             ]
         )
 
-    return rgs_sio
+    return sio
+
+
+def radio_id_csv() -> io.StringIO:
+    """
+    Generates a placeholder RadioIDList.csv
+    """
+
+    header = ['"No."', '"Radio ID"', '"Name"']
+
+    sio = io.StringIO()
+    writer = csv.writer(sio, dialect="d878uvii")
+    writer.writerow(header)
+
+    placeholder_radio_id = ("1", "268000", "CT0ZZZ")
+    writer.writerow(
+        [
+            f'"{placeholder_radio_id[0]}"',
+            f'"{placeholder_radio_id[1]}"',
+            f'"{placeholder_radio_id[2]}"',
+        ]
+    )
+
+    return sio
+
+
+def scanlist_csv() -> io.StringIO:
+    """
+    Generates a placeholder ScanList.csv
+    """
+
+    header = [
+        '"No."',
+        '"Scan List Name"',
+        '"Scan Channel Member"',
+        '"Scan Channel Member RX Frequency"',
+        '"Scan Channel Member TX Frequency"',
+        '"Scan Mode"',
+        '"Priority Channel Select"',
+        '"Priority Channel 1"',
+        '"Priority Channel 1 RX Frequency"',
+        '"Priority Channel 1 TX Frequency"',
+        '"Priority Channel 2"',
+        '"Priority Channel 2 RX Frequency"',
+        '"Priority Channel 2 TX Frequency"',
+        '"Revert Channel"',
+        '"Look Back Time A[s]"',
+        '"Look Back Time B[s]"',
+        '"Dropout Delay Time[s]"',
+        '"Dwell Time[s]"',
+    ]
+
+    sio = io.StringIO()
+    writer = csv.writer(sio, dialect="d878uvii")
+    writer.writerow(header)
+
+    return sio
+
+
+def roamingzone_csv() -> io.StringIO:
+    """
+    Generates a placeholder RoamingZone.csv
+    """
+
+    header = [
+        '"No."',
+        '"Name"',
+        '"Roaming Channel Member"',
+        "",
+    ]
+
+    sio = io.StringIO()
+    writer = csv.writer(sio, dialect="d878uvii")
+    writer.writerow(header)
+
+    return sio
+
+
+def roaming_channel_csv() -> io.StringIO:
+    """
+    Generates a placeholder RoamingChannel.csv
+    """
+
+    header = [
+        '"No."',
+        '"Receive Frequency"',
+        '"Transmit Frequency"',
+        '"Color Code"',
+        '"Slot"',
+        '"Name"',
+    ]
+
+    sio = io.StringIO()
+    writer = csv.writer(sio, dialect="d878uvii")
+    writer.writerow(header)
+
+    return sio
+
+
+def prefabricated_sms_csv() -> io.StringIO:
+    """
+    Generates a placeholder PrefabricatedSMS.csv
+    """
+
+    header = [
+        '"No."',
+        '"Text"',
+    ]
+
+    sio = io.StringIO()
+    writer = csv.writer(sio, dialect="d878uvii")
+    writer.writerow(header)
+
+    return sio
