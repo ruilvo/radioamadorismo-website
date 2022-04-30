@@ -195,20 +195,3 @@ def roaming_channel_csv() -> io.StringIO:
     writer.writerow(header)
 
     return sio
-
-
-def prefabricated_sms_csv() -> io.StringIO:
-    """
-    Generates a placeholder PrefabricatedSMS.csv
-    """
-
-    header = [
-        '"No."',
-        '"Text"',
-    ]
-
-    sio = io.StringIO()
-    writer = csv.writer(sio, dialect="d878uvii")
-    writer.writerow(header)
-
-    return sio
