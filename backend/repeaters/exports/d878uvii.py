@@ -5,7 +5,10 @@ On the Anytone D878UVII, names are limited to 16 chars.
 import io
 import csv
 
+from typing import Tuple, List
+
 from django.db.models import Q
+from django.db.models.query import QuerySet
 
 from repeaters.models import (
     DimDmr,
@@ -13,15 +16,27 @@ from repeaters.models import (
     FactRepeater,
 )
 
-from repeaters.filters import rf_search, freq_mhz_search__gte, freq_mhz_search__lte
+from repeaters.utils import fix_dups
 
 
 class D878UVIIDialect(csv.excel):
-    quotechar = "%"  # Just to make the package `csv` happy. This shouldn't happen.
-    quoting = csv.QUOTE_NONE
+    quotechar = '"'
+    quoting = csv.QUOTE_ALL
 
 
 csv.register_dialect("d878uvii", D878UVIIDialect)
+
+
+def make_tg_names(qs: QuerySet) -> List[str]:
+    names: List[str] = []
+    elem: DimDmrTg
+    for elem in qs:
+        names.append(elem.name)
+
+    names = fix_dups(names, sep=" ", start=1, update_first=True)
+    names = [f"{name:.16}" for name in names]
+
+    return names
 
 
 def tgs_csv() -> io.StringIO:
@@ -30,11 +45,12 @@ def tgs_csv() -> io.StringIO:
     """
 
     qs = DimDmrTg.objects.all()
+    names = make_tg_names(qs)
 
-    header = ['"No."', '"Radio ID"', '"Name"', '"Call Type"', '"Call Alert"']
+    header = ["No.", "Radio ID", "Name", "Call Type", "Call Alert"]
 
-    call_type_str = '"Group Call"'
-    call_alert_str = '"None"'
+    call_type_str = "Group Call"
+    call_alert_str = "None"
 
     sio = io.StringIO()
     writer = csv.writer(sio, dialect="d878uvii")
@@ -42,12 +58,12 @@ def tgs_csv() -> io.StringIO:
 
     idx: int
     item: DimDmrTg
-    for idx, item in enumerate(qs):
+    for idx, (item, name) in enumerate(zip(qs, names)):
         writer.writerow(
             [
-                f'"{idx+1}"',
-                f'"{str(item.dmr_id):.16}"',
-                f'"{str(item.name):.16}"',
+                f"{idx+1}",
+                f"{item.dmr_id}",
+                name,
                 call_type_str,
                 call_alert_str,
             ]
@@ -74,20 +90,22 @@ def receive_groups_csv() -> io.StringIO:
 
     ts1_tgs_qs = (ts1_default_tgs_qs | ts1_alternative_tgs_qs).distinct()
     tgs_qs = DimDmrTg.objects.all()
+    ts1_tgs_mames = make_tg_names(ts1_tgs_qs)
+    tgs_names = make_tg_names(tgs_qs)
 
     # RG's definition
     data_input = [
-        ("TS1 Tipicos", ts1_tgs_qs),
-        ("Todos TGs", tgs_qs),
+        ("TS1 Tipicos", ts1_tgs_qs, ts1_tgs_mames),
+        ("Todos TGs", tgs_qs, tgs_names),
     ]
 
     data = []
-    for name, qs in data_input:
-        contact = "|".join(f"{str(tg.name):.16}" for tg in qs)
-        ids = "|".join(f"{str(tg.dmr_id):.16}" for tg in qs)
+    for name, qs, names in data_input:
+        contact = "|".join(names)
+        ids = "|".join(f"{tg.dmr_id}" for tg in qs)
         data.append((name, contact, ids))
 
-    header = ['"No."', '"Group Name"', '"Contact"', '"Contact TG/DMR ID"']
+    header = ["No.", "Group Name", "Contact", "Contact TG/DMR ID"]
 
     sio = io.StringIO()
     writer = csv.writer(sio, dialect="d878uvii")
@@ -96,10 +114,10 @@ def receive_groups_csv() -> io.StringIO:
     for idx, (name, contact, ids) in enumerate(data):
         writer.writerow(
             [
-                f'"{idx+1}"',
-                f'"{name}"',
-                f'"{contact}"',
-                f'"{ids}"',
+                f"{idx+1}",
+                f"{name}",
+                f"{contact}",
+                f"{ids}",
             ]
         )
 
@@ -111,7 +129,7 @@ def radio_id_csv() -> io.StringIO:
     Generates a placeholder RadioIDList.csv
     """
 
-    header = ['"No."', '"Radio ID"', '"Name"']
+    header = ["No.", "Radio ID", "Name"]
 
     sio = io.StringIO()
     writer = csv.writer(sio, dialect="d878uvii")
@@ -120,9 +138,9 @@ def radio_id_csv() -> io.StringIO:
     placeholder_radio_id = ("1", "268000", "CT0ZZZ")
     writer.writerow(
         [
-            f'"{placeholder_radio_id[0]}"',
-            f'"{placeholder_radio_id[1]}"',
-            f'"{placeholder_radio_id[2]}"',
+            f"{placeholder_radio_id[0]}",
+            f"{placeholder_radio_id[1]}",
+            f"{placeholder_radio_id[2]}",
         ]
     )
 
@@ -135,24 +153,24 @@ def scanlist_csv() -> io.StringIO:
     """
 
     header = [
-        '"No."',
-        '"Scan List Name"',
-        '"Scan Channel Member"',
-        '"Scan Channel Member RX Frequency"',
-        '"Scan Channel Member TX Frequency"',
-        '"Scan Mode"',
-        '"Priority Channel Select"',
-        '"Priority Channel 1"',
-        '"Priority Channel 1 RX Frequency"',
-        '"Priority Channel 1 TX Frequency"',
-        '"Priority Channel 2"',
-        '"Priority Channel 2 RX Frequency"',
-        '"Priority Channel 2 TX Frequency"',
-        '"Revert Channel"',
-        '"Look Back Time A[s]"',
-        '"Look Back Time B[s]"',
-        '"Dropout Delay Time[s]"',
-        '"Dwell Time[s]"',
+        "No.",
+        "Scan List Name",
+        "Scan Channel Member",
+        "Scan Channel Member RX Frequency",
+        "Scan Channel Member TX Frequency",
+        "Scan Mode",
+        "Priority Channel Select",
+        "Priority Channel 1",
+        "Priority Channel 1 RX Frequency",
+        "Priority Channel 1 TX Frequency",
+        "Priority Channel 2",
+        "Priority Channel 2 RX Frequency",
+        "Priority Channel 2 TX Frequency",
+        "Revert Channel",
+        "Look Back Time A[s]",
+        "Look Back Time B[s]",
+        "Dropout Delay Time[s]",
+        "Dwell Time[s]",
     ]
 
     sio = io.StringIO()
@@ -168,9 +186,9 @@ def roamingzone_csv() -> io.StringIO:
     """
 
     header = [
-        '"No."',
-        '"Name"',
-        '"Roaming Channel Member"',
+        "No.",
+        "Name",
+        "Roaming Channel Member",
         "",
     ]
 
@@ -187,12 +205,12 @@ def roaming_channel_csv() -> io.StringIO:
     """
 
     header = [
-        '"No."',
-        '"Receive Frequency"',
-        '"Transmit Frequency"',
-        '"Color Code"',
-        '"Slot"',
-        '"Name"',
+        "No.",
+        "Receive Frequency",
+        "Transmit Frequency",
+        "Color Code",
+        "Slot",
+        "Name",
     ]
 
     sio = io.StringIO()
@@ -202,12 +220,11 @@ def roaming_channel_csv() -> io.StringIO:
     return sio
 
 
-def channel_csv() -> io.StringIO:
+def make_channel_qs() -> Tuple[QuerySet, QuerySet]:
     """
-    Generates a Channel.csv
+    Gets two sets of querysets, one with the FM information, another with the DMR
+    information.
     """
-
-    # First we need to get only compatible repeaters
 
     class Band2m:
         min = 144.0
@@ -266,72 +283,108 @@ def channel_csv() -> io.StringIO:
     qs_hd_fm = qs_hd_fm.filter(info_fm__tone__lte=cutoff)
     qs_sp_fm = qs_sp_fm.filter(info_fm__tone__lte=cutoff)
 
-    # Now that these conditions are met, we can generate the CSV
+    qs_fm = qs_hd_fm | qs_sp_fm
+    qs_dmr = qs_hd_dmr | qs_sp_dmr
+
+    return qs_fm, qs_dmr
+
+
+def make_channel_names_fm(qs: QuerySet) -> List[str]:
+    callsigns: List[str] = []
+    elem: FactRepeater
+    for elem in qs:
+        callsigns.append(elem.callsign)
+
+    callsigns = fix_dups(callsigns, sep=" ", start=1, update_first=True)
+
+    return callsigns
+
+
+def make_channel_names_dmr(qs: QuerySet) -> List[str]:
+    callsigns: List[str] = []
+    elem: FactRepeater
+    for elem in qs:
+        callsigns.append(elem.callsign)
+
+    callsigns = fix_dups(callsigns, sep=" ", start=1, update_first=True)
+    callsigns_ts1 = [callsign + " TS1" for callsign in callsigns]
+    callsigns_ts2 = [callsign + " TS2" for callsign in callsigns]
+
+    return callsigns_ts1, callsigns_ts2
+
+
+def channel_csv() -> io.StringIO:
+    """
+    Generates a Channel.csv
+    """
 
     header = [
-        '"No."',
-        '"Channel Name"',
-        '"Receive Frequency"',
-        '"Transmit Frequency"',
-        '"Channel Type"',
-        '"Transmit Power"',
-        '"Band Width"',
-        '"CTCSS/DCS Decode"',
-        '"CTCSS/DCS Encode"',
-        '"Contact"',
-        '"Contact Call Type"',
-        '"Contact TG/DMR ID"',
-        '"Radio ID"',
-        '"Busy Lock/TX Permit"',
-        '"Squelch Mode"',
-        '"Optional Signal"',
-        '"DTMF ID"',
-        '"2Tone ID"',
-        '"5Tone ID"',
-        '"PTT ID"',
-        '"Color Code"',
-        '"Slot"',
-        '"Scan List"',
-        '"Receive Group List"',
-        '"PTT Prohibit"',
-        '"Reverse"',
-        '"Simplex TDMA"',
-        '"Slot Suit"',
-        '"AES Digital Encryption"',
-        '"Digital Encryption"',
-        '"Call Confirmation"',
-        '"Talk Around(Simplex)"',
-        '"Work Alone"',
-        '"Custom CTCSS"',
-        '"2TONE Decode"',
-        '"Ranging"',
-        '"Through Mode"',
-        '"APRS RX"',
-        '"Analog APRS PTT Mode"',
-        '"Digital APRS PTT Mode"',
-        '"APRS Report Type"',
-        '"Digital APRS Report Channel"',
-        '"Correct Frequency[Hz]"',
-        '"SMS Confirmation"',
-        '"Exclude channel from roaming"',
-        '"DMR MODE"',
-        '"DataACK Disable"',
-        '"R5toneBot"',
-        '"R5ToneEot"',
-        '"Auto Scan"',
-        '"Ana Aprs Mute"',
-        '"Send Talker Alias"',
+        "No.",
+        "Channel Name",
+        "Receive Frequency",
+        "Transmit Frequency",
+        "Channel Type",
+        "Transmit Power",
+        "Band Width",
+        "CTCSS/DCS Decode",
+        "CTCSS/DCS Encode",
+        "Contact",
+        "Contact Call Type",
+        "Contact TG/DMR ID",
+        "Radio ID",
+        "Busy Lock/TX Permit",
+        "Squelch Mode",
+        "Optional Signal",
+        "DTMF ID",
+        "2Tone ID",
+        "5Tone ID",
+        "PTT ID",
+        "Color Code",
+        "Slot",
+        "Scan List",
+        "Receive Group List",
+        "PTT Prohibit",
+        "Reverse",
+        "Simplex TDMA",
+        "Slot Suit",
+        "AES Digital Encryption",
+        "Digital Encryption",
+        "Call Confirmation",
+        "Talk Around(Simplex)",
+        "Work Alone",
+        "Custom CTCSS",
+        "2TONE Decode",
+        "Ranging",
+        "Through Mode",
+        "APRS RX",
+        "Analog APRS PTT Mode",
+        "Digital APRS PTT Mode",
+        "APRS Report Type",
+        "Digital APRS Report Channel",
+        "Correct Frequency[Hz]",
+        "SMS Confirmation",
+        "Exclude channel from roaming",
+        "DMR MODE",
+        "DataACK Disable",
+        "R5toneBot",
+        "R5ToneEot",
+        "Auto Scan",
+        "Ana Aprs Mute",
+        "Send Talker Alias",
     ]
 
     sio = io.StringIO()
     writer = csv.writer(sio, dialect="d878uvii")
     writer.writerow(header)
 
+    qs_fm, qs_dmr = make_channel_qs()
+    callsigns_fm = make_channel_names_fm(qs_fm)
+    callsigns_dmr_ts1, callsigns_dmr_ts2 = make_channel_names_dmr(qs_dmr)
+
     elem: FactRepeater
     count = 0
     # FM
-    qs_fm = qs_hd_fm | qs_sp_fm
-    for elem in qs_fm:
+    for elem, callsign in zip(qs_fm, callsigns_fm):
         count = count + 1
         rx_freq = (
             elem.info_half_duplex.tx_mhz
@@ -345,63 +398,62 @@ def channel_csv() -> io.StringIO:
         )
         writer.writerow(
             [
-                f'"{count}"',  # No.
-                f'"{str(elem.callsign):.16}"',  # Channel Name
-                f'"{rx_freq:.5f}"',  # Receive Frequency
-                f'"{tx_freq:.5f}"',  # Transmit Frequency
-                '"A-Analog"',  # Channel Type
-                '"High"',  # Transmit Power
-                f'"{"12.5K" if elem.info_fm.bandwidth=="NFM" else "25K"}"',  # Band Width
-                '"Off"',  # CTCSS/DCS Decode
-                f'"{elem.info_fm.tone:.1f}"',  # CTCSS/DCS Encode
-                '"Portugal"',  # Contact
-                '"Group Call"',  # Contact Call Type
-                '"268"',  # Contact TG/DMR ID
-                '"CT0ZZZ"',  # Radio ID
-                '"Off"',  # Busy Lock/TX Permit
-                '"Carrier"',  # Squelch Mode
-                '"Off"',  # Optional Signal
-                '"1"',  # DTMF ID
-                '"1"',  # 2Tone ID
-                '"1"',  # 5Tone ID
-                '"Off"',  # PTT ID
-                '"1"',  # Color Code
-                '"1"',  # Slot
-                '"None"',  # Scan List
-                '"None"',  # Receive Group List
-                '"Off"',  # PTT Prohibit
-                '"Off"',  # Reverse
-                '"Off"',  # Simplex TDMA
-                '"Off"',  # Slot Suit
-                '"Normal Encryption"',  # AES Digital Encryption
-                '"Off"',  # Digital Encryption
-                '"Off"',  # Call Confirmation
-                '"Off"',  # Talk Around(Simplex)
-                '"Off"',  # Work Alone
-                '"251.1"',  # Custom CTCSS
-                '"1"',  # 2TONE Decode
-                '"Off"',  # Ranging
-                '"On"',  # Through Mode
-                '"Off"',  # APRS RX
-                '"Off"',  # Analog APRS PTT Mode
-                '"Off"',  # Digital APRS PTT Mode
-                '"Off"',  # APRS Report Type
-                '"1"',  # Digital APRS Report Channel
-                '"0"',  # Correct Frequency[Hz]
-                '"Off"',  # SMS Confirmation
-                '"0"',  # Exclude channel from roaming
-                '"0"',  # DMR MODE
-                '"0"',  # DataACK Disable
-                '"0"',  # R5toneBot
-                '"0"',  # R5ToneEot
-                '"0"',  # Auto Scan
-                '"0"',  # Ana Aprs Mute
-                '"0"',  # Send Talker Alias
+                f"{count}",  # No.
+                callsign,  # Channel Name
+                f"{rx_freq:.5f}",  # Receive Frequency
+                f"{tx_freq:.5f}",  # Transmit Frequency
+                "A-Analog",  # Channel Type
+                "High",  # Transmit Power
+                f'{"12.5K" if elem.info_fm.bandwidth=="NFM" else "25K"}',  # Band Width
+                "Off",  # CTCSS/DCS Decode
+                f"{elem.info_fm.tone:.1f}",  # CTCSS/DCS Encode
+                "Portugal",  # Contact
+                "Group Call",  # Contact Call Type
+                "268",  # Contact TG/DMR ID
+                "CT0ZZZ",  # Radio ID
+                "Off",  # Busy Lock/TX Permit
+                "Carrier",  # Squelch Mode
+                "Off",  # Optional Signal
+                "1",  # DTMF ID
+                "1",  # 2Tone ID
+                "1",  # 5Tone ID
+                "Off",  # PTT ID
+                "1",  # Color Code
+                "1",  # Slot
+                "None",  # Scan List
+                "None",  # Receive Group List
+                "Off",  # PTT Prohibit
+                "Off",  # Reverse
+                "Off",  # Simplex TDMA
+                "Off",  # Slot Suit
+                "Normal Encryption",  # AES Digital Encryption
+                "Off",  # Digital Encryption
+                "Off",  # Call Confirmation
+                "Off",  # Talk Around(Simplex)
+                "Off",  # Work Alone
+                "251.1",  # Custom CTCSS
+                "1",  # 2TONE Decode
+                "Off",  # Ranging
+                "On",  # Through Mode
+                "Off",  # APRS RX
+                "Off",  # Analog APRS PTT Mode
+                "Off",  # Digital APRS PTT Mode
+                "Off",  # APRS Report Type
+                "1",  # Digital APRS Report Channel
+                "0",  # Correct Frequency[Hz]
+                "Off",  # SMS Confirmation
+                "0",  # Exclude channel from roaming
+                "0",  # DMR MODE
+                "0",  # DataACK Disable
+                "0",  # R5toneBot
+                "0",  # R5ToneEot
+                "0",  # Auto Scan
+                "0",  # Ana Aprs Mute
+                "0",  # Send Talker Alias
             ]
         )
     # DMR
-    qs_dmr = qs_hd_dmr | qs_sp_dmr
-    for elem in qs_dmr:
+    for idx, elem in enumerate(qs_dmr):
         rx_freq = (
             elem.info_half_duplex.tx_mhz
             if elem.info_half_duplex != None
@@ -424,67 +476,65 @@ def channel_csv() -> io.StringIO:
         else:
             ts2_contact = "Local"
             ts2_id = "2"
-        # ("TS1 Tipicos", ts1_tgs_qs),
-        # ("Todos TGs", tgs_qs),
-        for ts_n, ts_contact, ts_id, rgl in [
-            ("1", ts1_contact, ts1_id, "TS1 Tipicos"),
-            ("2", ts2_contact, ts2_id, "Todos TGs"),
+        for ts_n, ts_contact, ts_id, rgl, callsigns_to_use in [
+            ("1", ts1_contact, ts1_id, "TS1 Tipicos", callsigns_dmr_ts1),
+            ("2", ts2_contact, ts2_id, "Todos TGs", callsigns_dmr_ts2),
         ]:
             count = count + 1
             writer.writerow(
                 [
-                    f'"{count}"',  # No.
-                    f'"{str(elem.callsign) + " TS" + ts_n:.16}"',  # Channel Name
-                    f'"{rx_freq:.5f}"',  # Receive Frequency
-                    f'"{tx_freq:.5f}"',  # Transmit Frequency
-                    '"D-Digital"',  # Channel Type
-                    '"High"',  # Transmit Power
-                    '"12.5K"',  # Band Width
-                    '"Off"',  # CTCSS/DCS Decode
-                    '"Off"',  # CTCSS/DCS Encode
-                    f'"{ts_contact}"',  # Contact
-                    '"Group Call"',  # Contact Call Type
-                    f'"{ts_id}"',  # Contact TG/DMR ID
-                    '"CT0ZZZ"',  # Radio ID
-                    '"Always"',  # Busy Lock/TX Permit
-                    '"Carrier"',  # Squelch Mode
-                    '"Off"',  # Optional Signal
-                    '"1"',  # DTMF ID
-                    '"1"',  # 2Tone ID
-                    '"1"',  # 5Tone ID
-                    '"Off"',  # PTT ID
-                    f'"{str(elem.info_dmr.color_code)}"',  # Color Code
-                    f'"{ts_n}"',  # Slot
-                    '"None"',  # Scan List
-                    f'"{rgl}"',  # Receive Group List
-                    '"Off"',  # PTT Prohibit
-                    '"Off"',  # Reverse
-                    '"Off"',  # Simplex TDMA
-                    '"Off"',  # Slot Suit
-                    '"Normal Encryption"',  # AES Digital Encryption
-                    '"Off"',  # Digital Encryption
-                    '"Off"',  # Call Confirmation
-                    '"Off"',  # Talk Around(Simplex)
-                    '"Off"',  # Work Alone
-                    '"251.1"',  # Custom CTCSS
-                    '"1"',  # 2TONE Decode
-                    '"Off"',  # Ranging
-                    '"On"',  # Through Mode
-                    '"Off"',  # APRS RX
-                    '"Off"',  # Analog APRS PTT Mode
-                    '"Off"',  # Digital APRS PTT Mode
-                    '"Off"',  # APRS Report Type
-                    '"1"',  # Digital APRS Report Channel
-                    '"0"',  # Correct Frequency[Hz]
-                    '"Off"',  # SMS Confirmation
-                    '"0"',  # Exclude channel from roaming
-                    '"1"',  # DMR MODE
-                    '"0"',  # DataACK Disable
-                    '"0"',  # R5toneBot
-                    '"0"',  # R5ToneEot
-                    '"0"',  # Auto Scan
-                    '"0"',  # Ana Aprs Mute
-                    '"0"',  # Send Talker Alias
+                    f"{count}",  # No.
+                    callsigns_to_use[idx],  # Channel Name
+                    f"{rx_freq:.5f}",  # Receive Frequency
+                    f"{tx_freq:.5f}",  # Transmit Frequency
+                    "D-Digital",  # Channel Type
+                    "High",  # Transmit Power
+                    "12.5K",  # Band Width
+                    "Off",  # CTCSS/DCS Decode
+                    "Off",  # CTCSS/DCS Encode
+                    f"{ts_contact}",  # Contact
+                    "Group Call",  # Contact Call Type
+                    f"{ts_id}",  # Contact TG/DMR ID
+                    "CT0ZZZ",  # Radio ID
+                    "Always",  # Busy Lock/TX Permit
+                    "Carrier",  # Squelch Mode
+                    "Off",  # Optional Signal
+                    "1",  # DTMF ID
+                    "1",  # 2Tone ID
+                    "1",  # 5Tone ID
+                    "Off",  # PTT ID
+                    f"{str(elem.info_dmr.color_code)}",  # Color Code
+                    f"{ts_n}",  # Slot
+                    "None",  # Scan List
+                    f"{rgl}",  # Receive Group List
+                    "Off",  # PTT Prohibit
+                    "Off",  # Reverse
+                    "Off",  # Simplex TDMA
+                    "Off",  # Slot Suit
+                    "Normal Encryption",  # AES Digital Encryption
+                    "Off",  # Digital Encryption
+                    "Off",  # Call Confirmation
+                    "Off",  # Talk Around(Simplex)
+                    "Off",  # Work Alone
+                    "251.1",  # Custom CTCSS
+                    "1",  # 2TONE Decode
+                    "Off",  # Ranging
+                    "On",  # Through Mode
+                    "Off",  # APRS RX
+                    "Off",  # Analog APRS PTT Mode
+                    "Off",  # Digital APRS PTT Mode
+                    "Off",  # APRS Report Type
+                    "1",  # Digital APRS Report Channel
+                    "0",  # Correct Frequency[Hz]
+                    "Off",  # SMS Confirmation
+                    "0",  # Exclude channel from roaming
+                    "1",  # DMR MODE
+                    "0",  # DataACK Disable
+                    "0",  # R5toneBot
+                    "0",  # R5ToneEot
+                    "0",  # Auto Scan
+                    "0",  # Ana Aprs Mute
+                    "0",  # Send Talker Alias
                 ]
             )
 
