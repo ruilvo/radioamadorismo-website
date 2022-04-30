@@ -6,6 +6,7 @@ from django.http import HttpRequest, HttpResponse
 from .exports.d878uvii import (
     tgs_csv,
     receive_groups_csv,
+    channel_csv,
 )
 
 
@@ -24,3 +25,7 @@ def d878uvii_tgs_view(request: HttpRequest):
 @require_safe
 def d878uvii_rgs_view(request: HttpRequest):
     return generate_csv_response("ReceiveGroupCallList.csv", receive_groups_csv())
+
+@require_safe
+def d878uvii_channels_view(request: HttpRequest):
+    return generate_csv_response("Channel.csv", channel_csv())
