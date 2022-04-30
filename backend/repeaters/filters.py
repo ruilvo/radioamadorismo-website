@@ -56,7 +56,7 @@ def mode_search(queryset, name, value):
 
 
 def rf_search(queryset, name, value):
-    modes = re.findall(r"[\w']+", value)
+    modes = re.findall(r"[\w]+", value)
     queryset_filter = None
     if "half_duplex" in modes:
         if queryset_filter is None:
