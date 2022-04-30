@@ -2,7 +2,8 @@
 On the Anytone D878UVII, names are limited to 16 chars.
 """
 
-import io, csv, textwrap
+import io
+import csv
 
 
 from repeaters.models import (
