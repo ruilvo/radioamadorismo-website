@@ -19,6 +19,16 @@ from repeaters.models import (
 from repeaters.utils import fix_dups
 
 
+class Band2m:
+    min = 144.0
+    max = 146.0
+
+
+class Band70cm:
+    min = 430.0
+    max = 440.0
+
+
 class D878UVIIDialect(csv.excel):
     quotechar = '"'
     quoting = csv.QUOTE_ALL
@@ -225,14 +235,6 @@ def make_channel_qs() -> Tuple[QuerySet, QuerySet]:
     Gets two sets of querysets, one with the FM information, another with the DMR
     information.
     """
-
-    class Band2m:
-        min = 144.0
-        max = 146.0
-
-    class Band70cm:
-        min = 430.0
-        max = 440.0
 
     qs = FactRepeater.objects.all()
 
@@ -537,5 +539,454 @@ def channel_csv() -> io.StringIO:
                     "0",  # Send Talker Alias
                 ]
             )
+
+    return sio
+
+
+def zone_csv():
+    """
+    Generates a Zone.csv
+    """
+
+    qs_fm, qs_dmr = make_channel_qs()
+    callsigns_fm = make_channel_names_fm(qs_fm)
+    callsigns_dmr_ts1, callsigns_dmr_ts2 = make_channel_names_dmr(qs_dmr)
+
+    initial_zones = {
+        # Analogue VHF CPT
+        "ana_vhf_cpt": {
+            "name": "Ana VHF CPT",
+            "callsigns": [],
+            "rx": [],
+            "tx": [],
+            "latitudes": [],
+        },
+        # Analogue UHF CPT
+        "ana_uhf_cpt": {
+            "name": "Ana UHF CPT",
+            "callsigns": [],
+            "rx": [],
+            "tx": [],
+            "latitudes": [],
+        },
+        # DMR VHF CPT
+        "dmr_vhf_cpt": {
+            "name": "DMR VHF CPT",
+            "callsigns": [],
+            "rx": [],
+            "tx": [],
+            "latitudes": [],
+        },
+        # DMR UHF CPT
+        "dmr_uhf_cpt": {
+            "name": "DMR UHF CPT",
+            "callsigns": [],
+            "rx": [],
+            "tx": [],
+            "latitudes": [],
+        },
+        # Analogue VHF AZR
+        "ana_vhf_azr": {
+            "name": "Ana VHF AZR",
+            "callsigns": [],
+            "rx": [],
+            "tx": [],
+            "longitudes": [],
+        },
+        # Analogue UHF AZR
+        "ana_uhf_azr": {
+            "name": "Ana UHF AZR",
+            "callsigns": [],
+            "rx": [],
+            "tx": [],
+            "longitudes": [],
+        },
+        # DMR VHF AZR
+        "dmr_vhf_azr": {
+            "name": "DMR VHF AZR",
+            "callsigns": [],
+            "rx": [],
+            "tx": [],
+            "longitudes": [],
+        },
+        # DMR UHF AZR
+        "dmr_uhf_azr": {
+            "name": "DMR UHF AZR",
+            "callsigns": [],
+            "rx": [],
+            "tx": [],
+            "longitudes": [],
+        },
+        # Analogue VHF MDA
+        "ana_vhf_mda": {
+            "name": "Ana VHF MDA",
+            "callsigns": [],
+            "rx": [],
+            "tx": [],
+            "longitudes": [],
+        },
+        # Analogue UHF MDA
+        "ana_uhf_mda": {
+            "name": "Ana UHF MDA",
+            "callsigns": [],
+            "rx": [],
+            "tx": [],
+            "longitudes": [],
+        },
+        # DMR VHF MDA
+        "dmr_vhf_mda": {
+            "name": "DMR VHF MDA",
+            "callsigns": [],
+            "rx": [],
+            "tx": [],
+            "longitudes": [],
+        },
+        # DMR UHF MDA
+        "dmr_uhf_mda": {
+            "name": "DMR UHF MDA",
+            "callsigns": [],
+            "rx": [],
+            "tx": [],
+            "longitudes": [],
+        },
+        # Analogue XBand CPT
+        "ana_xba_cpt": {
+            "name": "Ana XBA CPT",
+            "callsigns": [],
+            "rx": [],
+            "tx": [],
+            "latitudes": [],
+        },
+        # DMR XBand CPT
+        "dmr_xba_cpt": {
+            "name": "DMR XBA CPT",
+            "callsigns": [],
+            "rx": [],
+            "tx": [],
+            "latitudes": [],
+        },
+        # Analogue XBand AZR
+        "ana_xba_azr": {
+            "name": "Ana XBA AZR",
+            "callsigns": [],
+            "rx": [],
+            "tx": [],
+            "longitudes": [],
+        },
+        # DMR XBand AZR
+        "dmr_xba_azr": {
+            "name": "DMR XBA AZR",
+            "callsigns": [],
+            "rx": [],
+            "tx": [],
+            "longitudes": [],
+        },
+        # Analogue XBand MDA
+        "ana_xba_mda": {
+            "name": "Ana XBA AZR",
+            "callsigns": [],
+            "rx": [],
+            "tx": [],
+            "longitudes": [],
+        },
+        # DMR XBand MDA
+        "dmr_xba_mda": {
+            "name": "DMR XBA MDA",
+            "callsigns": [],
+            "rx": [],
+            "tx": [],
+            "longitudes": [],
+        },
+        # Analogue NO LOC
+        "ana_noloc": {
+            "name": "Ana sem loc",
+            "callsigns": [],
+            "rx": [],
+            "tx": [],
+        },
+        # DMR NO LOC
+        "dmr_noloc": {
+            "name": "DMR sem loc",
+            "callsigns": [],
+            "rx": [],
+            "tx": [],
+        },
+    }
+
+    # Buidld the initial zones for FM
+    for elem, callsign in zip(qs_fm, callsigns_fm):
+        # Do we know where it is?
+        location = None
+        latitude = None
+        longitude = None
+        if elem.info_location is not None:
+            if (
+                elem.info_location.latitude is not None
+                and elem.info_location.longitude is not None
+            ):
+                location = elem.info_location.region
+                latitude = elem.info_location.latitude
+                longitude = elem.info_location.longitude
+        assert (
+            location is not None and latitude is not None and longitude is not None
+        ) or (location is None)
+        # Choose the right band
+        band = None
+        tx_freq = None
+        rx_freq = None
+        if elem.info_half_duplex is not None:
+            # Repeater Tx is radio Rx and vice-versa
+            tx_freq = elem.info_half_duplex.rx_mhz
+            rx_freq = elem.info_half_duplex.tx_mhz
+        elif elem.info_simplex is not None:
+            tx_freq = elem.info_simplex.freq_mhz
+            rx_freq = elem.info_simplex.freq_mhz
+        if Band2m.min < tx_freq < Band2m.max and Band2m.min < rx_freq < Band2m.max:
+            band = "2m"
+        elif (
+            Band70cm.min < tx_freq < Band70cm.max
+            and Band70cm.min < rx_freq < Band70cm.max
+        ):
+            band = "70cm"
+        else:
+            band = "xba"
+        # Now figure out the correct initial zone
+        initial_zone = None
+        coordinate_to_store = None
+        if location is None:
+            initial_zone = "ana_noloc"
+        elif location == "CPT":
+            coordinate_to_store = "latitude"
+            if band == "2m":
+                initial_zone = "ana_vhf_cpt"
+            elif band == "70cm":
+                initial_zone = "ana_uhf_cpt"
+            elif band == "xba":
+                initial_zone = "ana_xba_cpt"
+        elif location == "AZR":
+            coordinate_to_store = "longitude"
+            if band == "2m":
+                initial_zone = "ana_vhf_azr"
+            elif band == "70cm":
+                initial_zone = "ana_uhf_azr"
+            elif band == "xba":
+                initial_zone = "ana_xba_azr"
+        elif location == "MDA":
+            coordinate_to_store = "longitude"
+            if band == "2m":
+                initial_zone = "ana_vhf_mda"
+            elif band == "70cm":
+                initial_zone = "ana_uhf_mda"
+            elif band == "xba":
+                initial_zone = "ana_xba_mda"
+        # And store in the right place
+        initial_zones[initial_zone]["callsigns"].append(callsign)
+        initial_zones[initial_zone]["rx"].append(rx_freq)
+        initial_zones[initial_zone]["tx"].append(tx_freq)
+        if coordinate_to_store == "latitude":
+            initial_zones[initial_zone]["latitudes"].append(latitude)
+        elif coordinate_to_store == "longitude":
+            initial_zones[initial_zone]["longitudes"].append(longitude)
+    # And we do the same for DMR
+    for elem, callsign_ts1, callsign_ts2 in zip(
+        qs_dmr, callsigns_dmr_ts1, callsigns_dmr_ts2
+    ):
+        # Do we know where it is?
+        location = None
+        latitude = None
+        longitude = None
+        if elem.info_location is not None:
+            location = elem.info_location.region
+            latitude = elem.info_location.latitude
+            longitude = elem.info_location.longitude
+        # Choose the right band
+        band = None
+        tx_freq = None
+        rx_freq = None
+        if elem.info_half_duplex is not None:
+            # Repeater Tx is radio Rx and vice-versa
+            tx_freq = elem.info_half_duplex.rx_mhz
+            rx_freq = elem.info_half_duplex.tx_mhz
+        elif elem.info_simplex is not None:
+            tx_freq = elem.info_simplex.freq_mhz
+            rx_freq = elem.info_simplex.freq_mhz
+        if Band2m.min < tx_freq < Band2m.max and Band2m.min < rx_freq < Band2m.max:
+            band = "2m"
+        elif (
+            Band70cm.min < tx_freq < Band70cm.max
+            and Band70cm.min < rx_freq < Band70cm.max
+        ):
+            band = "70cm"
+        else:
+            band = "xba"
+        # Now figure out the correct initial zone
+        initial_zone = None
+        coordinate_to_store = None
+        if location is None:
+            initial_zone = "dmr_noloc"
+        elif location == "CPT":
+            coordinate_to_store = "latitude"
+            if band == "2m":
+                initial_zone = "dmr_vhf_cpt"
+            elif band == "70cm":
+                initial_zone = "dmr_uhf_cpt"
+            elif band == "xba":
+                initial_zone = "dmr_xba_cpt"
+        elif location == "AZR":
+            coordinate_to_store = "longitude"
+            if band == "2m":
+                initial_zone = "dmr_vhf_azr"
+            elif band == "70cm":
+                initial_zone = "dmr_uhf_azr"
+            elif band == "xba":
+                initial_zone = "dmr_xba_azr"
+        elif location == "MDA":
+            coordinate_to_store = "longitude"
+            if band == "2m":
+                initial_zone = "dmr_vhf_mda"
+            elif band == "70cm":
+                initial_zone = "dmr_uhf_mda"
+            elif band == "xba":
+                initial_zone = "dmr_xba_mda"
+        # And store in the right place
+        for callsign in [callsign_ts1, callsign_ts2]:
+            initial_zones[initial_zone]["callsigns"].append(callsign)
+            initial_zones[initial_zone]["rx"].append(rx_freq)
+            initial_zones[initial_zone]["tx"].append(tx_freq)
+            if coordinate_to_store == "latitude":
+                initial_zones[initial_zone]["latitudes"].append(latitude)
+            elif coordinate_to_store == "longitude":
+                initial_zones[initial_zone]["longitudes"].append(longitude)
+
+    # Now we sort the zones
+    for name in [
+        "ana_vhf_cpt",
+        "ana_uhf_cpt",
+        "dmr_vhf_cpt",
+        "dmr_uhf_cpt",
+        "ana_xba_cpt",
+        "dmr_xba_cpt",
+    ]:
+        # These sort by latitude
+        for key in ["callsigns", "rx", "tx", "latitudes"]:
+            zipped_lists = list(
+                zip(initial_zones[name]["latitudes"], initial_zones[name][key])
+            )
+            sorted_lists = sorted(
+                zipped_lists,
+                key=lambda pair: pair[0],
+                reverse=True,  # North to South
+            )
+            initial_zones[name][key] = [x for _, x in sorted_lists]
+    for name in [
+        "ana_vhf_azr",
+        "ana_uhf_azr",
+        "dmr_vhf_azr",
+        "dmr_uhf_azr",
+        "ana_vhf_mda",
+        "ana_uhf_mda",
+        "dmr_vhf_mda",
+        "dmr_uhf_mda",
+        "ana_xba_azr",
+        "dmr_xba_azr",
+        "ana_xba_mda",
+        "dmr_xba_mda",
+    ]:
+        # These sort by longitude
+        for key in ["callsigns", "rx", "tx", "longitudes"]:
+            initial_zones[name][key] = [
+                x
+                for _, x in sorted(
+                    zip(initial_zones[name]["longitudes"], initial_zones[name][key]),
+                    key=lambda pair: pair[0],
+                    reverse=False,  # East to West
+                )
+            ]
+
+    # The AZR and MDA zones are fine, but we want to split each CPT zone into 3
+    # N, C, S
+    # So we get the number of callsigns and divide by 3 to get the number of channels per
+    # zone. But for DMR we must round up to the nearest multiple of 2, so to not separate
+    # TS1 and TS2 of the same repeater.
+
+    zones = {}
+
+    for name in ["ana_vhf_cpt", "ana_uhf_cpt", "dmr_vhf_cpt", "dmr_uhf_cpt"]:
+        nchannels = len(initial_zones[name]["callsigns"])
+        nchannels_per_zone = nchannels // 3
+        if not nchannels_per_zone % 2 == 0:
+            nchannels_per_zone += 1
+        for suffix, idx in zip(
+            ["N", "C", "S"], range(0, nchannels, nchannels_per_zone)
+        ):
+            zones[name + "_" + suffix.lower()] = {
+                "name": initial_zones[name]["name"] + " " + suffix,
+                "callsigns": initial_zones[name]["callsigns"][
+                    idx : idx + nchannels_per_zone
+                ],
+                "rx": initial_zones[name]["rx"][idx : idx + nchannels_per_zone],
+                "tx": initial_zones[name]["tx"][idx : idx + nchannels_per_zone],
+            }
+
+    for name in [
+        "ana_vhf_azr",
+        "ana_uhf_azr",
+        "dmr_vhf_azr",
+        "dmr_uhf_azr",
+        "ana_vhf_mda",
+        "ana_uhf_mda",
+        "dmr_vhf_mda",
+        "dmr_uhf_mda",
+        "ana_xba_azr",
+        "dmr_xba_azr",
+        "ana_xba_mda",
+        "dmr_xba_mda",
+    ]:
+        zones[name] = initial_zones[name]
+
+    header = [
+        "No.",
+        "Zone Name",
+        "Zone Channel Member",
+        "Zone Channel Member RX Frequency",
+        "Zone Channel Member TX Frequency",
+        "A Channel",
+        "A Channel RX Frequency",
+        "A Channel TX Frequency",
+        "B Channel",
+        "B Channel RX Frequency",
+        "B Channel TX Frequency",
+        "Zone Hide ",  # For some reason the space is part of the name...
+    ]
+
+    sio = io.StringIO()
+    writer = csv.writer(sio, dialect="d878uvii")
+    writer.writerow(header)
+
+    count = 0
+    for idx, zone in enumerate(zones.values()):
+        if len(zone["callsigns"]) == 0:
+            continue
+        count = count + 1
+        writer.writerow(
+            [
+                f"{count}",  # No.
+                zone["name"],  # Zone Name
+                "|".join(zone["callsigns"]),  # Zone Channel Member
+                "|".join(
+                    [f"{item:.5f}" for item in zone["rx"]]
+                ),  # Zone Channel Member RX Frequency
+                "|".join(
+                    [f"{item:.5f}" for item in zone["tx"]]
+                ),  # Zone Channel Member TX Frequency
+                zone["callsigns"][0],  # A Channel
+                zone["rx"][0],  # A Channel RX Frequency
+                zone["tx"][0],  # A Channel TX Frequency
+                zone["callsigns"][0],  # B Channel
+                zone["rx"][0],  # B Channel RX Frequency
+                zone["tx"][0],  # B Channel TX Frequency
+                "0",  # Zone Hide
+            ]
+        )
 
     return sio

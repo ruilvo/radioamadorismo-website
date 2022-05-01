@@ -4,6 +4,7 @@ from .views import (
     d878uvii_tgs_view,
     d878uvii_rgs_view,
     d878uvii_channels_view,
+    d878uvii_zones_view,
 )
 
 urlpatterns = [
@@ -21,6 +22,9 @@ urlpatterns = [
                                 "channel/",
                                 d878uvii_channels_view,
                                 name="d878uvii_channels_view",
+                            ),
+                            path(
+                                "zone/", d878uvii_zones_view, name="d878uvii_zones_view"
                             ),
                         ]
                     ),

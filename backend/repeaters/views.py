@@ -7,6 +7,7 @@ from .exports.d878uvii import (
     tgs_csv,
     receive_groups_csv,
     channel_csv,
+    zone_csv,
 )
 
 
@@ -26,6 +27,12 @@ def d878uvii_tgs_view(request: HttpRequest):
 def d878uvii_rgs_view(request: HttpRequest):
     return generate_csv_response("ReceiveGroupCallList.csv", receive_groups_csv())
 
+
 @require_safe
 def d878uvii_channels_view(request: HttpRequest):
     return generate_csv_response("Channel.csv", channel_csv())
+
+
+@require_safe
+def d878uvii_zones_view(request: HttpRequest):
+    return generate_csv_response("Zone.csv", zone_csv())
