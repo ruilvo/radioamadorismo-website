@@ -941,6 +941,8 @@ def zone_csv():
         "dmr_xba_azr",
         "ana_xba_mda",
         "dmr_xba_mda",
+        "ana_noloc",
+        "dmr_noloc",
     ]:
         zones[name] = initial_zones[name]
 
