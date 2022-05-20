@@ -4,7 +4,7 @@ services:
   reverse-proxy:
     image: nginx:stable
     ports:
-      - 8100:80
+      - "127.0.0.1:9100:80"
     volumes:
       - frontend_dist_data:/frontend_dist/
       - backend_dist_data:/backend_dist/
@@ -12,6 +12,11 @@ services:
     depends_on:
       - backend
     restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "10"
   frontend:
     build:
       context: ./frontend
@@ -24,6 +29,11 @@ services:
     volumes:
       - frontend_dist_data:/workspace/frontend/dist/
     restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "10"
   backend:
     build:
       context: ./backend
@@ -36,6 +46,11 @@ services:
     volumes:
       - backend_dist_data:/workspace/backend/_deployment/
     restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "10"
   db:
     image: postgres:13-bullseye
     volumes:
@@ -43,6 +58,11 @@ services:
     env_file:
       - prod.env
     restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "10"
 
 volumes:
   frontend_dist_data:

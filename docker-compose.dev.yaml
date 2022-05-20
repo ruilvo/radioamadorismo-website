@@ -17,6 +17,11 @@ services:
     depends_on:
       - backend
     restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "10"
   backend:
     build:
       context: ./backend
@@ -33,6 +38,11 @@ services:
     depends_on:
       - db
     restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "10"
   db:
     image: postgres:13-bullseye
     volumes:
@@ -40,6 +50,11 @@ services:
     env_file:
       - dev.env
     restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "10"
 
 volumes:
   postgres_data_dev:
