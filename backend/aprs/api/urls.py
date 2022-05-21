@@ -1,7 +1,7 @@
 from django.urls import path
 
-from aprs.api.views import get_passcode
+from aprs.api.views import PasscodeView
 
 urlpatterns = [
-    path("passcode-generator/", get_passcode),
+    path("passcode-generator/", PasscodeView.as_view()),
 ]
