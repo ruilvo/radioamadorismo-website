@@ -14,6 +14,12 @@
         "--django-settings-module",
         "config.settings"
     ],
+    "pylint.args": [
+        "--load-plugins",
+        "pylint_django",
+        "--django-settings-module",
+        "config.settings"
+    ],
     "python.linting.enabled": true,
     "python.linting.pylintEnabled": true,
     "python.languageServer": "Pylance",
