@@ -85,12 +85,12 @@ urlpatterns = [
                         [
                             path(
                                 "repeaters/",
-                                include("repeaters.api_urls"),
+                                include("repeaters.api.urls"),
                                 name="repeaters",
                             ),
                             path(
                                 "aprs/",
-                                include("aprs.api_urls"),
+                                include("aprs.api.urls"),
                                 name="aprs",
                             ),
                         ]

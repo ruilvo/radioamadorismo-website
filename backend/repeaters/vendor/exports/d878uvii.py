@@ -16,7 +16,7 @@ from repeaters.models import (
     FactRepeater,
 )
 
-from repeaters.utils import fix_dups
+from repeaters.vendor.utils import fix_dups
 
 
 class Band2m:

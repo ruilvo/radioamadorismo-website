@@ -11,7 +11,7 @@ from drf_spectacular.utils import (
     inline_serializer,
 )
 
-from .passcode_generator import passcode_generator
+from aprs.vendor.passcode import passcode_generator
 
 
 @extend_schema(

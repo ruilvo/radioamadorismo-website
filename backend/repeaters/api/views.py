@@ -1,7 +1,7 @@
 from rest_framework import status, viewsets
 from rest_framework.response import Response
 
-from .models import (
+from ..models import (
     DimHalfDuplex,
     DimSimplex,
     DimFm,
@@ -13,7 +13,7 @@ from .models import (
     DimLocation,
     FactRepeater,
 )
-from .serializers import (
+from ..serializers import (
     DimHalfDuplexSerializer,
     DimSimplexSerializer,
     DimFmSerializer,
@@ -26,7 +26,7 @@ from .serializers import (
     FactRepeaterSerializer,
 )
 
-from .filters import FactRepeaterFilterDrf
+from ..filters import FactRepeaterFilterDrf
 
 
 class FactRepeaterViewSet(viewsets.ModelViewSet):

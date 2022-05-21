@@ -1,6 +1,6 @@
 from rest_framework.routers import SimpleRouter
 
-from .api_views import (
+from .views import (
     DimHalfDuplexViewSet,
     DimSimplexViewSet,
     DimFmViewSet,

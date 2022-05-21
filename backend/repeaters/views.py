@@ -3,7 +3,7 @@ import io
 from django.views.decorators.http import require_safe
 from django.http import HttpRequest, HttpResponse
 
-from .exports.d878uvii import (
+from repeaters.vendor.exports.d878uvii import (
     tgs_csv,
     receive_groups_csv,
     channel_csv,
