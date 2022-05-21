@@ -1,6 +1,6 @@
 from rest_framework.routers import SimpleRouter
 
-from .views import (
+from repeaters.api.views import (
     DimHalfDuplexViewSet,
     DimSimplexViewSet,
     DimFmViewSet,

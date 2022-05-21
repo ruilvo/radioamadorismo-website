@@ -1,7 +1,7 @@
 from rest_framework import status, viewsets
 from rest_framework.response import Response
 
-from ..models import (
+from repeaters.models import (
     DimHalfDuplex,
     DimSimplex,
     DimFm,
@@ -13,7 +13,7 @@ from ..models import (
     DimLocation,
     FactRepeater,
 )
-from ..serializers import (
+from repeaters.api.serializers import (
     DimHalfDuplexSerializer,
     DimSimplexSerializer,
     DimFmSerializer,
@@ -26,7 +26,7 @@ from ..serializers import (
     FactRepeaterSerializer,
 )
 
-from ..filters import FactRepeaterFilterDrf
+from repeaters.api.filters import FactRepeaterFilter
 
 
 class FactRepeaterViewSet(viewsets.ModelViewSet):
@@ -34,7 +34,7 @@ class FactRepeaterViewSet(viewsets.ModelViewSet):
     queryset = FactRepeater.objects.all()
     serializer_class = FactRepeaterSerializer
 
-    filterset_class = FactRepeaterFilterDrf
+    filterset_class = FactRepeaterFilter
 
     def create(self, request, *args, **kwargs):
         """
