@@ -181,6 +181,8 @@ SPECTACULAR_SETTINGS = {
     "REDOC_DIST": "SIDECAR",
 }
 
+# Auth
+
 REST_USE_JWT = True
 JWT_AUTH_COOKIE = "pr-auth-token"
 JWT_AUTH_REFRESH_COOKIE = "pr-refresh-token"
