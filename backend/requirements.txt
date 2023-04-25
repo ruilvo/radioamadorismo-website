@@ -1,5 +1,5 @@
 # Website
-Django>=3.2,<4.0
+Django
 # REST framework
 djangorestframework
 dj-rest-auth
@@ -7,12 +7,12 @@ django-filter
 django-cors-headers
 drf_spectacular
 drf-spectacular[sidecar]
-djangorestframework-yaml
+djangorestframework-yaml # Released: Apr 27, 2020!
 drf-writable-nested
-djangorestframework-simplejwt
+djangorestframework-simplejwt # Released: Oct 20, 2022!
 # Dependencies
 psycopg2
-pyyaml
+pyyaml # Released: Oct 13, 2021!
 Pillow
 # Deployment
 whitenoise
