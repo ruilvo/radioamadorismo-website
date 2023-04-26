@@ -1,34 +1,32 @@
 {
-	"name": "Frontend",
-	"dockerComposeFile": [
-		"../docker-compose.dev.yaml"
-	],
-	"service": "frontend",
-	"shutdownAction": "none",
-	"workspaceFolder": "/frontend",
-	"customizations": {
-		"vscode": {
-			"extensions": [
-				"steoates.autoimport",
-				"shakram02.bash-beautify",
-				"EditorConfig.EditorConfig",
-				"IronGeek.vscode-env",
-				"Tobermory.es6-string-html",
-				"dbaeumer.vscode-eslint",
-				"ms-vscode.makefile-tools",
-				"yzhang.markdown-all-in-one",
-				"DavidAnson.vscode-markdownlint",
-				"christian-kohler.npm-intellisense",
-				"christian-kohler.path-intellisense",
-				"streetsidesoftware.code-spell-checker",
-				"streetsidesoftware.code-spell-checker-portuguese",
-				"syler.sass-indented",
-				"bradlc.vscode-tailwindcss",
-				"Vue.volar",
-				"dariofuzinato.vue-peek",
-				"rogalmic.vscode-xml-complete",
-				"esbenp.prettier-vscode"
-			]
-		}
-	}
+  "name": "Frontend",
+  "dockerComposeFile": ["../docker-compose.dev.yaml"],
+  "service": "frontend",
+  "shutdownAction": "none",
+  "workspaceFolder": "/frontend",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "steoates.autoimport",
+        "shakram02.bash-beautify",
+        "EditorConfig.EditorConfig",
+        "IronGeek.vscode-env",
+        "Tobermory.es6-string-html",
+        "dbaeumer.vscode-eslint",
+        "ms-vscode.makefile-tools",
+        "yzhang.markdown-all-in-one",
+        "DavidAnson.vscode-markdownlint",
+        "christian-kohler.npm-intellisense",
+        "christian-kohler.path-intellisense",
+        "streetsidesoftware.code-spell-checker",
+        "streetsidesoftware.code-spell-checker-portuguese",
+        "syler.sass-indented",
+        "bradlc.vscode-tailwindcss",
+        "Vue.volar",
+        "dariofuzinato.vue-peek",
+        "rogalmic.vscode-xml-complete",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  }
 }
