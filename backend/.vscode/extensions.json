@@ -1,0 +1,8 @@
+{
+    "recommendations": [
+        "github.copilot-nightly",
+        "visualstudioexptteam.vscodeintellicode",
+        "visualstudioexptteam.intellicode-api-usage-examples",
+        "sysoev.vscode-open-in-github"
+    ]
+}

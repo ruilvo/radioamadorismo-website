@@ -5,5 +5,24 @@
 	],
 	"service": "backend",
 	"shutdownAction": "none",
-	"workspaceFolder": "/backend"
+	"workspaceFolder": "/backend",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"njpwerner.autodocstring",
+				"shakram02.bash-beautify",
+				"ms-python.black-formatter",
+				"streetsidesoftware.code-spell-checker",
+				"batisteo.vscode-django",
+				"ms-python.isort",
+				"yzhang.markdown-all-in-one",
+				"DavidAnson.vscode-markdownlint",
+				"christian-kohler.path-intellisense",
+				"streetsidesoftware.code-spell-checker-portuguese",
+				"ms-python.vscode-pylance",
+				"ms-python.pylint",
+				"ms-python.python"
+			]
+		}
+	}
 }
