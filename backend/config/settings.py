@@ -159,7 +159,7 @@ X_FRAME_OPTIONS = "SAMEORIGIN"
 # Schema
 SPECTACULAR_SETTINGS = {
     # Meta
-    "TITLE": "Portal do Radioamadorismo: API",
+    "TITLE": "Portal do Radioamador: API",
     "VERSION": "1.0.0",
     # Settings
     "SWAGGER_UI_DIST": "SIDECAR",
