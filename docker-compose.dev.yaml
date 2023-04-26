@@ -11,7 +11,7 @@ services:
       - dev.env
     stop_signal: SIGKILL
     volumes:
-      - ./frontend:/frontend
+      - ./frontend:/frontend:cached
       - frontend_vscode_server:/root/.vscode-server
       - frontend_node_modules:/frontend/node_modules
     depends_on:
@@ -26,7 +26,7 @@ services:
       - dev.env
     stop_signal: SIGKILL
     volumes:
-      - ./backend:/backend
+      - ./backend:/backend:cached
       - backend_vscode_server:/root/.vscode-server/
       - backend_deployment:/backend/_deployment/
     depends_on:
