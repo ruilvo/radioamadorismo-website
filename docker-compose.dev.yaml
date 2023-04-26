@@ -12,8 +12,8 @@ services:
     stop_signal: SIGKILL
     volumes:
       - .:/workspace:cached
-      - backend_vscode_server:/root/.vscode-server
-      - backend_deployment:/workspace/backend/_deployment/
+      - backend_vscode_server:/root/.vscode-server/
+      - backend_deployment:/backend/_deployment/
     depends_on:
       - db
     restart: always

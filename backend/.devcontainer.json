@@ -4,6 +4,51 @@
         "../docker-compose.dev.yaml"
     ],
     "service": "backend",
-	"shutdownAction": "none",
-    "workspaceFolder": "/workspace/backend"
+    "shutdownAction": "none",
+	"workspaceFolder": "/backend",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"firefox-devtools.vscode-firefox-debug",
+				"GitHub.remotehub",
+				"ms-toolsai.jupyter-keymap",
+				"IBM.output-colorizer",
+				"ms-vscode-remote.remote-ssh",
+				"ms-vscode-remote.remote-ssh-edit",
+				"ms-vscode.remote-explorer",
+				"ms-vscode.remote-repositories",
+				"stkb.rewrap",
+				"vscode-icons-team.vscode-icons",
+				"ms-vscode-remote.remote-wsl",
+				"njpwerner.autodocstring",
+				"shakram02.bash-beautify",
+				"streetsidesoftware.code-spell-checker",
+				"batisteo.vscode-django",
+				"ms-azuretools.vscode-docker",
+				"IronGeek.vscode-env",
+				"mhutchie.git-graph",
+				"donjayamanne.githistory",
+				"GitHub.copilot-nightly",
+				"GitHub.vscode-pull-request-github",
+				"ms-vscode.hexeditor",
+				"VisualStudioExptTeam.vscodeintellicode",
+				"VisualStudioExptTeam.intellicode-api-usage-examples",
+				"ms-python.isort",
+				"ms-toolsai.jupyter",
+				"ms-toolsai.vscode-jupyter-cell-tags",
+				"ms-toolsai.jupyter-renderers",
+				"ms-toolsai.vscode-jupyter-powertoys",
+				"ms-toolsai.vscode-jupyter-slideshow",
+				"yzhang.markdown-all-in-one",
+				"DavidAnson.vscode-markdownlint",
+				"christian-kohler.path-intellisense",
+				"sysoev.vscode-open-in-github",
+				"streetsidesoftware.code-spell-checker-portuguese",
+				"ms-python.vscode-pylance",
+				"ms-python.pylint",
+				"ms-python.python",
+				"ms-python.black-formatter"
+			]
+		}
+	}
 }

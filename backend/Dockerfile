@@ -1,9 +1,5 @@
 # Base image
-FROM python:3.9-bullseye
-
-# Env variables
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
+FROM python:3
 
 # Update the system, install postgres adapter
 RUN apt-get update && apt-get upgrade -y \
@@ -13,29 +9,26 @@ RUN apt-get update && apt-get upgrade -y \
 RUN pip install --upgrade pip
 
 # Make a working dir
-WORKDIR /workspace
+WORKDIR /backend
 
 # Handle requirements
-COPY requirements.txt backend/requirements.txt
-RUN pip install --user -r backend/requirements.txt
+COPY requirements.txt requirements.txt
+RUN pip install --user -r requirements.txt
 
 # Now, we have to update the PATH env. variable
 ENV PATH="/root/.local/bin:${PATH}"
 
 # Copy project files
-COPY . backend
+COPY . .
 
 # Make files executable
-RUN chmod +x backend/entrypoint.sh &&  \
-    chmod +x backend/run_migration_chores.sh && \
-    chmod +x backend/start_devserver.sh && \
-    chmod +x backend/wait_for_pg.sh
+RUN chmod +x entrypoint.sh &&  \
+    chmod +x run_migration_chores.sh && \
+    chmod +x start_devserver.sh && \
+    chmod +x wait_for_pg.sh
 
 # Expose the ports
 EXPOSE 8000
-
-# Change to the backend dir
-WORKDIR /workspace/backend
 
 # Give it a (replaceable) entrypoint
 ENTRYPOINT ["./entrypoint.sh"]

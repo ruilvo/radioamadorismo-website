@@ -26,7 +26,7 @@ services:
     depends_on:
       - db
     volumes:
-      - backend_dist_data:/workspace/backend/_deployment/
+      - backend_dist_data:/backend/_deployment/
     restart: always
     logging:
       driver: "json-file"
