@@ -28,6 +28,12 @@ from drf_spectacular.views import (
 urlpatterns = [
     # Django
     path("admin/", admin.site.urls),
+    # DRF
+    path(
+        "restframework/",
+        include("rest_framework.urls"),
+        name="drf-auth",
+    ),
     # API
     path(
         "api/",
@@ -36,20 +42,8 @@ urlpatterns = [
                 # Auth
                 path(
                     "auth/",
-                    include(
-                        [
-                            path(
-                                "drf-auth/",
-                                include("rest_framework.urls"),
-                                name="drf-auth",
-                            ),
-                            path(
-                                "dj-rest-auth/",
-                                include("dj_rest_auth.urls"),
-                                name="dj-rest-auth",
-                            ),
-                        ]
-                    ),
+                    include("dj_rest_auth.urls"),
+                    name="dj-rest-auth",
                 ),
                 # Schema
                 path("schema/", SpectacularAPIView.as_view(), name="schema"),
