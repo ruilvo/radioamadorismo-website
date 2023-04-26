@@ -12,14 +12,14 @@ RUN npm install -g @quasar/cli
 WORKDIR /frontend
 
 # Handle requirements
-COPY package.json package-lock.jso[n] /frontend/
-RUN npm install
+# COPY package.json package-lock.jso[n] /frontend/
+# RUN npm install
 
 # Copy project files
 COPY . .
 
 # Make entrypoint executable
-RUN chmod +x frontend/entrypoint.sh
+RUN chmod +x entrypoint.sh
 
 # Expose the ports
 EXPOSE 8080
