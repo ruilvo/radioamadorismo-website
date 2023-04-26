@@ -51,7 +51,7 @@ services:
         max-size: "200k"
         max-file: "10"
   db:
-    image: postgres:13-bullseye
+    image: postgres:15
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     env_file:
