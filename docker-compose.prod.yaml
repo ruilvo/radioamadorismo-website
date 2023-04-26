@@ -16,6 +16,23 @@ services:
       options:
         max-size: "200k"
         max-file: "10"
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    stop_signal: SIGKILL
+    env_file:
+      - prod.env
+    depends_on:
+      - backend
+    volumes:
+      - frontend_dist_data:/frontend/dist/
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "10"
   backend:
     build:
       context: ./backend
@@ -47,5 +64,6 @@ services:
         max-file: "10"
 
 volumes:
+  frontend_dist_data:
   backend_dist_data:
   postgres_data:

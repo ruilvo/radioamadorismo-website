@@ -1,6 +1,21 @@
 version: "3.4"
 
 services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    env_file:
+      - dev.env
+    stop_signal: SIGKILL
+    volumes:
+      - .:/workspace:cached
+      - frontend_vscode_server:/root/.vscode-server
+      - frontend_node_modules:/frontend/node_modules
+    depends_on:
+      - backend
   backend:
     build:
       context: ./backend
@@ -39,3 +54,5 @@ volumes:
   postgres_data_dev:
   backend_vscode_server:
   backend_deployment:
+  frontend_vscode_server:
+  frontend_node_modules:
