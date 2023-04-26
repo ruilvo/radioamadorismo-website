@@ -35,7 +35,6 @@ INSTALLED_APPS = [
     "django_filters",
     "drf_spectacular",
     "drf_spectacular_sidecar",
-    "rest_framework_simplejwt",
     # Local
     "users",
     "repeaters",
@@ -141,7 +140,6 @@ REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
         "rest_framework.authentication.SessionAuthentication",
         "rest_framework.authentication.TokenAuthentication",
-        "rest_framework_simplejwt.authentication.JWTAuthentication",
     ],
     "DEFAULT_FILTER_BACKENDS": [
         "django_filters.rest_framework.DjangoFilterBackend",
@@ -150,21 +148,6 @@ REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.LimitOffsetPagination",
     "PAGE_SIZE": 10,
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
-    "DEFAULT_PARSER_CLASSES": [
-        # Default
-        "rest_framework.parsers.JSONParser",
-        "rest_framework.parsers.FormParser",
-        "rest_framework.parsers.MultiPartParser",
-        # 3rd party
-        "rest_framework_yaml.parsers.YAMLParser",
-    ],
-    "DEFAULT_RENDERER_CLASSES": [
-        # Default
-        "rest_framework.renderers.JSONRenderer",
-        "rest_framework.renderers.BrowsableAPIRenderer",
-        # 3rd party
-        "rest_framework_yaml.renderers.YAMLRenderer",
-    ],
 }
 
 
@@ -183,12 +166,6 @@ SPECTACULAR_SETTINGS = {
     "SWAGGER_UI_FAVICON_HREF": "SIDECAR",
     "REDOC_DIST": "SIDECAR",
 }
-
-# Auth
-
-REST_USE_JWT = True
-JWT_AUTH_COOKIE = "pr-auth-token"
-JWT_AUTH_REFRESH_COOKIE = "pr-refresh-token"
 
 
 # Settings that should be able to be set by the environment

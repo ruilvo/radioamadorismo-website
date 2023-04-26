@@ -7,12 +7,9 @@ django-filter
 django-cors-headers
 drf_spectacular
 drf-spectacular[sidecar]
-djangorestframework-yaml # Released: Apr 27, 2020!
 drf-writable-nested
-djangorestframework-simplejwt # Released: Oct 20, 2022!
 # Dependencies
 psycopg2
-pyyaml # Released: Oct 13, 2021!
 Pillow
 # Deployment
 whitenoise
