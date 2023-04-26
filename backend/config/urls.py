@@ -30,14 +30,6 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     # API
     path(
-        "backend/",
-        include(
-            [
-                path("repeaters/", include("repeaters.urls")),
-            ]
-        ),
-    ),
-    path(
         "api/",
         include(
             [

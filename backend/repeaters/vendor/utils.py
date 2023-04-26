@@ -1,5 +1,19 @@
-def fix_dups(mylist, sep="", start=1, update_first=True):
+def rename_duplicates_in_list(mylist, sep="", start=1, update_first=True):
     """
+    Given a list like this:
+
+    ```py
+    mylist = ["name", "state", "name", "city", "name", "zip", "zip"]
+    ```
+
+    renames the duplicates by appending a number to get the following result:
+
+    ```py
+    mylist = ["name1", "state", "name2", "city", "name3", "zip1", "zip2"]
+    ```
+
+    without changing the order of the original list.
+
     https://stackoverflow.com/a/68916219/5168563
     """
 
