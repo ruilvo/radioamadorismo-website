@@ -1,5 +1,5 @@
 # Base image
-FROM python:3
+FROM python:latest
 
 # Update the system, install postgres adapter
 RUN apt-get update && apt-get upgrade -y \
