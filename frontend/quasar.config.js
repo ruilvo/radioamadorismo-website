@@ -36,14 +36,11 @@ module.exports = configure(function () {
     css: ['app.scss'],
 
     // https://github.com/quasarframework/quasar/tree/dev/extras
-    extras: [
-      'roboto-font', // optional, you are not bound to it
-      'material-icons', // optional, you are not bound to it
-    ],
+    extras: ['roboto-font', 'material-icons'],
 
     // Full list of options: https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-build
     build: {
-      vueRouterMode: 'history', // available values: 'hash', 'history'
+      vueRouterMode: 'history',
     },
 
     // Full list of options: https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-devServer
@@ -57,17 +54,10 @@ module.exports = configure(function () {
 
     // https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-framework
     framework: {
-      config: {},
-
-      // iconSet: 'material-icons', // Quasar icon set
       lang: 'pt', // Quasar language pack
 
       // Quasar plugins
-      plugins: [],
+      plugins: ['LoadingBar'],
     },
-
-    // animations: 'all', // --- includes all animations
-    // https://quasar.dev/options/animations
-    animations: [],
   };
 });
