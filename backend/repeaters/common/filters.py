@@ -75,46 +75,24 @@ def holder_search(queryset, name, value):
 def mode_search(queryset, name, value):
     modes = re.findall(r"[\w]+", value)
     queryset_filter = None
-    if "fm" in modes:
-        new_filter = Q(info_fm__isnull=False)
-        if queryset_filter is None:
-            queryset_filter = new_filter
-        else:
-            queryset_filter |= new_filter
-    if "dstar" in modes:
-        new_filter = Q(info_dstar__isnull=False)
-        if queryset_filter is None:
-            queryset_filter = new_filter
-        else:
-            queryset_filter |= new_filter
-    if "fusion" in modes:
-        new_filter = Q(info_fusion__isnull=False)
-        if queryset_filter is None:
-            queryset_filter = new_filter
-        else:
-            queryset_filter |= new_filter
-    if "dmr" in modes:
-        new_filter = Q(info_dmr__isnull=False)
-        if queryset_filter is None:
-            queryset_filter = new_filter
-        else:
-            queryset_filter |= new_filter
+    for mode in ["fm", "dstar", "fusion", "dmr"]:
+        if mode in modes:
+            new_filter = Q(f"info_{mode}__isnull=False")
+            queryset_filter = (
+                new_filter if queryset_filter is None else queryset_filter | new_filter
+            )
     return queryset.filter(queryset_filter)
 
 
 def rf_search(queryset, name, value):
     modes = re.findall(r"[\w]+", value)
     queryset_filter = None
-    if "half_duplex" in modes:
-        if queryset_filter is None:
-            queryset_filter = Q(info_half_duplex__isnull=False)
-        else:
-            queryset_filter |= Q(info_half_duplex__isnull=False)
-    if "simplex" in modes:
-        if queryset_filter is None:
-            queryset_filter = Q(info_simplex__isnull=False)
-        else:
-            queryset_filter |= Q(info_simplex__isnull=False)
+    for mode in ["half_duplex", "simplex"]:
+        if mode in modes:
+            new_filter = Q(f"info_{mode}__isnull=False")
+            queryset_filter = (
+                new_filter if queryset_filter is None else queryset_filter | new_filter
+            )
     return queryset.filter(queryset_filter)
 
 
