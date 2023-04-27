@@ -11,11 +11,11 @@
           @click="toggleLeftDrawer"
         />
 
-        <q-toolbar-title>
-          <q-avatar>
-            <img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg" />
-          </q-avatar>
-          Title
+        <q-toolbar-title class="row">
+          <router-link to="/" style="text-decoration: none; color: inherit">
+            <span class="text-italic q-mr-sm">Æ</span>
+            <span class="q-mr-sm">Portal do Radioamador</span>
+          </router-link>
         </q-toolbar-title>
       </q-toolbar>
     </q-header>
