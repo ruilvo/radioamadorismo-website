@@ -74,25 +74,17 @@ def holder_search(queryset, name, value):
 
 def mode_search(queryset, name, value):
     modes = re.findall(r"[\w]+", value)
-    queryset_filter = None
-    for mode in ["fm", "dstar", "fusion", "dmr"]:
-        if mode in modes:
-            new_filter = Q(f"info_{mode}__isnull=False")
-            queryset_filter = (
-                new_filter if queryset_filter is None else queryset_filter | new_filter
-            )
+    queryset_filter = Q()
+    for mode in set(modes) & {"fm", "dstar", "fusion", "dmr"}:
+        queryset_filter |= Q(**{f"info_{mode}__isnull": False})
     return queryset.filter(queryset_filter)
 
 
 def rf_search(queryset, name, value):
     modes = re.findall(r"[\w]+", value)
-    queryset_filter = None
-    for mode in ["half_duplex", "simplex"]:
-        if mode in modes:
-            new_filter = Q(f"info_{mode}__isnull=False")
-            queryset_filter = (
-                new_filter if queryset_filter is None else queryset_filter | new_filter
-            )
+    queryset_filter = Q()
+    for mode in set(modes) & {"half_duplex", "simplex"}:
+        queryset_filter |= Q(**{f"info_{mode}__isnull": False})
     return queryset.filter(queryset_filter)
 
 
