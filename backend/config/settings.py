@@ -35,6 +35,8 @@ INSTALLED_APPS = [
     "django_filters",
     "drf_spectacular",
     "drf_spectacular_sidecar",
+    "crispy_forms",
+    "crispy_bootstrap3",
     # Local
     "users",
     "repeaters",
@@ -167,6 +169,8 @@ SPECTACULAR_SETTINGS = {
     "REDOC_DIST": "SIDECAR",
 }
 
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap3"
+CRISPY_TEMPLATE_PACK = "bootstrap3"
 
 # Settings that should be able to be set by the environment
 

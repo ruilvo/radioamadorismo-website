@@ -16,21 +16,22 @@ from repeaters.common.filters import (
 
 class FactRepeaterFilter(FilterSet):
     # https://stackoverflow.com/a/62878113/5168563
-    modulation = filters.CharFilter(label="modulation", method=modulation_search)
-    holder = filters.CharFilter(label="holder", method=holder_search)
+    modulation = filters.CharFilter(label="Modulation", method=modulation_search)
+    holder = filters.CharFilter(label="Holder", method=holder_search)
 
-    mode = filters.CharFilter(label="mode", method=mode_search)
-    rf = filters.CharFilter(label="rf", method=rf_search)
+    mode = filters.CharFilter(label="Modes (,-separated)", method=mode_search)
+    rf = filters.CharFilter(label="RF (simplex/half-duplex)", method=rf_search)
 
-    freq_mhz = filters.NumberFilter(label="freq_mhz", method=freq_mhz_search)
+    freq_mhz = filters.NumberFilter(label="Frequency (MHz)", method=freq_mhz_search)
     freq_mhz__gte = filters.NumberFilter(
-        label="freq_mhz__gte", method=freq_mhz_search__gte
+        label="Frequency (MHz) is greater than or equal to ",
+        method=freq_mhz_search__gte,
     )
     freq_mhz__lte = filters.NumberFilter(
-        label="freq_mhz__lte", method=freq_mhz_search__lte
+        label="Frequency (MHz) is less than or equal to ", method=freq_mhz_search__lte
     )
 
-    region = filters.CharFilter(label="region", method=region_search)
+    region = filters.CharFilter(label="Region (,-separated)", method=region_search)
 
     class Meta:
         model = FactRepeater

@@ -8,6 +8,8 @@ django-cors-headers
 drf_spectacular
 drf-spectacular[sidecar]
 drf-writable-nested
+django-crispy-forms
+crispy-bootstrap3
 # Dependencies
 psycopg2
 Pillow
