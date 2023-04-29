@@ -9,10 +9,11 @@ server (not suitable for production) you can run the following command:
 docker compose -f "docker-compose.dev.yaml" up -d --build
 ```
 
-To pull up the **production** server:
+To pull up the **production** server, first rename `sample.env` to `.env`, edit
+the settings to your liking, and then run:
 
 ```sh
-docker compose -f "docker-compose.prod.yaml" up -d --build
+docker compose up -d --build
 ```
 
 ### Development
@@ -33,12 +34,13 @@ docker exec -it radioamadorismo-website_backend_1 /bin/bash
 ### Turning down the server
 
 ```sh
-docker compose -f "docker-compose.prod.yaml" down
+docker compose <-f "docker-compose.prod.yaml"> down
 ```
 
 To clear/clean all Docker images, run:
 
 ```sh
-docker system prune -a -f
+docker system prune -af
+docker builder prune -af
 docker volume prune -f # **This _can_ lead to data loss**
 ```
