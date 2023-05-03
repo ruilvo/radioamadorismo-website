@@ -29,7 +29,6 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # REST framework
     "rest_framework",
-    "rest_framework.authtoken",
     "dj_rest_auth",
     "corsheaders",
     "django_filters",
@@ -141,7 +140,6 @@ REST_FRAMEWORK = {
     ],
     "DEFAULT_AUTHENTICATION_CLASSES": [
         "rest_framework.authentication.SessionAuthentication",
-        "rest_framework.authentication.TokenAuthentication",
     ],
     "DEFAULT_FILTER_BACKENDS": [
         "django_filters.rest_framework.DjangoFilterBackend",
@@ -157,6 +155,8 @@ REST_FRAMEWORK = {
 
 AUTH_USER_MODEL = "users.User"
 X_FRAME_OPTIONS = "SAMEORIGIN"
+
+REST_AUTH = {"TOKEN_MODEL": None}
 
 # Schema
 SPECTACULAR_SETTINGS = {
