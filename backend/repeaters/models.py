@@ -71,8 +71,8 @@ class DimFm(models.Model):
     NFM = "NFM"
     WFM = "WFM"
     BANDWIDTH_CHOICES = (
-        (NFM, "NFM"),
-        (WFM, "WFM"),
+        (NFM, "narrow"),
+        (WFM, "wide"),
     )
 
     modulation = models.CharField(max_length=20, blank=True, verbose_name="modulation")
