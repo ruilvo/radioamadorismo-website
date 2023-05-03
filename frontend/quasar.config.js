@@ -5,16 +5,14 @@
  * the ES6 features that are supported by your Node version. https://node.green/
  */
 
-// Configuration for your app
-// https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js
-
 /* eslint-disable @typescript-eslint/no-var-requires */
 
 const { configure } = require('quasar/wrappers');
 
+// Full list of options:
+// https://v2.quasar.dev/quasar-cli-webpack
 module.exports = configure(function () {
   return {
-    // https://v2.quasar.dev/quasar-cli-webpack/supporting-ts
     supportTS: {
       tsCheckerConfig: {
         eslint: {
@@ -24,39 +22,36 @@ module.exports = configure(function () {
       },
     },
 
-    // https://v2.quasar.dev/quasar-cli-webpack/prefetch-feature
     preFetch: true,
 
-    // app boot file (/src/boot)
-    // --> boot files are part of "main.js"
-    // https://v2.quasar.dev/quasar-cli-webpack/boot-files
     boot: ['axios'],
 
-    // https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-css
     css: ['app.scss'],
 
-    // https://github.com/quasarframework/quasar/tree/dev/extras
     extras: ['roboto-font', 'material-icons'],
 
-    // Full list of options: https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-build
     build: {
       vueRouterMode: 'history',
+
+      // This fixes hot-reload issues when using Docker + WSL2
+      extendWebpack(cfg) {
+        cfg.watchOptions = {
+          aggregateTimeout: 200,
+          poll: 1000,
+        };
+      },
     },
 
-    // Full list of options: https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-devServer
     devServer: {
       server: {
         type: 'http',
       },
       port: 8080,
-      open: true, // opens browser window automatically
+      open: false,
     },
 
-    // https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-framework
     framework: {
-      lang: 'pt', // Quasar language pack
-
-      // Quasar plugins
+      lang: 'pt',
       plugins: ['LoadingBar'],
     },
   };
