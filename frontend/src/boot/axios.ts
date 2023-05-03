@@ -8,10 +8,10 @@ declare module '@vue/runtime-core' {
 }
 
 axios.defaults.withCredentials = true;
+axios.defaults.xsrfHeaderName = 'X-CSRFTOKEN';
+axios.defaults.xsrfCookieName = 'csrftoken';
 
-const api = axios.create({ withCredentials: true });
-api.defaults.xsrfHeaderName = 'X-CSRFTOKEN';
-api.defaults.xsrfCookieName = 'csrftoken';
+const api = axios.create();
 
 export default boot(({ app }) => {
   app.config.globalProperties.$axios = axios;
