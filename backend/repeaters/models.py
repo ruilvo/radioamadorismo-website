@@ -294,10 +294,10 @@ class FactRepeater(models.Model):
     PROBLEMS = "PROBLEMS"
     OTHER = "OT"
     STATUS_CHOICES = (
-        (OFF, "OFF"),
-        (ON, "ON"),
-        (PROJECT, "PROJECT"),
-        (PROBLEMS, "PROBLEMS"),
+        (OFF, "off"),
+        (ON, "on"),
+        (PROJECT, "project"),
+        (PROBLEMS, "problems"),
         (OTHER, "other"),
     )
 
