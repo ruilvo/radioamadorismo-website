@@ -19,6 +19,8 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+from rest_framework.authtoken import views
+
 from drf_spectacular.views import (
     SpectacularAPIView,
     SpectacularRedocView,
@@ -44,6 +46,11 @@ urlpatterns = [
                     "auth/",
                     include("dj_rest_auth.urls"),
                     name="dj-rest-auth",
+                ),
+                path(
+                    "auth/token/",
+                    views.obtain_auth_token,
+                    name="auth-token",
                 ),
                 # Schema
                 path("schema/", SpectacularAPIView.as_view(), name="schema"),
