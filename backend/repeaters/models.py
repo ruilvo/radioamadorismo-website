@@ -71,8 +71,8 @@ class DimFm(models.Model):
     NFM = "NFM"
     WFM = "WFM"
     BANDWIDTH_CHOICES = (
-        (NFM, "NFM"),
-        (WFM, "WFM"),
+        (NFM, "narrow"),
+        (WFM, "wide"),
     )
 
     modulation = models.CharField(max_length=20, blank=True, verbose_name="modulation")
@@ -294,10 +294,10 @@ class FactRepeater(models.Model):
     PROBLEMS = "PROBLEMS"
     OTHER = "OT"
     STATUS_CHOICES = (
-        (OFF, "OFF"),
-        (ON, "ON"),
-        (PROJECT, "PROJECT"),
-        (PROBLEMS, "PROBLEMS"),
+        (OFF, "off"),
+        (ON, "on"),
+        (PROJECT, "project"),
+        (PROBLEMS, "problems"),
         (OTHER, "other"),
     )
 
