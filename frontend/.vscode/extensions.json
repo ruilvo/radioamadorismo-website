@@ -2,7 +2,6 @@
   "recommendations": [
     "github.copilot-nightly",
     "visualstudioexptteam.vscodeintellicode",
-    "visualstudioexptteam.intellicode-api-usage-examples"
   ],
   "unwantedRecommendations": [
     "octref.vetur",
