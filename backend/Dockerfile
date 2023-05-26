@@ -3,7 +3,8 @@ FROM python:latest
 
 # Update the system, install postgres adapter
 RUN apt-get update && apt-get upgrade -y \
-    && apt-get install -y libpq-dev python3-dev gcc netcat
+    && apt-get install -y libpq-dev python3-dev gcc netcat \
+    graphviz libgraphviz-dev
 
 # Update pip
 RUN pip install --upgrade pip
