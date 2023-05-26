@@ -20,3 +20,4 @@ uwsgi
 pylint
 black
 pylint-django
+pygraphviz
