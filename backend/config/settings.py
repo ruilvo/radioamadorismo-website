@@ -36,6 +36,8 @@ INSTALLED_APPS = [
     "drf_spectacular_sidecar",
     "crispy_forms",
     "crispy_bootstrap3",
+    # Other
+    'django_extensions',
     # Local
     "users",
     "repeaters",

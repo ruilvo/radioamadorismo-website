@@ -21,3 +21,4 @@ pylint
 black
 pylint-django
 pygraphviz
+django-extensions
