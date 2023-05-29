@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     "crispy_forms",
     "crispy_bootstrap3",
     # Other
-    'django_extensions',
+    "django_extensions",
     # Local
     "users",
     "repeaters",
@@ -78,7 +78,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "config.wsgi.application"
+WSGI_APPLICATION = "config.wsgi:application"
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -155,8 +155,8 @@ REST_FRAMEWORK = {
 # Graphviz
 
 GRAPH_MODELS = {
-  'all_applications': True,
-  'group_models': True,
+    "all_applications": True,
+    "group_models": True,
 }
 
 # Local settings
