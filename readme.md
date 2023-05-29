@@ -28,7 +28,7 @@ You'll need to make a first superuser for Django. You can access a terminal for
 the backend with:
 
 ```sh
-docker exec -it radioamadorismo-website_backend_1 /bin/bash
+docker compose exec backend /bin/bash
 ```
 
 ### Turning down the server
