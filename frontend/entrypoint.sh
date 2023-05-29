@@ -2,6 +2,7 @@
 
 if [[ -z "${DEVELOPMENT}" ]]
 then
+    npm i
     npm run build
 fi
 

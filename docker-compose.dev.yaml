@@ -11,9 +11,9 @@ services:
       - dev.env
     stop_signal: SIGKILL
     volumes:
-      - ./frontend:/frontend:cached
+      - .:/workspace:cached
       - frontend_vscode_server:/root/.vscode-server
-      - frontend_node_modules:/frontend/node_modules
+      - frontend_node_modules:/workspace/frontend/node_modules
     depends_on:
       - backend
   backend:
@@ -26,9 +26,9 @@ services:
       - dev.env
     stop_signal: SIGKILL
     volumes:
-      - ./backend:/backend:cached
-      - backend_vscode_server:/root/.vscode-server/
-      - backend_deployment:/backend/_deployment/
+      - .:/workspace:cached
+      - backend_vscode_server:/root/.vscode-server
+      - backend_deployment:/workspace/backend/_deployment
     depends_on:
       - db
     restart: always
@@ -40,7 +40,7 @@ services:
   db:
     image: postgres:15
     volumes:
-      - postgres_data_dev:/var/lib/postgresql/data/
+      - postgres_data_dev:/var/lib/postgresql/data
     env_file:
       - dev.env
     restart: always

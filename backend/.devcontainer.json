@@ -5,7 +5,7 @@
 	],
 	"service": "backend",
 	"shutdownAction": "none",
-	"workspaceFolder": "/backend",
+	"workspaceFolder": "/workspace/backend",
 	"customizations": {
 		"vscode": {
 			"extensions": [

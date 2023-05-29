@@ -6,7 +6,7 @@ services:
     ports:
       - "127.0.0.1:9100:80"
     volumes:
-      - backend_dist_data:/backend_dist/
+      - backend_dist_data:/backend_dist
       - ./nginx:/etc/nginx/conf.d
     depends_on:
       - backend
@@ -22,11 +22,11 @@ services:
       dockerfile: Dockerfile
     stop_signal: SIGKILL
     env_file:
-      - prod.env
+      - .env
     depends_on:
       - backend
     volumes:
-      - frontend_dist_data:/frontend/dist/
+      - frontend_dist_data:/workspace/frontend/dist
     restart: always
     logging:
       driver: "json-file"
@@ -39,11 +39,11 @@ services:
       dockerfile: Dockerfile
     stop_signal: SIGINT
     env_file:
-      - prod.env
+      - .env
     depends_on:
       - db
     volumes:
-      - backend_dist_data:/backend/_deployment/
+      - backend_dist_data:/workspace/backend/_deployment
     restart: always
     logging:
       driver: "json-file"
@@ -53,9 +53,9 @@ services:
   db:
     image: postgres:15
     volumes:
-      - postgres_data:/var/lib/postgresql/data/
+      - postgres_data:/var/lib/postgresql/data
     env_file:
-      - prod.env
+      - .env
     restart: always
     logging:
       driver: "json-file"

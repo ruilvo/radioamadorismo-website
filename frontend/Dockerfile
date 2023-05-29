@@ -9,14 +9,13 @@ RUN npm install -g npm@latest
 RUN npm install -g @quasar/cli
 
 # Make a working dir
-WORKDIR /frontend
-
-# Handle requirements
-# COPY package.json package-lock.jso[n] /frontend/
-# RUN npm install
+WORKDIR /workspace
 
 # Copy project files
 COPY . .
+
+# Move to the frontend dir
+WORKDIR /workspace/frontend
 
 # Make entrypoint executable
 RUN chmod +x entrypoint.sh
