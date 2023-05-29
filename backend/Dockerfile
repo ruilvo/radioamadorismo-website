@@ -21,11 +21,11 @@ WORKDIR /workspace
 COPY requirements.txt backend/requirements.txt
 RUN cd backend && pip install --user -r requirements.txt && cd ..
 
-# Copy project files
-COPY . .
-
 # Move to the backend dir
 WORKDIR /workspace/backend
+
+# Copy project files
+COPY . .
 
 # Make files executable
 RUN chmod +x entrypoint.sh &&  \

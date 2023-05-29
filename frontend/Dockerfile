@@ -8,14 +8,11 @@ RUN apt-get update && apt-get upgrade -y
 RUN npm install -g npm@latest
 RUN npm install -g @quasar/cli
 
-# Make a working dir
-WORKDIR /workspace
+# Create the working dir for the frontend
+WORKDIR /workspace/frontend
 
 # Copy project files
 COPY . .
-
-# Move to the frontend dir
-WORKDIR /workspace/frontend
 
 # Make entrypoint executable
 RUN chmod +x entrypoint.sh
