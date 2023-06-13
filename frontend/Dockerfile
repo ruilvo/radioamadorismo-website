@@ -7,6 +7,7 @@ RUN apt-get update && apt-get upgrade -y
 # Update node
 RUN npm install -g npm@latest
 RUN npm install -g @quasar/cli
+RUN npm install -g npm-check-updates
 
 # Create the working dir for the frontend
 WORKDIR /workspace/frontend
