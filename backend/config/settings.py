@@ -221,6 +221,17 @@ CORS_ORIGIN_WHITELIST = os.environ.get(
     "DJANGO_CORS_ORIGIN_WHITELIST", " ".join(CORS_ORIGIN_WHITELIST_DEFAULT)
 ).split(" ")
 
+CSRF_TRUSTED_ORIGINS_DEFAULT = [
+    # Default names used by the frontend and backend
+    "http://localhost:8080",
+    "http://frontend:8080",
+    "http://backend:8000",
+    "http://localhost:8000",
+]
+CSRF_TRUSTED_ORIGINS = os.environ.get(
+    "DJANGO_CSRF_TRUSTED_ORIGINS", " ".join(CSRF_TRUSTED_ORIGINS_DEFAULT)
+).split(" ")
+
 USE_X_FORWARDED_HOST = int(os.environ.get("DJANGO_USE_X_FORWARDED_HOST", False))
 
 EMAIL_BACKEND = os.environ.get(
