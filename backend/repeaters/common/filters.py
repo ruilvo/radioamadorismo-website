@@ -5,8 +5,8 @@ from django.db.models import Q
 
 automatic_fields = {
     # FactRepeater
-    "callsign": ["exact", "iexact", "icontains"],
-    "notes": ["exact", "icontains"],
+    "callsign": ["iexact", "icontains"],
+    "notes": ["icontains"],
     "pwr_w": ["exact", "gte", "lte"],
     "info_half_duplex": ["isnull"],
     "info_simplex": ["isnull"],
@@ -16,42 +16,42 @@ automatic_fields = {
     "info_dmr": ["isnull"],
     "info_holder": ["isnull"],
     "info_location": ["isnull"],
-    "sysop": ["exact", "iexact", "icontains"],
+    "sysop": ["iexact", "icontains"],
     # DimHalfDuplex
     "info_half_duplex__tx_mhz": ["exact", "gte", "lte"],
     "info_half_duplex__rx_mhz": ["exact", "gte", "lte"],
-    "info_half_duplex__channel": ["exact", "iexact"],
+    "info_half_duplex__channel": ["iexact"],
     # DimSimplex
     "info_simplex__freq_mhz": ["exact", "gte", "lte"],
-    "info_simplex__channel": ["exact", "iexact"],
+    "info_simplex__channel": ["iexact"],
     # DimFm
-    "info_fm__modulation": ["exact", "iexact", "icontains"],
+    "info_fm__modulation": ["iexact", "icontains"],
     "info_fm__tone": ["exact", "gte", "lte"],
     # DimDStar
-    "info_dstar__modulation": ["exact", "iexact", "icontains"],
-    "info_dstar__gateway": ["exact", "iexact", "icontains"],
-    "info_dstar__reflector": ["exact", "iexact", "icontains"],
+    "info_dstar__modulation": ["iexact", "icontains"],
+    "info_dstar__gateway": ["iexact", "icontains"],
+    "info_dstar__reflector": ["iexact", "icontains"],
     # DimFusion
-    "info_fusion__modulation": ["exact", "iexact", "icontains"],
-    "info_fusion__wiresx": ["exact", "iexact", "icontains"],
-    "info_fusion__room_id": ["exact", "iexact", "icontains"],
+    "info_fusion__modulation": ["iexact", "icontains"],
+    "info_fusion__wiresx": ["iexact", "icontains"],
+    "info_fusion__room_id": ["iexact", "icontains"],
     # DimDmr
-    "info_dmr__modulation": ["exact", "iexact", "icontains"],
+    "info_dmr__modulation": ["iexact", "icontains"],
     "info_dmr__dmr_id": ["exact", "gte", "lte"],
     "info_dmr__color_code": ["exact", "gte", "lte"],
-    "info_dmr__ts1_default_tg__name": ["exact", "iexact", "icontains"],
+    "info_dmr__ts1_default_tg__name": ["iexact", "icontains"],
     "info_dmr__ts1_default_tg__dmr_id": ["exact", "gte", "lte"],
-    "info_dmr__ts2_default_tg__name": ["exact", "iexact", "icontains"],
+    "info_dmr__ts2_default_tg__name": ["iexact", "icontains"],
     "info_dmr__ts2_default_tg__dmr_id": ["exact", "gte", "lte"],
     # DimHolder
-    "info_holder__abrv": ["exact", "iexact", "icontains"],
-    "info_holder__name": ["exact", "iexact", "icontains"],
+    "info_holder__abrv": ["iexact", "icontains"],
+    "info_holder__name": ["iexact", "icontains"],
     # DimLocation
     "info_location__latitude": ["exact", "gte", "lte"],
     "info_location__longitude": ["exact", "gte", "lte"],
     "info_location__region": ["exact"],
     "info_location__place": ["exact", "icontains"],
-    "info_location__qth_loc": ["exact", "iexact"],
+    "info_location__qth_loc": ["iexact", "icontains"],
 }
 
 
