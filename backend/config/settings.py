@@ -205,38 +205,25 @@ SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "DO_NOT_USE_THIS_IN_PRODUCTION_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = int(os.environ.get("DJANGO_DEBUG", default=0))
 
-ALLOWED_HOSTS_DEFAULT = [
+HOSTS_DEFAULTS = [
     # Default names used by the frontend and backend
     "http://localhost:8080",
     "http://frontend:8080",
     "http://backend:8000",
     "http://localhost:8000",
 ]
+
 ALLOWED_HOSTS = os.environ.get(
     "DJANGO_ALLOWED_HOSTS",
-    " ".join(ALLOWED_HOSTS_DEFAULT),
+    " ".join(HOSTS_DEFAULTS),
 ).split(" ")
 
-CORS_ORIGIN_WHITELIST_DEFAULT = [
-    # Default names used by the frontend and backend
-    "http://localhost:8080",
-    "http://frontend:8080",
-    "http://backend:8000",
-    "http://localhost:8000",
-]
 CORS_ORIGIN_WHITELIST = os.environ.get(
-    "DJANGO_CORS_ORIGIN_WHITELIST", " ".join(CORS_ORIGIN_WHITELIST_DEFAULT)
+    "DJANGO_CORS_ORIGIN_WHITELIST", " ".join(HOSTS_DEFAULTS)
 ).split(" ")
 
-CSRF_TRUSTED_ORIGINS_DEFAULT = [
-    # Default names used by the frontend and backend
-    "http://localhost:8080",
-    "http://frontend:8080",
-    "http://backend:8000",
-    "http://localhost:8000",
-]
 CSRF_TRUSTED_ORIGINS = os.environ.get(
-    "DJANGO_CSRF_TRUSTED_ORIGINS", " ".join(CSRF_TRUSTED_ORIGINS_DEFAULT)
+    "DJANGO_CSRF_TRUSTED_ORIGINS", " ".join(HOSTS_DEFAULTS)
 ).split(" ")
 
 USE_X_FORWARDED_HOST = int(os.environ.get("DJANGO_USE_X_FORWARDED_HOST", False))
