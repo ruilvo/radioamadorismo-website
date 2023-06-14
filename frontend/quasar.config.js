@@ -48,6 +48,26 @@ module.exports = configure(function () {
       },
       port: 8080,
       open: false,
+      proxy: {
+        '/api': {
+          target: 'http://backend:8000',
+        },
+        '/admin': {
+          target: 'http://backend:8000',
+        },
+        '/static': {
+          target: 'http://backend:8000',
+        },
+        '/media': {
+          target: 'http://backend:8000',
+        },
+        '/backend': {
+          target: 'http://backend:8000',
+        },
+        '/restframework': {
+          target: 'http://backend:8000',
+        },
+      },
     },
 
     framework: {
