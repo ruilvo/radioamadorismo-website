@@ -4,7 +4,7 @@ if [[ -z "${DEVELOPMENT}" ]]
 then
     ./run_migration_chores.sh --noinput
     echo "Starting server..."
-    exec gunicorn -c gunicorn_config.py config.wsgi:application
+    exec uwsgi --ini config_uwsgi.ini
 else
     echo "Keeping alive..."
     exec tail -f /dev/null

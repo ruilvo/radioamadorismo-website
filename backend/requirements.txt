@@ -15,7 +15,7 @@ psycopg2
 Pillow
 # Deployment
 whitenoise
-gunicorn
+uwsgi
 # Development
 pylint
 black
