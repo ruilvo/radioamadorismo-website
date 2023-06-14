@@ -14,7 +14,7 @@
     <div v-if="passcode != null && !thinking" class="col-auto">
       <h4 class="q-mr-md">
         O Passcode para o APRS-IS é:
-        <span class="tw-text-emerald-500">{{ passcode }}</span>
+        <span>{{ passcode }}</span>
       </h4>
     </div>
   </div>
