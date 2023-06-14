@@ -1,3 +1,5 @@
+import aprs_routes from './routes/aprs';
+
 import { RouteRecordRaw } from 'vue-router';
 
 const routes: RouteRecordRaw[] = [
@@ -10,6 +12,7 @@ const routes: RouteRecordRaw[] = [
         path: '',
         component: () => import('pages/IndexPage.vue'),
       },
+      ...aprs_routes,
     ],
   },
   {
