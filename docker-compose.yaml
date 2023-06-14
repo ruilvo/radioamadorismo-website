@@ -6,7 +6,7 @@ services:
     ports:
       - "127.0.0.1:9100:80"
     volumes:
-      - backend_dist_data:/backend_dist
+      - frontend_dist_data:/frontend_dist
       - ./nginx:/etc/nginx/conf.d
     depends_on:
       - backend
