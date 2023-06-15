@@ -3,7 +3,7 @@
     <h2>Gerador de Passcodes de APRS-IS</h2>
     <div class="row items-center q-gutter-x-md">
       <h4>Indicativo:</h4>
-      <q-input v-model="callsign" filled />
+      <q-input v-model="callsign" filled dense square />
     </div>
     <q-btn
       color="primary"
