@@ -1,22 +1,22 @@
 <template>
-  <h2>Gerador de Passcodes de APRS-IS</h2>
-  <div class="column q-col-gutter-md">
-    <div class="col-auto">
-      <div class="row q-col-gutter-sm">
-        <h4 class="col-auto">Indicativo:</h4>
-        <q-input v-model="callsign" class="col-auto" filled />
-      </div>
+  <div class="q-pa-md">
+    <h2>Gerador de Passcodes de APRS-IS</h2>
+    <div class="row items-center q-gutter-x-md">
+      <h4 class="col-auto">Indicativo:</h4>
+      <q-input v-model="callsign" class="col-auto" filled />
     </div>
-
-    <div class="col-auto">
-      <q-btn color="primary" label="Submeter" @click="submit" />
+    <div class="row items-center">
+      <q-btn
+        color="primary"
+        label="Submeter"
+        class="col-auto"
+        :disable="callsign === ''"
+        @click="submit"
+      />
     </div>
-    <div v-if="passcode != null && !thinking" class="col-auto">
-      <h4 class="q-mr-md">
-        O Passcode para o APRS-IS é:
-        <span>{{ passcode }}</span>
-      </h4>
-    </div>
+    <h4 v-if="passcode != null && !thinking" class="col-auto">
+      O Passcode para o APRS-IS é: {{ passcode }}
+    </h4>
   </div>
 </template>
 
@@ -31,6 +31,7 @@ export default defineComponent({
     const callsign = ref('');
     const passcode = ref(null);
     const thinking = ref(false);
+
     return {
       callsign,
       passcode,
