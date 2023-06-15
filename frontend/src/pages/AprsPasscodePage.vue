@@ -1,5 +1,5 @@
 <template>
-  <div class="q-pa-md">
+  <div class="q-pa-md q-gutter-y-md">
     <h2>Gerador de Passcodes de APRS-IS</h2>
     <div class="row items-center q-gutter-x-md">
       <h4 class="col-auto">Indicativo:</h4>
