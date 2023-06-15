@@ -2,9 +2,9 @@
 FROM python:latest
 
 # Update the system, install postgres adapter
-RUN apt-get update && apt-get upgrade -y \
-    && apt-get install -y libpq-dev python3-dev gcc netcat \
-    graphviz libgraphviz-dev
+RUN apt-get update && apt-get upgrade -y
+RUN apt-get install -y gcc graphviz netcat-traditional
+RUN apt-get install -y python3-dev libpq-dev libgraphviz-dev
 
 # Now, we have to update the PATH env. variable
 ENV PATH="/root/.local/bin:${PATH}"
