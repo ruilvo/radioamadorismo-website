@@ -8,6 +8,8 @@
   >
     <q-list>
       <StartPageItem />
+      <q-separator key="sep-home-from-pages" />
+      <PagesItem />
       <q-separator key="sep-home-from-rest" />
     </q-list>
   </q-drawer>
@@ -17,11 +19,13 @@
 import { defineComponent, computed } from 'vue';
 
 import StartPageItem from './left_drawer/StartPageItem.vue';
+import PagesItem from './left_drawer/PagesItem.vue';
 
 export default defineComponent({
   name: 'LeftDrawer',
   components: {
     StartPageItem,
+    PagesItem,
   },
   props: {
     modelValue: Boolean,
