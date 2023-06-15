@@ -2,18 +2,16 @@
   <div class="q-pa-md q-gutter-y-md">
     <h2>Gerador de Passcodes de APRS-IS</h2>
     <div class="row items-center q-gutter-x-md">
-      <h4 class="col-auto">Indicativo:</h4>
-      <q-input v-model="callsign" class="col-auto" filled />
+      <h4>Indicativo:</h4>
+      <q-input v-model="callsign" filled />
     </div>
-    <div class="row items-center">
-      <q-btn
-        color="primary"
-        label="Submeter"
-        class="col-auto"
-        :disable="callsign === ''"
-        @click="submit"
-      />
-    </div>
+    <q-btn
+      color="primary"
+      label="Submeter"
+      class="col-auto"
+      :disable="callsign === ''"
+      @click="submit"
+    />
     <h4 v-if="passcode != null && !thinking" class="col-auto">
       O Passcode para o APRS-IS é: {{ passcode }}
     </h4>
