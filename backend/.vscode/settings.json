@@ -23,5 +23,5 @@
     "python.linting.enabled": true,
     "python.linting.pylintEnabled": true,
     "python.languageServer": "Pylance",
-    "python.formatting.provider": "black",
+    "python.formatting.provider": "none",
 }
