@@ -37,12 +37,12 @@ automatic_fields = {
     "info_fusion__room_id": ["iexact", "icontains"],
     # DimDmr
     "info_dmr__modulation": ["iexact", "icontains"],
-    "info_dmr__dmr_id": ["exact", "gte", "lte"],
+    "info_dmr__id": ["exact", "gte", "lte"],
     "info_dmr__color_code": ["exact", "gte", "lte"],
     "info_dmr__ts1_default_tg__name": ["iexact", "icontains"],
-    "info_dmr__ts1_default_tg__dmr_id": ["exact", "gte", "lte"],
+    "info_dmr__ts1_default_tg__id": ["exact", "gte", "lte"],
     "info_dmr__ts2_default_tg__name": ["iexact", "icontains"],
-    "info_dmr__ts2_default_tg__dmr_id": ["exact", "gte", "lte"],
+    "info_dmr__ts2_default_tg__id": ["exact", "gte", "lte"],
     # DimHolder
     "info_holder__abrv": ["iexact", "icontains"],
     "info_holder__name": ["iexact", "icontains"],
