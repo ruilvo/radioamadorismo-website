@@ -159,8 +159,18 @@ class DimDmrTg(models.Model):
     Models enough information for describing a DMR TG.
     """
 
+    GROUP_CALL = "GROUP_CALL"
+    PRIVATE_CALL = "PRIVATE_CALL"
+    CALL_MODE_CHOICES = (
+        (GROUP_CALL, "Group Call"),
+        (PRIVATE_CALL, "Private Call"),
+    )
+
     name = models.CharField(max_length=50, verbose_name="name")
     dmr_id = models.IntegerField(unique=True, verbose_name="DMR ID")
+    call_mode = models.CharField(
+        max_length=50, verbose_name="call mode", choices=CALL_MODE_CHOICES, default=GROUP_CALL
+    )
 
     class Meta:
         verbose_name = "info - DMR TG"

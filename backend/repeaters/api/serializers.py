@@ -136,6 +136,7 @@ class DimDmrTgSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
     def create(self, validated_data):
         name = validated_data.get("name", None)
         dmr_id = validated_data.get("dmr_id", None)
+        call_mode = validated_data.get("call_mode", None)
         if dmr_id is not None:
             new_object, new_object_created = DimDmrTg.objects.get_or_create(
                 dmr_id=dmr_id,
@@ -143,6 +144,7 @@ class DimDmrTgSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
             )
             if not new_object_created:
                 new_object.name = name
+                new_object.call_mode = call_mode
                 new_object.save()
             return new_object
         return DimDmrTg.objects.create(**validated_data)
