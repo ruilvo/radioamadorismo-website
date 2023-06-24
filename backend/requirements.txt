@@ -2,6 +2,7 @@
 Django
 # REST framework
 djangorestframework
+django-computedfields
 dj-rest-auth
 django-filter
 django-cors-headers
