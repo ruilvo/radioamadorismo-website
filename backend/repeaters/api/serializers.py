@@ -135,11 +135,11 @@ class DimDmrTgSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
 
     def create(self, validated_data):
         name = validated_data.get("name", None)
-        dmr_id = validated_data.get("dmr_id", None)
+        id = validated_data.get("id", None)
         call_mode = validated_data.get("call_mode", None)
-        if dmr_id is not None:
+        if id is not None:
             new_object, new_object_created = DimDmrTg.objects.get_or_create(
-                dmr_id=dmr_id,
+                id=id,
                 defaults=validated_data,
             )
             if not new_object_created:
@@ -164,7 +164,7 @@ class DimDmrSerializer(UniqueFieldsMixin, WritableNestedModelSerializer):
 
     def create(self, validated_data):
         try:
-            return DimDmr.objects.get(dmr_id=validated_data["dmr_id"])
+            return DimDmr.objects.get(id=validated_data["id"])
         except ObjectDoesNotExist:
             return super(DimDmrSerializer, self).create(validated_data)
 

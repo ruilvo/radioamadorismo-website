@@ -167,9 +167,12 @@ class DimDmrTg(models.Model):
     )
 
     name = models.CharField(max_length=50, verbose_name="name")
-    dmr_id = models.IntegerField(unique=True, verbose_name="DMR ID")
+    id = models.IntegerField(unique=True, verbose_name="DMR ID", primary_key=True)
     call_mode = models.CharField(
-        max_length=50, verbose_name="call mode", choices=CALL_MODE_CHOICES, default=GROUP_CALL
+        max_length=50,
+        verbose_name="call mode",
+        choices=CALL_MODE_CHOICES,
+        default=GROUP_CALL,
     )
 
     class Meta:
@@ -177,7 +180,7 @@ class DimDmrTg(models.Model):
         verbose_name_plural = "info - DMR TG"
 
     def __str__(self) -> str:
-        return f"{self.dmr_id}: {self.name}"
+        return f"{self.id}: {self.name}"
 
 
 class DimDmr(models.Model):
@@ -186,7 +189,7 @@ class DimDmr(models.Model):
     """
 
     modulation = models.CharField(max_length=20, blank=True, verbose_name="modulation")
-    dmr_id = models.IntegerField(unique=True, verbose_name="DMR ID")
+    id = models.IntegerField(unique=True, verbose_name="DMR ID", primary_key=True)
     color_code = models.IntegerField(verbose_name="C.C.")
     ts1_default_tg = models.ForeignKey(
         DimDmrTg,
@@ -219,7 +222,7 @@ class DimDmr(models.Model):
         verbose_name_plural = "info - DMR"
 
     def __str__(self) -> str:
-        return f"{self.dmr_id}"
+        return f"{self.id}"
 
 
 class DimHolder(models.Model):
