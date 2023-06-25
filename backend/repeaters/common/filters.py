@@ -42,9 +42,9 @@ automatic_fields = {
     "info_dmr__id": ["exact", "gte", "lte"],
     "info_dmr__color_code": ["exact", "gte", "lte"],
     "info_dmr__ts1_default_tg__name": ["iexact", "icontains"],
-    "info_dmr__ts1_default_tg__id": ["exact", "gte", "lte"],
+    "info_dmr__ts1_default_tg__id": ["exact"],
     "info_dmr__ts2_default_tg__name": ["iexact", "icontains"],
-    "info_dmr__ts2_default_tg__id": ["exact", "gte", "lte"],
+    "info_dmr__ts2_default_tg__id": ["exact"],
     # DimHolder
     "info_holder__abrv": ["iexact", "icontains"],
     "info_holder__name": ["iexact", "icontains"],
@@ -74,18 +74,16 @@ def holder_search(queryset, name, value):
     return queryset
 
 
-def mode_search(queryset, name, value):
+def modes_search(queryset, name, value):
     modes = re.findall(r"[\w]+", value)
-    queryset_filter = Q()
     allowed_modes = {
         FactRepeater.ModeOptions.FM,
         FactRepeater.ModeOptions.DSTAR,
         FactRepeater.ModeOptions.FUSION,
         FactRepeater.ModeOptions.DMR,
     }
-    for mode in {mode.lower() for mode in modes} & allowed_modes:
-        queryset_filter |= Q(mode=mode)
-    return queryset.filter(queryset_filter)
+    query_modes = list({mode.lower() for mode in modes} & allowed_modes)
+    return queryset.filter(modes__overlap=query_modes)
 
 
 def rf_search(queryset, name, value):

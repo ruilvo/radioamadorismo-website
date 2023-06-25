@@ -5,7 +5,7 @@ from repeaters.common.filters import (
     automatic_fields,
     modulation_search,
     holder_search,
-    mode_search,
+    modes_search,
     rf_search,
     freq_mhz_search,
     freq_mhz_search__gte,
@@ -19,7 +19,7 @@ class FactRepeaterFilter(FilterSet):
     modulation = filters.CharFilter(label="Modulation", method=modulation_search)
     holder = filters.CharFilter(label="Holder", method=holder_search)
 
-    mode = filters.CharFilter(label="Modes, ','-separated)", method=mode_search)
+    modes = filters.CharFilter(label="Modes, ','-separated)", method=modes_search)
     rf = filters.CharFilter(
         label="RF (simplex/half-duplex), ','-separated", method=rf_search
     )

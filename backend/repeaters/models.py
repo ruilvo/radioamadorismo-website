@@ -3,6 +3,7 @@ import decimal
 from typing import Optional
 
 from django.db import models
+from django.contrib.postgres.fields import ArrayField
 
 from computedfields.models import ComputedFieldsModel, computed
 
@@ -557,27 +558,30 @@ class FactRepeater(ComputedFieldsModel):
         return self.is_fm or self.is_dstar or self.is_fusion or self.is_dmr
 
     @computed(
-        # TODO(ruilvo): Use the choices for the filter.
-        models.CharField(
-            max_length=64,
-            blank=True,
-            null=True,
-            verbose_name="mode",
-            choices=MODE_CHOICES,
-            default=None,
+        ArrayField(
+            models.CharField(
+                max_length=64,
+                blank=True,
+                null=True,
+                verbose_name="mode",
+                choices=MODE_CHOICES,
+                default=None,
+            ),
+            size=4,
         ),
         depends=[("self", ["info_fm", "info_dstar", "info_fusion", "info_dmr"])],
     )
-    def mode(self) -> Optional[str]:
+    def modes(self) -> list[str]:
+        modes = []
         if self.is_fm:
-            return self.ModeOptions.FM
+            modes.append(self.ModeOptions.FM)
         if self.is_dstar:
-            return self.ModeOptions.DSTAR
+            modes.append(self.ModeOptions.DSTAR)
         if self.is_fusion:
-            return self.ModeOptions.FUSION
+            modes.append(self.ModeOptions.FUSION)
         if self.is_dmr:
-            return self.ModeOptions.DMR
-        return None
+            modes.append(self.ModeOptions.DMR)
+        return modes
 
     class Meta:
         verbose_name = "repeater"
