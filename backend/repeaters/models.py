@@ -409,6 +409,41 @@ class FactRepeater(ComputedFieldsModel):
             return "half-duplex"
         return None
 
+    @property
+    def is_fm(self) -> bool:
+        return self.info_fm is not None
+
+    @property
+    def is_dstar(self) -> bool:
+        return self.info_dstar is not None
+
+    @property
+    def is_fusion(self) -> bool:
+        return self.info_fusion is not None
+
+    @property
+    def is_dmr(self) -> bool:
+        return self.info_dmr is not None
+
+    @property
+    def has_modulation(self) -> bool:
+        return self.is_fm or self.is_dstar or self.is_fusion or self.is_dmr
+
+    @computed(
+        models.CharField(max_length=50, blank=True, null=True, verbose_name="mode"),
+        depends=[("self", ["info_fm", "info_dstar", "info_fusion", "info_dmr"])],
+    )
+    def mode(self) -> Optional[str]:
+        if self.is_fm:
+            return "fm"
+        if self.is_dstar:
+            return "dstar"
+        if self.is_fusion:
+            return "fusion"
+        if self.is_dmr:
+            return "dmr"
+        return None
+
     class Meta:
         verbose_name = "repeater"
         verbose_name_plural = "repeaters"

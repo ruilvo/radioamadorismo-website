@@ -75,8 +75,8 @@ def holder_search(queryset, name, value):
 def mode_search(queryset, name, value):
     modes = re.findall(r"[\w]+", value)
     queryset_filter = Q()
-    for mode in set(modes) & {"fm", "dstar", "fusion", "dmr"}:
-        queryset_filter |= Q(**{f"info_{mode}__isnull": False})
+    for mode in {mode.lower() for mode in modes} & {"fm", "dstar", "fusion", "dmr"}:
+        queryset_filter |= Q(mode=mode)
     return queryset.filter(queryset_filter)
 
 
