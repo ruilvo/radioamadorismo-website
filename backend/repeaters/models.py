@@ -9,7 +9,7 @@ from computedfields.models import ComputedFieldsModel, computed
 
 from repeaters.vendor.bands import Band23cm, Band70cm, Band2m, Band6m, Band10m
 
-str_placeholder = "-----"
+PLACEHOLDER_STR = "-----"
 
 
 class DimHalfDuplex(models.Model):
@@ -42,7 +42,7 @@ class DimHalfDuplex(models.Model):
 
     def __str__(self) -> str:
         return (
-            f"{self.channel if self.channel else str_placeholder}: "
+            f"{self.channel if self.channel else PLACEHOLDER_STR}: "
             + f"{float(self.tx_mhz):.5f}/{float(self.rx_mhz):.5f}"
         )
 
@@ -65,7 +65,7 @@ class DimSimplex(models.Model):
 
     def __str__(self) -> str:
         return (
-            f"{self.channel if self.channel else str_placeholder}: "
+            f"{self.channel if self.channel else PLACEHOLDER_STR}: "
             + f"{float(self.freq_mhz):.5f}"
         )
 
@@ -106,7 +106,7 @@ class DimFm(models.Model):
 
     def __str__(self) -> str:
         return (
-            f"{self.modulation if self.modulation else str_placeholder}, "
+            f"{self.modulation if self.modulation else PLACEHOLDER_STR}, "
             + f"{float(self.tone):.1f}, "
             + f"{self.bandwidth}"
         )
@@ -133,9 +133,9 @@ class DimDStar(models.Model):
 
     def __str__(self) -> str:
         return (
-            f"{self.modulation if self.modulation else str_placeholder}, "
-            + f"{self.gateway if self.gateway else str_placeholder}, "
-            + f"{self.reflector if self.reflector else str_placeholder}"
+            f"{self.modulation if self.modulation else PLACEHOLDER_STR}, "
+            + f"{self.gateway if self.gateway else PLACEHOLDER_STR}, "
+            + f"{self.reflector if self.reflector else PLACEHOLDER_STR}"
         )
 
 
@@ -160,9 +160,9 @@ class DimFusion(models.Model):
 
     def __str__(self) -> str:
         return (
-            f"{self.modulation if self.modulation else str_placeholder}, "
-            + f"{self.wiresx if self.wiresx else str_placeholder}, "
-            + f"{self.room_id if self.room_id else str_placeholder}"
+            f"{self.modulation if self.modulation else PLACEHOLDER_STR}, "
+            + f"{self.wiresx if self.wiresx else PLACEHOLDER_STR}, "
+            + f"{self.room_id if self.room_id else PLACEHOLDER_STR}"
         )
 
 
@@ -252,7 +252,7 @@ class DimHolder(models.Model):
         verbose_name_plural = "info - holders"
 
     def __str__(self) -> str:
-        return f"{self.abrv}: {self.name if self.name else str_placeholder}"
+        return f"{self.abrv}: {self.name if self.name else PLACEHOLDER_STR}"
 
 
 class DimLocation(models.Model):
@@ -308,9 +308,9 @@ class DimLocation(models.Model):
         if self.latitude is not None and self.longitude is not None:
             coordinates_str = f" ({self.latitude}, {self.longitude})"
         return (
-            f"{self.region if self.region else str_placeholder}, "
-            + f"{self.place if self.place else str_placeholder}, "
-            + f"{self.qth_loc if self.qth_loc else str_placeholder}, "
+            f"{self.region if self.region else PLACEHOLDER_STR}, "
+            + f"{self.place if self.place else PLACEHOLDER_STR}, "
+            + f"{self.qth_loc if self.qth_loc else PLACEHOLDER_STR}, "
             + coordinates_str
         )
 
