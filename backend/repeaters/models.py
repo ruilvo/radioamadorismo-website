@@ -72,11 +72,13 @@ class DimFm(models.Model):
     Models enough information for describing FM repeaters.
     """
 
-    NFM = "NFM"
-    WFM = "WFM"
+    class BandwidthOptions:
+        NFM = "NFM"
+        WFM = "WFM"
+
     BANDWIDTH_CHOICES = (
-        (NFM, "narrow"),
-        (WFM, "wide"),
+        (BandwidthOptions.NFM, "narrow"),
+        (BandwidthOptions.WFM, "wide"),
     )
 
     modulation = models.CharField(max_length=32, blank=True, verbose_name="modulation")
@@ -84,7 +86,10 @@ class DimFm(models.Model):
         max_digits=32, decimal_places=16, blank=True, null=True, verbose_name="tone"
     )
     bandwidth = models.CharField(
-        max_length=64, verbose_name="bandwidth", choices=BANDWIDTH_CHOICES, default=NFM
+        max_length=64,
+        verbose_name="bandwidth",
+        choices=BANDWIDTH_CHOICES,
+        default=BandwidthOptions.NFM,
     )
 
     class Meta:
@@ -163,11 +168,13 @@ class DimDmrTg(models.Model):
     Models enough information for describing a DMR TG.
     """
 
-    GROUP_CALL = "GROUP_CALL"
-    PRIVATE_CALL = "PRIVATE_CALL"
+    class CallModeOptions:
+        GROUP_CALL = "GROUP_CALL"
+        PRIVATE_CALL = "PRIVATE_CALL"
+
     CALL_MODE_CHOICES = (
-        (GROUP_CALL, "Group Call"),
-        (PRIVATE_CALL, "Private Call"),
+        (CallModeOptions.GROUP_CALL, "Group Call"),
+        (CallModeOptions.PRIVATE_CALL, "Private Call"),
     )
 
     name = models.CharField(max_length=64, verbose_name="name")
@@ -176,7 +183,7 @@ class DimDmrTg(models.Model):
         max_length=64,
         verbose_name="call mode",
         choices=CALL_MODE_CHOICES,
-        default=GROUP_CALL,
+        default=CallModeOptions.GROUP_CALL,
     )
 
     class Meta:
@@ -250,15 +257,17 @@ class DimLocation(models.Model):
     Models enough information for describing a repeater's location.
     """
 
-    CONTINENT = "CPT"
-    AZORES = "AZR"
-    MADEIRA = "MDA"
-    OTHER = "OT"
+    class RegionOptions:
+        CONTINENT = "CPT"
+        AZORES = "AZR"
+        MADEIRA = "MDA"
+        OTHER = "OT"
+
     REGION_CHOICES = (
-        (CONTINENT, "Continental PT"),
-        (AZORES, "Azores"),
-        (MADEIRA, "Madeira"),
-        (OTHER, "other"),
+        (RegionOptions.CONTINENT, "Continental PT"),
+        (RegionOptions.AZORES, "Azores"),
+        (RegionOptions.MADEIRA, "Madeira"),
+        (RegionOptions.OTHER, "other"),
     )
 
     # In the future, update this to GeoDjango
@@ -274,7 +283,10 @@ class DimLocation(models.Model):
         verbose_name="longitude",
     )
     region = models.CharField(
-        max_length=64, verbose_name="region", choices=REGION_CHOICES, default=CONTINENT
+        max_length=64,
+        verbose_name="region",
+        choices=REGION_CHOICES,
+        default=RegionOptions.CONTINENT,
     )
     place = models.CharField(max_length=512, blank=True, verbose_name="place")
     qth_loc = models.CharField(max_length=32, blank=True, verbose_name="QTH loc.")
@@ -324,7 +336,10 @@ class FactRepeater(ComputedFieldsModel):
     notes = models.TextField(blank=True, verbose_name="notes")
     pwr_w = models.IntegerField(blank=True, null=True, verbose_name="pwr. (W)")
     status = models.CharField(
-        max_length=64, verbose_name="status", choices=STATUS_CHOICES, default=OTHER
+        max_length=64,
+        verbose_name="status",
+        choices=STATUS_CHOICES,
+        default=StatusOptions.OTHER,
     )
     sysop = models.CharField(max_length=32, blank=True, verbose_name="sysop")
 
