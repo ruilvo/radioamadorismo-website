@@ -437,6 +437,8 @@ class FactRepeater(ComputedFieldsModel):
         return self.is_half_duplex or self.is_simplex
 
     @computed(
+        # TODO(ruilvo): change this to a CharField with choices.
+        # Related: use the choices for the filter.
         models.CharField(max_length=64, blank=True, null=True, verbose_name="RF"),
         depends=[("self", ["info_simplex", "info_half_duplex"])],
     )
@@ -464,6 +466,7 @@ class FactRepeater(ComputedFieldsModel):
         return None
 
     @computed(
+        # TODO(ruilvo): create a filter for this.
         models.CharField(
             max_length=64,
             verbose_name="band",
@@ -525,6 +528,7 @@ class FactRepeater(ComputedFieldsModel):
         return self.is_fm or self.is_dstar or self.is_fusion or self.is_dmr
 
     @computed(
+        # TODO(ruilvo): Use the choices for the filter.
         models.CharField(max_length=64, blank=True, null=True, verbose_name="mode"),
         depends=[("self", ["info_fm", "info_dstar", "info_fusion", "info_dmr"])],
     )
