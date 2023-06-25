@@ -469,11 +469,15 @@ class FactRepeater(ComputedFieldsModel):
             verbose_name="band",
             choices=BAND_CHOICES,
             default=BandOptions.B_OTHER,
+            blank=True,
+            null=True,
         ),
         depends=[("self", ["info_simplex", "info_half_duplex"])],
     )
     def band(self) -> Optional[str]:
         def get_band_for_freq(f_mhz: float) -> Optional[str]:
+            if f_mhz is None:
+                return None
             if Band10m.min <= f_mhz <= Band10m.max:
                 return self.BandOptions.B_10M
             if Band6m.min <= f_mhz <= Band6m.max:
