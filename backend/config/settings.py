@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "crispy_bootstrap3",
     # Other
     "django_extensions",
+    "computedfields",
     # Local
     "users",
     "repeaters",
