@@ -305,17 +305,19 @@ class FactRepeater(ComputedFieldsModel):
     Models a repeater's full information.
     """
 
-    OFF = "OFF"
-    ON = "ON"
-    PROJECT = "PROJECT"
-    PROBLEMS = "PROBLEMS"
-    OTHER = "OT"
+    class StatusOptions:
+        OFF = "OFF"
+        ON = "ON"
+        PROJECT = "PROJECT"
+        PROBLEMS = "PROBLEMS"
+        OTHER = "OT"
+
     STATUS_CHOICES = (
-        (OFF, "off"),
-        (ON, "on"),
-        (PROJECT, "project"),
-        (PROBLEMS, "problems"),
-        (OTHER, "other"),
+        (StatusOptions.OFF, "off"),
+        (StatusOptions.ON, "on"),
+        (StatusOptions.PROJECT, "project"),
+        (StatusOptions.PROBLEMS, "problems"),
+        (StatusOptions.OTHER, "other"),
     )
 
     callsign = models.CharField(max_length=16, verbose_name="callsign")
