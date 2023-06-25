@@ -1,7 +1,7 @@
 """
 Module to generate the files part of the CSV export for the D878UVII+.
 
-On the Anytone D878UVII, names are limited to 16 chars.
+On the Anytone D878UVII+, names are limited to 16 chars.
 """
 
 import io
