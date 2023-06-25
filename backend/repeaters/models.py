@@ -353,6 +353,28 @@ class FactRepeater(ComputedFieldsModel):
         (BandOptions.B_OTHER, "other"),
     )
 
+    class ModeOptions:
+        FM = "fm"
+        DMR = "dmr"
+        DSTAR = "dstar"
+        FUSION = "fusion"
+
+    MODE_CHOICES = (
+        (ModeOptions.FM, "FM"),
+        (ModeOptions.DMR, "DMR"),
+        (ModeOptions.DSTAR, "D-Star"),
+        (ModeOptions.FUSION, "Fusion"),
+    )
+
+    class RfOptions:
+        HALF_DUPLEX = "HD"
+        SIMPLEX = "SX"
+
+    RF_CHOICES = (
+        (RfOptions.HALF_DUPLEX, "half-duplex"),
+        (RfOptions.SIMPLEX, "simplex"),
+    )
+
     callsign = models.CharField(max_length=16, verbose_name="callsign")
     notes = models.TextField(blank=True, verbose_name="notes")
     pwr_w = models.IntegerField(blank=True, null=True, verbose_name="pwr. (W)")
@@ -439,14 +461,21 @@ class FactRepeater(ComputedFieldsModel):
     @computed(
         # TODO(ruilvo): change this to a CharField with choices.
         # Related: use the choices for the filter.
-        models.CharField(max_length=64, blank=True, null=True, verbose_name="RF"),
+        models.CharField(
+            max_length=64,
+            blank=True,
+            null=True,
+            verbose_name="RF",
+            choices=RF_CHOICES,
+            default=None,
+        ),
         depends=[("self", ["info_simplex", "info_half_duplex"])],
     )
     def rf(self) -> Optional[str]:
         if self.is_simplex:
-            return "simplex"
+            return self.RfOptions.SIMPLEX
         if self.is_half_duplex:
-            return "half-duplex"
+            return self.RfOptions.HALF_DUPLEX
         return None
 
     @property
@@ -529,18 +558,25 @@ class FactRepeater(ComputedFieldsModel):
 
     @computed(
         # TODO(ruilvo): Use the choices for the filter.
-        models.CharField(max_length=64, blank=True, null=True, verbose_name="mode"),
+        models.CharField(
+            max_length=64,
+            blank=True,
+            null=True,
+            verbose_name="mode",
+            choices=MODE_CHOICES,
+            default=None,
+        ),
         depends=[("self", ["info_fm", "info_dstar", "info_fusion", "info_dmr"])],
     )
     def mode(self) -> Optional[str]:
         if self.is_fm:
-            return "fm"
+            return self.ModeOptions.FM
         if self.is_dstar:
-            return "dstar"
+            return self.ModeOptions.DSTAR
         if self.is_fusion:
-            return "fusion"
+            return self.ModeOptions.FUSION
         if self.is_dmr:
-            return "dmr"
+            return self.ModeOptions.DMR
         return None
 
     class Meta:
