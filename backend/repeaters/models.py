@@ -521,7 +521,7 @@ class FactRepeater(ComputedFieldsModel):
                 return self.BandOptions.B_70CM
             if Band23cm.min <= f_mhz <= Band23cm.max:
                 return self.BandOptions.B_23CM
-            return None
+            return self.BandOptions.B_OTHER
 
         tx_band = get_band_for_freq(self.tx_freq)
         rx_band = get_band_for_freq(self.rx_freq)
@@ -534,8 +534,8 @@ class FactRepeater(ComputedFieldsModel):
         if tx_band is not None and rx_band is not None:
             return self.BandOptions.B_X
 
-        # If either is None, return other.
-        return self.BandOptions.B_OTHER
+        # If either is None, return it.
+        return None
 
     @property
     def is_fm(self) -> bool:
