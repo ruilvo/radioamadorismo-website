@@ -6,6 +6,8 @@ from django.db import models
 
 from computedfields.models import ComputedFieldsModel, computed
 
+from repeaters.vendor.bands import Band23cm, Band70cm, Band2m, Band6m, Band10m
+
 str_placeholder = "-----"
 
 
@@ -332,6 +334,25 @@ class FactRepeater(ComputedFieldsModel):
         (StatusOptions.OTHER, "other"),
     )
 
+    class BandOptions:
+        B_10M = "10m"
+        B_6M = "6m"
+        B_2M = "2m"
+        B_70CM = "70cm"
+        B_23CM = "23cm"
+        B_X = "X"
+        B_OTHER = "OT"
+
+    BAND_CHOICES = (
+        (BandOptions.B_10M, "10m"),
+        (BandOptions.B_6M, "6m"),
+        (BandOptions.B_2M, "2m"),
+        (BandOptions.B_70CM, "70cm"),
+        (BandOptions.B_23CM, "23cm"),
+        (BandOptions.B_X, "cross-band"),
+        (BandOptions.B_OTHER, "other"),
+    )
+
     callsign = models.CharField(max_length=16, verbose_name="callsign")
     notes = models.TextField(blank=True, verbose_name="notes")
     pwr_w = models.IntegerField(blank=True, null=True, verbose_name="pwr. (W)")
@@ -441,6 +462,43 @@ class FactRepeater(ComputedFieldsModel):
         if self.is_half_duplex:
             return self.info_half_duplex.rx_mhz
         return None
+
+    @computed(
+        models.CharField(
+            max_length=64,
+            verbose_name="band",
+            choices=BAND_CHOICES,
+            default=BandOptions.B_OTHER,
+        ),
+        depends=[("self", ["info_simplex", "info_half_duplex"])],
+    )
+    def band(self) -> Optional[str]:
+        def get_band_for_freq(f_mhz: float) -> Optional[str]:
+            if Band10m.min <= f_mhz <= Band10m.max:
+                return self.BandOptions.B_10M
+            if Band6m.min <= f_mhz <= Band6m.max:
+                return self.BandOptions.B_6M
+            if Band2m.min <= f_mhz <= Band2m.max:
+                return self.BandOptions.B_2M
+            if Band70cm.min <= f_mhz <= Band70cm.max:
+                return self.BandOptions.B_70CM
+            if Band23cm.min <= f_mhz <= Band23cm.max:
+                return self.BandOptions.B_23CM
+            return None
+
+        tx_band = get_band_for_freq(self.tx_freq)
+        rx_band = get_band_for_freq(self.rx_freq)
+
+        # If the Tx and Rx bands are the same, return that band.
+        if tx_band == rx_band:
+            return tx_band
+
+        # If they are different, it's a cross-band repeater.
+        if tx_band is not None and rx_band is not None:
+            return self.BandOptions.B_X
+
+        # If either is None, return other.
+        return self.BandOptions.B_OTHER
 
     @property
     def is_fm(self) -> bool:
