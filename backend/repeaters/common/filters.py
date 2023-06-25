@@ -3,6 +3,8 @@ from functools import reduce
 
 from django.db.models import Q
 
+from repeaters.models import FactRepeater
+
 automatic_fields = {
     # FactRepeater
     "callsign": ["iexact", "icontains"],
@@ -75,7 +77,13 @@ def holder_search(queryset, name, value):
 def mode_search(queryset, name, value):
     modes = re.findall(r"[\w]+", value)
     queryset_filter = Q()
-    for mode in {mode.lower() for mode in modes} & {"fm", "dstar", "fusion", "dmr"}:
+    allowed_modes = {
+        FactRepeater.ModeOptions.FM,
+        FactRepeater.ModeOptions.DSTAR,
+        FactRepeater.ModeOptions.FUSION,
+        FactRepeater.ModeOptions.DMR,
+    }
+    for mode in {mode.lower() for mode in modes} & allowed_modes:
         queryset_filter |= Q(mode=mode)
     return queryset.filter(queryset_filter)
 
