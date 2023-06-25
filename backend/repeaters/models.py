@@ -1,5 +1,7 @@
 import decimal
 
+from typing import Optional
+
 from django.db import models
 
 str_placeholder = "-----"
@@ -381,6 +383,26 @@ class FactRepeater(models.Model):
         null=True,
         verbose_name="info - location",
     )
+
+    @property
+    def is_simplex(self) -> bool:
+        return self.info_simplex is not None
+
+    @property
+    def is_half_duplex(self) -> bool:
+        return self.info_half_duplex is not None
+
+    @property
+    def has_rf(self) -> bool:
+        return self.is_half_duplex or self.is_simplex
+
+    @property
+    def rf(self) -> Optional[str]:
+        if self.is_simplex:
+            return "simplex"
+        if self.is_half_duplex:
+            return "half-duplex"
+        return None
 
     class Meta:
         verbose_name = "repeater"

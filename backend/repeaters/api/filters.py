@@ -19,8 +19,10 @@ class FactRepeaterFilter(FilterSet):
     modulation = filters.CharFilter(label="Modulation", method=modulation_search)
     holder = filters.CharFilter(label="Holder", method=holder_search)
 
-    mode = filters.CharFilter(label="Modes (,-separated)", method=mode_search)
-    rf = filters.CharFilter(label="RF (simplex/half-duplex)", method=rf_search)
+    mode = filters.CharFilter(label="Modes, ','-separated)", method=mode_search)
+    rf = filters.CharFilter(
+        label="RF (simplex/half-duplex), ','-separated", method=rf_search
+    )
 
     freq_mhz = filters.NumberFilter(label="Frequency (MHz)", method=freq_mhz_search)
     freq_mhz__gte = filters.NumberFilter(
