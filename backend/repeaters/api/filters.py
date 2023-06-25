@@ -11,6 +11,7 @@ from repeaters.common.filters import (
     freq_mhz_search__gte,
     freq_mhz_search__lte,
     region_search,
+    band_seach,
 )
 
 SIMPLEX_KEY = FactRepeater.RfOptions.SIMPLEX
@@ -38,6 +39,8 @@ class FactRepeaterFilter(FilterSet):
     )
 
     region = filters.CharFilter(label="Region (,-separated)", method=region_search)
+
+    band = filters.CharFilter(label="Band (,-separated)", method=band_seach)
 
     class Meta:
         model = FactRepeater

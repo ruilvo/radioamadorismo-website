@@ -131,3 +131,11 @@ def region_search(queryset, name, value):
         reduce(lambda x, y: x | y, [Q(info_location__region=r) for r in regions])
     )
     return queryset_filtered
+
+
+def band_seach(queryset, name, value):
+    band = re.findall(r"[\w]+", value)
+    queryset_filtered = queryset.filter(
+        reduce(lambda x, y: x | y, [Q(band__icontains=b) for b in band])
+    )
+    return queryset_filtered
