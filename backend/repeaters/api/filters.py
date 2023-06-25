@@ -13,6 +13,9 @@ from repeaters.common.filters import (
     region_search,
 )
 
+SIMPLEX_KEY = FactRepeater.RfOptions.SIMPLEX
+HALF_DUPLEX_KEY = FactRepeater.RfOptions.HALF_DUPLEX
+
 
 class FactRepeaterFilter(FilterSet):
     # https://stackoverflow.com/a/62878113/5168563
@@ -21,7 +24,8 @@ class FactRepeaterFilter(FilterSet):
 
     modes = filters.CharFilter(label="Modes, ','-separated)", method=modes_search)
     rf = filters.CharFilter(
-        label="RF (simplex/half-duplex), ','-separated", method=rf_search
+        label=f"RF (simplex[{SIMPLEX_KEY}]/half-duplex[{HALF_DUPLEX_KEY}]), ','-separated",
+        method=rf_search,
     )
 
     freq_mhz = filters.NumberFilter(label="Frequency (MHz)", method=freq_mhz_search)

@@ -90,8 +90,8 @@ def rf_search(queryset, name, value):
     modes = re.findall(r"(?:\b\w+-\w+\b|\b\w+\b)", value)
     queryset_filter = Q()
     modes_to_consider = {mode.lower() for mode in modes} & {
-        "half-duplex",
-        "simplex",
+        FactRepeater.RfOptions.HALF_DUPLEX,
+        FactRepeater.RfOptions.SIMPLEX,
     }
     for mode in modes_to_consider:
         queryset_filter |= Q(rf=mode)
