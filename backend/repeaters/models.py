@@ -4,6 +4,8 @@ from typing import Optional
 
 from django.db import models
 
+from computedfields.models import ComputedFieldsModel, computed
+
 str_placeholder = "-----"
 
 
@@ -298,7 +300,7 @@ class DimLocation(models.Model):
         )
 
 
-class FactRepeater(models.Model):
+class FactRepeater(ComputedFieldsModel):
     """
     Models a repeater's full information.
     """
@@ -396,7 +398,10 @@ class FactRepeater(models.Model):
     def has_rf(self) -> bool:
         return self.is_half_duplex or self.is_simplex
 
-    @property
+    @computed(
+        models.CharField(max_length=50, blank=True, null=True, verbose_name="RF"),
+        depends=[("self", ["info_simplex", "info_half_duplex"])],
+    )
     def rf(self) -> Optional[str]:
         if self.is_simplex:
             return "simplex"

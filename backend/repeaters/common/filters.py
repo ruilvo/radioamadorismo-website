@@ -85,7 +85,7 @@ def rf_search(queryset, name, value):
     queryset_filter = Q()
     modes_to_consider = set(modes) & {"half-duplex", "simplex"}
     for mode in modes_to_consider:
-        queryset_filter |= Q(**{f"is_{mode.replace('-', '_')}": True})
+        queryset_filter |= Q(rf=mode)
     return queryset.filter(queryset_filter)
 
 
