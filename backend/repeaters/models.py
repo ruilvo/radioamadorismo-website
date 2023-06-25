@@ -15,13 +15,13 @@ class DimHalfDuplex(models.Model):
     """
 
     tx_mhz = models.DecimalField(
-        max_digits=20, decimal_places=10, verbose_name="tx (MHz)"
+        max_digits=32, decimal_places=16, verbose_name="tx (MHz)"
     )
     rx_mhz = models.DecimalField(
-        max_digits=20, decimal_places=10, verbose_name="rx (MHz)"
+        max_digits=32, decimal_places=16, verbose_name="rx (MHz)"
     )
     channel = models.CharField(
-        max_length=20, blank=True, null=True, unique=True, verbose_name="channel"
+        max_length=32, blank=True, null=True, unique=True, verbose_name="channel"
     )
 
     class Meta:
@@ -50,10 +50,10 @@ class DimSimplex(models.Model):
     """
 
     freq_mhz = models.DecimalField(
-        max_digits=20, decimal_places=10, unique=True, verbose_name="freq. (MHz)"
+        max_digits=32, decimal_places=16, unique=True, verbose_name="freq. (MHz)"
     )
     channel = models.CharField(
-        max_length=20, blank=True, null=True, unique=True, verbose_name="channel"
+        max_length=32, blank=True, null=True, unique=True, verbose_name="channel"
     )
 
     class Meta:
@@ -79,12 +79,12 @@ class DimFm(models.Model):
         (WFM, "wide"),
     )
 
-    modulation = models.CharField(max_length=20, blank=True, verbose_name="modulation")
+    modulation = models.CharField(max_length=32, blank=True, verbose_name="modulation")
     tone = models.DecimalField(
-        max_digits=20, decimal_places=10, blank=True, null=True, verbose_name="tone"
+        max_digits=32, decimal_places=16, blank=True, null=True, verbose_name="tone"
     )
     bandwidth = models.CharField(
-        max_length=50, verbose_name="bandwidth", choices=BANDWIDTH_CHOICES, default=NFM
+        max_length=64, verbose_name="bandwidth", choices=BANDWIDTH_CHOICES, default=NFM
     )
 
     class Meta:
@@ -109,9 +109,9 @@ class DimDStar(models.Model):
     Models enough information for describing D-STAR repeaters.
     """
 
-    modulation = models.CharField(max_length=20, blank=True, verbose_name="modulation")
-    gateway = models.CharField(max_length=20, blank=True, verbose_name="gateway")
-    reflector = models.CharField(max_length=50, blank=True, verbose_name="reflector")
+    modulation = models.CharField(max_length=32, blank=True, verbose_name="modulation")
+    gateway = models.CharField(max_length=32, blank=True, verbose_name="gateway")
+    reflector = models.CharField(max_length=64, blank=True, verbose_name="reflector")
 
     class Meta:
         verbose_name = "info - D-STAR"
@@ -136,9 +136,9 @@ class DimFusion(models.Model):
     Models enough information for describing Fusion/C4FM repeaters.
     """
 
-    modulation = models.CharField(max_length=20, blank=True, verbose_name="modulation")
-    wiresx = models.CharField(max_length=20, blank=True, verbose_name="wiresx")
-    room_id = models.CharField(max_length=20, blank=True, verbose_name="room ID")
+    modulation = models.CharField(max_length=32, blank=True, verbose_name="modulation")
+    wiresx = models.CharField(max_length=32, blank=True, verbose_name="wiresx")
+    room_id = models.CharField(max_length=32, blank=True, verbose_name="room ID")
 
     class Meta:
         verbose_name = "info - Fusion/C4FM"
@@ -170,10 +170,10 @@ class DimDmrTg(models.Model):
         (PRIVATE_CALL, "Private Call"),
     )
 
-    name = models.CharField(max_length=50, verbose_name="name")
+    name = models.CharField(max_length=64, verbose_name="name")
     id = models.IntegerField(unique=True, verbose_name="DMR ID", primary_key=True)
     call_mode = models.CharField(
-        max_length=50,
+        max_length=64,
         verbose_name="call mode",
         choices=CALL_MODE_CHOICES,
         default=GROUP_CALL,
@@ -192,7 +192,7 @@ class DimDmr(models.Model):
     Models enough information for describing DMR repeaters.
     """
 
-    modulation = models.CharField(max_length=20, blank=True, verbose_name="modulation")
+    modulation = models.CharField(max_length=32, blank=True, verbose_name="modulation")
     id = models.IntegerField(unique=True, verbose_name="DMR ID", primary_key=True)
     color_code = models.IntegerField(verbose_name="C.C.")
     ts1_default_tg = models.ForeignKey(
@@ -234,8 +234,8 @@ class DimHolder(models.Model):
     Models enough information for describing the holder of a repeater.
     """
 
-    abrv = models.CharField(max_length=10, verbose_name="abrv.", unique=True)
-    name = models.CharField(max_length=500, blank=True, verbose_name="name")
+    abrv = models.CharField(max_length=16, verbose_name="abrv.", unique=True)
+    name = models.CharField(max_length=512, blank=True, verbose_name="name")
 
     class Meta:
         verbose_name = "info - holder"
@@ -264,20 +264,20 @@ class DimLocation(models.Model):
     # In the future, update this to GeoDjango
     # https://docs.djangoproject.com/en/3.2/ref/contrib/gis/
     latitude = models.DecimalField(
-        max_digits=20, decimal_places=10, blank=True, null=True, verbose_name="latitude"
+        max_digits=32, decimal_places=16, blank=True, null=True, verbose_name="latitude"
     )
     longitude = models.DecimalField(
-        max_digits=20,
-        decimal_places=10,
+        max_digits=32,
+        decimal_places=16,
         blank=True,
         null=True,
         verbose_name="longitude",
     )
     region = models.CharField(
-        max_length=50, verbose_name="region", choices=REGION_CHOICES, default=CONTINENT
+        max_length=64, verbose_name="region", choices=REGION_CHOICES, default=CONTINENT
     )
-    place = models.CharField(max_length=500, blank=True, verbose_name="place")
-    qth_loc = models.CharField(max_length=20, blank=True, verbose_name="QTH loc.")
+    place = models.CharField(max_length=512, blank=True, verbose_name="place")
+    qth_loc = models.CharField(max_length=32, blank=True, verbose_name="QTH loc.")
 
     class Meta:
         verbose_name = "info - location"
@@ -318,13 +318,13 @@ class FactRepeater(ComputedFieldsModel):
         (OTHER, "other"),
     )
 
-    callsign = models.CharField(max_length=10, verbose_name="callsign")
+    callsign = models.CharField(max_length=16, verbose_name="callsign")
     notes = models.TextField(blank=True, verbose_name="notes")
     pwr_w = models.IntegerField(blank=True, null=True, verbose_name="pwr. (W)")
     status = models.CharField(
-        max_length=50, verbose_name="status", choices=STATUS_CHOICES, default=OTHER
+        max_length=64, verbose_name="status", choices=STATUS_CHOICES, default=OTHER
     )
-    sysop = models.CharField(max_length=20, blank=True, verbose_name="sysop")
+    sysop = models.CharField(max_length=32, blank=True, verbose_name="sysop")
 
     # RF
     info_half_duplex = models.ForeignKey(
@@ -399,7 +399,7 @@ class FactRepeater(ComputedFieldsModel):
         return self.is_half_duplex or self.is_simplex
 
     @computed(
-        models.CharField(max_length=50, blank=True, null=True, verbose_name="RF"),
+        models.CharField(max_length=64, blank=True, null=True, verbose_name="RF"),
         depends=[("self", ["info_simplex", "info_half_duplex"])],
     )
     def rf(self) -> Optional[str]:
@@ -430,7 +430,7 @@ class FactRepeater(ComputedFieldsModel):
         return self.is_fm or self.is_dstar or self.is_fusion or self.is_dmr
 
     @computed(
-        models.CharField(max_length=50, blank=True, null=True, verbose_name="mode"),
+        models.CharField(max_length=64, blank=True, null=True, verbose_name="mode"),
         depends=[("self", ["info_fm", "info_dstar", "info_fusion", "info_dmr"])],
     )
     def mode(self) -> Optional[str]:
