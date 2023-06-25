@@ -1,0 +1,8134 @@
+[
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.4500000000",
+      "rx_mhz": "430.8500000000",
+      "channel": "RU676"
+    },
+
+    "info_dstar": {
+      "modulation": "6K00F7W",
+      "gateway": "CQ0DBA G",
+      "reflector": ""
+    },
+
+    "info_dmr": {
+      "ts1_alternative_tgs": [],
+      "ts2_alternative_tgs": [],
+      "modulation": "F7W",
+      "id": 268103,
+      "color_code": 1,
+      "ts_configuration": ""
+    },
+    "info_holder": {
+      "abrv": "ARBA",
+      "name": "Associação de Radioamadores da Beira Alta"
+    },
+    "info_location": {
+      "latitude": "41.2001111100",
+      "longitude": "-8.3903055560",
+      "region": "CPT",
+      "place": "Blatar - Paredes",
+      "qth_loc": "IN1te"
+    },
+    "callsign": "CQ0DBA",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OFF",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.5125000000",
+      "rx_mhz": "430.9125000000",
+      "channel": "RU681"
+    },
+
+    "info_dstar": {
+      "modulation": "6K00F7W",
+      "gateway": "CQ0DVI B",
+      "reflector": "XRF268 E"
+    },
+
+    "info_dmr": {
+      "ts1_alternative_tgs": [],
+      "ts2_alternative_tgs": [],
+      "modulation": "F7W",
+      "id": 268220,
+      "color_code": 1,
+      "ts_configuration": ""
+    },
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "40.6803055550",
+      "longitude": "-7.9243333330",
+      "region": "CPT",
+      "place": "Abreses - Viseu",
+      "qth_loc": "IN60aq"
+    },
+    "callsign": "CQ0DVI",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "ON",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.2125000000",
+      "rx_mhz": "430.6125000000",
+      "channel": "RU657"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "114.8000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_fusion": {
+      "modulation": "F7W",
+      "wiresx": "",
+      "room_id": ""
+    },
+
+    "info_holder": {
+      "abrv": "ARRLx",
+      "name": "Associação de Radioamadores da Região de Lisboa"
+    },
+    "info_location": {
+      "latitude": "40.3219444400",
+      "longitude": "-7.6119444440",
+      "region": "CPT",
+      "place": "Torre - Serra da Estrela",
+      "qth_loc": "IN60eh"
+    },
+    "callsign": "CQ0DUE",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "ON",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.0,
+      "tx_mhz": "438.4125000000",
+      "rx_mhz": "438.4125000000",
+      "channel": "RU673"
+    },
+
+    "info_dmr": {
+      "ts1_default_tg": { "name": "Portugal", "id": 268 },
+      "ts2_default_tg": { "name": "Local", "id": 2 },
+      "ts1_alternative_tgs": [
+        { "name": "Worldwide English", "id": 91 },
+        { "name": "Portugues", "id": 915 }
+      ],
+      "ts2_alternative_tgs": [{ "name": "Regional", "id": 8 }],
+      "modulation": "F7W",
+      "id": 268202,
+      "color_code": 1,
+      "ts_configuration": "Slot 1 estático: 268. 91. 915\r\nSlot 2 estático: 2. 8\r\nLocal 2: (2->)268202\r\nRegional: (8->)268904"
+    },
+    "info_holder": {
+      "abrv": "ARC",
+      "name": "Associação de Radioamadores de Coimbra"
+    },
+    "info_location": {
+      "latitude": "40.2000000000",
+      "longitude": "-8.4455555560",
+      "region": "CPT",
+      "place": "Santa Clara - Coimbra",
+      "qth_loc": "IN50se"
+    },
+    "callsign": "CQ0DCO",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "ON",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.8500000000",
+      "rx_mhz": "431.2500000000",
+      "channel": "RU708"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "131.8000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_fusion": {
+      "modulation": "F7W",
+      "wiresx": "",
+      "room_id": ""
+    },
+
+    "info_holder": {
+      "abrv": "NRC",
+      "name": "Núcleo de Radioamadores de Coimbra"
+    },
+    "info_location": {
+      "latitude": "40.0894444400",
+      "longitude": "-8.1783333330",
+      "region": "CPT",
+      "place": "Alto do Trevim - Serra da Lousã",
+      "qth_loc": "IN50vc"
+    },
+    "callsign": "CQ0ULO",
+    "notes": "",
+    "pwr_w": 60,
+    "status": "ON",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.2000000000",
+      "rx_mhz": "430.6000000000",
+      "channel": "RU656"
+    },
+
+    "info_dmr": {
+      "ts1_default_tg": { "name": "Portugal", "id": 268 },
+
+      "ts1_alternative_tgs": [
+        { "name": "Worldwide English", "id": 91 },
+        { "name": "Portugues", "id": 915 }
+      ],
+      "ts2_alternative_tgs": [],
+      "modulation": "F7W",
+      "id": 268208,
+      "color_code": 1,
+      "ts_configuration": "Slot 1 estático: 268. 91. 915"
+    },
+    "info_holder": {
+      "abrv": "ARAL",
+      "name": "Associação de Radioamadores do Distrito de Leiria"
+    },
+    "info_location": {
+      "latitude": "39.6719444400",
+      "longitude": "-8.7580555560",
+      "region": "CPT",
+      "place": "Alburitel - Ourém",
+      "qth_loc": "IM59rp"
+    },
+    "callsign": "CQ0DAL",
+    "notes": "",
+
+    "status": "ON",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.2750000000",
+      "rx_mhz": "430.6750000000",
+      "channel": "RU662"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "131.8000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_fusion": {
+      "modulation": "F7W",
+      "wiresx": "",
+      "room_id": ""
+    },
+
+    "info_holder": {
+      "abrv": "CRE",
+      "name": "Clube de Radioamadores do Entroncamento"
+    },
+    "info_location": {
+      "latitude": "39.5359277800",
+      "longitude": "-8.6364111110",
+      "region": "CPT",
+      "place": "Serra D´Aire",
+      "qth_loc": "IM59qm"
+    },
+    "callsign": "CQ0DUAI",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "ON",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.7500000000",
+      "rx_mhz": "431.1500000000",
+      "channel": "RU700"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "67.0000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_fusion": {
+      "modulation": "F7W",
+      "wiresx": "",
+      "room_id": ""
+    },
+
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "39.3127777800",
+      "longitude": "-7.3586111110",
+      "region": "CPT",
+      "place": "Serra de São Mamede",
+      "qth_loc": "IM69hh"
+    },
+    "callsign": "CQ0USMA",
+    "notes": "",
+    "pwr_w": 40,
+    "status": "ON",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.2125000000",
+      "rx_mhz": "430.6125000000",
+      "channel": "RU657"
+    },
+
+    "info_dmr": {
+      "ts1_default_tg": { "name": "Portugal", "id": 268 },
+      "ts2_default_tg": { "name": "Local", "id": 2 },
+      "ts1_alternative_tgs": [{ "name": "Portugues", "id": 915 }],
+      "ts2_alternative_tgs": [],
+      "modulation": "F7W",
+      "id": 268408,
+      "color_code": 1,
+      "ts_configuration": "Slot 1 estático: 268915\r\nSlot 2 estático: 2\r\nLocal 2: (2->)268408"
+    },
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "39.3126388900",
+      "longitude": "-7.3585333330",
+      "region": "CPT",
+      "place": "Serra de São Mamede",
+      "qth_loc": "IM69hh"
+    },
+    "callsign": "CQ0DPG",
+    "notes": "",
+
+    "status": "ON",
+    "sysop": ""
+  },
+  {
+    "info_simplex": {
+      "freq_mhz": "433.9000000000",
+      "channel": null
+    },
+
+    "info_holder": {
+      "abrv": "ARADO",
+      "name": "Associação de Radioamadores do Oeste"
+    },
+    "info_location": {
+      "latitude": "39.0210000000",
+      "longitude": "-9.2080000000",
+      "region": "CPT",
+      "place": "Serra do Socorro",
+      "qth_loc": "IM59ja"
+    },
+    "callsign": "CQ0ESSO",
+    "notes": "DMO TETRA\r\nCQ0ESSO.PT\r\nMCC: 901\r\nMNC: 16383\r\nGSSI: 1",
+    "pwr_w": 10,
+    "status": "ON",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.5000000000",
+      "rx_mhz": "430.9000000000",
+      "channel": "RU680"
+    },
+
+    "info_dstar": {
+      "modulation": "6K00F7W",
+      "gateway": "CQ0DLX G",
+      "reflector": ""
+    },
+
+    "info_dmr": {
+      "ts1_alternative_tgs": [],
+      "ts2_alternative_tgs": [],
+      "modulation": "F7W",
+      "id": 268304,
+      "color_code": 1,
+      "ts_configuration": ""
+    },
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "38.8127416700",
+      "longitude": "-9.1981805560",
+      "region": "CPT",
+      "place": "Odivelas",
+      "qth_loc": "IM58jt"
+    },
+    "callsign": "CQ0DLX",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.6250000000",
+      "rx_mhz": "431.0250000000",
+      "channel": null
+    },
+
+    "info_dmr": {
+      "ts1_default_tg": { "name": "Portugal", "id": 268 },
+      "ts2_default_tg": { "name": "Local", "id": 2 },
+      "ts1_alternative_tgs": [
+        { "name": "Worldwide English", "id": 91 },
+        { "name": "Portugues", "id": 915 }
+      ],
+      "ts2_alternative_tgs": [],
+      "modulation": "F7W",
+      "id": 268330,
+      "color_code": 1,
+      "ts_configuration": "Slot 1 estático: 268. 91. 915\r\nSlot 2 estático: 2\r\nLocal 2: (2->)268330"
+    },
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "38.7766666700",
+      "longitude": "-9.2956666670",
+      "region": "CPT",
+      "place": "Agualva - Cacém",
+      "qth_loc": "IM58is"
+    },
+    "callsign": "CQ0DAC",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.5500000000",
+      "rx_mhz": "430.9500000000",
+      "channel": "RU684"
+    },
+
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "38.7710000000",
+      "longitude": "-9.2920000000",
+      "region": "CPT",
+      "place": "Massamá Norte - Sintra",
+      "qth_loc": "IM58is"
+    },
+    "callsign": "CQ0DBE",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_simplex": {
+      "freq_mhz": "433.8750000000",
+      "channel": null
+    },
+
+    "info_holder": {
+      "abrv": "ARLC",
+      "name": "Associação de Radioamadores da Linha de Cascais"
+    },
+    "info_location": {
+      "latitude": "38.7710000000",
+      "longitude": "-9.4580000000",
+      "region": "CPT",
+      "place": "Cascais",
+      "qth_loc": "IM58gs"
+    },
+    "callsign": "CQ0ECSC",
+    "notes": "DMO.TETRA\r\n\r\nMCC: 288\r\nMNC: 3\r\nTG: 268905",
+    "pwr_w": 10,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.2250000000",
+      "rx_mhz": "430.6250000000",
+      "channel": "RU658"
+    },
+
+    "info_dstar": {
+      "modulation": "6K00F7W",
+      "gateway": "CQ0DSI G",
+      "reflector": ""
+    },
+
+    "info_dmr": {
+      "ts1_alternative_tgs": [],
+      "ts2_alternative_tgs": [],
+      "modulation": "F7W",
+      "id": 268204,
+      "color_code": 1,
+      "ts_configuration": ""
+    },
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "38.7708333300",
+      "longitude": "-9.2916666670",
+      "region": "CPT",
+      "place": "Belas - Sintra",
+      "qth_loc": "IM58is"
+    },
+    "callsign": "CQ0DSI",
+    "notes": "",
+
+    "status": "ON",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.2375000000",
+      "rx_mhz": "430.6375000000",
+      "channel": "RU659"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "74.4000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_fusion": {
+      "modulation": "F7W",
+      "wiresx": "",
+      "room_id": ""
+    },
+
+    "info_holder": {
+      "abrv": "ARRLx",
+      "name": "Associação de Radioamadores da Região de Lisboa"
+    },
+    "info_location": {
+      "latitude": "38.7413888900",
+      "longitude": "-9.1380555560",
+      "region": "CPT",
+      "place": "Areeiro - Lisboa",
+      "qth_loc": "IM58kr"
+    },
+    "callsign": "CQ0DRLX",
+    "notes": "FM.Fusion/C4FM",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.7250000000",
+      "rx_mhz": "431.1250000000",
+      "channel": "RU698"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "74.4000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_dmr": {
+      "ts1_default_tg": { "name": "Portugal", "id": 268 },
+      "ts2_default_tg": { "name": "Local", "id": 2 },
+      "ts1_alternative_tgs": [
+        { "name": "Worldwide English", "id": 91 },
+        { "name": "Portugues", "id": 915 }
+      ],
+      "ts2_alternative_tgs": [],
+      "modulation": "F7W",
+      "id": 268301,
+      "color_code": 1,
+      "ts_configuration": "Slot 1 estático: 268. 91. 915\r\nSlot 2 estático: 2\r\nLocal 2: (2->)268301"
+    },
+    "info_holder": {
+      "abrv": "ARLC",
+      "name": "Associação de Radioamadores da Linha de Cascais"
+    },
+    "info_location": {
+      "latitude": "38.7302777800",
+      "longitude": "-9.4090277780",
+      "region": "CPT",
+      "place": "Alcabideche - Cascais",
+      "qth_loc": "IM58hr"
+    },
+    "callsign": "CQ0UCSC",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_simplex": {
+      "freq_mhz": "433.9250000000",
+      "channel": null
+    },
+
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "38.7251666700",
+      "longitude": "-9.1275000000",
+      "region": "CPT",
+      "place": "Lisboa",
+      "qth_loc": "IM58kr"
+    },
+    "callsign": "CQ0EHDC",
+    "notes": "DMO.TETRA",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.4500000000",
+      "rx_mhz": "430.8500000000",
+      "channel": "RU676"
+    },
+
+    "info_dmr": {
+      "ts1_alternative_tgs": [],
+      "ts2_alternative_tgs": [],
+      "modulation": "F7W",
+      "id": 268501,
+      "color_code": 1,
+      "ts_configuration": ""
+    },
+    "info_holder": {
+      "abrv": "ARRLx",
+      "name": "Associação de Radioamadores da Região de Lisboa"
+    },
+    "info_location": {
+      "latitude": "37.1883333300",
+      "longitude": "-7.4127777780",
+      "region": "CPT",
+      "place": "Vila Real de SantoAntónio",
+      "qth_loc": "IM67he"
+    },
+    "callsign": "CQ0DVA",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "ON",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.2000000000",
+      "rx_mhz": "430.6000000000",
+      "channel": "RU656"
+    },
+
+    "info_dstar": {
+      "modulation": "6K00F7W",
+      "gateway": "",
+      "reflector": "XRF268 E"
+    },
+
+    "info_dmr": {
+      "ts2_default_tg": { "name": "Local", "id": 2 },
+      "ts1_alternative_tgs": [],
+      "ts2_alternative_tgs": [],
+      "modulation": "F7W",
+      "id": 268306,
+      "color_code": 2,
+      "ts_configuration": "Slot 2 estático: 2\r\nLocal 2: (2->)268306"
+    },
+    "info_holder": {
+      "abrv": "ARRLx",
+      "name": "Associação de Radioamadores da Região de Lisboa"
+    },
+    "info_location": {
+      "latitude": "38.7302777800",
+      "longitude": "-9.1302777780",
+      "region": "CPT",
+      "place": "Penha de França - Lisboa",
+      "qth_loc": "IM58kr"
+    },
+    "callsign": "CQ0DPF",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.8500000000",
+      "rx_mhz": "431.2500000000",
+      "channel": "RU708"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "131.8000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_dmr": {
+      "ts1_default_tg": { "name": "Portugal", "id": 268 },
+      "ts2_default_tg": { "name": "Local", "id": 2 },
+      "ts1_alternative_tgs": [
+        { "name": "Worldwide English", "id": 91 },
+        { "name": "Portugues", "id": 915 }
+      ],
+      "ts2_alternative_tgs": [],
+      "modulation": "F7W",
+      "id": 268504,
+      "color_code": 1,
+      "ts_configuration": "Slot 1 estático: 268. 91. 915\r\nSlot 2 estático: 2\r\nLocal 2: (2->)268504"
+    },
+    "info_holder": {
+      "abrv": "RCL",
+      "name": "Radioamador Clube de Loulé"
+    },
+    "info_location": {
+      "latitude": "37.1016666700",
+      "longitude": "-7.8305555560",
+      "region": "CPT",
+      "place": "Cerro de São Miguel - Olhão",
+      "qth_loc": "IM67CC"
+    },
+    "callsign": "CQ0UML",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.2000000000",
+      "rx_mhz": "430.6000000000",
+      "channel": "RU656"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "88.5000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_dmr": {
+      "ts1_default_tg": { "name": "Portugal", "id": 268 },
+      "ts2_default_tg": { "name": "Ilhas Azores", "id": 2686 },
+      "ts1_alternative_tgs": [
+        { "name": "Worldwide English", "id": 91 },
+        { "name": "Portugues", "id": 915 }
+      ],
+      "ts2_alternative_tgs": [],
+      "modulation": "F7W",
+      "id": 268602,
+      "color_code": 1,
+      "ts_configuration": "Slot 1 estático: 268.91.915\r\nSlot 2 estático: 2686"
+    },
+    "info_holder": {
+      "abrv": "ARA",
+      "name": "Associação de Radioamadores dos Açores"
+    },
+    "info_location": {
+      "latitude": "37.7616361100",
+      "longitude": "-25.4931861100",
+      "region": "AZR",
+      "place": "Pico da Barrosa - São Miguel",
+      "qth_loc": "HM77gs"
+    },
+    "callsign": "CQ1UB",
+    "notes": "",
+
+    "status": "ON",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "51.9900000000",
+      "rx_mhz": "51.3900000000",
+      "channel": "RF99"
+    },
+
+    "info_fm": {
+      "modulation": "14K0F3E",
+      "tone": "74.4000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "38.8978416700",
+      "longitude": "-9.1930722220",
+      "region": "CPT",
+      "place": "Cabeço de Montachique - Loures",
+      "qth_loc": "IM58jv"
+    },
+    "callsign": "CQ0FMC",
+    "notes": "",
+    "pwr_w": 20,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.7500000000",
+      "rx_mhz": "145.1500000000",
+      "channel": "RV60"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "114.8000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARBA",
+      "name": "Associação de Radioamadores da Beira Alta"
+    },
+    "info_location": {
+      "longitude": "-7.3858027780",
+      "region": "CPT",
+      "place": "Celorico da Beira",
+      "qth_loc": "IN60ho"
+    },
+    "callsign": "CQ0VCE",
+    "notes": "",
+    "pwr_w": 40,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.7750000000",
+      "rx_mhz": "145.1750000000",
+      "channel": "RV62"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "74.4000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARAS",
+      "name": "Associação de Radioamadores de Amadora-Sintra"
+    },
+    "info_location": {
+      "longitude": "-9.2418833330",
+      "region": "CPT",
+      "place": "Amadora -Sintra",
+      "qth_loc": "IM58js"
+    },
+    "callsign": "CQ0VAM",
+    "notes": "",
+    "pwr_w": 20,
+    "status": "ON",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.7375000000",
+      "rx_mhz": "145.1375000000",
+      "channel": "RV59"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "67.0000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARBA",
+      "name": "Associação de Radioamadores da Beira Alta"
+    },
+    "info_location": {
+      "latitude": "41.8137666700",
+      "longitude": "-8.1957277780",
+      "region": "CPT",
+      "place": "Serra Amarela - viana do Castelo",
+      "qth_loc": "IN51vt"
+    },
+    "callsign": "CQ0VMU",
+    "notes": "",
+    "pwr_w": 40,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.6250000000",
+      "rx_mhz": "145.0250000000",
+      "channel": "RV50"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "123.0000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARAM",
+      "name": "Associação de Radioamadores do Alto Minho"
+    },
+    "info_location": {
+      "latitude": "41.8041700000",
+      "longitude": "-8.6938890000",
+      "region": "CPT",
+      "place": "Serra de Arga - Viana do Castelo",
+      "qth_loc": "IN51pt"
+    },
+    "callsign": "CQ0VSA",
+    "notes": "",
+    "pwr_w": 40,
+    "status": "ON",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.6750000000",
+      "rx_mhz": "145.0750000000",
+      "channel": "RV54"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "123.0000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARAT",
+      "name": "Associação de Radioamadores do Alto Tâmega"
+    },
+    "info_location": {
+      "latitude": "41.5613900000",
+      "longitude": "-7.5169440000",
+      "region": "CPT",
+      "place": "Serra da Padrela - Valpaços",
+      "qth_loc": "IN61fn"
+    },
+    "callsign": "CQ0VPD",
+    "notes": "",
+    "pwr_w": 34,
+    "status": "ON",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.6500000000",
+      "rx_mhz": "145.0500000000",
+      "channel": "RV52"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "123.0000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARBA",
+      "name": "Associação de Radioamadores da Beira Alta"
+    },
+    "info_location": {
+      "latitude": "41.2483300000",
+      "longitude": "-7.8863890000",
+      "region": "CPT",
+      "place": "Serra do Marão",
+      "qth_loc": "IN61bf"
+    },
+    "callsign": "CQ0VMA",
+    "notes": "",
+    "pwr_w": 40,
+    "status": "ON",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.7625000000",
+      "rx_mhz": "145.1625000000",
+      "channel": "RV61"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "131.8000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARBA",
+      "name": "Associação de Radioamadores da Beira Alta"
+    },
+    "info_location": {
+      "latitude": "41.2002800000",
+      "longitude": "-8.3902780000",
+      "region": "CPT",
+      "place": "Baltar - Paredes",
+      "qth_loc": "IN51te"
+    },
+    "callsign": "CQ0VBA",
+    "notes": "",
+    "pwr_w": 45,
+    "status": "OFF",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.6875000000",
+      "rx_mhz": "145.0875000000",
+      "channel": "RV55"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "123.0000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARBA",
+      "name": "Associação de Radioamadores da Beira Alta"
+    },
+    "info_location": {
+      "latitude": "40.8100000000",
+      "longitude": "-7.8397220000",
+      "region": "CPT",
+      "place": "Serra de Côta - Viseu",
+      "qth_loc": "IN60bt"
+    },
+    "callsign": "CQ0VCO",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.7250000000",
+      "rx_mhz": "145.1250000000",
+      "channel": "RV58"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "114.8000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARBA",
+      "name": "Associação de Radioamadores da Beira Alta"
+    },
+    "info_location": {
+      "latitude": "40.7822200000",
+      "longitude": "-8.3569440000",
+      "region": "CPT",
+      "place": "Serra do Arestal - Aveiro",
+      "qth_loc": "IN50ts"
+    },
+    "callsign": "CQ0VAR",
+    "notes": "",
+    "pwr_w": 40,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.6000000000",
+      "rx_mhz": "145.0000000000",
+      "channel": "RV48"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "114.8000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARBA",
+      "name": "Associação de Radioamadores da Beira Alta"
+    },
+    "info_location": {
+      "latitude": "40.3213900000",
+      "longitude": "-7.6144440000",
+      "region": "CPT",
+      "place": "Torre - Serra da Estrela",
+      "qth_loc": "IN60eh"
+    },
+    "callsign": "CQ0VSE",
+    "notes": "",
+    "pwr_w": 40,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.7750000000",
+      "rx_mhz": "145.1750000000",
+      "channel": "RV62"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "82.5000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "TRGM",
+      "name": "Tertúlia Radioamadorística Guglielmo Marconi"
+    },
+    "info_location": {
+      "latitude": "40.2466700000",
+      "longitude": "-8.3438890000",
+      "region": "CPT",
+      "place": "Serra do Roxo - Coimbra",
+      "qth_loc": "IN50tf"
+    },
+    "callsign": "CQ0VTM",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.6625000000",
+      "rx_mhz": "145.0625000000",
+      "channel": "RV53"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "82.5000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARCP",
+      "name": "Associação de Radioamadores da Costa de Prata"
+    },
+    "info_location": {
+      "latitude": "40.1919400000",
+      "longitude": "-8.8411110000",
+      "region": "CPT",
+      "place": "Serra da Brenha - Figueira da Foz",
+      "qth_loc": "IN50ne"
+    },
+    "callsign": "CQ0VCP",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.6375000000",
+      "rx_mhz": "145.0375000000",
+      "channel": "RV51"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "114.8000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARBB",
+      "name": "Associação de Radioamadores da Beira Baixa"
+    },
+    "info_location": {
+      "latitude": "40.0805600000",
+      "longitude": "-7.5255560000",
+      "region": "CPT",
+      "place": "Gardunha - Castelo branco",
+      "qth_loc": "IN60fb"
+    },
+    "callsign": "CQ0VG",
+    "notes": "",
+    "pwr_w": 40,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.6125000000",
+      "rx_mhz": "145.0125000000",
+      "channel": "RV49"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "74.4000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARAL",
+      "name": "Associação de Radioamadores do Distrito de Leiria"
+    },
+    "info_location": {
+      "latitude": "39.5494400000",
+      "longitude": "-8.8672220000",
+      "region": "CPT",
+      "place": "Serra dos Candeeiros",
+      "qth_loc": "IM59nn"
+    },
+    "callsign": "CQ0VCD",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "ON",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.6875000000",
+      "rx_mhz": "145.0875000000",
+      "channel": "RV55"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "74.4000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "CRE",
+      "name": "Clube de Radioamadores do Entroncamento"
+    },
+    "info_location": {
+      "latitude": "39.4813900000",
+      "longitude": "-8.4855560000",
+      "region": "CPT",
+      "place": "Entroncamento",
+      "qth_loc": "IM59sl"
+    },
+    "callsign": "CQ0VENT",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "ON",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.6625000000",
+      "rx_mhz": "145.0625000000",
+      "channel": "RV53"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "123.0000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "39.3127777800",
+      "longitude": "-7.3586111110",
+      "region": "CPT",
+      "place": "Serra de São Mamede",
+      "qth_loc": "IM69hh"
+    },
+    "callsign": "CQ0VSMA",
+    "notes": "",
+    "pwr_w": 20,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.7500000000",
+      "rx_mhz": "145.1500000000",
+      "channel": "RV60"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "74.4000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARR",
+      "name": "Associação de Radioamadores do Ribatejo"
+    },
+    "info_location": {
+      "latitude": "39.1747222200",
+      "longitude": "-9.0602777780",
+      "region": "CPT",
+      "place": "Serra de Montejunto",
+      "qth_loc": "IM59le"
+    },
+    "callsign": "CQ0VMO",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.6375000000",
+      "rx_mhz": "145.0375000000",
+      "channel": "RV51"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "74.4000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_location": {
+      "latitude": "39.0861111100",
+      "longitude": "-9.2761111110",
+      "region": "CPT",
+      "place": "Varatojo - Torres Vedras",
+      "qth_loc": "IM59ic"
+    },
+    "callsign": "CQ0VVAR",
+    "notes": "",
+    "pwr_w": 20,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.6625000000",
+      "rx_mhz": "145.0625000000",
+      "channel": "RV53"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "74.4000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "38.8128361100",
+      "longitude": "-9.1980750000",
+      "region": "CPT",
+      "place": "Serra da Amoreira - Loures",
+      "qth_loc": "IM58jt"
+    },
+    "callsign": "CQ0VEC",
+    "notes": "",
+    "pwr_w": 20,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.7125000000",
+      "rx_mhz": "145.1125000000",
+      "channel": "RV57"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "74.4000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "LARS",
+      "name": "Liga Amadores Rádio Sintra"
+    },
+    "info_location": {
+      "latitude": "38.7863888900",
+      "longitude": "-9.3852777780",
+      "region": "CPT",
+      "place": "Santa Eufémia - Sintra",
+      "qth_loc": "IM58hs"
+    },
+    "callsign": "CQ0VSI",
+    "notes": "",
+    "pwr_w": 30,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.6250000000",
+      "rx_mhz": "145.0250000000",
+      "channel": "RV50"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "74.4000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "38.7300000000",
+      "longitude": "-9.1894444440",
+      "region": "CPT",
+      "place": "Monsanto - Lisboa",
+      "qth_loc": "IM58jr"
+    },
+    "callsign": "CQ0VMST",
+    "notes": "",
+    "pwr_w": 10,
+    "status": "ON",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.6000000000",
+      "rx_mhz": "145.0000000000",
+      "channel": "RV48"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "74.4000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "38.7063888900",
+      "longitude": "-9.4330555560",
+      "region": "CPT",
+      "place": "Cascais",
+      "qth_loc": "IM58gq"
+    },
+    "callsign": "CQ0VCSC",
+    "notes": "",
+    "pwr_w": 5,
+    "status": "ON",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.7375000000",
+      "rx_mhz": "145.1375000000",
+      "channel": "RV59"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "74.4000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARLA",
+      "name": "Associação de Radioamadores do Litoral Alentejano"
+    },
+    "info_location": {
+      "latitude": "38.4925000000",
+      "longitude": "-8.9619444440",
+      "region": "CPT",
+      "place": "Serra da Arrábida - Setúbal",
+      "qth_loc": "IM48ml"
+    },
+    "callsign": "CQ0VARB",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.7000000000",
+      "rx_mhz": "145.1000000000",
+      "channel": "RV56"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "74.4000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARLA",
+      "name": "Associação de Radioamadores do Litoral Alentejano"
+    },
+    "info_location": {
+      "latitude": "37.9888888900",
+      "longitude": "-8.6919444440",
+      "region": "CPT",
+      "place": "Aldeia de Chãos - Santiago do Cacém",
+      "qth_loc": "IM57px"
+    },
+    "callsign": "CQ0VSTC",
+    "notes": "",
+    "pwr_w": 20,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.7500000000",
+      "rx_mhz": "145.1500000000",
+      "channel": "RV60"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "82.5000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "37.9358333300",
+      "longitude": "-7.5950000000",
+      "region": "CPT",
+      "place": "Alto da Forca - Serpa",
+      "qth_loc": "IM67ew"
+    },
+    "callsign": "CQ0VSP",
+    "notes": "",
+    "pwr_w": 40,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.6500000000",
+      "rx_mhz": "145.0500000000",
+      "channel": "RV52"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "82.5000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "RCL",
+      "name": "Radioamador Clube de Loulé"
+    },
+    "info_location": {
+      "latitude": "37.3150000000",
+      "longitude": "-8.5880555560",
+      "region": "CPT",
+      "place": "Fóia - Serra de Monchique",
+      "qth_loc": "IM57qh"
+    },
+    "callsign": "CQ0VFO",
+    "notes": "",
+    "pwr_w": 30,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.7625000000",
+      "rx_mhz": "145.1625000000",
+      "channel": "RV61"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "82.5000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "RCL",
+      "name": "Radioamador Clube de Loulé"
+    },
+    "info_location": {
+      "latitude": "37.3150000000",
+      "longitude": "-8.5880555560",
+      "region": "CPT",
+      "place": "Fóia - Serra de Monchique",
+      "qth_loc": "IM57qh"
+    },
+    "callsign": "CQ0VFD",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.5750000000",
+      "rx_mhz": "144.9750000000",
+      "channel": "RV46"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "82.5000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "RCL",
+      "name": "Radioamador Clube de Loulé"
+    },
+    "info_location": {
+      "latitude": "37.2438888900",
+      "longitude": "-7.7383333330",
+      "region": "CPT",
+      "place": "Alcaria do Cume - Tavira",
+      "qth_loc": "IM67df"
+    },
+    "callsign": "CQ0VTA",
+    "notes": "",
+    "pwr_w": 30,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.6500000000",
+      "rx_mhz": "145.0500000000",
+      "channel": "RV52"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "88.5000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "GRP",
+      "name": "Grupo de Radioamadores do Pico"
+    },
+    "info_location": {
+      "longitude": "-28.2342472200",
+      "region": "AZR",
+      "place": "Lages de Pico - Pico",
+      "qth_loc": "HM58vj"
+    },
+    "callsign": "CQ1VP",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.6000000000",
+      "rx_mhz": "145.0000000000",
+      "channel": "RV48"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "123.0000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "CRA",
+      "name": "Clube de Radioamadores dos Açores"
+    },
+    "info_location": {
+      "longitude": "-28.7134777800",
+      "region": "AZR",
+      "place": "Cabeço Gordo - Faial",
+      "qth_loc": "HM58pn"
+    },
+    "callsign": "CQ1VF",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.7250000000",
+      "rx_mhz": "145.1250000000",
+      "channel": "RV58"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "88.5000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "URA",
+      "name": "União dos Radioamadores dos Açores"
+    },
+    "info_location": {
+      "longitude": "-27.1140416700",
+      "region": "AZR",
+      "place": "Cume - Terceira",
+      "qth_loc": "HM68kr"
+    },
+    "callsign": "CQ1VCM",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.7000000000",
+      "rx_mhz": "145.1000000000",
+      "channel": "RV56"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "88.5000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "URA",
+      "name": "União dos Radioamadores dos Açores"
+    },
+    "info_location": {
+      "longitude": "-27.3187388900",
+      "region": "AZR",
+      "place": "Santa Bárbara - Terceira",
+      "qth_loc": "HM68ir"
+    },
+    "callsign": "CQ1VSB",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.7875000000",
+      "rx_mhz": "145.1875000000",
+      "channel": "RV63"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "88.5000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARF",
+      "name": "Associação de Radioamadores das Flores"
+    },
+    "info_location": {
+      "longitude": "-31.2199416700",
+      "region": "AZR",
+      "place": "Morro Alto - Flores",
+      "qth_loc": "HM49jl"
+    },
+    "callsign": "CQ1VMA",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.7250000000",
+      "rx_mhz": "145.1250000000",
+      "channel": "RV58"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "82.5000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "RCL",
+      "name": "Radioamador Clube de Loulé"
+    },
+    "info_location": {
+      "latitude": "37.1016666700",
+      "longitude": "-7.8305555560",
+      "region": "CPT",
+      "place": "Cerro de São Miguel - Olhão",
+      "qth_loc": "IM67CC"
+    },
+    "callsign": "CQ0VSM",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.7750000000",
+      "rx_mhz": "145.1750000000",
+      "channel": "RV62"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "88.5000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARA",
+      "name": "Associação de Radioamadores dos Açores"
+    },
+    "info_location": {
+      "longitude": "-25.7515083300",
+      "region": "AZR",
+      "place": "Santos De Cima - São Miguel",
+      "qth_loc": "HM77ct"
+    },
+    "callsign": "CQ1VSC",
+    "notes": "",
+    "pwr_w": 20,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.7500000000",
+      "rx_mhz": "145.1500000000",
+      "channel": "RV60"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "88.5000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_location": {
+      "longitude": "-25.1765194400",
+      "region": "AZR",
+      "place": "Bartolomeu - São Miguel",
+      "qth_loc": "HM77js"
+    },
+    "callsign": "CQ1VPB",
+    "notes": "",
+    "pwr_w": 20,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.6250000000",
+      "rx_mhz": "145.0250000000",
+      "channel": "RV50"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "88.5000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARA",
+      "name": "Associação de Radioamadores dos Açores"
+    },
+    "info_location": {
+      "longitude": "-25.4931861100",
+      "region": "AZR",
+      "place": "Barrosa - São Miguel",
+      "qth_loc": "HM77gs"
+    },
+    "callsign": "CQ1VB",
+    "notes": "",
+    "pwr_w": 20,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.7875000000",
+      "rx_mhz": "145.1875000000",
+      "channel": "RV63"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "88.5000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "URA",
+      "name": "União dos Radioamadores dos Açores"
+    },
+    "info_location": {
+      "latitude": "39.4634580600",
+      "longitude": "-31.2199422200",
+      "region": "CPT",
+      "place": "Fajã Grande - ilha das Flores",
+      "qth_loc": "HM49jl"
+    },
+    "callsign": "CQ1VFLW",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.6125000000",
+      "rx_mhz": "145.0125000000",
+      "channel": "RV49"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "67.0000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "URA",
+      "name": "União dos Radioamadores dos Açores"
+    },
+    "info_location": {
+      "latitude": "39.0358055600",
+      "longitude": "-28.0290194400",
+      "region": "AZR",
+      "place": "Graciosa",
+      "qth_loc": "HM59xa"
+    },
+    "callsign": "CQ1VGR",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.6625000000",
+      "rx_mhz": "145.0625000000",
+      "channel": "RV53"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "82.5000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARPV",
+      "name": "Associação de Radioamadores da Praia da Vitória"
+    },
+    "info_location": {
+      "latitude": "38.7337527800",
+      "longitude": "-27.0539555600",
+      "region": "AZR",
+      "place": "Praia da Vitória - Ilha Terceira",
+      "qth_loc": "HM68lr"
+    },
+    "callsign": "CQ1VSS",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.7375000000",
+      "rx_mhz": "145.1375000000",
+      "channel": "RV59"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "114.8000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": { "abrv": "ADxG", "name": "Azores DX Group" },
+    "info_location": {
+      "latitude": "38.7299222200",
+      "longitude": "-27.3180833300",
+      "region": "AZR",
+      "place": "Serra de Santa Bárbara - Ilha Terceira",
+      "qth_loc": "HM68ir"
+    },
+    "callsign": "CQ1VDX",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.6750000000",
+      "rx_mhz": "145.0750000000",
+      "channel": "RV54"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "88.5000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "CRA",
+      "name": "Clube de Radioamadores dos Açores"
+    },
+    "info_location": {
+      "latitude": "38.7094444400",
+      "longitude": "-28.2011111100",
+      "region": "AZR",
+      "place": "Ilha de São Jorge",
+      "qth_loc": "HM58vr"
+    },
+    "callsign": "CQ1VPM",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.7750000000",
+      "rx_mhz": "145.1750000000",
+      "channel": "RV62"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "123.0000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "CRA",
+      "name": "Clube de Radioamadores dos Açores"
+    },
+    "info_location": {
+      "latitude": "38.5916666700",
+      "longitude": "-28.7975000000",
+      "region": "AZR",
+      "place": "Capelo - Ilha do Faial",
+      "qth_loc": "HM58oo"
+    },
+    "callsign": "CQ1VPV",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.6375000000",
+      "rx_mhz": "145.0375000000",
+      "channel": "RV51"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "67.0000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "URA",
+      "name": "União dos Radioamadores dos Açores"
+    },
+    "info_location": {
+      "latitude": "38.5461694400",
+      "longitude": "-27.8443138900",
+      "region": "AZR",
+      "place": "Ilha de São Jorge",
+      "qth_loc": "HM68bn"
+    },
+    "callsign": "CQ1VSJ",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.7750000000",
+      "rx_mhz": "145.1750000000",
+      "channel": "RV62"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "88.5000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARRM",
+      "name": "Associação de Radioamadores da Região da Madeira"
+    },
+    "info_location": {
+      "latitude": "33.0292527800",
+      "longitude": "-16.3815388900",
+      "region": "MDA",
+      "place": "Miradouro Flores - Porto Santo",
+      "qth_loc": "IM13ta"
+    },
+    "callsign": "CQ2VMF",
+    "notes": "",
+    "pwr_w": 40,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.7000000000",
+      "rx_mhz": "145.1000000000",
+      "channel": "RV56"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "88.5000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARRM",
+      "name": "Associação de Radioamadores da Região da Madeira"
+    },
+    "info_location": {
+      "latitude": "32.6951527800",
+      "longitude": "-16.8745527800",
+      "region": "MDA",
+      "place": "Pico do Silva - Funchal",
+      "qth_loc": "IM12nq"
+    },
+    "callsign": "CQ2VPS",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "88.5000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARRM",
+      "name": "Associação de Radioamadores da Região da Madeira"
+    },
+    "info_location": {
+      "latitude": "32.6593027800",
+      "longitude": "-17.0054111100",
+      "region": "MDA",
+      "place": "Cabo Girão - Câmara de Lobos",
+      "qth_loc": "IM12lp"
+    },
+    "callsign": "CQ2VCG",
+    "notes": "",
+    "pwr_w": 40,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.6500000000",
+      "rx_mhz": "145.0500000000",
+      "channel": "RV52"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "88.5000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARRM",
+      "name": "Associação de Radioamadores da Região da Madeira"
+    },
+    "info_location": {
+      "latitude": "32.5895666700",
+      "longitude": "-16.5458916700",
+      "region": "MDA",
+      "place": "Ilhéu Chão - Ilhas Desertas",
+      "qth_loc": "IM12ro"
+    },
+    "callsign": "CQ2VIC",
+    "notes": "",
+    "pwr_w": 40,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_simplex": {
+      "freq_mhz": "144.5000000000",
+      "channel": null
+    },
+    "info_fm": {
+      "modulation": "10K0F3E",
+      "tone": "74.4000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARAS",
+      "name": "Associação de Radioamadores de Amadora-Sintra"
+    },
+    "info_location": {
+      "latitude": "38.7863888900",
+      "longitude": "-9.3852777780",
+      "region": "CPT",
+      "place": "Santa Eufémia - Sintra",
+      "qth_loc": "IM58hs"
+    },
+    "callsign": "CQ0SAAS",
+    "notes": "",
+    "pwr_w": 15,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.7750000000",
+      "rx_mhz": "145.1750000000",
+      "channel": "RV62"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "123.0000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_dmr": {
+      "ts2_default_tg": { "name": "Local", "id": 2 },
+      "ts1_alternative_tgs": [],
+      "ts2_alternative_tgs": [{ "name": "Regional", "id": 8 }],
+      "modulation": "F7W",
+      "id": 268109,
+      "color_code": 1,
+      "ts_configuration": "Slot 2 estático: 2. 8 \r\nLocal 2: (2->)268109\r\nRegional: (8->)268903"
+    },
+    "info_holder": {
+      "abrv": "ARAT",
+      "name": "Associação de Radioamadores do Alto Tâmega"
+    },
+    "info_location": {
+      "latitude": "41.5492777800",
+      "longitude": "-7.6885277780",
+      "region": "CPT",
+      "place": "Serra do Minhéu",
+      "qth_loc": "IN61dn"
+    },
+    "callsign": "CQ0VMI",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.7000000000",
+      "rx_mhz": "145.1000000000",
+      "channel": "RV56"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "82.5000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_fusion": {
+      "modulation": "F7W",
+      "wiresx": "",
+      "room_id": ""
+    },
+
+    "info_holder": {
+      "abrv": "NRC",
+      "name": "Núcleo de Radioamadores de Coimbra"
+    },
+    "info_location": {
+      "latitude": "40.0894400000",
+      "longitude": "-8.1783330000",
+      "region": "CPT",
+      "place": "Alto do Trevim - Serra da Lousã",
+      "qth_loc": "IN50vc"
+    },
+    "callsign": "CQ0VLO",
+    "notes": "",
+    "pwr_w": 40,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.4000000000",
+      "rx_mhz": "430.8000000000",
+      "channel": "RU672"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "67.0000000000",
+      "bandwidth": "WFM"
+    },
+    "info_dstar": {
+      "modulation": "6K00F7W",
+      "gateway": "",
+      "reflector": ""
+    },
+
+    "info_dmr": {
+      "ts1_default_tg": { "name": "Portugal", "id": 268 },
+      "ts2_default_tg": { "name": "Regional", "id": 8 },
+      "ts1_alternative_tgs": [
+        { "name": "Worldwide English", "id": 91 },
+        { "name": "Europe", "id": 92 },
+        { "name": "Portugues", "id": 915 }
+      ],
+      "ts2_alternative_tgs": [],
+      "modulation": "F7W",
+      "id": 268102,
+      "color_code": 1,
+      "ts_configuration": "Slot 1 estático: 268. 915. 91. 92\r\nSlot 2 estático: 8\r\nLocal 2: (2->)268102\r\nRegional: (8->)268903"
+    },
+    "info_holder": {
+      "abrv": "ARAT",
+      "name": "Associação de Radioamadores do Alto Tâmega"
+    },
+    "info_location": {
+      "latitude": "41.6978055600",
+      "longitude": "-7.4378888890",
+      "region": "CPT",
+      "place": "Serra do Brunheiro - Chaves",
+      "qth_loc": "IN61gq"
+    },
+    "callsign": "CQ0DBO",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "ON",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.2250000000",
+      "rx_mhz": "430.6250000000",
+      "channel": "RU658"
+    },
+
+    "info_dstar": {
+      "modulation": "6K00F7W",
+      "gateway": "",
+      "reflector": ""
+    },
+
+    "info_dmr": {
+      "ts1_default_tg": { "name": "Portugal", "id": 268 },
+      "ts2_default_tg": { "name": "Local", "id": 2 },
+      "ts1_alternative_tgs": [],
+      "ts2_alternative_tgs": [{ "name": "Portugues", "id": 915 }],
+      "modulation": "F7W",
+      "id": 268101,
+      "color_code": 1,
+      "ts_configuration": "Slot 1 estático: 268\r\nSlot 2 estático: 2. 915\r\nLocal 2: (2->)268101"
+    },
+    "info_holder": {
+      "abrv": "ARETD",
+      "name": "Assocaição de Radioamadores de Entre Tâmega e Douro"
+    },
+    "info_location": {
+      "latitude": "41.2688888888",
+      "longitude": "-8.0975000000",
+      "region": "CPT",
+      "place": "Carvalho de Rei - Amarante",
+      "qth_loc": "IN51wg"
+    },
+    "callsign": "CQ0DAM",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "ON",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.2500000000",
+      "rx_mhz": "430.6500000000",
+      "channel": "RU660"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "123.0000000000",
+      "bandwidth": "WFM"
+    },
+    "info_dstar": {
+      "modulation": "6K00F7W",
+      "gateway": "",
+      "reflector": ""
+    },
+    "info_fusion": {
+      "modulation": "F7W",
+      "wiresx": "",
+      "room_id": ""
+    },
+    "info_dmr": {
+      "ts1_default_tg": { "name": "Portugal", "id": 268 },
+      "ts2_default_tg": { "name": "Regional", "id": 8 },
+      "ts1_alternative_tgs": [
+        { "name": "Worldwide English", "id": 91 },
+        { "name": "Portugues", "id": 915 }
+      ],
+      "ts2_alternative_tgs": [],
+      "modulation": "F7W",
+      "id": 268104,
+      "color_code": 1,
+      "ts_configuration": "Slot 1 estático: 268. 91. 915\r\nSlot 2 estático: 8\r\nRegional: (8->)268901"
+    },
+    "info_holder": {
+      "abrv": "ARBA",
+      "name": "Associação de Radioamadores da Beira Alta"
+    },
+    "info_location": {
+      "latitude": "41.1433333300",
+      "longitude": "-8.5344444440",
+      "region": "CPT",
+      "place": "Monte Crasto - Gondomar",
+      "qth_loc": "IN51rd"
+    },
+    "callsign": "CQ0DGM",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "ON",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.6750000000",
+      "rx_mhz": "145.0750000000",
+      "channel": "RV54"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "74.4000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "38.8978416700",
+      "longitude": "-9.1930722220",
+      "region": "CPT",
+      "place": "Cabeço de Montachique - Loures",
+      "qth_loc": "IM58jv"
+    },
+    "callsign": "CQ0VMC",
+    "notes": "",
+    "pwr_w": 10,
+    "status": "ON",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.6125000000",
+      "rx_mhz": "145.0125000000",
+      "channel": "RV49"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "123.0000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "40.8450000000",
+      "longitude": "-8.2791670000",
+      "region": "CPT",
+      "place": "Serra da Freita - Arouca",
+      "qth_loc": "IN50uu"
+    },
+    "callsign": "CQ0VSF",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.6000000000",
+      "rx_mhz": "145.0000000000",
+      "channel": "RV48"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "88.5000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_location": {
+      "longitude": "-25.0907416700",
+      "region": "AZR",
+      "place": "Pico Alto - Santa Maria",
+      "qth_loc": "HM76kx"
+    },
+    "callsign": "CQ1VPA",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "51.8100000000",
+      "rx_mhz": "51.2100000000",
+      "channel": "RF81"
+    },
+
+    "info_fm": {
+      "modulation": "14K0F3E",
+      "tone": "74.4000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "38.8127416700",
+      "longitude": "-9.1981805560",
+      "region": "CPT",
+      "place": "Odivelas",
+      "qth_loc": "IM58jt"
+    },
+    "callsign": "CQ0FEC",
+    "notes": "",
+    "pwr_w": 20,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.7000000000",
+      "rx_mhz": "145.1000000000",
+      "channel": "RV56"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "123.0000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARMi",
+      "name": "Associação de Radioamadores do Minho"
+    },
+    "info_location": {
+      "latitude": "41.5147200000",
+      "longitude": "-8.3950000000",
+      "region": "CPT",
+      "place": "Serra de Santa Marta - Braga",
+      "qth_loc": "IN51tm"
+    },
+    "callsign": "CQ0VBRG",
+    "notes": "",
+    "pwr_w": 15,
+    "status": "ON",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.7750000000",
+      "rx_mhz": "145.1750000000",
+      "channel": "RV62"
+    },
+
+    "info_fm": {
+      "modulation": "10K0F3E",
+      "tone": "74.4000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_fusion": {
+      "modulation": "F7W",
+      "wiresx": "",
+      "room_id": ""
+    },
+
+    "info_holder": {
+      "abrv": "ARRLx",
+      "name": "Associação de Radioamadores da Região de Lisboa"
+    },
+    "info_location": {
+      "latitude": "33.0292527800",
+      "longitude": "-16.3815388900",
+      "region": "MDA",
+      "place": "Miradouro Flores - Porto Santo",
+      "qth_loc": "IM13ta"
+    },
+    "callsign": "CQ0VDLX",
+    "notes": "",
+    "pwr_w": 20,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.5875000000",
+      "rx_mhz": "144.9875000000",
+      "channel": "RV47"
+    },
+
+    "info_dmr": {
+      "ts1_alternative_tgs": [],
+      "ts2_alternative_tgs": [],
+      "modulation": "F7W",
+      "id": 268604,
+      "color_code": 1,
+      "ts_configuration": ""
+    },
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "38.6536666700",
+      "longitude": "-27.2248333300",
+      "region": "AZR",
+      "place": "Angra do Heroismo",
+      "qth_loc": "HM68jp"
+    },
+    "callsign": "CQ1DAT",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.5875000000",
+      "rx_mhz": "144.9875000000",
+      "channel": "RV47"
+    },
+
+    "info_dstar": {
+      "modulation": "6K00F7W",
+      "gateway": "",
+      "reflector": ""
+    },
+
+    "info_dmr": {
+      "ts1_default_tg": { "name": "Portugal", "id": 268 },
+      "ts2_default_tg": { "name": "Local", "id": 2 },
+      "ts1_alternative_tgs": [{ "name": "Portugues", "id": 915 }],
+      "ts2_alternative_tgs": [],
+      "modulation": "F7W",
+      "id": 268308,
+      "color_code": 1,
+      "ts_configuration": "Slot 1 estático: 268. 915\r\nSlot 2 estático: 2\r\nLocal 2: (2->)268308"
+    },
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "39.1138888900",
+      "longitude": "-9.3755555560",
+      "region": "CPT",
+      "place": "Silveria - Torres Vedras",
+      "qth_loc": "IM59hc"
+    },
+    "callsign": "CQ0DKE",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.6500000000",
+      "rx_mhz": "431.0500000000",
+      "channel": "RU692"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "67.0000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_dmr": {
+      "ts1_default_tg": { "name": "Portugal", "id": 268 },
+      "ts2_default_tg": { "name": "Local", "id": 2 },
+      "ts1_alternative_tgs": [{ "name": "Portugues", "id": 915 }],
+      "ts2_alternative_tgs": [],
+      "modulation": "F7W",
+      "id": 268111,
+      "color_code": 1,
+      "ts_configuration": "Slot 1 estático: 268. 915\r\nSlot 2 estático: 2\r\nLocal 2: (2->)268111"
+    },
+    "info_holder": {
+      "abrv": "ARAM",
+      "name": "Associação de Radioamadores do Alto Minho"
+    },
+    "info_location": {
+      "latitude": "41.8042944400",
+      "longitude": "-8.6938694444",
+      "region": "CPT",
+      "place": "Serra D´Arga – Viana Castelo",
+      "qth_loc": "IN51pt"
+    },
+    "callsign": "CQ0USA",
+    "notes": "",
+    "pwr_w": 60,
+    "status": "ON",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.9000000000",
+      "rx_mhz": "431.3000000000",
+      "channel": "RU712"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "67.0000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARAT",
+      "name": "Associação de Radioamadores do Alto Tâmega"
+    },
+    "info_location": {
+      "latitude": "41.6978138900",
+      "longitude": "-7.4378972220",
+      "region": "CPT",
+      "place": "Serra do Brunheiro - Chaves",
+      "qth_loc": "IN61gr"
+    },
+    "callsign": "CQ0UBO",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "ON",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.5750000000",
+      "rx_mhz": "144.9750000000",
+      "channel": "RV46"
+    },
+
+    "info_dstar": {
+      "modulation": "6K00F7W",
+      "gateway": "CQ0DSE G",
+      "reflector": ""
+    },
+
+    "info_holder": {
+      "abrv": "ARBA",
+      "name": "Associação de Radioamadores da Beira Alta"
+    },
+    "info_location": {
+      "latitude": "40.3214722200",
+      "longitude": "-7.6143972220",
+      "region": "CPT",
+      "place": "Torre - Serra da Estrela",
+      "qth_loc": "IN60eh"
+    },
+    "callsign": "CQ0DSE",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "439.3250000000",
+      "rx_mhz": "431.7250000000",
+      "channel": "RU746"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "67.0000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARAM",
+      "name": "Associação de Radioamadores do Alto Minho"
+    },
+    "info_location": {
+      "latitude": "41.9777777800",
+      "longitude": "-8.4208333330",
+      "region": "CPT",
+      "place": "Monte Cotão - Arcos de Valdevez",
+      "qth_loc": "IN51uw"
+    },
+    "callsign": "CQ0UAV",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.6750000000",
+      "rx_mhz": "431.0750000000",
+      "channel": "RU694"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "67.0000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARAT",
+      "name": "Associação de Radioamadores do Alto Tâmega"
+    },
+    "info_location": {
+      "latitude": "41.8440722200",
+      "longitude": "-7.3354388890",
+      "region": "CPT",
+      "place": "Serra de Mairos – Chaves",
+      "qth_loc": "IN61hu"
+    },
+    "callsign": "CQ0UAT",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.5750000000",
+      "rx_mhz": "144.9750000000",
+      "channel": "RV46"
+    },
+
+    "info_dstar": {
+      "modulation": "6K00F7W",
+      "gateway": "CQ1DAH G",
+      "reflector": "XRF268 T"
+    },
+
+    "info_holder": {
+      "abrv": "URA",
+      "name": "União dos Radioamadores dos Açores"
+    },
+    "info_location": {
+      "latitude": "38.7298777800",
+      "longitude": "-27.3187388900",
+      "region": "AZR",
+      "place": "Sta Bárbara - Terceira",
+      "qth_loc": "HM68ir"
+    },
+    "callsign": "CQ1DAH",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.7000000000",
+      "rx_mhz": "431.1000000000",
+      "channel": "RU696"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "123.0000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARETD",
+      "name": "Assocaição de Radioamadores de Entre Tâmega e Douro"
+    },
+    "info_location": {
+      "latitude": "41.2688888900",
+      "longitude": "-8.0852777780",
+      "region": "CPT",
+      "place": "Amarante",
+      "qth_loc": "IN51wg"
+    },
+    "callsign": "CQ0URTD",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.9250000000",
+      "rx_mhz": "431.3250000000",
+      "channel": "RU714"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "123.0000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARBA",
+      "name": "Associação de Radioamadores da Beira Alta"
+    },
+    "info_location": {
+      "latitude": "41.2482111100",
+      "longitude": "-7.8864888890",
+      "region": "CPT",
+      "place": "Serra do Marão",
+      "qth_loc": "IN61bf"
+    },
+    "callsign": "CQ0UMA",
+    "notes": "",
+    "pwr_w": 60,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "439.1500000000",
+      "rx_mhz": "431.5500000000",
+      "channel": "RU732"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "123.0000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARAT",
+      "name": "Associação de Radioamadores do Alto Tâmega"
+    },
+    "info_location": {
+      "latitude": "41.2481000000",
+      "longitude": "-7.8859583330",
+      "region": "CPT",
+      "place": "Serra do Marão",
+      "qth_loc": "IN61BF"
+    },
+    "callsign": "CQ0UMR",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "439.2750000000",
+      "rx_mhz": "431.6750000000",
+      "channel": "RU742"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "123.0000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARBA",
+      "name": "Associação de Radioamadores da Beira Alta"
+    },
+    "info_location": {
+      "latitude": "41.2002777800",
+      "longitude": "-8.3902777780",
+      "region": "CPT",
+      "place": "Baltar - Paredes - Porto",
+      "qth_loc": "IN51te"
+    },
+    "callsign": "CQ0UBA",
+    "notes": "",
+    "pwr_w": 60,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "439.1250000000",
+      "rx_mhz": "431.5250000000",
+      "channel": "RU730"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "123.0000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARBA",
+      "name": "Associação de Radioamadores da Beira Alta"
+    },
+    "info_location": {
+      "latitude": "41.1433333300",
+      "longitude": "-8.5344444440",
+      "region": "CPT",
+      "place": "Monte Crasto - Gondomar",
+      "qth_loc": "IN51rd"
+    },
+    "callsign": "CQ0UGM",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.9000000000",
+      "rx_mhz": "431.3000000000",
+      "channel": "RU712"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "114.8000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARBA",
+      "name": "Associação de Radioamadores da Beira Alta"
+    },
+    "info_location": {
+      "latitude": "40.8098750000",
+      "longitude": "-7.8398194440",
+      "region": "CPT",
+      "place": "Serra de Côta – Viseu",
+      "qth_loc": "IN60bt"
+    },
+    "callsign": "CQ0UCO",
+    "notes": "",
+    "pwr_w": 60,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "439.4000000000",
+      "rx_mhz": "431.8000000000",
+      "channel": "RU752"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "123.0000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARBL",
+      "name": "Associação de Radioamadores da Beira Litoral"
+    },
+    "info_location": {
+      "latitude": "40.8056666700",
+      "longitude": "-8.4633611110",
+      "region": "CPT",
+      "place": "São Tome – Oliveira Azeméis",
+      "qth_loc": "IN50ST"
+    },
+    "callsign": "CQ0UOAZ",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "439.4000000000",
+      "rx_mhz": "431.8000000000",
+      "channel": "RU752"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "123.0000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARBL",
+      "name": "Associação de Radioamadores da Beira Litoral"
+    },
+    "info_location": {
+      "latitude": "40.8055555600",
+      "longitude": "-8.4633333330",
+      "region": "CPT",
+      "place": "São Tomé - Oliveira de Azeméis",
+      "qth_loc": "IN50st"
+    },
+    "callsign": "CQ0UAZ",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.8750000000",
+      "rx_mhz": "431.2750000000",
+      "channel": "RU710"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "123.0000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARBL",
+      "name": "Associação de Radioamadores da Beira Litoral"
+    },
+    "info_location": {
+      "latitude": "40.8055555600",
+      "longitude": "-8.4633333330",
+      "region": "CPT",
+      "place": "São Tomé - Oliveira de Azeméis",
+      "qth_loc": "IN50st"
+    },
+    "callsign": "CQ0URBL",
+    "notes": "",
+    "pwr_w": 40,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.8000000000",
+      "rx_mhz": "431.2000000000",
+      "channel": "RU704"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "123.0000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "40.8022222200",
+      "longitude": "-8.3697222220",
+      "region": "CPT",
+      "place": "Serra do Arestal - Aveiro",
+      "qth_loc": "IN50tt"
+    },
+    "callsign": "CQ0UAE",
+    "notes": "",
+    "pwr_w": 60,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "439.1750000000",
+      "rx_mhz": "431.5750000000",
+      "channel": "RU734"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "123.0000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARAL",
+      "name": "Associação de Radioamadores do Distrito de Leiria"
+    },
+    "info_location": {
+      "latitude": "40.8022222200",
+      "longitude": "-8.3697222220",
+      "region": "CPT",
+      "place": "Serra do Arestal - Aveiro",
+      "qth_loc": "IN50tt"
+    },
+    "callsign": "CQ0UTRZ",
+    "notes": "",
+    "pwr_w": 60,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.9500000000",
+      "rx_mhz": "431.3500000000",
+      "channel": "RU716"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "123.0000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARBA",
+      "name": "Associação de Radioamadores da Beira Alta"
+    },
+    "info_location": {
+      "latitude": "40.7822222200",
+      "longitude": "-8.3569444440",
+      "region": "CPT",
+      "place": "Serra do Arestal - Aveiro",
+      "qth_loc": "IN50ts"
+    },
+    "callsign": "CQ0UAR",
+    "notes": "",
+    "pwr_w": 60,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.9750000000",
+      "rx_mhz": "431.3750000000",
+      "channel": "RU718"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "114.8000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARBA",
+      "name": "Associação de Radioamadores da Beira Alta"
+    },
+    "info_location": {
+      "latitude": "40.6983333300",
+      "longitude": "-7.9211111110",
+      "region": "CPT",
+      "place": "Monte de Santa Luzia - Viseu",
+      "qth_loc": "IN60aq"
+    },
+    "callsign": "CQ0UMU",
+    "notes": "",
+    "pwr_w": 60,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "439.0500000000",
+      "rx_mhz": "431.4500000000",
+      "channel": "RU724"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "114.8000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARBA",
+      "name": "Associação de Radioamadores da Beira Alta"
+    },
+    "info_location": {
+      "latitude": "40.5923805600",
+      "longitude": "-7.3858027780",
+      "region": "CPT",
+      "place": "Celorico da Beira",
+      "qth_loc": "IN60ho"
+    },
+    "callsign": "CQ0UCE",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "439.2500000000",
+      "rx_mhz": "431.6500000000",
+      "channel": "RU740"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "123.0000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARBA",
+      "name": "Associação de Radioamadores da Beira Alta"
+    },
+    "info_location": {
+      "latitude": "40.5805777800",
+      "longitude": "-8.1763666670",
+      "region": "CPT",
+      "place": "Caramulo",
+      "qth_loc": "IN50vn"
+    },
+    "callsign": "CQ0UCAR",
+    "notes": "",
+    "pwr_w": 60,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "439.3250000000",
+      "rx_mhz": "431.7250000000",
+      "channel": "RU746"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "123.0000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "40.5525472200",
+      "longitude": "-8.1801361110",
+      "region": "CPT",
+      "place": "Serra do Caramulo",
+      "qth_loc": "IN50vn"
+    },
+    "callsign": "CQ0UCL",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.7000000000",
+      "rx_mhz": "431.1000000000",
+      "channel": "RU696"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "131.8000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARCP",
+      "name": "Associação de Radioamadores da Costa de Prata"
+    },
+    "info_location": {
+      "latitude": "40.3697222200",
+      "longitude": "-8.3630555560",
+      "region": "CPT",
+      "place": "Serra do Buçaco",
+      "qth_loc": "IN50ti"
+    },
+    "callsign": "CQ0UCA",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "439.0500000000",
+      "rx_mhz": "431.4500000000",
+      "channel": "RU724"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "114.8000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARBA",
+      "name": "Associação de Radioamadores da Beira Alta"
+    },
+    "info_location": {
+      "latitude": "40.3213888900",
+      "longitude": "-7.6144444440",
+      "region": "CPT",
+      "place": "Torre - Serra da Estrela",
+      "qth_loc": "IN60eh"
+    },
+    "callsign": "CQ0UES",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.8250000000",
+      "rx_mhz": "431.2250000000",
+      "channel": "RU706"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "114.8000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARBA",
+      "name": "Associação de Radioamadores da Beira Alta"
+    },
+    "info_location": {
+      "latitude": "40.3213888900",
+      "longitude": "-7.6144444440",
+      "region": "CPT",
+      "place": "Torre - Serra da Estrela",
+      "qth_loc": "IN60eh"
+    },
+    "callsign": "CQ0USE",
+    "notes": "",
+    "pwr_w": 60,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "439.2000000000",
+      "rx_mhz": "431.6000000000",
+      "channel": "RU736"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "114.8000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARRLx",
+      "name": "Associação de Radioamadores da Região de Lisboa"
+    },
+    "info_location": {
+      "latitude": "40.3130250000",
+      "longitude": "-7.5496555560",
+      "region": "CPT",
+      "place": "Serra da Estrela",
+      "qth_loc": "IN60fh"
+    },
+    "callsign": "CQ0UDE",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "439.1500000000",
+      "rx_mhz": "431.5500000000",
+      "channel": "RU732"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "131.8000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARC",
+      "name": "Associação de Radioamadores de Coimbra"
+    },
+    "info_location": {
+      "latitude": "40.2005138900",
+      "longitude": "-8.4455194440",
+      "region": "CPT",
+      "place": "Sede da ARC",
+      "qth_loc": "IN50se"
+    },
+    "callsign": "CQ0UCOI",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.7750000000",
+      "rx_mhz": "431.1750000000",
+      "channel": "RU702"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "131.8000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARC",
+      "name": "Associação de Radioamadores de Coimbra"
+    },
+    "info_location": {
+      "latitude": "40.2000000000",
+      "longitude": "-8.4455555560",
+      "region": "CPT",
+      "place": "Santa Clara - Coimbra",
+      "qth_loc": "IN50se"
+    },
+    "callsign": "CQ0UARC",
+    "notes": "",
+    "pwr_w": 20,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.9000000000",
+      "rx_mhz": "431.3000000000",
+      "channel": "RU712"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "82.5000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARCP",
+      "name": "Associação de Radioamadores da Costa de Prata"
+    },
+    "info_location": {
+      "latitude": "40.1919444400",
+      "longitude": "-8.8411111110",
+      "region": "CPT",
+      "place": "Serra da Brenha - Figueira da Foz",
+      "qth_loc": "IN50ne"
+    },
+    "callsign": "CQ0UCP",
+    "notes": "",
+    "pwr_w": 20,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "439.3000000000",
+      "rx_mhz": "431.7000000000",
+      "channel": "RU744"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "131.8000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "40.1041666700",
+      "longitude": "-8.2083333330",
+      "region": "CPT",
+      "place": "Alto do Trevim - Serra da Lousã",
+      "qth_loc": "IN50vc"
+    },
+    "callsign": "CQ0UTV",
+    "notes": "",
+    "pwr_w": 60,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "439.1000000000",
+      "rx_mhz": "431.5000000000",
+      "channel": "RU728"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "82.5000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARBB",
+      "name": "Associação de Radioamadores da Beira Baixa"
+    },
+    "info_location": {
+      "latitude": "40.0805555600",
+      "longitude": "-7.5255555560",
+      "region": "CPT",
+      "place": "Serra da Gardunha - Castelo Branco",
+      "qth_loc": "IN60fb"
+    },
+    "callsign": "CQ0UG",
+    "notes": "",
+    "pwr_w": 40,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "439.0000000000",
+      "rx_mhz": "431.4000000000",
+      "channel": "RU720"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "131.8000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "40.0308333300",
+      "longitude": "-7.9486111110",
+      "region": "CPT",
+      "place": "Cabeço Urra - Pampilhosa da Serra",
+      "qth_loc": "IN60aa"
+    },
+    "callsign": "CQ0UPS",
+    "notes": "",
+    "pwr_w": 20,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "439.2500000000",
+      "rx_mhz": "431.6500000000",
+      "channel": "RU740"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "82.5000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "39.8261555600",
+      "longitude": "-7.4751083330",
+      "region": "CPT",
+      "place": "Castelo Branco",
+      "qth_loc": "IM69gt"
+    },
+    "callsign": "CQ0UCB",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": "CT2FXW"
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.8000000000",
+      "rx_mhz": "431.2000000000",
+      "channel": "RU704"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "131.8000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARAL",
+      "name": "Associação de Radioamadores do Distrito de Leiria"
+    },
+    "info_location": {
+      "latitude": "39.6442638900",
+      "longitude": "-8.5222638890",
+      "region": "CPT",
+      "place": "Alburitel",
+      "qth_loc": "IM59rp"
+    },
+    "callsign": "CQ0UAB",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "439.1750000000",
+      "rx_mhz": "431.5750000000",
+      "channel": "RU734"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "131.8000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARR",
+      "name": "Associação de Radioamadores do Ribatejo"
+    },
+    "info_location": {
+      "latitude": "39.6107805600",
+      "longitude": "-8.3131138890",
+      "region": "CPT",
+      "place": "Silveira – Tomar",
+      "qth_loc": "IM59uo"
+    },
+    "callsign": "CQ0UTR",
+    "notes": "",
+    "pwr_w": 30,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.7250000000",
+      "rx_mhz": "431.1250000000",
+      "channel": "RU698"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "131.8000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARAL",
+      "name": "Associação de Radioamadores do Distrito de Leiria"
+    },
+    "info_location": {
+      "latitude": "39.5494444400",
+      "longitude": "-8.8672222220",
+      "region": "CPT",
+      "place": "Serra dos Candeeiros",
+      "qth_loc": "IM59nn"
+    },
+    "callsign": "CQ0UCD",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "439.2500000000",
+      "rx_mhz": "431.6500000000",
+      "channel": "RU740"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "131.8000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARAL",
+      "name": "Associação de Radioamadores do Distrito de Leiria"
+    },
+    "info_location": {
+      "latitude": "39.5494444400",
+      "longitude": "-8.8666666670",
+      "region": "CPT",
+      "place": "Serra dos Candeeiros",
+      "qth_loc": "IM59nn"
+    },
+    "callsign": "CQ0ULR",
+    "notes": "",
+    "pwr_w": 30,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "439.0250000000",
+      "rx_mhz": "431.4250000000",
+      "channel": "RU722"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "131.8000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARAL",
+      "name": "Associação de Radioamadores do Distrito de Leiria"
+    },
+    "info_location": {
+      "latitude": "39.5494444400",
+      "longitude": "-8.8666666670",
+      "region": "CPT",
+      "place": "Serra dos Candeeiros",
+      "qth_loc": "IM59nn"
+    },
+    "callsign": "CQ0UPM",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "439.1500000000",
+      "rx_mhz": "431.5500000000",
+      "channel": "RU732"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "131.8000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARAL",
+      "name": "Associação de Radioamadores do Distrito de Leiria"
+    },
+    "info_location": {
+      "latitude": "39.5493333300",
+      "longitude": "-8.8666666670",
+      "region": "CPT",
+      "place": "Serra dos Candeeiros",
+      "qth_loc": "IM59nn"
+    },
+    "callsign": "CQ0URL",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.8750000000",
+      "rx_mhz": "431.2750000000",
+      "channel": "RU710"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "131.8000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "CRE",
+      "name": "Clube de Radioamadores do Entroncamento"
+    },
+    "info_location": {
+      "latitude": "39.5358333300",
+      "longitude": "-8.6363888890",
+      "region": "CPT",
+      "place": "Serra de Aire",
+      "qth_loc": "IM59qm"
+    },
+    "callsign": "CQ0UAI",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.8750000000",
+      "rx_mhz": "431.2750000000",
+      "channel": "RU710"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "114.8000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARCP",
+      "name": "Associação de Radioamadores da Costa de Prata"
+    },
+    "info_location": {
+      "latitude": "39.5355111100",
+      "longitude": "-8.6376500000",
+      "region": "CPT",
+      "place": "Serra D'Aire",
+      "qth_loc": "IM59qm"
+    },
+    "callsign": "CQ0UAL",
+    "notes": "",
+    "pwr_w": 20,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.6500000000",
+      "rx_mhz": "431.0500000000",
+      "channel": "RU692"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "131.8000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "39.4342944400",
+      "longitude": "-8.9219888890",
+      "region": "CPT",
+      "place": "Serra dos Candeeiros",
+      "qth_loc": "IM59mk"
+    },
+    "callsign": "CQ0UCAN",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "439.4250000000",
+      "rx_mhz": "431.8250000000",
+      "channel": "RU754"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "74.4000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "LART",
+      "name": "Liga de Amadores de Rádio Transmissões"
+    },
+    "info_location": {
+      "latitude": "39.4116666700",
+      "longitude": "-9.1183333330",
+      "region": "CPT",
+      "place": "Casal Tomaz - Caldas da Rainha",
+      "qth_loc": "IM59kj"
+    },
+    "callsign": "CQ0UCR",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "439.2000000000",
+      "rx_mhz": "431.6000000000",
+      "channel": "RU736"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "74.4000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "RCO",
+      "name": "Radioamadores Centro Oeste"
+    },
+    "info_location": {
+      "latitude": "39.3733333300",
+      "longitude": "-9.1136111110",
+      "region": "CPT",
+      "place": "Alto das Gaeiras - Óbidos",
+      "qth_loc": "IM59ki"
+    },
+    "callsign": "CQ0UAG",
+    "notes": "",
+    "pwr_w": 20,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "439.2750000000",
+      "rx_mhz": "431.6750000000",
+      "channel": "RU742"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "67.0000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "39.3127777800",
+      "longitude": "-7.3586111110",
+      "region": "CPT",
+      "place": "Serra de São Mamede",
+      "qth_loc": "IM69hh"
+    },
+    "callsign": "CQ0UP",
+    "notes": "",
+    "pwr_w": 40,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "439.0750000000",
+      "rx_mhz": "431.4750000000",
+      "channel": "RU726"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "74.4000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARR",
+      "name": "Associação de Radioamadores do Ribatejo"
+    },
+    "info_location": {
+      "latitude": "39.2363888900",
+      "longitude": "-8.6805555560",
+      "region": "CPT",
+      "place": "Santarém",
+      "qth_loc": "IM59pf"
+    },
+    "callsign": "CQ0USR",
+    "notes": "",
+    "pwr_w": 10,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.9750000000",
+      "rx_mhz": "431.3750000000",
+      "channel": "RU718"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "74.4000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARR",
+      "name": "Associação de Radioamadores do Ribatejo"
+    },
+    "info_location": {
+      "latitude": "39.1747222200",
+      "longitude": "-9.0602777780",
+      "region": "CPT",
+      "place": "Serra de Montejunto",
+      "qth_loc": "IM59le"
+    },
+    "callsign": "CQ0UMO",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.6750000000",
+      "rx_mhz": "431.0750000000",
+      "channel": "RU694"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "74.4000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "39.1736111100",
+      "longitude": "-9.0511111110",
+      "region": "CPT",
+      "place": "Serra de Montejunto",
+      "qth_loc": "IM59le"
+    },
+    "callsign": "CQ0UM",
+    "notes": "",
+    "pwr_w": 20,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "439.3500000000",
+      "rx_mhz": "431.7500000000",
+      "channel": "RU748"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "74.4000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "LART",
+      "name": "Liga de Amadores de Rádio Transmissões"
+    },
+    "info_location": {
+      "latitude": "39.1736111100",
+      "longitude": "-9.0511111110",
+      "region": "CPT",
+      "place": "Serra de Montejunto",
+      "qth_loc": "IM59le"
+    },
+    "callsign": "CQ0UMJ",
+    "notes": "",
+    "pwr_w": 30,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.7500000000",
+      "rx_mhz": "431.1500000000",
+      "channel": "RU700"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "74.4000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_location": {
+      "latitude": "39.0861111100",
+      "longitude": "-9.2761111110",
+      "region": "CPT",
+      "place": "Varatojo - Torres Vedras",
+      "qth_loc": "IM59ic"
+    },
+    "callsign": "CQ0UVAR",
+    "notes": "",
+    "pwr_w": 20,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "439.0500000000",
+      "rx_mhz": "431.4500000000",
+      "channel": "RU724"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "74.4000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "38.9727777800",
+      "longitude": "-9.1041666670",
+      "region": "CPT",
+      "place": "S. da Carvalha - Arruda dos Vinhos",
+      "qth_loc": "IM58kx"
+    },
+    "callsign": "CQ0USC",
+    "notes": "",
+    "pwr_w": 10,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "439.1750000000",
+      "rx_mhz": "431.5750000000",
+      "channel": "RU734"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "74.4000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "38.8977777800",
+      "longitude": "-9.1930555560",
+      "region": "CPT",
+      "place": "Cabeço de Montachique - Loures",
+      "qth_loc": "IM58jv"
+    },
+    "callsign": "CQ0UMC",
+    "notes": "",
+    "pwr_w": 20,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "439.3250000000",
+      "rx_mhz": "431.7250000000",
+      "channel": "RU746"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "74.4000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARVM",
+      "name": "Associação de Radioamadores da Vila de Moscavide"
+    },
+    "info_location": {
+      "latitude": "38.8933333300",
+      "longitude": "-9.1108333330",
+      "region": "CPT",
+      "place": "Monte Serves - Sta Eulália - Vialonga",
+      "qth_loc": "IM58kv"
+    },
+    "callsign": "CQ0URVM",
+    "notes": "",
+    "pwr_w": 40,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "439.1000000000",
+      "rx_mhz": "431.5000000000",
+      "channel": "RU728"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "74.4000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARAS",
+      "name": "Associação de Radioamadores de Amadora-Sintra"
+    },
+    "info_location": {
+      "latitude": "38.8119750000",
+      "longitude": "-9.1990861110",
+      "region": "CPT",
+      "place": "Amoreira – Odivelas - Lisboa",
+      "qth_loc": "IM58jt"
+    },
+    "callsign": "CQ0UAMR",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "439.1250000000",
+      "rx_mhz": "431.5250000000",
+      "channel": "RU730"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "74.4000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "LARS",
+      "name": "Liga Amadores Rádio Sintra"
+    },
+    "info_location": {
+      "latitude": "38.7863888900",
+      "longitude": "-9.3852777780",
+      "region": "CPT",
+      "place": "Santa Eufémia - Sintra",
+      "qth_loc": "IM58hs"
+    },
+    "callsign": "CQ0USI",
+    "notes": "",
+    "pwr_w": 60,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "439.0500000000",
+      "rx_mhz": "431.4500000000",
+      "channel": "RU724"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "74.4000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARLC",
+      "name": "Associação de Radioamadores da Linha de Cascais"
+    },
+    "info_location": {
+      "latitude": "38.7686111100",
+      "longitude": "-9.4605555560",
+      "region": "CPT",
+      "place": "Santuário da Peninha - Serra Sintra",
+      "qth_loc": "IM58gs"
+    },
+    "callsign": "CQ0UCAS",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.8000000000",
+      "rx_mhz": "431.2000000000",
+      "channel": "RU704"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "74.4000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARAS",
+      "name": "Associação de Radioamadores de Amadora-Sintra"
+    },
+    "info_location": {
+      "latitude": "38.7577027800",
+      "longitude": "-9.2418833330",
+      "region": "CPT",
+      "place": "Amadora",
+      "qth_loc": "IM58js"
+    },
+    "callsign": "CQ0UAM",
+    "notes": "",
+    "pwr_w": 20,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.9500000000",
+      "rx_mhz": "431.3500000000",
+      "channel": "RU716"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "67.0000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARR",
+      "name": "Associação de Radioamadores do Ribatejo"
+    },
+    "info_location": {
+      "latitude": "38.7391666700",
+      "longitude": "-7.5836111110",
+      "region": "CPT",
+      "place": "Serra de Ossa - Redondo - Évora",
+      "qth_loc": "IM68er"
+    },
+    "callsign": "CQ0USO",
+    "notes": "",
+    "pwr_w": 40,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.6500000000",
+      "rx_mhz": "431.0500000000",
+      "channel": "RU692"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "74.4000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "38.7327777800",
+      "longitude": "-9.1894444440",
+      "region": "CPT",
+      "place": "Monsanto - Lisboa",
+      "qth_loc": "IM58jr"
+    },
+    "callsign": "CQ0UMST",
+    "notes": "",
+    "pwr_w": 10,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": -7.6,
+      "tx_mhz": "431.3500000000",
+      "rx_mhz": "438.9500000000",
+      "channel": "RU716R"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "74.4000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "38.7327166700",
+      "longitude": "-9.1894944440",
+      "region": "CPT",
+      "place": "Monsanto – Lisboa",
+      "qth_loc": "IM58jr"
+    },
+    "callsign": "CQ0UHU",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": "CT1ETV"
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.9500000000",
+      "rx_mhz": "431.3500000000",
+      "channel": "RU716"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "74.4000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "38.7327166700",
+      "longitude": "-9.1894944440",
+      "region": "CPT",
+      "place": "Monsanto – Lisboa",
+      "qth_loc": "IM58jr"
+    },
+    "callsign": "CQ0UHU",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": "CT1ETV"
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "439.0250000000",
+      "rx_mhz": "431.4250000000",
+      "channel": "RU722"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "74.4000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "38.6738888900",
+      "longitude": "-9.1772222220",
+      "region": "CPT",
+      "place": "Pragal - Almada",
+      "qth_loc": "IM58jq"
+    },
+    "callsign": "CQ0UREP",
+    "notes": "",
+    "pwr_w": 10,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "439.3500000000",
+      "rx_mhz": "431.7500000000",
+      "channel": "RU748"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "114.8000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "38.6286027800",
+      "longitude": "-8.2305111110",
+      "region": "CPT",
+      "place": "Maia N. S. da Vila. Mont. Novo",
+      "qth_loc": "IM58VP"
+    },
+    "callsign": "CQ0UMN",
+    "notes": "",
+    "pwr_w": 40,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "439.4000000000",
+      "rx_mhz": "431.8000000000",
+      "channel": "RU752"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "74.4000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARLA",
+      "name": "Associação de Radioamadores do Litoral Alentejano"
+    },
+    "info_location": {
+      "latitude": "38.4925000000",
+      "longitude": "-8.9619444440",
+      "region": "CPT",
+      "place": "Serra da Arrábida - Setúbal",
+      "qth_loc": "IM48ml"
+    },
+    "callsign": "CQ0UARB",
+    "notes": "",
+    "pwr_w": 60,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.9250000000",
+      "rx_mhz": "431.3250000000",
+      "channel": "RU714"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "82.5000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARLA",
+      "name": "Associação de Radioamadores do Litoral Alentejano"
+    },
+    "info_location": {
+      "latitude": "37.9888888900",
+      "longitude": "-8.6922222220",
+      "region": "CPT",
+      "place": "Aldeia de Chãos - Santiago do Cacém",
+      "qth_loc": "IM57px"
+    },
+    "callsign": "CQ0USTC",
+    "notes": "",
+    "pwr_w": 20,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.7250000000",
+      "rx_mhz": "431.1250000000",
+      "channel": "RU698"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "114.8000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_location": {
+      "latitude": "37.9358916700",
+      "longitude": "-7.5949444440",
+      "region": "CPT",
+      "place": "Serpa",
+      "qth_loc": "IM67ew"
+    },
+    "callsign": "CQ0USP",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.8000000000",
+      "rx_mhz": "431.2000000000",
+      "channel": "RU704"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "114.8000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARRLx",
+      "name": "Associação de Radioamadores da Região de Lisboa"
+    },
+    "info_location": {
+      "latitude": "37.4930555600",
+      "longitude": "-7.9002777780",
+      "region": "CPT",
+      "place": "São Pedro de Solis - Mértola",
+      "qth_loc": "IM67bl"
+    },
+    "callsign": "CQ0UDA",
+    "notes": "",
+    "pwr_w": 20,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.6500000000",
+      "rx_mhz": "431.0500000000",
+      "channel": "RU692"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "114.8000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARAL",
+      "name": "Associação de Radioamadores do Distrito de Leiria"
+    },
+    "info_location": {
+      "latitude": "37.4930555600",
+      "longitude": "-7.8997222220",
+      "region": "CPT",
+      "place": "São Pedro de Solis - Mértola",
+      "qth_loc": "IM67bl"
+    },
+    "callsign": "CQ0UMT",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.6750000000",
+      "rx_mhz": "431.0750000000",
+      "channel": "RU694"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "131.8000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "RCL",
+      "name": "Radioamador Clube de Loulé"
+    },
+    "info_location": {
+      "latitude": "37.3150000000",
+      "longitude": "-8.5880555560",
+      "region": "CPT",
+      "place": "Fóia - Serra de Monchique",
+      "qth_loc": "IM57qh"
+    },
+    "callsign": "CQ0UFO",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 0.6,
+      "tx_mhz": "145.5875000000",
+      "rx_mhz": "144.9875000000",
+      "channel": "RV47"
+    },
+
+    "info_dstar": {
+      "modulation": "6K00F7W",
+      "gateway": "CQ0DCH G",
+      "reflector": "XRF268 H"
+    },
+
+    "info_holder": {
+      "abrv": "ARAT",
+      "name": "Associação de Radioamadores do Alto Tâmega"
+    },
+    "info_location": {
+      "latitude": "41.7325000000",
+      "longitude": "-7.6477777780",
+      "region": "CPT",
+      "place": "Serra do Leiranco – Chaves",
+      "qth_loc": "IN61er"
+    },
+    "callsign": "CQ0DCH",
+    "notes": "Repetidor UHF com o mesmo indicativo?",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "439.0250000000",
+      "rx_mhz": "431.4250000000",
+      "channel": "RU722"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "67.0000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARMi",
+      "name": "Associação de Radioamadores do Minho"
+    },
+    "info_location": {
+      "latitude": "41.6389444400",
+      "longitude": "-8.0436388890",
+      "region": "CPT",
+      "place": "Serra da Cabeira",
+      "qth_loc": "IN51xp"
+    },
+    "callsign": "CQ0UCVM",
+    "notes": "",
+
+    "status": "ON",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "439.1000000000",
+      "rx_mhz": "431.5000000000",
+      "channel": "RU728"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "67.0000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARMi",
+      "name": "Associação de Radioamadores do Minho"
+    },
+    "info_location": {
+      "latitude": "41.4094444400",
+      "longitude": "-8.3008333330",
+      "region": "CPT",
+      "place": "Serra da Penha - Guimarães",
+      "qth_loc": "IN51uj"
+    },
+    "callsign": "CQ0UGMR",
+    "notes": "",
+    "pwr_w": 15,
+    "status": "ON",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "439.2000000000",
+      "rx_mhz": "431.6000000000",
+      "channel": "RU736"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "123.0000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARMi",
+      "name": "Associação de Radioamadores do Minho"
+    },
+    "info_location": {
+      "latitude": "41.3252777800",
+      "longitude": "-8.4477777780",
+      "region": "CPT",
+      "place": "Monte N. Sra Assunção - Santo Tirso",
+      "qth_loc": "IN51sh"
+    },
+    "callsign": "CQ0UAST",
+    "notes": "",
+    "pwr_w": 12,
+    "status": "ON",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "439.4250000000",
+      "rx_mhz": "431.8250000000",
+      "channel": "RU754"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "123.0000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARMi",
+      "name": "Associação de Radioamadores do Minho"
+    },
+    "info_location": {
+      "latitude": "41.1088888900",
+      "longitude": "-8.5902777780",
+      "region": "CPT",
+      "place": "Monte da Virgem - V.N.Gaia",
+      "qth_loc": "IN51qc"
+    },
+    "callsign": "CQ0UPRT",
+    "notes": "",
+    "pwr_w": 60,
+    "status": "ON",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.8000000000",
+      "rx_mhz": "431.2000000000",
+      "channel": "RU704"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "67.0000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_fusion": {
+      "modulation": "F7W",
+      "wiresx": "",
+      "room_id": ""
+    },
+
+    "info_holder": {
+      "abrv": "ARMi",
+      "name": "Associação de Radioamadores do Minho"
+    },
+    "info_location": {
+      "latitude": "41.5147222200",
+      "longitude": "-8.3950000000",
+      "region": "CPT",
+      "place": "Serra de Santa Marta - Braga",
+      "qth_loc": "IN51tm"
+    },
+    "callsign": "CQ0UBRG",
+    "notes": "",
+    "pwr_w": 20,
+    "status": "ON",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "439.4250000000",
+      "rx_mhz": "431.8250000000",
+      "channel": "RU754"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "131.8000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "37.3150000000",
+      "longitude": "-8.5880555560",
+      "region": "CPT",
+      "place": "Fóia - Serra de Monchique",
+      "qth_loc": "IM57qh"
+    },
+    "callsign": "CQ0UMF",
+    "notes": "",
+    "pwr_w": 60,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "439.3750000000",
+      "rx_mhz": "431.7750000000",
+      "channel": "RU750"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "131.8000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "RCL",
+      "name": "Radioamador Clube de Loulé"
+    },
+    "info_location": {
+      "latitude": "37.1016666700",
+      "longitude": "-7.8305555560",
+      "region": "CPT",
+      "place": "Cerro de São Miguel - Olhão",
+      "qth_loc": "IM67CC"
+    },
+    "callsign": "CQ0UIV",
+    "notes": "",
+    "pwr_w": 60,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.9250000000",
+      "rx_mhz": "431.3250000000",
+      "channel": "RU714"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "131.8000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "37.1016666700",
+      "longitude": "-7.8322222220",
+      "region": "CPT",
+      "place": "Cerro de São Miguel - Faro",
+      "qth_loc": "IM67cc"
+    },
+    "callsign": "CQ0UMM",
+    "notes": "",
+    "pwr_w": 60,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.7000000000",
+      "rx_mhz": "431.1000000000",
+      "channel": "RU696"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "131.8000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "RCL",
+      "name": "Radioamador Clube de Loulé"
+    },
+    "info_location": {
+      "latitude": "37.1016666700",
+      "longitude": "-7.8305555560",
+      "region": "CPT",
+      "place": "Cerro de São Miguel - Olhão",
+      "qth_loc": "IM67CC"
+    },
+    "callsign": "CQ0USM",
+    "notes": "",
+    "pwr_w": 60,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "439.2250000000",
+      "rx_mhz": "431.6250000000",
+      "channel": "RU738"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "131.8000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "RCL",
+      "name": "Radioamador Clube de Loulé"
+    },
+    "info_location": {
+      "latitude": "37.1013888900",
+      "longitude": "-7.8305555560",
+      "region": "CPT",
+      "place": "Cerro de São Miguel - Olhão",
+      "qth_loc": "IM67bb"
+    },
+    "callsign": "CQ0UFL",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "439.1250000000",
+      "rx_mhz": "431.5250000000",
+      "channel": "RU730"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "123.0000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARBA",
+      "name": "Associação de Radioamadores da Beira Alta"
+    },
+    "info_location": {
+      "latitude": "41.1758888900",
+      "longitude": "-8.4963611110",
+      "region": "CPT",
+      "place": "Ribeira de Frades",
+      "qth_loc": "IN51se"
+    },
+    "callsign": "CQ0USJ",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.6750000000",
+      "rx_mhz": "431.0750000000",
+      "channel": "RU694"
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "67.0000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": { "abrv": "ADxG", "name": "Azores DX Group" },
+    "info_location": {
+      "latitude": "38.7299222200",
+      "longitude": "-27.3180833300",
+      "region": "AZR",
+      "place": "Serra de Santa Bárbara - Ilha Terceira",
+      "qth_loc": "HM68ir"
+    },
+    "callsign": "CQ1UDX",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.7250000000",
+      "rx_mhz": "431.1250000000",
+      "channel": "RU698"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "88.5000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "URA",
+      "name": "União dos Radioamadores dos Açores"
+    },
+    "info_location": {
+      "latitude": "38.7120305600",
+      "longitude": "-27.1140416700",
+      "region": "AZR",
+      "place": "Cume - Terceira",
+      "qth_loc": "HM68kr"
+    },
+    "callsign": "CQ1UCM",
+    "notes": "Confirmado pela associação a 2021/10/29",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.8000000000",
+      "rx_mhz": "431.2000000000",
+      "channel": "RU704"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "123.0000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": { "abrv": "ADT", "name": "Azores DX Team" },
+    "info_location": {
+      "latitude": "38.5755555600",
+      "longitude": "-28.7127777800",
+      "region": "AZR",
+      "place": "Cabeço Gordo - Faial",
+      "qth_loc": "HM58pn"
+    },
+    "callsign": "CQ1UF",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.7500000000",
+      "rx_mhz": "431.1500000000",
+      "channel": "RU700"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "88.5000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARA",
+      "name": "Associação de Radioamadores dos Açores"
+    },
+    "info_location": {
+      "latitude": "37.7783722200",
+      "longitude": "-25.1765194400",
+      "region": "AZR",
+      "place": "Bartolomeu - São Miguel",
+      "qth_loc": "HM77js"
+    },
+    "callsign": "CQ1UPB",
+    "notes": "",
+    "pwr_w": 20,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.9000000000",
+      "rx_mhz": "431.3000000000",
+      "channel": "RU712"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "88.5000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARA",
+      "name": "Associação de Radioamadores dos Açores"
+    },
+    "info_location": {
+      "latitude": "37.7425888900",
+      "longitude": "-25.6545638900",
+      "region": "AZR",
+      "place": "Ponta Delgada - São Miguel",
+      "qth_loc": "HM77er"
+    },
+    "callsign": "CQ1UPDL",
+    "notes": "",
+    "pwr_w": 20,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.6500000000",
+      "rx_mhz": "431.0500000000",
+      "channel": "RU692"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "88.5000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_location": {
+      "latitude": "36.9828638900",
+      "longitude": "-25.0907416700",
+      "region": "AZR",
+      "place": "Pico Alto – Santa Maria",
+      "qth_loc": "HM76kx"
+    },
+    "callsign": "CQ1UPA",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.7750000000",
+      "rx_mhz": "431.1750000000",
+      "channel": "RU702"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "88.5000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARA",
+      "name": "Associação de Radioamadores dos Açores"
+    },
+    "info_location": {
+      "latitude": "37.8191833300",
+      "longitude": "-25.7515083300",
+      "region": "AZR",
+      "place": "Santos de Cima - São Miguel",
+      "qth_loc": "HM77ct"
+    },
+    "callsign": "CQ1USC",
+    "notes": "",
+    "pwr_w": 20,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.7000000000",
+      "rx_mhz": "431.1000000000",
+      "channel": "RU696"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "67.0000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "32.6936111100",
+      "longitude": "-16.9061111100",
+      "region": "MDA",
+      "place": "Pico Alto - Parque Ecológico do Funchal",
+      "qth_loc": "IM12nq"
+    },
+    "callsign": "CQ2UFX",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.6500000000",
+      "rx_mhz": "431.0500000000",
+      "channel": "RU692"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "82.5000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "32.6555638900",
+      "longitude": "-16.8734111100",
+      "region": "MDA",
+      "place": "Funchal",
+      "qth_loc": "IM12np"
+    },
+    "callsign": "CQ2UMAD",
+    "notes": "",
+    "pwr_w": 20,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_simplex": {
+      "freq_mhz": "433.4000000000",
+      "channel": null
+    },
+    "info_fm": {
+      "modulation": "10K0F3E",
+      "tone": "1750.0000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "CRE",
+      "name": "Clube de Radioamadores do Entroncamento"
+    },
+    "info_location": {
+      "latitude": "39.4811111100",
+      "longitude": "-8.4852777780",
+      "region": "CPT",
+      "place": "Entroncamento",
+      "qth_loc": "IM59sl"
+    },
+    "callsign": "CQ0SSTV",
+    "notes": "",
+    "pwr_w": 20,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_simplex": {
+      "freq_mhz": "433.4000000000",
+      "channel": null
+    },
+    "info_fm": {
+      "modulation": "10K0F3E",
+      "tone": "74.4000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARAS",
+      "name": "Associação de Radioamadores de Amadora-Sintra"
+    },
+    "info_location": {
+      "latitude": "38.7866666700",
+      "longitude": "-9.3866666670",
+      "region": "CPT",
+      "place": "Santa Eufemia - Sintra",
+      "qth_loc": "IM58hs"
+    },
+    "callsign": "CQ0SUAS",
+    "notes": "",
+    "pwr_w": 15,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_simplex": {
+      "freq_mhz": "439.6250000000",
+      "channel": null
+    },
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "82.5000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "URA",
+      "name": "União dos Radioamadores dos Açores"
+    },
+    "info_location": {
+      "latitude": "38.7298777800",
+      "longitude": "-27.3187388900",
+      "region": "AZR",
+      "place": "Sta Bárbara - Terceira",
+      "qth_loc": "HM68ir"
+    },
+    "callsign": "CQ1EURA",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.8750000000",
+      "rx_mhz": "431.2750000000",
+      "channel": "RU710"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "74.4000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "38.8127416700",
+      "longitude": "-9.1981805560",
+      "region": "CPT",
+      "place": "Odivelas",
+      "qth_loc": "IM58jt"
+    },
+    "callsign": "CQ0UEC",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.4375000000",
+      "rx_mhz": "430.8375000000",
+      "channel": "RU675"
+    },
+
+    "info_dmr": {
+      "ts2_default_tg": { "name": "Regional", "id": 8 },
+      "ts1_alternative_tgs": [],
+      "ts2_alternative_tgs": [{ "name": "Local", "id": 2 }],
+      "modulation": "",
+      "id": 268110,
+      "color_code": 1,
+      "ts_configuration": "(2->)268110\r\n(8->)268903"
+    },
+    "info_holder": {
+      "abrv": "ARAT",
+      "name": "Associação de Radioamadores do Alto Tâmega"
+    },
+    "info_location": {
+      "latitude": "41.5614055600",
+      "longitude": "-7.5169583330",
+      "region": "CPT",
+      "place": "Serra da Padrela – Valpaços",
+      "qth_loc": "IN61fn"
+    },
+    "callsign": "CQ0DPD",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.4750000000",
+      "rx_mhz": "430.8750000000",
+      "channel": "RU678"
+    },
+
+    "info_dmr": {
+      "ts1_default_tg": { "name": "Portugal", "id": 268 },
+      "ts2_default_tg": { "name": "Regional", "id": 8 },
+      "ts1_alternative_tgs": [
+        { "name": "Worldwide English", "id": 91 },
+        { "name": "Portugues", "id": 915 }
+      ],
+      "ts2_alternative_tgs": [],
+      "modulation": "",
+      "id": 268107,
+      "color_code": 1,
+      "ts_configuration": "(8->)268901"
+    },
+    "info_holder": {
+      "abrv": "ARBA",
+      "name": "Associação de Radioamadores da Beira Alta"
+    },
+    "info_location": {
+      "latitude": "41.1080555600",
+      "longitude": "-8.5872222220",
+      "region": "CPT",
+      "place": "Monte da Virgem - V. N. Gaia",
+      "qth_loc": "IN51qc"
+    },
+    "callsign": "CQ0DMV",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.3625000000",
+      "rx_mhz": "430.7625000000",
+      "channel": "RU669"
+    },
+
+    "info_dmr": {
+      "ts1_alternative_tgs": [],
+      "ts2_alternative_tgs": [],
+      "modulation": "",
+      "id": 268106,
+      "color_code": 1,
+      "ts_configuration": ""
+    },
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "41.0669444400",
+      "longitude": "-8.6475000000",
+      "region": "CPT",
+      "place": "Miramar – Vila Nova de Gaia",
+      "qth_loc": "IN51qb"
+    },
+    "callsign": "CQ0DSO",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.2000000000",
+      "rx_mhz": "430.6000000000",
+      "channel": "RU656"
+    },
+
+    "info_dmr": {
+      "ts1_default_tg": { "name": "Portugal", "id": 268 },
+      "ts2_default_tg": { "name": "Regional", "id": 8 },
+      "ts1_alternative_tgs": [
+        { "name": "Worldwide English", "id": 91 },
+        { "name": "Europe", "id": 92 },
+        { "name": "Portugues", "id": 915 }
+      ],
+      "ts2_alternative_tgs": [],
+      "modulation": "",
+      "id": 268105,
+      "color_code": 1,
+      "ts_configuration": ""
+    },
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "40.8541666700",
+      "longitude": "-8.2916666670",
+      "region": "CPT",
+      "place": "Arouca – Serra da Freita (Norte)",
+      "qth_loc": "IN50uu"
+    },
+    "callsign": "CQ0DSF",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.5000000000",
+      "rx_mhz": "430.9000000000",
+      "channel": "RU680"
+    },
+
+    "info_dmr": {
+      "ts1_default_tg": { "name": "Portugal", "id": 268 },
+      "ts2_default_tg": { "name": "Regional", "id": 8 },
+      "ts1_alternative_tgs": [{ "name": "Portugues", "id": 915 }],
+      "ts2_alternative_tgs": [],
+      "modulation": "",
+      "id": 268203,
+      "color_code": 1,
+      "ts_configuration": "(8->)268901"
+    },
+    "info_holder": {
+      "abrv": "ARBA",
+      "name": "Associação de Radioamadores da Beira Alta"
+    },
+    "info_location": {
+      "latitude": "40.8450000000",
+      "longitude": "-8.2797222220",
+      "region": "CPT",
+      "place": "Serra da Freita - Aveiro",
+      "qth_loc": "IN50uu"
+    },
+    "callsign": "CQ0DFR",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.4000000000",
+      "rx_mhz": "430.8000000000",
+      "channel": "RU672"
+    },
+
+    "info_dmr": {
+      "ts1_default_tg": { "name": "Portugal", "id": 268 },
+      "ts2_default_tg": { "name": "Regional", "id": 8 },
+      "ts1_alternative_tgs": [
+        { "name": "Worldwide English", "id": 91 },
+        { "name": "Portugues", "id": 915 }
+      ],
+      "ts2_alternative_tgs": [],
+      "modulation": "",
+      "id": 268211,
+      "color_code": 1,
+      "ts_configuration": "(8->)268901"
+    },
+    "info_holder": {
+      "abrv": "ARBA",
+      "name": "Associação de Radioamadores da Beira Alta"
+    },
+    "info_location": {
+      "latitude": "40.8100000000",
+      "longitude": "-7.8397222220",
+      "region": "CPT",
+      "place": "Serra de Côta - Viseu",
+      "qth_loc": "IN60bt"
+    },
+    "callsign": "CQ0DLU",
+    "notes": "",
+    "pwr_w": 15,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.3125000000",
+      "rx_mhz": "430.7125000000",
+      "channel": "RU665"
+    },
+
+    "info_dmr": {
+      "ts1_default_tg": { "name": "Portugal", "id": 268 },
+      "ts2_default_tg": { "name": "Local", "id": 2 },
+      "ts1_alternative_tgs": [
+        { "name": "Worldwide English", "id": 91 },
+        { "name": "Portugues", "id": 915 }
+      ],
+      "ts2_alternative_tgs": [],
+      "modulation": "",
+      "id": 268201,
+      "color_code": 1,
+      "ts_configuration": "(2->)268201"
+    },
+    "info_holder": {
+      "abrv": "ARAL",
+      "name": "Associação de Radioamadores do Distrito de Leiria"
+    },
+    "info_location": {
+      "latitude": "40.8022222200",
+      "longitude": "-8.3697222220",
+      "region": "CPT",
+      "place": "Serra do Arestal - Aveiro",
+      "qth_loc": "IN50tt"
+    },
+    "callsign": "CQ0DTRZ",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "ON",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.2125000000",
+      "rx_mhz": "430.6125000000",
+      "channel": "RU657"
+    },
+
+    "info_dmr": {
+      "ts1_default_tg": { "name": "Portugal", "id": 268 },
+      "ts2_default_tg": { "name": "Local", "id": 2 },
+      "ts1_alternative_tgs": [
+        { "name": "Worldwide English", "id": 91 },
+        { "name": "Portugues", "id": 915 }
+      ],
+      "ts2_alternative_tgs": [],
+      "modulation": "",
+      "id": 268230,
+      "color_code": 1,
+      "ts_configuration": "(2->)268230"
+    },
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "40.6802777800",
+      "longitude": "-7.9241666670",
+      "region": "CPT",
+      "place": "Abraveses - Viseu",
+      "qth_loc": "IN60aq"
+    },
+    "callsign": "CQ0DAB",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.2375000000",
+      "rx_mhz": "430.6375000000",
+      "channel": "RU659"
+    },
+
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "40.5625000000",
+      "longitude": "-8.2083333330",
+      "region": "CPT",
+      "place": "Serra do Caramulo",
+      "qth_loc": "IN50vn"
+    },
+    "callsign": "CQ0DCR",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": "CT1ETV"
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.3000000000",
+      "rx_mhz": "430.7000000000",
+      "channel": "RU664"
+    },
+
+    "info_dmr": {
+      "ts1_default_tg": { "name": "Portugal", "id": 268 },
+      "ts2_default_tg": { "name": "Regional", "id": 8 },
+      "ts1_alternative_tgs": [
+        { "name": "Worldwide English", "id": 91 },
+        { "name": "Portugues", "id": 915 }
+      ],
+      "ts2_alternative_tgs": [{ "name": "Local", "id": 2 }],
+      "modulation": "",
+      "id": 268205,
+      "color_code": 1,
+      "ts_configuration": "(2->)268205\r\n(8->)268904"
+    },
+
+    "info_location": {
+      "latitude": "40.2503611100",
+      "longitude": "-8.3491194440",
+      "region": "CPT",
+      "place": "Roxo - Coimbra",
+      "qth_loc": "IN50tg"
+    },
+    "callsign": "CQ0DRX",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.3625000000",
+      "rx_mhz": "430.7625000000",
+      "channel": "RU669"
+    },
+
+    "info_dmr": {
+      "ts1_default_tg": { "name": "Portugal", "id": 268 },
+      "ts2_default_tg": { "name": "Local", "id": 2 },
+      "ts1_alternative_tgs": [
+        { "name": "Worldwide English", "id": 91 },
+        { "name": "Portugues", "id": 915 }
+      ],
+      "ts2_alternative_tgs": [],
+      "modulation": "",
+      "id": 268209,
+      "color_code": 1,
+      "ts_configuration": "(2->)268209"
+    },
+    "info_holder": {
+      "abrv": "ARCP",
+      "name": "Associação de Radioamadores da Costa de Prata"
+    },
+    "info_location": {
+      "latitude": "40.1919444400",
+      "longitude": "-8.8411111110",
+      "region": "CPT",
+      "place": "Serra da Brenha - Figueira da Foz",
+      "qth_loc": "IN50ne"
+    },
+    "callsign": "CQ0DFF",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.2500000000",
+      "rx_mhz": "430.6500000000",
+      "channel": "RU660"
+    },
+
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "40.1460000000",
+      "longitude": "7.4580000000",
+      "region": "CPT",
+      "place": "Fundão",
+      "qth_loc": "IN60gd"
+    },
+    "callsign": "CQ0DFU",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.2750000000",
+      "rx_mhz": "430.6750000000",
+      "channel": "RU662"
+    },
+
+    "info_dmr": {
+      "ts1_default_tg": { "name": "Portugal", "id": 268 },
+      "ts2_default_tg": { "name": "Local", "id": 2 },
+      "ts1_alternative_tgs": [
+        { "name": "Worldwide English", "id": 91 },
+        { "name": "Portugues", "id": 915 }
+      ],
+      "ts2_alternative_tgs": [],
+      "modulation": "",
+      "id": 268210,
+      "color_code": 1,
+      "ts_configuration": "(2->)268210"
+    },
+    "info_holder": {
+      "abrv": "ARBB",
+      "name": "Associação de Radioamadores da Beira Baixa"
+    },
+    "info_location": {
+      "latitude": "40.0805666700",
+      "longitude": "-7.5255944440",
+      "region": "CPT",
+      "place": "Serra da Gardunha",
+      "qth_loc": "IN60fb"
+    },
+    "callsign": "CQ0DUG",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.2000000000",
+      "rx_mhz": "430.6000000000",
+      "channel": "RU656"
+    },
+
+    "info_dmr": {
+      "ts1_default_tg": { "name": "Portugal", "id": 268 },
+      "ts2_default_tg": { "name": "Local", "id": 2 },
+      "ts1_alternative_tgs": [{ "name": "Portugues", "id": 915 }],
+      "ts2_alternative_tgs": [],
+      "modulation": "",
+      "id": 268207,
+      "color_code": 1,
+      "ts_configuration": "(2->)268207"
+    },
+    "info_holder": {
+      "abrv": "ARAL",
+      "name": "Associação de Radioamadores do Distrito de Leiria"
+    },
+    "info_location": {
+      "latitude": "39.6719444400",
+      "longitude": "-8.7580555560",
+      "region": "CPT",
+      "place": "Alburitel - Ourém",
+      "qth_loc": "IM59rp"
+    },
+    "callsign": "CQ0DLIZ",
+    "notes": "",
+    "pwr_w": 10,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.3875000000",
+      "rx_mhz": "430.7875000000",
+      "channel": "RU671"
+    },
+
+    "info_dmr": {
+      "ts1_default_tg": { "name": "Portugal", "id": 268 },
+      "ts2_default_tg": { "name": "Local", "id": 2 },
+      "ts1_alternative_tgs": [
+        { "name": "Worldwide English", "id": 91 },
+        { "name": "Portugues", "id": 915 }
+      ],
+      "ts2_alternative_tgs": [],
+      "modulation": "",
+      "id": 268206,
+      "color_code": 1,
+      "ts_configuration": "(2->)268206"
+    },
+    "info_holder": {
+      "abrv": "ARAL",
+      "name": "Associação de Radioamadores do Distrito de Leiria"
+    },
+    "info_location": {
+      "latitude": "39.5491666700",
+      "longitude": "-8.8666666670",
+      "region": "CPT",
+      "place": "Serra dos Candeeiros - Leiria",
+      "qth_loc": "IM59nn"
+    },
+    "callsign": "CQ0DCD",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.5000000000",
+      "rx_mhz": "430.9000000000",
+      "channel": "RU680"
+    },
+
+    "info_dmr": {
+      "ts1_default_tg": { "name": "Portugal", "id": 268 },
+      "ts2_default_tg": { "name": "Local", "id": 2 },
+      "ts1_alternative_tgs": [
+        { "name": "Worldwide English", "id": 91 },
+        { "name": "Portugues", "id": 915 }
+      ],
+      "ts2_alternative_tgs": [],
+      "modulation": "",
+      "id": 268401,
+      "color_code": 1,
+      "ts_configuration": "(2->)268401"
+    },
+    "info_holder": {
+      "abrv": "CRE",
+      "name": "Clube de Radioamadores do Entroncamento"
+    },
+    "info_location": {
+      "latitude": "39.5358333300",
+      "longitude": "-8.6363888890",
+      "region": "CPT",
+      "place": "Serra de Aire",
+      "qth_loc": "IM59qm"
+    },
+    "callsign": "CQ0DCRE",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.4625000000",
+      "rx_mhz": "430.8625000000",
+      "channel": "RU677"
+    },
+
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "39.4380000000",
+      "longitude": "8.9580000000",
+      "region": "CPT",
+      "place": "Serra dos Candeeiros - Leiria",
+      "qth_loc": "IM59mk"
+    },
+    "callsign": "CQ0DCE",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": "CT1ETV"
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.3625000000",
+      "rx_mhz": "430.7625000000",
+      "channel": "RU669"
+    },
+
+    "info_dmr": {
+      "ts1_default_tg": {
+        "name": "PT Hotspot 2",
+        "id": 268915
+      },
+      "ts2_default_tg": { "name": "Local", "id": 2 },
+      "ts1_alternative_tgs": [],
+      "ts2_alternative_tgs": [],
+      "modulation": "",
+      "id": 268409,
+      "color_code": 1,
+      "ts_configuration": "(2->)268409"
+    },
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "39.3125000000",
+      "longitude": "-7.4288888890",
+      "region": "CPT",
+      "place": "Cabeço de Mouro - Portalegre",
+      "qth_loc": "IM69gh"
+    },
+    "callsign": "CQ0DCM",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": "CT2GPZ"
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.4375000000",
+      "rx_mhz": "430.8375000000",
+      "channel": "RU675"
+    },
+
+    "info_dmr": {
+      "ts1_default_tg": { "name": "Portugal", "id": 268 },
+      "ts2_default_tg": { "name": "Local", "id": 2 },
+      "ts1_alternative_tgs": [
+        { "name": "Worldwide English", "id": 91 },
+        { "name": "Portugues", "id": 915 }
+      ],
+      "ts2_alternative_tgs": [{ "name": "Emergencia", "id": 268112 }],
+      "modulation": "",
+      "id": 268307,
+      "color_code": 1,
+      "ts_configuration": "(2->)268307"
+    },
+    "info_holder": {
+      "abrv": "LART",
+      "name": "Liga de Amadores de Rádio Transmissões"
+    },
+    "info_location": {
+      "latitude": "39.1748388900",
+      "longitude": "-9.0601722220",
+      "region": "CPT",
+      "place": "Serra de Montejunto",
+      "qth_loc": "IM59le"
+    },
+    "callsign": "CQ0DMJ",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.5125000000",
+      "rx_mhz": "430.9125000000",
+      "channel": "RU681"
+    },
+
+    "info_dmr": {
+      "ts1_alternative_tgs": [],
+      "ts2_alternative_tgs": [],
+      "modulation": "",
+      "id": 268311,
+      "color_code": 1,
+      "ts_configuration": ""
+    },
+    "info_holder": {
+      "abrv": "ARADO",
+      "name": "Associação de Radioamadores do Oeste"
+    },
+    "info_location": {
+      "latitude": "39.0861111100",
+      "longitude": "-9.2761111110",
+      "region": "CPT",
+      "place": "Varatojo - Torres Vedras",
+      "qth_loc": "IM59ic"
+    },
+    "callsign": "CQ0DMTV",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.4250000000",
+      "rx_mhz": "430.8250000000",
+      "channel": "RU674"
+    },
+
+    "info_dmr": {
+      "ts1_default_tg": { "name": "Portugal", "id": 268 },
+      "ts2_default_tg": { "name": "Local", "id": 2 },
+      "ts1_alternative_tgs": [
+        { "name": "Worldwide English", "id": 91 },
+        { "name": "Portugues", "id": 915 }
+      ],
+      "ts2_alternative_tgs": [],
+      "modulation": "",
+      "id": 268305,
+      "color_code": 1,
+      "ts_configuration": "(2->)268305"
+    },
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "38.8978666700",
+      "longitude": "-9.1930722220",
+      "region": "CPT",
+      "place": "Cabeço de Montachique – Loures",
+      "qth_loc": "IM58jv"
+    },
+    "callsign": "CQ0DMQ",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": "CT1ETV"
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.2750000000",
+      "rx_mhz": "430.6750000000",
+      "channel": "RU662"
+    },
+
+    "info_dmr": {
+      "ts1_default_tg": { "name": "Portugal", "id": 268 },
+      "ts2_default_tg": {
+        "name": "PT Hotspot 1",
+        "id": 268911
+      },
+      "ts1_alternative_tgs": [{ "name": "Portugues", "id": 915 }],
+      "ts2_alternative_tgs": [],
+      "modulation": "",
+      "id": 268309,
+      "color_code": 1,
+      "ts_configuration": ""
+    },
+    "info_holder": {
+      "abrv": "ARVM",
+      "name": "Associação de Radioamadores da Vila de Moscavide"
+    },
+    "info_location": {
+      "latitude": "38.8930555600",
+      "longitude": "-9.1108333330",
+      "region": "CPT",
+      "place": "Monte Serves - Vialonga",
+      "qth_loc": "IM58kv"
+    },
+    "callsign": "CQ0DMS",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.3125000000",
+      "rx_mhz": "430.7125000000",
+      "channel": "RU665"
+    },
+
+    "info_dmr": {
+      "ts1_default_tg": { "name": "Portugal", "id": 268 },
+      "ts2_default_tg": { "name": "Local", "id": 2 },
+      "ts1_alternative_tgs": [{ "name": "Portugues", "id": 915 }],
+      "ts2_alternative_tgs": [],
+      "modulation": "",
+      "id": 268302,
+      "color_code": 1,
+      "ts_configuration": "(2->)268302"
+    },
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "38.8127416700",
+      "longitude": "-9.1981805560",
+      "region": "CPT",
+      "place": "Odivelas",
+      "qth_loc": "IM58jt"
+    },
+    "callsign": "CQ0DOD",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": "CT2FXW/CT2JSS,/CT1BM"
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.2500000000",
+      "rx_mhz": "430.6500000000",
+      "channel": "RU660"
+    },
+
+    "info_dmr": {
+      "ts1_default_tg": { "name": "Portugal", "id": 268 },
+      "ts2_default_tg": { "name": "Local", "id": 2 },
+      "ts1_alternative_tgs": [{ "name": "Portugues", "id": 915 }],
+      "ts2_alternative_tgs": [],
+      "modulation": "",
+      "id": 268310,
+      "color_code": 1,
+      "ts_configuration": "(2->)268310"
+    },
+    "info_holder": {
+      "abrv": "LARS",
+      "name": "Liga Amadores Rádio Sintra"
+    },
+    "info_location": {
+      "latitude": "38.7866666700",
+      "longitude": "-9.3866666670",
+      "region": "CPT",
+      "place": "Santa Eufemia - Sintra",
+      "qth_loc": "IM58hs"
+    },
+    "callsign": "CQ0DST",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.4750000000",
+      "rx_mhz": "430.8750000000",
+      "channel": "RU678"
+    },
+
+    "info_dmr": {
+      "ts1_default_tg": { "name": "Portugal", "id": 268 },
+      "ts2_default_tg": { "name": "Regional", "id": 8 },
+      "ts1_alternative_tgs": [
+        { "name": "Worldwide English", "id": 91 },
+        { "name": "Portugues", "id": 915 }
+      ],
+      "ts2_alternative_tgs": [{ "name": "Local", "id": 2 }],
+      "modulation": "",
+      "id": 268340,
+      "color_code": 1,
+      "ts_configuration": "(2->)268340\r\n(8->)268905"
+    },
+    "info_holder": {
+      "abrv": "ARLC",
+      "name": "Associação de Radioamadores da Linha de Cascais"
+    },
+    "info_location": {
+      "latitude": "38.7500000000",
+      "longitude": "-9.4391666670",
+      "region": "CPT",
+      "place": "Janes - Malveira da Serra - Cascais",
+      "qth_loc": "IM58gs"
+    },
+    "callsign": "CQ0DCSC",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.5375000000",
+      "rx_mhz": "430.9375000000",
+      "channel": "RU683"
+    },
+
+    "info_dmr": {
+      "ts1_default_tg": {
+        "name": "PT Hotspot 2",
+        "id": 268915
+      },
+      "ts2_default_tg": { "name": "Local", "id": 2 },
+      "ts1_alternative_tgs": [],
+      "ts2_alternative_tgs": [],
+      "modulation": "",
+      "id": 268410,
+      "color_code": 1,
+      "ts_configuration": "(2->)268410"
+    },
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "38.7391666700",
+      "longitude": "-7.5836111110",
+      "region": "CPT",
+      "place": "Serra de Ossa - Redondo - Évora",
+      "qth_loc": "IM68er"
+    },
+    "callsign": "CQ0DSS",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.5750000000",
+      "rx_mhz": "430.9750000000",
+      "channel": "RU686"
+    },
+
+    "info_dmr": {
+      "ts1_default_tg": { "name": "Portugal", "id": 268 },
+      "ts2_default_tg": { "name": "Local", "id": 2 },
+      "ts1_alternative_tgs": [
+        { "name": "Worldwide English", "id": 91 },
+        { "name": "Europe", "id": 92 },
+        { "name": "Portugues", "id": 915 }
+      ],
+      "ts2_alternative_tgs": [],
+      "modulation": "",
+      "id": 268320,
+      "color_code": 1,
+      "ts_configuration": "(2->)268320"
+    },
+    "info_holder": {
+      "abrv": "AMRAD",
+      "name": "Associação Portuguesa de Amadores de Rádio para a Investigação, Educação e Desenvolvimento"
+    },
+    "info_location": {
+      "latitude": "38.7358333300",
+      "longitude": "-9.1383333330",
+      "region": "CPT",
+      "place": "Instituto Superior Técnico de Lisboa",
+      "qth_loc": "IM58kr"
+    },
+    "callsign": "CQ0DEC",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.3875000000",
+      "rx_mhz": "430.7875000000",
+      "channel": "RU671"
+    },
+
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "38.7290000000",
+      "longitude": "9.2080000000",
+      "region": "CPT",
+      "place": "Monsanto - Lisboa",
+      "qth_loc": "IM58jr"
+    },
+    "callsign": "CQ0DMT",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.3500000000",
+      "rx_mhz": "430.7500000000",
+      "channel": "RU668"
+    },
+
+    "info_dmr": {
+      "ts1_default_tg": { "name": "Portugal", "id": 268 },
+      "ts2_default_tg": { "name": "Local", "id": 2 },
+      "ts1_alternative_tgs": [
+        { "name": "Worldwide English", "id": 91 },
+        { "name": "Portugues", "id": 915 }
+      ],
+      "ts2_alternative_tgs": [],
+      "modulation": "",
+      "id": 268303,
+      "color_code": 1,
+      "ts_configuration": "(2->)268303"
+    },
+    "info_holder": {
+      "abrv": "ARLA",
+      "name": "Associação de Radioamadores do Litoral Alentejano"
+    },
+    "info_location": {
+      "latitude": "38.4926138900",
+      "longitude": "-8.9620527780",
+      "region": "CPT",
+      "place": "Serra da Arrábida – Setúbal",
+      "qth_loc": "IM58ml"
+    },
+    "callsign": "CQ0DMA",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.6000000000",
+      "rx_mhz": "431.0000000000",
+      "channel": "RU688"
+    },
+
+    "info_dmr": {
+      "ts1_default_tg": { "name": "Portugal", "id": 268 },
+      "ts2_default_tg": { "name": "Local", "id": 2 },
+      "ts1_alternative_tgs": [
+        { "name": "Worldwide English", "id": 91 },
+        { "name": "Portugues", "id": 915 }
+      ],
+      "ts2_alternative_tgs": [],
+      "modulation": "",
+      "id": 268402,
+      "color_code": 1,
+      "ts_configuration": "(2->)268402"
+    },
+    "info_holder": {
+      "abrv": "ARLA",
+      "name": "Associação de Radioamadores do Litoral Alentejano"
+    },
+    "info_location": {
+      "latitude": "37.9888888900",
+      "longitude": "-8.6922222220",
+      "region": "CPT",
+      "place": "Aldeia de Chãos - Santiago do Cacém",
+      "qth_loc": "IM57px"
+    },
+    "callsign": "CQ0DLA",
+    "notes": "",
+    "pwr_w": 15,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.2250000000",
+      "rx_mhz": "430.6250000000",
+      "channel": "RU658"
+    },
+
+    "info_dmr": {
+      "ts1_alternative_tgs": [],
+      "ts2_alternative_tgs": [],
+      "modulation": "",
+      "id": 268399,
+      "color_code": 1,
+      "ts_configuration": ""
+    },
+
+    "callsign": "CQ0DS",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.3375000000",
+      "rx_mhz": "430.7375000000",
+      "channel": "RU667"
+    },
+
+    "info_dmr": {
+      "ts1_default_tg": { "name": "Portugal", "id": 268 },
+      "ts2_default_tg": { "name": "Local", "id": 2 },
+      "ts1_alternative_tgs": [],
+      "ts2_alternative_tgs": [{ "name": "CU3-Terceira Isl.", "id": 26863 }],
+      "modulation": "",
+      "id": 268601,
+      "color_code": 1,
+      "ts_configuration": "(2->)268601"
+    },
+    "info_holder": {
+      "abrv": "URA",
+      "name": "União dos Radioamadores dos Açores"
+    },
+    "info_location": {
+      "latitude": "38.6608333300",
+      "longitude": "-27.2252777800",
+      "region": "AZR",
+      "place": "Angra do Heroísmo - Ilha Terceira",
+      "qth_loc": "HM68jp"
+    },
+    "callsign": "CQ1DUR",
+    "notes": "Confirmado pela associação a 2021/10/29",
+    "pwr_w": 10,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.3000000000",
+      "rx_mhz": "430.7000000000",
+      "channel": "RU664"
+    },
+
+    "info_dmr": {
+      "ts1_default_tg": {
+        "name": "PT Hotspot 2",
+        "id": 268915
+      },
+      "ts2_default_tg": { "name": "Ilhas Azores", "id": 2686 },
+      "ts1_alternative_tgs": [],
+      "ts2_alternative_tgs": [{ "name": "CU7-Faial Ils.", "id": 26867 }],
+      "modulation": "",
+      "id": 268603,
+      "color_code": 1,
+      "ts_configuration": ""
+    },
+    "info_holder": {
+      "abrv": "CRA",
+      "name": "Clube de Radioamadores dos Açores"
+    },
+    "info_location": {
+      "latitude": "38.5758333300",
+      "longitude": "-28.7136111100",
+      "region": "AZR",
+      "place": "Cabeço Gordo - Ilha do Faial",
+      "qth_loc": "HM58pn"
+    },
+    "callsign": "CQ1DCG",
+    "notes": "",
+    "pwr_w": 15,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.3875000000",
+      "rx_mhz": "430.7875000000",
+      "channel": "RU671"
+    },
+
+    "info_dstar": {
+      "modulation": "6K00F7W",
+      "gateway": "",
+      "reflector": ""
+    },
+
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "40.8541666700",
+      "longitude": "-8.2916666670",
+      "region": "CPT",
+      "place": "Arouca – Serra da Freita (Norte)",
+      "qth_loc": "IN50uu"
+    },
+    "callsign": "CQ0DFT",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.4750000000",
+      "rx_mhz": "430.8750000000",
+      "channel": "RU678"
+    },
+
+    "info_dstar": {
+      "modulation": "6K00F7W",
+      "gateway": "CQ0DOA G",
+      "reflector": ""
+    },
+
+    "info_holder": {
+      "abrv": "ARBL",
+      "name": "Associação de Radioamadores da Beira Litoral"
+    },
+    "info_location": {
+      "latitude": "40.8056666700",
+      "longitude": "-8.4633611110",
+      "region": "CPT",
+      "place": "São Tome – Oliveira Azeméis",
+      "qth_loc": "IN50ST"
+    },
+    "callsign": "CQ0DOA",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.2250000000",
+      "rx_mhz": "430.6250000000",
+      "channel": "RU658"
+    },
+
+    "info_dstar": {
+      "modulation": "6K00F7W",
+      "gateway": "CQ0DMU G",
+      "reflector": ""
+    },
+
+    "info_holder": {
+      "abrv": "ARBA",
+      "name": "Associação de Radioamadores da Beira Alta"
+    },
+    "info_location": {
+      "latitude": "40.6984444400",
+      "longitude": "-7.9211111110",
+      "region": "CPT",
+      "place": "Monte de Sta. Luzia – Viseu",
+      "qth_loc": "IN60aq"
+    },
+    "callsign": "CQ0DMU",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.3500000000",
+      "rx_mhz": "430.7500000000",
+      "channel": "RU668"
+    },
+
+    "info_dstar": {
+      "modulation": "6K00F7W",
+      "gateway": "",
+      "reflector": ""
+    },
+
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "40.5805555600",
+      "longitude": "-8.1761111110",
+      "region": "CPT",
+      "place": "Serra do Caramulo",
+      "qth_loc": "IN50vn"
+    },
+    "callsign": "CQ0DCA",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.4750000000",
+      "rx_mhz": "430.8750000000",
+      "channel": "RU678"
+    },
+
+    "info_dstar": {
+      "modulation": "6K00F7W",
+      "gateway": "",
+      "reflector": ""
+    },
+
+    "info_holder": {
+      "abrv": "TRGM",
+      "name": "Tertúlia Radioamadorística Guglielmo Marconi"
+    },
+    "info_location": {
+      "latitude": "40.2502777800",
+      "longitude": "-8.3497222220",
+      "region": "CPT",
+      "place": "Serra do Roxo – Coimbra",
+      "qth_loc": "IN50tg"
+    },
+    "callsign": "CQ0DRO",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.4250000000",
+      "rx_mhz": "430.8250000000",
+      "channel": "RU674"
+    },
+
+    "info_dstar": {
+      "modulation": "6K00F7W",
+      "gateway": "CQ0DLR G",
+      "reflector": "XRF268 E"
+    },
+
+    "info_holder": {
+      "abrv": "ARAL",
+      "name": "Associação de Radioamadores do Distrito de Leiria"
+    },
+    "info_location": {
+      "latitude": "39.5493916700",
+      "longitude": "-8.8673111110",
+      "region": "CPT",
+      "place": "Serra dos Candeeiros - Leiria",
+      "qth_loc": "IM59nn"
+    },
+    "callsign": "CQ0DLR",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.5125000000",
+      "rx_mhz": "430.9125000000",
+      "channel": "RU681"
+    },
+
+    "info_dstar": {
+      "modulation": "6K00F7W",
+      "gateway": "CQ0DCH G",
+      "reflector": "XRF268 H"
+    },
+
+    "info_holder": {
+      "abrv": "ARAT",
+      "name": "Associação de Radioamadores do Alto Tâmega"
+    },
+    "info_location": {
+      "latitude": "41.7325000000",
+      "longitude": "-7.6477777780",
+      "region": "CPT",
+      "place": "Serra do Leiranco – Chaves",
+      "qth_loc": "IN61er"
+    },
+    "callsign": "CQ0DCH",
+    "notes": "Repetidor VHF com o mesmo indicativo?",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.5125000000",
+      "rx_mhz": "430.9125000000",
+      "channel": "RU681"
+    },
+
+    "info_dstar": {
+      "modulation": "6K00F7W",
+      "gateway": "",
+      "reflector": "XRF268 E"
+    },
+
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "39.3127777800",
+      "longitude": "-7.3586111110",
+      "region": "CPT",
+      "place": "Serra de São Mamede",
+      "qth_loc": "IM69hh"
+    },
+    "callsign": "CQ0DSM",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": "CT2GPZ"
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.2000000000",
+      "rx_mhz": "430.6000000000",
+      "channel": "RU656"
+    },
+
+    "info_dstar": {
+      "modulation": "6K00F7W",
+      "gateway": "CQ0DTV G",
+      "reflector": ""
+    },
+
+    "info_holder": {
+      "abrv": "ARADO",
+      "name": "Associação de Radioamadores do Oeste"
+    },
+    "info_location": {
+      "latitude": "39.0862416700",
+      "longitude": "-9.2761027780",
+      "region": "CPT",
+      "place": "Varatojo – Torres  Vedras",
+      "qth_loc": "IM59ic"
+    },
+    "callsign": "CQ0DTV",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.3250000000",
+      "rx_mhz": "430.7250000000",
+      "channel": "RU666"
+    },
+
+    "info_dstar": {
+      "modulation": "6K00F7W",
+      "gateway": "",
+      "reflector": ""
+    },
+
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "38.9726666700",
+      "longitude": "-9.1042916670",
+      "region": "CPT",
+      "place": "S. Carvalha – Arruda dos Vinhos",
+      "qth_loc": "IM58kx"
+    },
+    "callsign": "CQ0DSC",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": "CT1ETV"
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.4500000000",
+      "rx_mhz": "430.8500000000",
+      "channel": "RU676"
+    },
+
+    "info_dstar": {
+      "modulation": "6K00F7W",
+      "gateway": "CQ0DMC G",
+      "reflector": "DCS268E"
+    },
+
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "38.8978666700",
+      "longitude": "-9.1930722220",
+      "region": "CPT",
+      "place": "Cabeço de Montachique – Loures",
+      "qth_loc": "IM58jv"
+    },
+    "callsign": "CQ0DMC",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": "CT1ETV"
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.4000000000",
+      "rx_mhz": "430.8000000000",
+      "channel": "RU672"
+    },
+
+    "info_dstar": {
+      "modulation": "6K00F7W",
+      "gateway": "CQ0DCS G",
+      "reflector": "XRF268 E"
+    },
+
+    "info_holder": {
+      "abrv": "ARLC",
+      "name": "Associação de Radioamadores da Linha de Cascais"
+    },
+    "info_location": {
+      "latitude": "38.7302777800",
+      "longitude": "-9.4094444440",
+      "region": "CPT",
+      "place": "Alcabideche - Cascais",
+      "qth_loc": "IM58hr"
+    },
+    "callsign": "CQ0DCS",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.6125000000",
+      "rx_mhz": "431.0125000000",
+      "channel": "RU689"
+    },
+
+    "info_dstar": {
+      "modulation": "6K00F7W",
+      "gateway": "CQ0DSA G",
+      "reflector": "XRF268 E"
+    },
+
+    "info_holder": {
+      "abrv": "ARLA",
+      "name": "Associação de Radioamadores do Litoral Alentejano"
+    },
+    "info_location": {
+      "latitude": "38.4926138900",
+      "longitude": "-8.9620527780",
+      "region": "CPT",
+      "place": "Serra da Arrábida – Setúbal",
+      "qth_loc": "IM58ml"
+    },
+    "callsign": "CQ0DSA",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.5250000000",
+      "rx_mhz": "430.9250000000",
+      "channel": "RU682"
+    },
+
+    "info_holder": {
+      "abrv": "ARLA",
+      "name": "Associação de Radioamadores do Litoral Alentejano"
+    },
+    "info_location": {
+      "latitude": "37.9888888900",
+      "longitude": "-8.6922222220",
+      "region": "CPT",
+      "place": "Aldeia de Chãos - Santiago do Cacém",
+      "qth_loc": "IM57px"
+    },
+    "callsign": "CQ0DCV",
+    "notes": "",
+    "pwr_w": 15,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.2000000000",
+      "rx_mhz": "430.6000000000",
+      "channel": "RU656"
+    },
+
+    "info_dstar": {
+      "modulation": "6K00F7W",
+      "gateway": "CQ0DFO G",
+      "reflector": ""
+    },
+
+    "info_holder": {
+      "abrv": "RCL",
+      "name": "Radioamador Clube de Loulé"
+    },
+    "info_location": {
+      "latitude": "37.3149916700",
+      "longitude": "-8.5880527780",
+      "region": "CPT",
+      "place": "Fóia – Serra de Monchique",
+      "qth_loc": "IM57qh"
+    },
+    "callsign": "CQ0DFO",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.2250000000",
+      "rx_mhz": "430.6250000000",
+      "channel": "RU658"
+    },
+
+    "info_dstar": {
+      "modulation": "6K00F7W",
+      "gateway": "",
+      "reflector": "XRF268 E"
+    },
+
+    "info_holder": {
+      "abrv": "RCL",
+      "name": "Radioamador Clube de Loulé"
+    },
+    "info_location": {
+      "latitude": "37.1016666700",
+      "longitude": "-7.8305555560",
+      "region": "CPT",
+      "place": "Cerro de São Miguel - Olhão",
+      "qth_loc": "IM67CC"
+    },
+    "callsign": "CQ0DSL",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.2875000000",
+      "rx_mhz": "430.6875000000",
+      "channel": "RU663"
+    },
+
+    "info_dstar": {
+      "modulation": "6K00F7W",
+      "gateway": "",
+      "reflector": ""
+    },
+
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "41.1460000000",
+      "longitude": "-8.6166666670",
+      "region": "CPT",
+      "place": "Vila Nova de Gaia",
+      "qth_loc": "IN51qd"
+    },
+    "callsign": "CQ0DGA",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": "CT1ETV"
+  },
+  {
+    "info_half_duplex": {
+      "shift": -35.0,
+      "tx_mhz": "1259.2000000000",
+      "rx_mhz": "1294.2000000000",
+      "channel": null
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "0.0000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARBA",
+      "name": "Associação de Radioamadores da Beira Alta"
+    },
+    "info_location": {
+      "latitude": "40.3214722200",
+      "longitude": "-7.6143972220",
+      "region": "CPT",
+      "place": "Torre - Serra da Estrela",
+      "qth_loc": "IN60eh"
+    },
+    "callsign": "CQ0SAR",
+    "notes": "",
+    "pwr_w": 15,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 28.0,
+      "tx_mhz": "1298.0500000000",
+      "rx_mhz": "1270.0500000000",
+      "channel": null
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "0.0000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARCP",
+      "name": "Associação de Radioamadores da Costa de Prata"
+    },
+    "info_location": {
+      "latitude": "40.1920361100",
+      "longitude": "-8.8410000000",
+      "region": "CPT",
+      "place": "S. da Brenha - Figueira da Foz",
+      "qth_loc": "IN50ne"
+    },
+    "callsign": "CQ0MSB",
+    "notes": "",
+    "pwr_w": 15,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.4500000000",
+      "rx_mhz": "430.8500000000",
+      "channel": "RU676"
+    },
+
+    "info_dstar": {
+      "modulation": "6K00F7W",
+      "gateway": "",
+      "reflector": ""
+    },
+
+    "info_holder": {
+      "abrv": "URA",
+      "name": "União dos Radioamadores dos Açores"
+    },
+    "info_location": {
+      "latitude": "38.7290000000",
+      "longitude": "-27.2920000000",
+      "region": "AZR",
+      "place": "Sta. Barbara - Terceira",
+      "qth_loc": "HM68ir"
+    },
+    "callsign": "CQ0DAH",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": -35.0,
+      "tx_mhz": "1258.2000000000",
+      "rx_mhz": "1293.2000000000",
+      "channel": null
+    },
+
+    "info_holder": {
+      "abrv": "ARCP",
+      "name": "Associação de Radioamadores da Costa de Prata"
+    },
+    "info_location": {
+      "latitude": "40.1920361100",
+      "longitude": "-8.8410000000",
+      "region": "CPT",
+      "place": "S. da Brenha - Figueira da Foz",
+      "qth_loc": "IN50ne"
+    },
+    "callsign": "CQ0SBR",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 28.0,
+      "tx_mhz": "1298.0750000000",
+      "rx_mhz": "1270.0750000000",
+      "channel": null
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "0.0000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "AMSAT - PO",
+      "name": "Associação de Amadores de Satélite de Portugal"
+    },
+    "info_location": {
+      "latitude": "39.5356555600",
+      "longitude": "-8.6375222220",
+      "region": "CPT",
+      "place": "Serra D Aire",
+      "qth_loc": "IM59qm"
+    },
+    "callsign": "CQ0MSA",
+    "notes": "",
+    "pwr_w": 10,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": -294.3,
+      "tx_mhz": "145.4750000000",
+      "rx_mhz": "439.7750000000",
+      "channel": null
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "114.8000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_location": {
+      "latitude": "40.1458333300",
+      "longitude": "-7.4583333330",
+      "region": "CPT",
+      "place": "Fundão",
+      "qth_loc": "IN60gd"
+    },
+    "callsign": "CQ0EBB",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": "CT7ABA"
+  },
+  {
+    "info_half_duplex": {
+      "shift": 294.3,
+      "tx_mhz": "439.7750000000",
+      "rx_mhz": "145.4750000000",
+      "channel": null
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "82.5000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "40.1458333300",
+      "longitude": "-7.4583333330",
+      "region": "CPT",
+      "place": "Fundão",
+      "qth_loc": "IN60gd"
+    },
+    "callsign": "CQ0EBB",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": "CT7ABA"
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.4000000000",
+      "rx_mhz": "430.8000000000",
+      "channel": "RU672"
+    },
+
+    "info_fusion": {
+      "modulation": "F7W",
+      "wiresx": "",
+      "room_id": ""
+    },
+
+    "info_holder": {
+      "abrv": "ARBA",
+      "name": "Associação de Radioamadores da Beira Alta"
+    },
+    "info_location": {
+      "latitude": "41.1433333300",
+      "longitude": "-8.5344444440",
+      "region": "CPT",
+      "place": "Monte Crasto - Gondomar",
+      "qth_loc": "IN51rd"
+    },
+    "callsign": "CQ0DSGO",
+    "notes": "Duplicado do CQ0DGO?",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.4000000000",
+      "rx_mhz": "430.8000000000",
+      "channel": "RU672"
+    },
+
+    "info_fusion": {
+      "modulation": "F7W",
+      "wiresx": "",
+      "room_id": ""
+    },
+
+    "info_holder": {
+      "abrv": "ARBA",
+      "name": "Associação de Radioamadores da Beira Alta"
+    },
+    "info_location": {
+      "latitude": "41.1433333300",
+      "longitude": "-8.5344444440",
+      "region": "CPT",
+      "place": "Monte Crasto - Gondomar",
+      "qth_loc": "IN51rd"
+    },
+    "callsign": "CQ0DGO",
+    "notes": "Duplicado do CQ0DSGO?",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 409.34,
+      "tx_mhz": "438.9500000000",
+      "rx_mhz": "29.6100000000",
+      "channel": null
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "74.4000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "38.9790000000",
+      "longitude": "-9.1250000000",
+      "region": "CPT",
+      "place": "Serra da Carvalha",
+      "qth_loc": "IM58kx"
+    },
+    "callsign": "CQ0EUH",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": -402.34,
+      "tx_mhz": "29.0100000000",
+      "rx_mhz": "431.3500000000",
+      "channel": null
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "74.4000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "38.9726666700",
+      "longitude": "-9.1042916670",
+      "region": "CPT",
+      "place": "S. Carvalha – Arruda dos Vinhos",
+      "qth_loc": "IM58kx"
+    },
+    "callsign": "CQ0EHU",
+    "notes": "",
+    "pwr_w": 20,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 402.34,
+      "tx_mhz": "431.3500000000",
+      "rx_mhz": "29.0100000000",
+      "channel": null
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "74.4000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "38.8978666700",
+      "longitude": "-9.1930722220",
+      "region": "CPT",
+      "place": "Cabeço de Montachique – Loures",
+      "qth_loc": "IM58jv"
+    },
+    "callsign": "CQ0EHU",
+    "notes": "",
+    "pwr_w": 20,
+    "status": "OT",
+    "sysop": "CT1ETV"
+  },
+  {
+    "info_half_duplex": {
+      "shift": -831.875,
+      "tx_mhz": "439.4750000000",
+      "rx_mhz": "1271.3500000000",
+      "channel": null
+    },
+
+    "info_holder": {
+      "abrv": "REP",
+      "name": "Rede dos Emissores Portugueses"
+    },
+    "info_location": {
+      "latitude": "38.7708333300",
+      "longitude": "-9.3750000000",
+      "region": "CPT",
+      "place": "Serra de Sintra",
+      "qth_loc": "IM58hs"
+    },
+    "callsign": "CQ0ESNT",
+    "notes": "",
+
+    "status": "OT",
+    "sysop": "CT4AN"
+  },
+  {
+    "info_half_duplex": {
+      "shift": -380.875,
+      "tx_mhz": "51.1000000000",
+      "rx_mhz": "431.9750000000",
+      "channel": null
+    },
+
+    "info_fm": {
+      "modulation": "14K0F3E",
+      "tone": "74.4000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARLC",
+      "name": "Associação de Radioamadores da Linha de Cascais"
+    },
+    "info_location": {
+      "latitude": "38.7302777800",
+      "longitude": "-9.4094444440",
+      "region": "CPT",
+      "place": "Alcabideche - Cascais",
+      "qth_loc": "IM58hr"
+    },
+    "callsign": "CQ0ETCS",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 380.875,
+      "tx_mhz": "431.9750000000",
+      "rx_mhz": "51.1000000000",
+      "channel": null
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "74.4000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARLC",
+      "name": "Associação de Radioamadores da Linha de Cascais"
+    },
+    "info_location": {
+      "latitude": "38.7302777800",
+      "longitude": "-9.4094444440",
+      "region": "CPT",
+      "place": "Alcabideche - Cascais",
+      "qth_loc": "IM58hr"
+    },
+    "callsign": "CQ0ETCS",
+    "notes": "",
+    "pwr_w": 10,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 286.625,
+      "tx_mhz": "431.9750000000",
+      "rx_mhz": "145.3500000000",
+      "channel": null
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "82.5000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "RCL",
+      "name": "Radioamador Clube de Loulé"
+    },
+    "info_location": {
+      "latitude": "37.1113833300",
+      "longitude": "-7.9836694440",
+      "region": "CPT",
+      "place": "Cerro de Nexe – Faro",
+      "qth_loc": "IM67ad"
+    },
+    "callsign": "CQ0EIV",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": -286.625,
+      "tx_mhz": "145.3500000000",
+      "rx_mhz": "431.9750000000",
+      "channel": null
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "131.8000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "RCL",
+      "name": "Radioamador Clube de Loulé"
+    },
+    "info_location": {
+      "latitude": "37.1113833300",
+      "longitude": "-7.9836694440",
+      "region": "CPT",
+      "place": "Cerro de Nexe – Faro",
+      "qth_loc": "IM67ad"
+    },
+    "callsign": "CQ0EIV",
+    "notes": "",
+    "pwr_w": 25,
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": -295.0,
+      "tx_mhz": "144.5500000000",
+      "rx_mhz": "439.5500000000",
+      "channel": null
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "82.5000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "URA",
+      "name": "União dos Radioamadores dos Açores"
+    },
+    "info_location": {
+      "latitude": "38.4680277800",
+      "longitude": "-28.4005277800",
+      "region": "AZR",
+      "place": "Pico – Ilha do Pico",
+      "qth_loc": "HM58tl"
+    },
+    "callsign": "CQ1EPIX",
+    "notes": "Confirmado pela associação a 2021/10/29",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 295.0,
+      "tx_mhz": "439.5500000000",
+      "rx_mhz": "144.5500000000",
+      "channel": null
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "82.5000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "URA",
+      "name": "União dos Radioamadores dos Açores"
+    },
+    "info_location": {
+      "latitude": "38.4680277800",
+      "longitude": "-28.4005277800",
+      "region": "AZR",
+      "place": "Pico – Ilha do Pico",
+      "qth_loc": "HM58tl"
+    },
+    "callsign": "CQ1EPIX",
+    "notes": "Confirmado pela associação a 2021/10/29",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": -294.3,
+      "tx_mhz": "145.4000000000",
+      "rx_mhz": "439.7000000000",
+      "channel": null
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "67.0000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "URA",
+      "name": "União dos Radioamadores dos Açores"
+    },
+    "info_location": {
+      "latitude": "38.7290000000",
+      "longitude": "-27.2920000000",
+      "region": "AZR",
+      "place": "Sta. Barbara - Terceira",
+      "qth_loc": "HM68ir"
+    },
+    "callsign": "CQ1EZS",
+    "notes": "Confirmado pela associação a 2021/10/29",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 294.3,
+      "tx_mhz": "439.7000000000",
+      "rx_mhz": "145.4000000000",
+      "channel": null
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "88.5000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "URA",
+      "name": "União dos Radioamadores dos Açores"
+    },
+    "info_location": {
+      "latitude": "38.7290000000",
+      "longitude": "-27.2920000000",
+      "region": "AZR",
+      "place": "Sta. Barbara - Terceira",
+      "qth_loc": "HM68ir"
+    },
+    "callsign": "CQ1EZS",
+    "notes": "Confirmado pela associação a 2021/10/29",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": -294.275,
+      "tx_mhz": "145.4250000000",
+      "rx_mhz": "439.7000000000",
+      "channel": null
+    },
+
+    "info_fm": {
+      "modulation": "11K0F3E",
+      "tone": "123.0000000000",
+      "bandwidth": "NFM"
+    },
+
+    "info_holder": {
+      "abrv": "URA",
+      "name": "União dos Radioamadores dos Açores"
+    },
+    "info_location": {
+      "latitude": "38.7290000000",
+      "longitude": "-27.1250000000",
+      "region": "AZR",
+      "place": "Ilha Terceira – Serra do Cume",
+      "qth_loc": "HM68kr"
+    },
+    "callsign": "CQ1EZN",
+    "notes": "Confirmado pela associação a 2021/10/29",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 294.275,
+      "tx_mhz": "439.7000000000",
+      "rx_mhz": "145.4250000000",
+      "channel": null
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "88.5000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "URA",
+      "name": "União dos Radioamadores dos Açores"
+    },
+    "info_location": {
+      "latitude": "38.7290000000",
+      "longitude": "-27.1250000000",
+      "region": "AZR",
+      "place": "Ilha Terceira – Serra do Cume",
+      "qth_loc": "HM68kr"
+    },
+    "callsign": "CQ1EZN",
+    "notes": "Confirmado pela associação a 2021/10/29",
+
+    "status": "OT",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "438.4750000000",
+      "rx_mhz": "430.8750000000",
+      "channel": "RU678"
+    },
+
+    "info_dmr": {
+      "ts1_alternative_tgs": [],
+      "ts2_alternative_tgs": [],
+      "modulation": "",
+      "id": 268108,
+      "color_code": 1,
+      "ts_configuration": ""
+    },
+    "info_holder": {
+      "abrv": "ARAT",
+      "name": "Associação de Radioamadores do Alto Tâmega"
+    },
+    "info_location": {
+      "latitude": "41.5630000000",
+      "longitude": "-7.7080000000",
+      "region": "CPT",
+      "place": "Serra do Minhéu",
+      "qth_loc": "IN61dn"
+    },
+    "callsign": "CQ0DMI",
+    "notes": "Falta a info DMR.",
+
+    "status": "OFF",
+    "sysop": ""
+  },
+  {
+    "info_half_duplex": {
+      "shift": 7.6,
+      "tx_mhz": "439.0250000000",
+      "rx_mhz": "431.4250000000",
+      "channel": "RU722"
+    },
+
+    "info_fm": {
+      "modulation": "16K0F3E",
+      "tone": "67.0000000000",
+      "bandwidth": "WFM"
+    },
+
+    "info_holder": {
+      "abrv": "ARMi",
+      "name": "Associação de Radioamadores do Minho"
+    },
+    "info_location": {
+      "latitude": "41.6390310000",
+      "longitude": "-8.0434050000",
+      "region": "CPT",
+      "place": "Talefe, Serra da Cabreira, Vieira do Minho",
+      "qth_loc": "IN51xp"
+    },
+    "callsign": "CQ0UCVM",
+    "notes": "Alimentado apenas com energia alternativa, ou seja, não está ligado à rede 220V.",
+    "pwr_w": 11,
+    "status": "PROJECT",
+    "sysop": ""
+  }
+]
