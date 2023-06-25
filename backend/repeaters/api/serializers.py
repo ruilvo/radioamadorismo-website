@@ -226,6 +226,8 @@ class DimLocationSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
 class FactRepeaterSerializer(WritableNestedModelSerializer):
     __doc__ = FactRepeater.__doc__
 
+    rf = serializers.ReadOnlyField()
+
     info_half_duplex = DimHalfDuplexSerializer(many=False, required=False)
     info_simplex = DimSimplexSerializer(many=False, required=False)
     info_fm = DimFmSerializer(many=False, required=False)
