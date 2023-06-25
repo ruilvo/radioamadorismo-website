@@ -410,6 +410,22 @@ class FactRepeater(ComputedFieldsModel):
         return None
 
     @property
+    def tx_freq(self) -> Optional[float]:
+        if self.is_simplex:
+            return self.info_simplex.freq_mhz
+        if self.is_half_duplex:
+            return self.info_half_duplex.tx_mhz
+        return None
+
+    @property
+    def rx_freq(self) -> Optional[float]:
+        if self.is_simplex:
+            return self.info_simplex.freq_mhz
+        if self.is_half_duplex:
+            return self.info_half_duplex.rx_mhz
+        return None
+
+    @property
     def is_fm(self) -> bool:
         return self.info_fm is not None
 
