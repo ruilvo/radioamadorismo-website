@@ -63,14 +63,14 @@ def modulation_search(queryset, name, value):
         | Q(info_dstar__modulation__icontains=value)
         | Q(info_fusion__modulation__icontains=value)
         | Q(info_dmr__modulation__icontains=value)
-    )
+    ).distinct()
     return queryset
 
 
 def holder_search(queryset, name, value):
     queryset = queryset.filter(
         Q(info_holder__abrv__icontains=value) | Q(info_holder__name__icontains=value)
-    )
+    ).distinct()
     return queryset
 
 
@@ -95,7 +95,7 @@ def rf_search(queryset, name, value):
     }
     for mode in modes_to_consider:
         queryset_filter |= Q(rf=mode)
-    return queryset.filter(queryset_filter)
+    return queryset.filter(queryset_filter).distinct()
 
 
 def freq_mhz_search(queryset, name, value):
@@ -103,7 +103,7 @@ def freq_mhz_search(queryset, name, value):
         Q(info_half_duplex__tx_mhz__exact=value)
         | Q(info_half_duplex__rx_mhz__exact=value)
         | Q(info_simplex__freq_mhz__exact=value)
-    )
+    ).distinct()
     return queryset
 
 
@@ -112,7 +112,7 @@ def freq_mhz_search__gte(queryset, name, value):
         Q(info_half_duplex__tx_mhz__gte=value)
         | Q(info_half_duplex__rx_mhz__gte=value)
         | Q(info_simplex__freq_mhz__gte=value)
-    )
+    ).distinct()
     return queryset
 
 
@@ -121,7 +121,7 @@ def freq_mhz_search__lte(queryset, name, value):
         Q(info_half_duplex__tx_mhz__lte=value)
         | Q(info_half_duplex__rx_mhz__lte=value)
         | Q(info_simplex__freq_mhz__lte=value)
-    )
+    ).distinct()
     return queryset
 
 
@@ -129,7 +129,7 @@ def region_search(queryset, name, value):
     regions = re.findall(r"[\w]+", value)
     queryset_filtered = queryset.filter(
         reduce(lambda x, y: x | y, [Q(info_location__region=r) for r in regions])
-    )
+    ).distinct()
     return queryset_filtered
 
 
@@ -137,5 +137,5 @@ def band_seach(queryset, name, value):
     band = re.findall(r"[\w]+", value)
     queryset_filtered = queryset.filter(
         reduce(lambda x, y: x | y, [Q(band__icontains=b) for b in band])
-    )
+    ).distinct()
     return queryset_filtered
