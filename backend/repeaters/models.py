@@ -328,7 +328,7 @@ class DimDmr(models.Model):
     ts_configuration = models.TextField(blank=True, verbose_name="TS config.")
 
     def __str__(self) -> str:
-        return f"{self.id}"
+        return f"{self.tg.id}: {self.tg.name}"
 
     class Meta:
         verbose_name = "info - DMR"
