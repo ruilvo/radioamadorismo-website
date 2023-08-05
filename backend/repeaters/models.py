@@ -492,13 +492,13 @@ class FactRepeater(ComputedFieldsModel):
     )
     def modes(self) -> list[str]:
         modes = []
-        if self.is_fm:
+        if self.info_fm is not None:
             modes.append(self.ModeOptions.FM)
-        if self.is_dstar:
+        if self.info_dstar is not None:
             modes.append(self.ModeOptions.DSTAR)
-        if self.is_fusion:
+        if self.info_fusion is not None:
             modes.append(self.ModeOptions.FUSION)
-        if self.is_dmr:
+        if self.info_dmr is not None:
             modes.append(self.ModeOptions.DMR)
         return modes
 
