@@ -12,10 +12,38 @@ from repeaters.vendor.bands import Band23cm, Band70cm, Band2m, Band6m, Band10m
 PLACEHOLDER_STR = "-----"
 
 
-class DimHalfDuplex(models.Model):
+class DimRf(models.Model):
     """
-    Models enough information for describing half-duplex repeaters.
+    Models the frequency information of repeaters.
     """
+
+    class BandOptions:
+        B_10M = "10m"
+        B_6M = "6m"
+        B_2M = "2m"
+        B_70CM = "70cm"
+        B_23CM = "23cm"
+        B_X = "X"
+        B_OTHER = "OT"
+
+    BAND_CHOICES = (
+        (BandOptions.B_10M, "10m"),
+        (BandOptions.B_6M, "6m"),
+        (BandOptions.B_2M, "2m"),
+        (BandOptions.B_70CM, "70cm"),
+        (BandOptions.B_23CM, "23cm"),
+        (BandOptions.B_X, "cross-band"),
+        (BandOptions.B_OTHER, "other"),
+    )
+
+    class ModeOptions:
+        HALF_DUPLEX = "HD"
+        SIMPLEX = "SX"
+
+    MODE_CHOICES = (
+        (ModeOptions.HALF_DUPLEX, "half-duplex"),
+        (ModeOptions.SIMPLEX, "simplex"),
+    )
 
     tx_mhz = models.DecimalField(
         max_digits=32, decimal_places=16, verbose_name="tx (MHz)"
@@ -27,16 +55,47 @@ class DimHalfDuplex(models.Model):
         max_length=32, blank=True, null=True, unique=True, verbose_name="channel"
     )
 
-    class Meta:
-        verbose_name = "info - half-duplex"
-        verbose_name_plural = "info - half-duplex"
-        constraints = [
-            models.UniqueConstraint(
-                fields=["tx_mhz", "rx_mhz"], name="unique tx/rx combination"
-            )
-        ]
+    @computed(
+        models.CharField(
+            max_length=64,
+            verbose_name="band",
+            choices=BAND_CHOICES,
+            default=BandOptions.B_OTHER,
+        )
+    )
+    def band(self) -> Optional[str]:
+        tx_band = DimRf.get_band_for_freq(self.tx_mhz)
+        rx_band = DimRf.get_band_for_freq(self.rx_mhz)
 
-    @property
+        # If any of the bands is "other", return "other".
+        if DimRf.BandOptions.B_OTHER in {tx_band, rx_band}:
+            return DimRf.BandOptions.B_OTHER
+
+        # If the Tx and Rx bands are the same, return that band.
+        if tx_band == rx_band:
+            return tx_band
+
+        # If they are different, it's a cross-band repeater.
+        return self.BandOptions.B_X
+
+    @computed(
+        models.CharField(
+            max_length=64,
+            verbose_name="RF",
+            choices=MODE_CHOICES,
+            default=ModeOptions.SIMPLEX,
+        ),
+    )
+    def mode(self) -> str:
+        if self.tx_mhz == self.rx_mhz:
+            return DimRf.ModeOptions.SIMPLEX
+        return DimRf.ModeOptions.HALF_DUPLEX
+
+    @computed(
+        models.DecimalField(
+            max_digits=32, decimal_places=16, verbose_name="shift (MHz)"
+        )
+    )
     def shift(self) -> decimal.Decimal:
         return self.tx_mhz - self.rx_mhz
 
@@ -46,28 +105,30 @@ class DimHalfDuplex(models.Model):
             + f"{float(self.tx_mhz):.5f}/{float(self.rx_mhz):.5f}"
         )
 
-
-class DimSimplex(models.Model):
-    """
-    Models enough information for describing simplex repeaters.
-    """
-
-    freq_mhz = models.DecimalField(
-        max_digits=32, decimal_places=16, unique=True, verbose_name="freq. (MHz)"
-    )
-    channel = models.CharField(
-        max_length=32, blank=True, null=True, unique=True, verbose_name="channel"
-    )
+    @staticmethod
+    def get_band_for_freq(f_mhz: float) -> Optional[str]:
+        if f_mhz is None:
+            return None
+        if Band10m.min <= f_mhz <= Band10m.max:
+            return DimRf.BandOptions.B_10M
+        if Band6m.min <= f_mhz <= Band6m.max:
+            return DimRf.BandOptions.B_6M
+        if Band2m.min <= f_mhz <= Band2m.max:
+            return DimRf.BandOptions.B_2M
+        if Band70cm.min <= f_mhz <= Band70cm.max:
+            return DimRf.BandOptions.B_70CM
+        if Band23cm.min <= f_mhz <= Band23cm.max:
+            return DimRf.BandOptions.B_23CM
+        return DimRf.BandOptions.B_OTHER
 
     class Meta:
-        verbose_name = "info - simplex"
-        verbose_name_plural = "info - simplex"
-
-    def __str__(self) -> str:
-        return (
-            f"{self.channel if self.channel else PLACEHOLDER_STR}: "
-            + f"{float(self.freq_mhz):.5f}"
-        )
+        verbose_name = "info - RF"
+        verbose_name_plural = "info - RF"
+        constraints = [
+            models.UniqueConstraint(
+                fields=["tx_mhz", "rx_mhz"], name="unique tx/rx combination"
+            )
+        ]
 
 
 class DimFm(models.Model):
@@ -95,6 +156,13 @@ class DimFm(models.Model):
         default=BandwidthOptions.NFM,
     )
 
+    def __str__(self) -> str:
+        return (
+            f"{self.modulation if self.modulation else PLACEHOLDER_STR}, "
+            + f"{float(self.tone):.1f}, "
+            + f"{self.bandwidth}"
+        )
+
     class Meta:
         verbose_name = "info - FM"
         verbose_name_plural = "info - FM"
@@ -103,13 +171,6 @@ class DimFm(models.Model):
                 fields=["modulation", "tone"], name="unique mod./tone combination"
             )
         ]
-
-    def __str__(self) -> str:
-        return (
-            f"{self.modulation if self.modulation else PLACEHOLDER_STR}, "
-            + f"{float(self.tone):.1f}, "
-            + f"{self.bandwidth}"
-        )
 
 
 class DimDStar(models.Model):
@@ -121,6 +182,13 @@ class DimDStar(models.Model):
     gateway = models.CharField(max_length=32, blank=True, verbose_name="gateway")
     reflector = models.CharField(max_length=64, blank=True, verbose_name="reflector")
 
+    def __str__(self) -> str:
+        return (
+            f"{self.modulation if self.modulation else PLACEHOLDER_STR}, "
+            + f"{self.gateway if self.gateway else PLACEHOLDER_STR}, "
+            + f"{self.reflector if self.reflector else PLACEHOLDER_STR}"
+        )
+
     class Meta:
         verbose_name = "info - D-STAR"
         verbose_name_plural = "info - D-STAR"
@@ -130,13 +198,6 @@ class DimDStar(models.Model):
                 name="unique gateway/reflector combination",
             )
         ]
-
-    def __str__(self) -> str:
-        return (
-            f"{self.modulation if self.modulation else PLACEHOLDER_STR}, "
-            + f"{self.gateway if self.gateway else PLACEHOLDER_STR}, "
-            + f"{self.reflector if self.reflector else PLACEHOLDER_STR}"
-        )
 
 
 class DimFusion(models.Model):
@@ -148,6 +209,13 @@ class DimFusion(models.Model):
     wiresx = models.CharField(max_length=32, blank=True, verbose_name="wiresx")
     room_id = models.CharField(max_length=32, blank=True, verbose_name="room ID")
 
+    def __str__(self) -> str:
+        return (
+            f"{self.modulation if self.modulation else PLACEHOLDER_STR}, "
+            + f"{self.wiresx if self.wiresx else PLACEHOLDER_STR}, "
+            + f"{self.room_id if self.room_id else PLACEHOLDER_STR}"
+        )
+
     class Meta:
         verbose_name = "info - Fusion/C4FM"
         verbose_name_plural = "info - Fusion/C4FM"
@@ -157,13 +225,6 @@ class DimFusion(models.Model):
                 name="unique wiresx/room_id combination",
             )
         ]
-
-    def __str__(self) -> str:
-        return (
-            f"{self.modulation if self.modulation else PLACEHOLDER_STR}, "
-            + f"{self.wiresx if self.wiresx else PLACEHOLDER_STR}, "
-            + f"{self.room_id if self.room_id else PLACEHOLDER_STR}"
-        )
 
 
 class DimDmrTg(models.Model):
@@ -189,12 +250,12 @@ class DimDmrTg(models.Model):
         default=CallModeOptions.GROUP_CALL,
     )
 
+    def __str__(self) -> str:
+        return f"{self.id}: {self.name}"
+
     class Meta:
         verbose_name = "info - DMR TG"
         verbose_name_plural = "info - DMR TG"
-
-    def __str__(self) -> str:
-        return f"{self.id}: {self.name}"
 
 
 class DimDmr(models.Model):
@@ -203,7 +264,8 @@ class DimDmr(models.Model):
     """
 
     modulation = models.CharField(max_length=32, blank=True, verbose_name="modulation")
-    id = models.IntegerField(unique=True, verbose_name="DMR ID", primary_key=True)
+    # A DMR repeater has an unique DMR TG associated.
+    tg = models.OneToOneField(DimDmrTg, on_delete=models.RESTRICT)
     color_code = models.IntegerField(verbose_name="C.C.")
     ts1_default_tg = models.ForeignKey(
         DimDmrTg,
@@ -231,12 +293,12 @@ class DimDmr(models.Model):
     )
     ts_configuration = models.TextField(blank=True, verbose_name="TS config.")
 
+    def __str__(self) -> str:
+        return f"{self.id}"
+
     class Meta:
         verbose_name = "info - DMR"
         verbose_name_plural = "info - DMR"
-
-    def __str__(self) -> str:
-        return f"{self.id}"
 
 
 class DimHolder(models.Model):
@@ -247,12 +309,12 @@ class DimHolder(models.Model):
     abrv = models.CharField(max_length=16, verbose_name="abrv.", unique=True)
     name = models.CharField(max_length=512, blank=True, verbose_name="name")
 
+    def __str__(self) -> str:
+        return f"{self.abrv}: {self.name if self.name else PLACEHOLDER_STR}"
+
     class Meta:
         verbose_name = "info - holder"
         verbose_name_plural = "info - holders"
-
-    def __str__(self) -> str:
-        return f"{self.abrv}: {self.name if self.name else PLACEHOLDER_STR}"
 
 
 class DimLocation(models.Model):
@@ -294,17 +356,8 @@ class DimLocation(models.Model):
     place = models.CharField(max_length=512, blank=True, verbose_name="place")
     qth_loc = models.CharField(max_length=32, blank=True, verbose_name="QTH loc.")
 
-    class Meta:
-        verbose_name = "info - location"
-        verbose_name_plural = "info - locations"
-        constraints = [
-            models.UniqueConstraint(
-                fields=["latitude", "longitude"], name="unique lat./long. combination"
-            )
-        ]
-
     def __str__(self) -> str:
-        coordinates_str = ""
+        coordinates_str = PLACEHOLDER_STR
         if self.latitude is not None and self.longitude is not None:
             coordinates_str = f" ({self.latitude}, {self.longitude})"
         return (
@@ -313,6 +366,15 @@ class DimLocation(models.Model):
             + f"{self.qth_loc if self.qth_loc else PLACEHOLDER_STR}, "
             + coordinates_str
         )
+
+    class Meta:
+        verbose_name = "info - location"
+        verbose_name_plural = "info - locations"
+        constraints = [
+            models.UniqueConstraint(
+                fields=["latitude", "longitude"], name="unique lat./long. combination"
+            )
+        ]
 
 
 class FactRepeater(ComputedFieldsModel):
@@ -335,25 +397,6 @@ class FactRepeater(ComputedFieldsModel):
         (StatusOptions.OTHER, "other"),
     )
 
-    class BandOptions:
-        B_10M = "10m"
-        B_6M = "6m"
-        B_2M = "2m"
-        B_70CM = "70cm"
-        B_23CM = "23cm"
-        B_X = "X"
-        B_OTHER = "OT"
-
-    BAND_CHOICES = (
-        (BandOptions.B_10M, "10m"),
-        (BandOptions.B_6M, "6m"),
-        (BandOptions.B_2M, "2m"),
-        (BandOptions.B_70CM, "70cm"),
-        (BandOptions.B_23CM, "23cm"),
-        (BandOptions.B_X, "cross-band"),
-        (BandOptions.B_OTHER, "other"),
-    )
-
     class ModeOptions:
         FM = "fm"
         DMR = "dmr"
@@ -365,15 +408,6 @@ class FactRepeater(ComputedFieldsModel):
         (ModeOptions.DMR, "DMR"),
         (ModeOptions.DSTAR, "D-Star"),
         (ModeOptions.FUSION, "Fusion"),
-    )
-
-    class RfOptions:
-        HALF_DUPLEX = "HD"
-        SIMPLEX = "SX"
-
-    RF_CHOICES = (
-        (RfOptions.HALF_DUPLEX, "half-duplex"),
-        (RfOptions.SIMPLEX, "simplex"),
     )
 
     callsign = models.CharField(max_length=16, verbose_name="callsign")
@@ -388,20 +422,14 @@ class FactRepeater(ComputedFieldsModel):
     sysop = models.CharField(max_length=32, blank=True, verbose_name="sysop")
 
     # RF
-    info_half_duplex = models.ForeignKey(
-        DimHalfDuplex,
+    info_rf = models.ForeignKey(
+        DimRf,
         on_delete=models.SET_NULL,
         blank=True,
         null=True,
-        verbose_name="info - half-duplex",
+        verbose_name="info - RF",
     )
-    info_simplex = models.ForeignKey(
-        DimSimplex,
-        on_delete=models.SET_NULL,
-        blank=True,
-        null=True,
-        verbose_name="info - simplex",
-    )
+
     # Modulation
     info_fm = models.ForeignKey(
         DimFm,
@@ -431,6 +459,7 @@ class FactRepeater(ComputedFieldsModel):
         null=True,
         verbose_name="info - DMR",
     )
+
     # Info
     info_holder = models.ForeignKey(
         DimHolder,
@@ -446,116 +475,6 @@ class FactRepeater(ComputedFieldsModel):
         null=True,
         verbose_name="info - location",
     )
-
-    @property
-    def is_simplex(self) -> bool:
-        return self.info_simplex is not None
-
-    @property
-    def is_half_duplex(self) -> bool:
-        return self.info_half_duplex is not None
-
-    @property
-    def has_rf(self) -> bool:
-        return self.is_half_duplex or self.is_simplex
-
-    @computed(
-        # TODO(ruilvo): change this to a CharField with choices.
-        # Related: use the choices for the filter.
-        models.CharField(
-            max_length=64,
-            blank=True,
-            null=True,
-            verbose_name="RF",
-            choices=RF_CHOICES,
-            default=None,
-        ),
-        depends=[("self", ["info_simplex", "info_half_duplex"])],
-    )
-    def rf(self) -> Optional[str]:
-        if self.is_simplex:
-            return self.RfOptions.SIMPLEX
-        if self.is_half_duplex:
-            return self.RfOptions.HALF_DUPLEX
-        return None
-
-    @property
-    def tx_freq(self) -> Optional[float]:
-        if self.is_simplex:
-            return self.info_simplex.freq_mhz
-        if self.is_half_duplex:
-            return self.info_half_duplex.tx_mhz
-        return None
-
-    @property
-    def rx_freq(self) -> Optional[float]:
-        if self.is_simplex:
-            return self.info_simplex.freq_mhz
-        if self.is_half_duplex:
-            return self.info_half_duplex.rx_mhz
-        return None
-
-    @computed(
-        # TODO(ruilvo): create a filter for this.
-        models.CharField(
-            max_length=64,
-            verbose_name="band",
-            choices=BAND_CHOICES,
-            default=BandOptions.B_OTHER,
-            blank=True,
-            null=True,
-        ),
-        depends=[("self", ["info_simplex", "info_half_duplex"])],
-    )
-    def band(self) -> Optional[str]:
-        def get_band_for_freq(f_mhz: float) -> Optional[str]:
-            if f_mhz is None:
-                return None
-            if Band10m.min <= f_mhz <= Band10m.max:
-                return self.BandOptions.B_10M
-            if Band6m.min <= f_mhz <= Band6m.max:
-                return self.BandOptions.B_6M
-            if Band2m.min <= f_mhz <= Band2m.max:
-                return self.BandOptions.B_2M
-            if Band70cm.min <= f_mhz <= Band70cm.max:
-                return self.BandOptions.B_70CM
-            if Band23cm.min <= f_mhz <= Band23cm.max:
-                return self.BandOptions.B_23CM
-            return self.BandOptions.B_OTHER
-
-        tx_band = get_band_for_freq(self.tx_freq)
-        rx_band = get_band_for_freq(self.rx_freq)
-
-        # If the Tx and Rx bands are the same, return that band.
-        if tx_band == rx_band:
-            return tx_band
-
-        # If they are different, it's a cross-band repeater.
-        if tx_band is not None and rx_band is not None:
-            return self.BandOptions.B_X
-
-        # If either is None, return it.
-        return None
-
-    @property
-    def is_fm(self) -> bool:
-        return self.info_fm is not None
-
-    @property
-    def is_dstar(self) -> bool:
-        return self.info_dstar is not None
-
-    @property
-    def is_fusion(self) -> bool:
-        return self.info_fusion is not None
-
-    @property
-    def is_dmr(self) -> bool:
-        return self.info_dmr is not None
-
-    @property
-    def has_modulation(self) -> bool:
-        return self.is_fm or self.is_dstar or self.is_fusion or self.is_dmr
 
     @computed(
         ArrayField(
@@ -583,19 +502,9 @@ class FactRepeater(ComputedFieldsModel):
             modes.append(self.ModeOptions.DMR)
         return modes
 
+    def __str__(self) -> str:
+        return str(self.callsign)
+
     class Meta:
         verbose_name = "repeater"
         verbose_name_plural = "repeaters"
-        constraints = [
-            models.CheckConstraint(
-                check=(
-                    (models.Q(info_half_duplex=None) & models.Q(info_simplex=None))
-                    | (~models.Q(info_half_duplex=None) & models.Q(info_simplex=None))
-                    | (models.Q(info_half_duplex=None) & ~models.Q(info_simplex=None))
-                ),
-                name="repeater is only simplex or half-duplex",
-            )
-        ]
-
-    def __str__(self) -> str:
-        return str(self.callsign)
