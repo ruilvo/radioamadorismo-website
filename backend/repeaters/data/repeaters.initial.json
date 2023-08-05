@@ -14,9 +14,13 @@
       "ts1_alternative_tgs": [],
       "ts2_alternative_tgs": [],
       "modulation": "F7W",
-      "id": 268103,
       "color_code": 1,
-      "ts_configuration": ""
+      "ts_configuration": "",
+      "tg": {
+        "id": 268103,
+        "name": "CQ0DBA",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "info_holder": {
       "abrv": "ARBA",
@@ -50,9 +54,13 @@
       "ts1_alternative_tgs": [],
       "ts2_alternative_tgs": [],
       "modulation": "F7W",
-      "id": 268220,
       "color_code": 1,
-      "ts_configuration": ""
+      "ts_configuration": "",
+      "tg": {
+        "id": 268220,
+        "name": "CQ0DVI",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "info_holder": {
       "abrv": "REP",
@@ -136,9 +144,13 @@
         }
       ],
       "modulation": "F7W",
-      "id": 268202,
       "color_code": 1,
-      "ts_configuration": "Slot 1 estático: 268. 91. 915\r\nSlot 2 estático: 2. 8\r\nLocal 2: (2->)268202\r\nRegional: (8->)268904"
+      "ts_configuration": "Slot 1 estático: 268. 91. 915\r\nSlot 2 estático: 2. 8\r\nLocal 2: (2->)268202\r\nRegional: (8->)268904",
+      "tg": {
+        "id": 268202,
+        "name": "CQ0DCO",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "info_holder": {
       "abrv": "ARC",
@@ -213,9 +225,13 @@
       ],
       "ts2_alternative_tgs": [],
       "modulation": "F7W",
-      "id": 268208,
       "color_code": 1,
-      "ts_configuration": "Slot 1 estático: 268. 91. 915"
+      "ts_configuration": "Slot 1 estático: 268. 91. 915",
+      "tg": {
+        "id": 268208,
+        "name": "CQ0DAL",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "info_holder": {
       "abrv": "ARAL",
@@ -322,9 +338,13 @@
       ],
       "ts2_alternative_tgs": [],
       "modulation": "F7W",
-      "id": 268408,
       "color_code": 1,
-      "ts_configuration": "Slot 1 estático: 268915\r\nSlot 2 estático: 2\r\nLocal 2: (2->)268408"
+      "ts_configuration": "Slot 1 estático: 268915\r\nSlot 2 estático: 2\r\nLocal 2: (2->)268408",
+      "tg": {
+        "id": 268408,
+        "name": "CQ0DPG",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "info_holder": {
       "abrv": "REP",
@@ -379,9 +399,13 @@
       "ts1_alternative_tgs": [],
       "ts2_alternative_tgs": [],
       "modulation": "F7W",
-      "id": 268304,
       "color_code": 1,
-      "ts_configuration": ""
+      "ts_configuration": "",
+      "tg": {
+        "id": 268304,
+        "name": "CQ0DLX",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "info_holder": {
       "abrv": "REP",
@@ -425,9 +449,13 @@
       ],
       "ts2_alternative_tgs": [],
       "modulation": "F7W",
-      "id": 268330,
       "color_code": 1,
-      "ts_configuration": "Slot 1 estático: 268. 91. 915\r\nSlot 2 estático: 2\r\nLocal 2: (2->)268330"
+      "ts_configuration": "Slot 1 estático: 268. 91. 915\r\nSlot 2 estático: 2\r\nLocal 2: (2->)268330",
+      "tg": {
+        "id": 268330,
+        "name": "CQ0DAC",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "info_holder": {
       "abrv": "REP",
@@ -505,9 +533,13 @@
       "ts1_alternative_tgs": [],
       "ts2_alternative_tgs": [],
       "modulation": "F7W",
-      "id": 268204,
       "color_code": 1,
-      "ts_configuration": ""
+      "ts_configuration": "",
+      "tg": {
+        "id": 268204,
+        "name": "CQ0DSI",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "info_holder": {
       "abrv": "REP",
@@ -590,9 +622,13 @@
       ],
       "ts2_alternative_tgs": [],
       "modulation": "F7W",
-      "id": 268301,
       "color_code": 1,
-      "ts_configuration": "Slot 1 estático: 268. 91. 915\r\nSlot 2 estático: 2\r\nLocal 2: (2->)268301"
+      "ts_configuration": "Slot 1 estático: 268. 91. 915\r\nSlot 2 estático: 2\r\nLocal 2: (2->)268301",
+      "tg": {
+        "id": 268301,
+        "name": "CQ0UCSC",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "info_holder": {
       "abrv": "ARLC",
@@ -641,9 +677,13 @@
       "ts1_alternative_tgs": [],
       "ts2_alternative_tgs": [],
       "modulation": "F7W",
-      "id": 268501,
       "color_code": 1,
-      "ts_configuration": ""
+      "ts_configuration": "",
+      "tg": {
+        "id": 268501,
+        "name": "CQ0DVA",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "info_holder": {
       "abrv": "ARRLx",
@@ -681,9 +721,13 @@
       "ts1_alternative_tgs": [],
       "ts2_alternative_tgs": [],
       "modulation": "F7W",
-      "id": 268306,
       "color_code": 2,
-      "ts_configuration": "Slot 2 estático: 2\r\nLocal 2: (2->)268306"
+      "ts_configuration": "Slot 2 estático: 2\r\nLocal 2: (2->)268306",
+      "tg": {
+        "id": 268306,
+        "name": "CQ0DPF",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "info_holder": {
       "abrv": "ARRLx",
@@ -733,9 +777,13 @@
       ],
       "ts2_alternative_tgs": [],
       "modulation": "F7W",
-      "id": 268504,
       "color_code": 1,
-      "ts_configuration": "Slot 1 estático: 268. 91. 915\r\nSlot 2 estático: 2\r\nLocal 2: (2->)268504"
+      "ts_configuration": "Slot 1 estático: 268. 91. 915\r\nSlot 2 estático: 2\r\nLocal 2: (2->)268504",
+      "tg": {
+        "id": 268504,
+        "name": "CQ0UML",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "info_holder": {
       "abrv": "RCL",
@@ -785,9 +833,13 @@
       ],
       "ts2_alternative_tgs": [],
       "modulation": "F7W",
-      "id": 268602,
       "color_code": 1,
-      "ts_configuration": "Slot 1 estático: 268.91.915\r\nSlot 2 estático: 2686"
+      "ts_configuration": "Slot 1 estático: 268.91.915\r\nSlot 2 estático: 2686",
+      "tg": {
+        "id": 268602,
+        "name": "CQ1UB",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "info_holder": {
       "abrv": "ARA",
@@ -2192,9 +2244,13 @@
         }
       ],
       "modulation": "F7W",
-      "id": 268109,
       "color_code": 1,
-      "ts_configuration": "Slot 2 estático: 2. 8 \r\nLocal 2: (2->)268109\r\nRegional: (8->)268903"
+      "ts_configuration": "Slot 2 estático: 2. 8 \r\nLocal 2: (2->)268109\r\nRegional: (8->)268903",
+      "tg": {
+        "id": 268109,
+        "name": "CQ0VMI",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "info_holder": {
       "abrv": "ARAT",
@@ -2287,9 +2343,13 @@
       ],
       "ts2_alternative_tgs": [],
       "modulation": "F7W",
-      "id": 268102,
       "color_code": 1,
-      "ts_configuration": "Slot 1 estático: 268. 915. 91. 92\r\nSlot 2 estático: 8\r\nLocal 2: (2->)268102\r\nRegional: (8->)268903"
+      "ts_configuration": "Slot 1 estático: 268. 915. 91. 92\r\nSlot 2 estático: 8\r\nLocal 2: (2->)268102\r\nRegional: (8->)268903",
+      "tg": {
+        "id": 268102,
+        "name": "CQ0DBO",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "info_holder": {
       "abrv": "ARAT",
@@ -2336,9 +2396,13 @@
         }
       ],
       "modulation": "F7W",
-      "id": 268101,
       "color_code": 1,
-      "ts_configuration": "Slot 1 estático: 268\r\nSlot 2 estático: 2. 915\r\nLocal 2: (2->)268101"
+      "ts_configuration": "Slot 1 estático: 268\r\nSlot 2 estático: 2. 915\r\nLocal 2: (2->)268101",
+      "tg": {
+        "id": 268101,
+        "name": "CQ0DAM",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "info_holder": {
       "abrv": "ARETD",
@@ -2399,9 +2463,13 @@
       ],
       "ts2_alternative_tgs": [],
       "modulation": "F7W",
-      "id": 268104,
       "color_code": 1,
-      "ts_configuration": "Slot 1 estático: 268. 91. 915\r\nSlot 2 estático: 8\r\nRegional: (8->)268901"
+      "ts_configuration": "Slot 1 estático: 268. 91. 915\r\nSlot 2 estático: 8\r\nRegional: (8->)268901",
+      "tg": {
+        "id": 268104,
+        "name": "CQ0DGM",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "info_holder": {
       "abrv": "ARBA",
@@ -2597,9 +2665,13 @@
       "ts1_alternative_tgs": [],
       "ts2_alternative_tgs": [],
       "modulation": "F7W",
-      "id": 268604,
       "color_code": 1,
-      "ts_configuration": ""
+      "ts_configuration": "",
+      "tg": {
+        "id": 268604,
+        "name": "CQ1DAT",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "info_holder": {
       "abrv": "REP",
@@ -2646,9 +2718,13 @@
       ],
       "ts2_alternative_tgs": [],
       "modulation": "F7W",
-      "id": 268308,
       "color_code": 1,
-      "ts_configuration": "Slot 1 estático: 268. 915\r\nSlot 2 estático: 2\r\nLocal 2: (2->)268308"
+      "ts_configuration": "Slot 1 estático: 268. 915\r\nSlot 2 estático: 2\r\nLocal 2: (2->)268308",
+      "tg": {
+        "id": 268308,
+        "name": "CQ0DKE",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "info_holder": {
       "abrv": "REP",
@@ -2694,9 +2770,13 @@
       ],
       "ts2_alternative_tgs": [],
       "modulation": "F7W",
-      "id": 268111,
       "color_code": 1,
-      "ts_configuration": "Slot 1 estático: 268. 915\r\nSlot 2 estático: 2\r\nLocal 2: (2->)268111"
+      "ts_configuration": "Slot 1 estático: 268. 915\r\nSlot 2 estático: 2\r\nLocal 2: (2->)268111",
+      "tg": {
+        "id": 268111,
+        "name": "CQ0USA",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "info_holder": {
       "abrv": "ARAM",
@@ -5302,9 +5382,13 @@
         }
       ],
       "modulation": "",
-      "id": 268110,
       "color_code": 1,
-      "ts_configuration": "(2->)268110\r\n(8->)268903"
+      "ts_configuration": "(2->)268110\r\n(8->)268903",
+      "tg": {
+        "id": 268110,
+        "name": "CQ0DPD",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "info_holder": {
       "abrv": "ARAT",
@@ -5349,9 +5433,13 @@
       ],
       "ts2_alternative_tgs": [],
       "modulation": "",
-      "id": 268107,
       "color_code": 1,
-      "ts_configuration": "(8->)268901"
+      "ts_configuration": "(8->)268901",
+      "tg": {
+        "id": 268107,
+        "name": "CQ0DMV",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "info_holder": {
       "abrv": "ARBA",
@@ -5379,9 +5467,13 @@
       "ts1_alternative_tgs": [],
       "ts2_alternative_tgs": [],
       "modulation": "",
-      "id": 268106,
       "color_code": 1,
-      "ts_configuration": ""
+      "ts_configuration": "",
+      "tg": {
+        "id": 268106,
+        "name": "CQ0DSO",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "info_holder": {
       "abrv": "REP",
@@ -5431,9 +5523,13 @@
       ],
       "ts2_alternative_tgs": [],
       "modulation": "",
-      "id": 268105,
       "color_code": 1,
-      "ts_configuration": ""
+      "ts_configuration": "",
+      "tg": {
+        "id": 268105,
+        "name": "CQ0DSF",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "info_holder": {
       "abrv": "REP",
@@ -5474,9 +5570,13 @@
       ],
       "ts2_alternative_tgs": [],
       "modulation": "",
-      "id": 268203,
       "color_code": 1,
-      "ts_configuration": "(8->)268901"
+      "ts_configuration": "(8->)268901",
+      "tg": {
+        "id": 268203,
+        "name": "CQ0DFR",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "info_holder": {
       "abrv": "ARBA",
@@ -5521,9 +5621,13 @@
       ],
       "ts2_alternative_tgs": [],
       "modulation": "",
-      "id": 268211,
       "color_code": 1,
-      "ts_configuration": "(8->)268901"
+      "ts_configuration": "(8->)268901",
+      "tg": {
+        "id": 268211,
+        "name": "CQ0DLU",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "info_holder": {
       "abrv": "ARBA",
@@ -5569,9 +5673,13 @@
       ],
       "ts2_alternative_tgs": [],
       "modulation": "",
-      "id": 268201,
       "color_code": 1,
-      "ts_configuration": "(2->)268201"
+      "ts_configuration": "(2->)268201",
+      "tg": {
+        "id": 268201,
+        "name": "CQ0DTRZ",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "info_holder": {
       "abrv": "ARAL",
@@ -5617,9 +5725,13 @@
       ],
       "ts2_alternative_tgs": [],
       "modulation": "",
-      "id": 268230,
       "color_code": 1,
-      "ts_configuration": "(2->)268230"
+      "ts_configuration": "(2->)268230",
+      "tg": {
+        "id": 268230,
+        "name": "CQ0DAB",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "info_holder": {
       "abrv": "REP",
@@ -5692,9 +5804,13 @@
         }
       ],
       "modulation": "",
-      "id": 268205,
       "color_code": 1,
-      "ts_configuration": "(2->)268205\r\n(8->)268904"
+      "ts_configuration": "(2->)268205\r\n(8->)268904",
+      "tg": {
+        "id": 268205,
+        "name": "CQ0DRX",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "info_location": {
       "latitude": "40.2503611100",
@@ -5736,9 +5852,13 @@
       ],
       "ts2_alternative_tgs": [],
       "modulation": "",
-      "id": 268209,
       "color_code": 1,
-      "ts_configuration": "(2->)268209"
+      "ts_configuration": "(2->)268209",
+      "tg": {
+        "id": 268209,
+        "name": "CQ0DFF",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "info_holder": {
       "abrv": "ARCP",
@@ -5805,9 +5925,13 @@
       ],
       "ts2_alternative_tgs": [],
       "modulation": "",
-      "id": 268210,
       "color_code": 1,
-      "ts_configuration": "(2->)268210"
+      "ts_configuration": "(2->)268210",
+      "tg": {
+        "id": 268210,
+        "name": "CQ0DUG",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "info_holder": {
       "abrv": "ARBB",
@@ -5848,9 +5972,13 @@
       ],
       "ts2_alternative_tgs": [],
       "modulation": "",
-      "id": 268207,
       "color_code": 1,
-      "ts_configuration": "(2->)268207"
+      "ts_configuration": "(2->)268207",
+      "tg": {
+        "id": 268207,
+        "name": "CQ0DLIZ",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "info_holder": {
       "abrv": "ARAL",
@@ -5896,9 +6024,13 @@
       ],
       "ts2_alternative_tgs": [],
       "modulation": "",
-      "id": 268206,
       "color_code": 1,
-      "ts_configuration": "(2->)268206"
+      "ts_configuration": "(2->)268206",
+      "tg": {
+        "id": 268206,
+        "name": "CQ0DCD",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "info_holder": {
       "abrv": "ARAL",
@@ -5944,9 +6076,13 @@
       ],
       "ts2_alternative_tgs": [],
       "modulation": "",
-      "id": 268401,
       "color_code": 1,
-      "ts_configuration": "(2->)268401"
+      "ts_configuration": "(2->)268401",
+      "tg": {
+        "id": 268401,
+        "name": "CQ0DCRE",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "info_holder": {
       "abrv": "CRE",
@@ -6006,9 +6142,13 @@
       "ts1_alternative_tgs": [],
       "ts2_alternative_tgs": [],
       "modulation": "",
-      "id": 268409,
       "color_code": 1,
-      "ts_configuration": "(2->)268409"
+      "ts_configuration": "(2->)268409",
+      "tg": {
+        "id": 268409,
+        "name": "CQ0DCM",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "info_holder": {
       "abrv": "REP",
@@ -6059,9 +6199,13 @@
         }
       ],
       "modulation": "",
-      "id": 268307,
       "color_code": 1,
-      "ts_configuration": "(2->)268307"
+      "ts_configuration": "(2->)268307",
+      "tg": {
+        "id": 268307,
+        "name": "CQ0DMJ",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "info_holder": {
       "abrv": "LART",
@@ -6089,9 +6233,13 @@
       "ts1_alternative_tgs": [],
       "ts2_alternative_tgs": [],
       "modulation": "",
-      "id": 268311,
       "color_code": 1,
-      "ts_configuration": ""
+      "ts_configuration": "",
+      "tg": {
+        "id": 268311,
+        "name": "CQ0DMTV",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "info_holder": {
       "abrv": "ARADO",
@@ -6136,9 +6284,13 @@
       ],
       "ts2_alternative_tgs": [],
       "modulation": "",
-      "id": 268305,
       "color_code": 1,
-      "ts_configuration": "(2->)268305"
+      "ts_configuration": "(2->)268305",
+      "tg": {
+        "id": 268305,
+        "name": "CQ0DMQ",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "info_holder": {
       "abrv": "REP",
@@ -6180,9 +6332,13 @@
       ],
       "ts2_alternative_tgs": [],
       "modulation": "",
-      "id": 268309,
       "color_code": 1,
-      "ts_configuration": ""
+      "ts_configuration": "",
+      "tg": {
+        "id": 268309,
+        "name": "CQ0DMS",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "info_holder": {
       "abrv": "ARVM",
@@ -6224,9 +6380,13 @@
       ],
       "ts2_alternative_tgs": [],
       "modulation": "",
-      "id": 268302,
       "color_code": 1,
-      "ts_configuration": "(2->)268302"
+      "ts_configuration": "(2->)268302",
+      "tg": {
+        "id": 268302,
+        "name": "CQ0DOD",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "info_holder": {
       "abrv": "REP",
@@ -6268,9 +6428,13 @@
       ],
       "ts2_alternative_tgs": [],
       "modulation": "",
-      "id": 268310,
       "color_code": 1,
-      "ts_configuration": "(2->)268310"
+      "ts_configuration": "(2->)268310",
+      "tg": {
+        "id": 268310,
+        "name": "CQ0DST",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "info_holder": {
       "abrv": "LARS",
@@ -6321,9 +6485,13 @@
         }
       ],
       "modulation": "",
-      "id": 268340,
       "color_code": 1,
-      "ts_configuration": "(2->)268340\r\n(8->)268905"
+      "ts_configuration": "(2->)268340\r\n(8->)268905",
+      "tg": {
+        "id": 268340,
+        "name": "CQ0DCSC",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "info_holder": {
       "abrv": "ARLC",
@@ -6360,9 +6528,13 @@
       "ts1_alternative_tgs": [],
       "ts2_alternative_tgs": [],
       "modulation": "",
-      "id": 268410,
       "color_code": 1,
-      "ts_configuration": "(2->)268410"
+      "ts_configuration": "(2->)268410",
+      "tg": {
+        "id": 268410,
+        "name": "CQ0DSS",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "info_holder": {
       "abrv": "REP",
@@ -6411,9 +6583,13 @@
       ],
       "ts2_alternative_tgs": [],
       "modulation": "",
-      "id": 268320,
       "color_code": 1,
-      "ts_configuration": "(2->)268320"
+      "ts_configuration": "(2->)268320",
+      "tg": {
+        "id": 268320,
+        "name": "CQ0DEC",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "info_holder": {
       "abrv": "AMRAD",
@@ -6481,9 +6657,13 @@
       ],
       "ts2_alternative_tgs": [],
       "modulation": "",
-      "id": 268303,
       "color_code": 1,
-      "ts_configuration": "(2->)268303"
+      "ts_configuration": "(2->)268303",
+      "tg": {
+        "id": 268303,
+        "name": "CQ0DMA",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "info_holder": {
       "abrv": "ARLA",
@@ -6529,9 +6709,13 @@
       ],
       "ts2_alternative_tgs": [],
       "modulation": "",
-      "id": 268402,
       "color_code": 1,
-      "ts_configuration": "(2->)268402"
+      "ts_configuration": "(2->)268402",
+      "tg": {
+        "id": 268402,
+        "name": "CQ0DLA",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "info_holder": {
       "abrv": "ARLA",
@@ -6560,9 +6744,13 @@
       "ts1_alternative_tgs": [],
       "ts2_alternative_tgs": [],
       "modulation": "",
-      "id": 268399,
       "color_code": 1,
-      "ts_configuration": ""
+      "ts_configuration": "",
+      "tg": {
+        "id": 268399,
+        "name": "CQ0DS",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "callsign": "CQ0DS",
     "notes": "",
@@ -6592,9 +6780,13 @@
         }
       ],
       "modulation": "",
-      "id": 268601,
       "color_code": 1,
-      "ts_configuration": "(2->)268601"
+      "ts_configuration": "(2->)268601",
+      "tg": {
+        "id": 268601,
+        "name": "CQ1DUR",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "info_holder": {
       "abrv": "URA",
@@ -6636,9 +6828,13 @@
         }
       ],
       "modulation": "",
-      "id": 268603,
       "color_code": 1,
-      "ts_configuration": ""
+      "ts_configuration": "",
+      "tg": {
+        "id": 268603,
+        "name": "CQ1DCG",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "info_holder": {
       "abrv": "CRA",
@@ -7736,9 +7932,13 @@
       "ts1_alternative_tgs": [],
       "ts2_alternative_tgs": [],
       "modulation": "",
-      "id": 268108,
       "color_code": 1,
-      "ts_configuration": ""
+      "ts_configuration": "",
+      "tg": {
+        "id": 268108,
+        "name": "CQ0DMI",
+        "call_mode": "GROUP_CALL"
+      }
     },
     "info_holder": {
       "abrv": "ARAT",
