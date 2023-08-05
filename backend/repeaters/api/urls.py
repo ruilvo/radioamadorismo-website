@@ -1,8 +1,7 @@
 from rest_framework.routers import SimpleRouter
 
 from repeaters.api.views import (
-    DimHalfDuplexViewSet,
-    DimSimplexViewSet,
+    DimRfViewSet,
     DimFmViewSet,
     DimDStarViewSet,
     DimFusionViewSet,
@@ -16,8 +15,7 @@ from repeaters.api.views import (
 
 router = SimpleRouter()
 router.register("fact-repeater", FactRepeaterViewSet, basename="fact-repeater")
-router.register("dim-half-duplex", DimHalfDuplexViewSet, basename="dim-half-duplex")
-router.register("dim-simplex", DimSimplexViewSet, basename="dim-simplex")
+router.register("dim-rf", DimRfViewSet, basename="dim-rf")
 router.register("dim-fm", DimFmViewSet, basename="dim-fm")
 router.register("dim-dstar", DimDStarViewSet, basename="dim-dstar")
 router.register("dim-fusion", DimFusionViewSet, basename="dim-fusion")
