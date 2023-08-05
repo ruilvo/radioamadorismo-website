@@ -16,7 +16,7 @@ from repeaters.vendor.bands import Band23cm, Band70cm, Band2m, Band6m, Band10m
 PLACEHOLDER_STR = "-----"
 
 
-class DimRf(models.Model):
+class DimRf(ComputedFieldsModel):
     """
     Models the frequency information of repeaters.
     """
