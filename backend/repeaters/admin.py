@@ -1,8 +1,7 @@
 from django.contrib import admin
 
 from repeaters.models import (
-    DimHalfDuplex,
-    DimSimplex,
+    DimRf,
     DimFm,
     DimDStar,
     DimFusion,
@@ -13,8 +12,7 @@ from repeaters.models import (
     FactRepeater,
 )
 
-admin.site.register(DimHalfDuplex)
-admin.site.register(DimSimplex)
+admin.site.register(DimRf)
 admin.site.register(DimFm)
 admin.site.register(DimDStar)
 admin.site.register(DimFusion)
