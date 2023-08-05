@@ -1,3 +1,7 @@
+"""
+Define Django FilterSets for the repeaters API.
+"""
+
 import re
 from functools import reduce
 
@@ -11,8 +15,15 @@ from repeaters.models import DimRf, DimHolder, DimLocation, FactRepeater
 
 
 class DimRfFilter(FilterSet):
+    """
+    Custom FilterSet for DimRf model.
+    """
+
     @staticmethod
     def freq_mhz_search(queryset, _, value):
+        """
+        Looks for a frequency value both to be equal in tx_mhz and rx_mhz fields.
+        """
         queryset = queryset.filter(
             Q(tx_mhz__exact=value) | Q(rx_mhz__exact=value)
         ).distinct()
@@ -20,6 +31,9 @@ class DimRfFilter(FilterSet):
 
     @staticmethod
     def freq_mhz_search__gte(queryset, _, value):
+        """
+        Looks for a frequency value to be GTE both in tx_mhz and rx_mhz fields.
+        """
         queryset = queryset.filter(
             Q(tx_mhz__gte=value) | Q(rx_mhz__gte=value)
         ).distinct()
@@ -27,6 +41,9 @@ class DimRfFilter(FilterSet):
 
     @staticmethod
     def freq_mhz_search__lte(queryset, _, value):
+        """
+        Looks for a frequency value to be LTE both in tx_mhz and rx_mhz fields.
+        """
         queryset = queryset.filter(
             Q(tx_mhz__lte=value) | Q(rx_mhz__lte=value)
         ).distinct()
@@ -34,6 +51,9 @@ class DimRfFilter(FilterSet):
 
     @staticmethod
     def bands_seach(queryset, _, value):
+        """
+        Allows searching for multiple bands at the same time, comma separated.
+        """
         band = re.findall(r"[\w]+", value)
         queryset_filtered = queryset.filter(
             reduce(lambda x, y: x | y, [Q(band__icontains=b) for b in band])
@@ -42,6 +62,9 @@ class DimRfFilter(FilterSet):
 
     @staticmethod
     def modes_search(queryset, _, value):
+        """
+        Allows searching for multiple modes at the same time, comma separated.
+        """
         modes = re.findall(r"[\w]+", value)
         queryset_filtered = queryset.filter(
             reduce(lambda x, y: x | y, [Q(rf__icontains=r) for r in modes])
@@ -71,8 +94,15 @@ class DimRfFilter(FilterSet):
 
 
 class DimHolderFilter(FilterSet):
+    """
+    Custom FilterSet for DimHolder model.
+    """
+
     @staticmethod
     def holder_search(queryset, _, value):
+        """
+        Allows searching for holder data both in the abrv and name fields.
+        """
         queryset = queryset.filter(
             Q(abrv__icontains=value) | Q(name__icontains=value)
         ).distinct()
@@ -89,8 +119,15 @@ class DimHolderFilter(FilterSet):
 
 
 class DimLocationFilter(FilterSet):
+    """
+    Custom FilterSet for DimLocation model.
+    """
+
     @staticmethod
     def region_search(queryset, _, value):
+        """
+        Allows searching for multiple regions at the same time, comma separated.
+        """
         regions = re.findall(r"[\w]+", value)
         queryset_filtered = queryset.filter(
             reduce(lambda x, y: x | y, [Q(region=r) for r in regions])
@@ -111,8 +148,15 @@ class DimLocationFilter(FilterSet):
 
 
 class FactRepeaterFilter(FilterSet):
+    """
+    Custom FilterSet for FactRepeater model.
+    """
+
     @staticmethod
     def modes_search(queryset, _, value):
+        """
+        Allows searching for multiple modes at the same time, comma separated.
+        """
         modes = re.findall(r"[\w]+", value)
         allowed_modes = {choice[0] for choice in FactRepeater.MODE_CHOICES}
         query_modes = list({mode.lower() for mode in modes} & allowed_modes)

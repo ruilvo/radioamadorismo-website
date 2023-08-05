@@ -1,3 +1,7 @@
+"""
+Serializers for the repeaters API.
+"""
+
 from django.core.exceptions import ObjectDoesNotExist
 
 from rest_framework import serializers
@@ -38,6 +42,7 @@ class DimRfSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
             new_object.channel = channel
             new_object.save()
         return new_object
+
 
 class DimFmSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
     __doc__ = DimFm.__doc__
@@ -114,7 +119,9 @@ class DimDmrTgSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
 
     def create(self, validated_data):
         name = validated_data.get("name", None)
-        id = validated_data.get("id", None)
+        id = validated_data.get( # pylint: disable=invalid-name,redefined-builtin
+            "id", None
+        )
         call_mode = validated_data.get("call_mode", None)
         if id is not None:
             new_object, new_object_created = DimDmrTg.objects.get_or_create(
@@ -129,7 +136,9 @@ class DimDmrTgSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
         return DimDmrTg.objects.create(**validated_data)
 
 
-class DimDmrSerializer(UniqueFieldsMixin, WritableNestedModelSerializer):
+class DimDmrSerializer(  # pylint: disable=too-many-ancestors
+    UniqueFieldsMixin, WritableNestedModelSerializer
+):
     __doc__ = DimDmr.__doc__
 
     ts1_default_tg = DimDmrTgSerializer(many=False, required=False)
@@ -145,7 +154,7 @@ class DimDmrSerializer(UniqueFieldsMixin, WritableNestedModelSerializer):
         try:
             return DimDmr.objects.get(id=validated_data["id"])
         except ObjectDoesNotExist:
-            return super(DimDmrSerializer, self).create(validated_data)
+            return super().create(validated_data)
 
 
 class DimHolderSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
@@ -202,7 +211,9 @@ class DimLocationSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
         return DimLocation.objects.create(**validated_data)
 
 
-class FactRepeaterSerializer(WritableNestedModelSerializer):
+class FactRepeaterSerializer(  # pylint: disable=too-many-ancestors
+    WritableNestedModelSerializer
+):
     __doc__ = FactRepeater.__doc__
 
     info_rf = DimRfSerializer(many=False, required=False)

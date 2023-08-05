@@ -8,4 +8,10 @@ from django.contrib.auth.models import AbstractUser
 
 
 class User(AbstractUser):
-    pass
+    """
+    Custom user model.
+
+    It's a good practice in Django to make this when you start a new project, even if you
+    don't need to add any extra fields to the user model. This way, if you need to add
+    something later, you won't have to create a new user model and have loads of problems.
+    """

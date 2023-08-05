@@ -1,3 +1,7 @@
+"""
+Admin interface for the repeaters app.
+"""
+
 from django.contrib import admin
 
 from repeaters.models import (

@@ -1,3 +1,8 @@
+"""
+Misc utilities for this Django app.
+"""
+
+
 def rename_duplicates_in_list(mylist, sep="", start=1, update_first=True):
     """
     Given a list like this:
@@ -25,8 +30,10 @@ def rename_duplicates_in_list(mylist, sep="", start=1, update_first=True):
         else:
             mylist_dups[val][0] += 1
 
-    # Define function to update duplicate values with suffix, check if updated value already exists
     def update_val(val, num):
+        """
+        Function to update duplicate values with suffix, check if updated value already exists
+        """
         temp_val = sep.join([str(x) for x in [val, num]])
         if temp_val not in mylist_dups:
             return temp_val, num

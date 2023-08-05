@@ -1,3 +1,7 @@
+"""
+Define the URL routes for the repeaters API.
+"""
+
 from rest_framework.routers import SimpleRouter
 
 from repeaters.api.views import (

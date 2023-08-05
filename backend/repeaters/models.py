@@ -1,3 +1,7 @@
+"""
+Django models definition for the repeaters app of the radioamadorismo-web project.
+"""
+
 import decimal
 
 from typing import Optional
@@ -17,7 +21,11 @@ class DimRf(models.Model):
     Models the frequency information of repeaters.
     """
 
-    class BandOptions:
+    class BandOptions:  # pylint: disable=too-few-public-methods
+        """
+        Band options for the RF information of repeaters.
+        """
+
         B_10M = "10m"
         B_6M = "6m"
         B_2M = "2m"
@@ -36,7 +44,11 @@ class DimRf(models.Model):
         (BandOptions.B_OTHER, "other"),
     )
 
-    class ModeOptions:
+    class ModeOptions:  # pylint: disable=too-few-public-methods
+        """
+        Mode options for the RF information of repeaters.
+        """
+
         HALF_DUPLEX = "HD"
         SIMPLEX = "SX"
 
@@ -64,6 +76,9 @@ class DimRf(models.Model):
         )
     )
     def band(self) -> Optional[str]:
+        """
+        Computes the band of the repeater based on the tx and rx frequencies.
+        """
         tx_band = DimRf.get_band_for_freq(self.tx_mhz)
         rx_band = DimRf.get_band_for_freq(self.rx_mhz)
 
@@ -87,6 +102,9 @@ class DimRf(models.Model):
         ),
     )
     def mode(self) -> str:
+        """
+        Computes the mode of the repeater based on the tx and rx frequencies.
+        """
         if self.tx_mhz == self.rx_mhz:
             return DimRf.ModeOptions.SIMPLEX
         return DimRf.ModeOptions.HALF_DUPLEX
@@ -97,6 +115,9 @@ class DimRf(models.Model):
         )
     )
     def shift(self) -> decimal.Decimal:
+        """
+        Computes the shift of the repeater based on the tx and rx frequencies.
+        """
         return self.tx_mhz - self.rx_mhz
 
     def __str__(self) -> str:
@@ -106,7 +127,12 @@ class DimRf(models.Model):
         )
 
     @staticmethod
-    def get_band_for_freq(f_mhz: float) -> Optional[str]:
+    def get_band_for_freq(  # pylint: disable=too-many-return-statements
+        f_mhz: float,
+    ) -> Optional[str]:
+        """
+        Returns the band for a given frequency in MHz.
+        """
         if f_mhz is None:
             return None
         if Band10m.min <= f_mhz <= Band10m.max:
@@ -136,7 +162,11 @@ class DimFm(models.Model):
     Models enough information for describing FM repeaters.
     """
 
-    class BandwidthOptions:
+    class BandwidthOptions:  # pylint: disable=too-few-public-methods
+        """
+        Define the bandwidth options for FM repeaters.
+        """
+
         NFM = "NFM"
         WFM = "WFM"
 
@@ -232,7 +262,11 @@ class DimDmrTg(models.Model):
     Models enough information for describing a DMR TG.
     """
 
-    class CallModeOptions:
+    class CallModeOptions: # pylint: disable=too-few-public-methods
+        """
+        Define the call mode options for DMR TGs.
+        """
+
         GROUP_CALL = "GROUP_CALL"
         PRIVATE_CALL = "PRIVATE_CALL"
 
@@ -322,7 +356,11 @@ class DimLocation(models.Model):
     Models enough information for describing a repeater's location.
     """
 
-    class RegionOptions:
+    class RegionOptions: # pylint: disable=too-few-public-methods
+        """
+        Define the region options for a repeater's location.
+        """
+
         CONTINENT = "CPT"
         AZORES = "AZR"
         MADEIRA = "MDA"
@@ -382,7 +420,11 @@ class FactRepeater(ComputedFieldsModel):
     Models a repeater's full information.
     """
 
-    class StatusOptions:
+    class StatusOptions:  # pylint: disable=too-few-public-methods
+        """
+        Define the status options for a repeater.
+        """
+
         OFF = "OFF"
         ON = "ON"
         PROJECT = "PROJECT"
@@ -397,7 +439,11 @@ class FactRepeater(ComputedFieldsModel):
         (StatusOptions.OTHER, "other"),
     )
 
-    class ModeOptions:
+    class ModeOptions:  # pylint: disable=too-few-public-methods
+        """
+        Define the mode options for a repeater.
+        """
+
         FM = "fm"
         DMR = "dmr"
         DSTAR = "dstar"
@@ -491,6 +537,10 @@ class FactRepeater(ComputedFieldsModel):
         depends=[("self", ["info_fm", "info_dstar", "info_fusion", "info_dmr"])],
     )
     def modes(self) -> list[str]:
+        """
+        Compute the modes of the repeater based on the availability of the corresponding
+        data.
+        """
         modes = []
         if self.info_fm is not None:
             modes.append(self.ModeOptions.FM)

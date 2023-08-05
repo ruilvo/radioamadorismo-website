@@ -1,3 +1,7 @@
+"""
+URL patterns for the APRS API.
+"""
+
 from django.urls import path
 
 from aprs.api.views import PasscodeView
