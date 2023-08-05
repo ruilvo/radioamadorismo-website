@@ -79,8 +79,8 @@ class DimRf(ComputedFieldsModel):
         """
         Computes the band of the repeater based on the tx and rx frequencies.
         """
-        tx_band = DimRf.get_band_for_freq(self.tx_mhz)
-        rx_band = DimRf.get_band_for_freq(self.rx_mhz)
+        tx_band = self._get_band_for_freq(self.tx_mhz)
+        rx_band = self._get_band_for_freq(self.rx_mhz)
 
         # If any of the bands is "other", return "other".
         if DimRf.BandOptions.B_OTHER in {tx_band, rx_band}:
@@ -126,8 +126,8 @@ class DimRf(ComputedFieldsModel):
             + f"{float(self.tx_mhz):.5f}/{float(self.rx_mhz):.5f}"
         )
 
-    @staticmethod
-    def get_band_for_freq(  # pylint: disable=too-many-return-statements
+    def _get_band_for_freq(  # pylint: disable=too-many-return-statements
+        self,
         f_mhz: float,
     ) -> Optional[str]:
         """
