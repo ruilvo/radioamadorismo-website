@@ -114,7 +114,7 @@ class DimRf(ComputedFieldsModel):
             max_digits=32, decimal_places=16, verbose_name="shift (MHz)"
         )
     )
-    def shift(self) -> decimal.Decimal:
+    def shift_mhz(self) -> decimal.Decimal:
         """
         Computes the shift of the repeater based on the tx and rx frequencies.
         """

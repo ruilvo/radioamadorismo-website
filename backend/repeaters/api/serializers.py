@@ -25,8 +25,6 @@ from repeaters.models import (
 class DimRfSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
     __doc__ = DimRf.__doc__
 
-    shift = serializers.ReadOnlyField()
-
     class Meta:
         model = DimRf
         fields = "__all__"
