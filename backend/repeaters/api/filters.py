@@ -178,7 +178,7 @@ class FactRepeaterFilter(FilterSet):
             "info_rf__channel": ["iexact"],
             "info_rf__band": ["iexact"],
             "info_rf__mode": ["iexact"],
-            "inf_rf__shift": ["exact", "gte", "lte"],
+            "info_rf__shift": ["exact", "gte", "lte"],
             # DimFm
             "info_fm__modulation": ["iexact", "icontains"],
             "info_fm__tone": ["exact"],
