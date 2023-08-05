@@ -2,8 +2,7 @@ from rest_framework import status, viewsets
 from rest_framework.response import Response
 
 from repeaters.models import (
-    DimHalfDuplex,
-    DimSimplex,
+    DimRf,
     DimFm,
     DimDStar,
     DimFusion,
@@ -14,8 +13,7 @@ from repeaters.models import (
     FactRepeater,
 )
 from repeaters.api.serializers import (
-    DimHalfDuplexSerializer,
-    DimSimplexSerializer,
+    DimRfSerializer,
     DimFmSerializer,
     DimDStarSerializer,
     DimFusionSerializer,
@@ -26,7 +24,7 @@ from repeaters.api.serializers import (
     FactRepeaterSerializer,
 )
 
-from repeaters.api.filters import FactRepeaterFilter
+from repeaters.api.filters import DimRfFilter, DimHolderFilter, DimLocationFilter, FactRepeaterFilter
 
 
 class FactRepeaterViewSet(viewsets.ModelViewSet):
@@ -58,14 +56,10 @@ class FactRepeaterViewSet(viewsets.ModelViewSet):
         return serializer
 
 
-class DimHalfDuplexViewSet(viewsets.ModelViewSet):
-    queryset = DimHalfDuplex.objects.all()
-    serializer_class = DimHalfDuplexSerializer
-
-
-class DimSimplexViewSet(viewsets.ModelViewSet):
-    queryset = DimSimplex.objects.all()
-    serializer_class = DimSimplexSerializer
+class DimRfViewSet(viewsets.ModelViewSet):
+    queryset = DimRf.objects.all()
+    serializer_class = DimRfSerializer
+    filterset_class = DimRfFilter
 
 
 class DimFmViewSet(viewsets.ModelViewSet):
@@ -96,8 +90,11 @@ class DimDmrViewSet(viewsets.ModelViewSet):
 class DimHolderViewSet(viewsets.ModelViewSet):
     queryset = DimHolder.objects.all()
     serializer_class = DimHolderSerializer
+    filterset_class = DimHolderFilter
+
 
 
 class DimLocationViewSet(viewsets.ModelViewSet):
     queryset = DimLocation.objects.all()
     serializer_class = DimLocationSerializer
+    filterset_class = DimLocationFilter
