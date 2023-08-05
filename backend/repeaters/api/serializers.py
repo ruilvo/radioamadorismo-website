@@ -6,8 +6,7 @@ from drf_writable_nested.serializers import WritableNestedModelSerializer
 from drf_writable_nested.mixins import UniqueFieldsMixin
 
 from repeaters.models import (
-    DimHalfDuplex,
-    DimSimplex,
+    DimRf,
     DimFm,
     DimDStar,
     DimFusion,
@@ -19,46 +18,26 @@ from repeaters.models import (
 )
 
 
-class DimHalfDuplexSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
-    __doc__ = DimHalfDuplex.__doc__
+class DimRfSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
+    __doc__ = DimRf.__doc__
 
     shift = serializers.ReadOnlyField()
 
     class Meta:
-        model = DimHalfDuplex
+        model = DimRf
         fields = "__all__"
 
     def create(self, validated_data):
         tx_mhz = validated_data.get("tx_mhz", None)
         rx_mhz = validated_data.get("rx_mhz", None)
         channel = validated_data.get("channel", None)
-        new_object, new_object_created = DimHalfDuplex.objects.get_or_create(
+        new_object, new_object_created = DimRf.objects.get_or_create(
             tx_mhz=tx_mhz, rx_mhz=rx_mhz, defaults=validated_data
         )
         if not new_object_created and channel is not None:
             new_object.channel = channel
             new_object.save()
         return new_object
-
-
-class DimSimplexSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
-    __doc__ = DimSimplex.__doc__
-
-    class Meta:
-        model = DimSimplex
-        fields = "__all__"
-
-    def create(self, validated_data):
-        freq_mhz = validated_data.get("freq_mhz", None)
-        channel = validated_data.get("channel", None)
-        new_object, new_object_created = DimSimplex.objects.get_or_create(
-            freq_mhz=freq_mhz, defaults=validated_data
-        )
-        if not new_object_created and channel is not None:
-            new_object.channel = channel
-            new_object.save()
-        return new_object
-
 
 class DimFmSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
     __doc__ = DimFm.__doc__
@@ -226,8 +205,7 @@ class DimLocationSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
 class FactRepeaterSerializer(WritableNestedModelSerializer):
     __doc__ = FactRepeater.__doc__
 
-    info_half_duplex = DimHalfDuplexSerializer(many=False, required=False)
-    info_simplex = DimSimplexSerializer(many=False, required=False)
+    info_rf = DimRfSerializer(many=False, required=False)
     info_fm = DimFmSerializer(many=False, required=False)
     info_dstar = DimDStarSerializer(many=False, required=False)
     info_fusion = DimFusionSerializer(many=False, required=False)
