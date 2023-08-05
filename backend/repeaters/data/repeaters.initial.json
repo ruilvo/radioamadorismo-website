@@ -1,18 +1,15 @@
 [
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.4500000000",
       "rx_mhz": "430.8500000000",
       "channel": "RU676"
     },
-
     "info_dstar": {
       "modulation": "6K00F7W",
       "gateway": "CQ0DBA G",
       "reflector": ""
     },
-
     "info_dmr": {
       "ts1_alternative_tgs": [],
       "ts2_alternative_tgs": [],
@@ -39,19 +36,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.5125000000",
       "rx_mhz": "430.9125000000",
       "channel": "RU681"
     },
-
     "info_dstar": {
       "modulation": "6K00F7W",
       "gateway": "CQ0DVI B",
       "reflector": "XRF268 E"
     },
-
     "info_dmr": {
       "ts1_alternative_tgs": [],
       "ts2_alternative_tgs": [],
@@ -78,25 +72,21 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.2125000000",
       "rx_mhz": "430.6125000000",
       "channel": "RU657"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "114.8000000000",
       "bandwidth": "WFM"
     },
-
     "info_fusion": {
       "modulation": "F7W",
       "wiresx": "",
       "room_id": ""
     },
-
     "info_holder": {
       "abrv": "ARRLx",
       "name": "Associação de Radioamadores da Região de Lisboa"
@@ -115,21 +105,36 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.0,
+    "info_rf": {
       "tx_mhz": "438.4125000000",
       "rx_mhz": "438.4125000000",
       "channel": "RU673"
     },
-
     "info_dmr": {
-      "ts1_default_tg": { "name": "Portugal", "id": 268 },
-      "ts2_default_tg": { "name": "Local", "id": 2 },
+      "ts1_default_tg": {
+        "name": "Portugal",
+        "id": 268
+      },
+      "ts2_default_tg": {
+        "name": "Local",
+        "id": 2
+      },
       "ts1_alternative_tgs": [
-        { "name": "Worldwide English", "id": 91 },
-        { "name": "Portugues", "id": 915 }
+        {
+          "name": "Worldwide English",
+          "id": 91
+        },
+        {
+          "name": "Portugues",
+          "id": 915
+        }
       ],
-      "ts2_alternative_tgs": [{ "name": "Regional", "id": 8 }],
+      "ts2_alternative_tgs": [
+        {
+          "name": "Regional",
+          "id": 8
+        }
+      ],
       "modulation": "F7W",
       "id": 268202,
       "color_code": 1,
@@ -153,25 +158,21 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.8500000000",
       "rx_mhz": "431.2500000000",
       "channel": "RU708"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "131.8000000000",
       "bandwidth": "WFM"
     },
-
     "info_fusion": {
       "modulation": "F7W",
       "wiresx": "",
       "room_id": ""
     },
-
     "info_holder": {
       "abrv": "NRC",
       "name": "Núcleo de Radioamadores de Coimbra"
@@ -190,19 +191,25 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.2000000000",
       "rx_mhz": "430.6000000000",
       "channel": "RU656"
     },
-
     "info_dmr": {
-      "ts1_default_tg": { "name": "Portugal", "id": 268 },
-
+      "ts1_default_tg": {
+        "name": "Portugal",
+        "id": 268
+      },
       "ts1_alternative_tgs": [
-        { "name": "Worldwide English", "id": 91 },
-        { "name": "Portugues", "id": 915 }
+        {
+          "name": "Worldwide English",
+          "id": 91
+        },
+        {
+          "name": "Portugues",
+          "id": 915
+        }
       ],
       "ts2_alternative_tgs": [],
       "modulation": "F7W",
@@ -223,30 +230,25 @@
     },
     "callsign": "CQ0DAL",
     "notes": "",
-
     "status": "ON",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.2750000000",
       "rx_mhz": "430.6750000000",
       "channel": "RU662"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "131.8000000000",
       "bandwidth": "WFM"
     },
-
     "info_fusion": {
       "modulation": "F7W",
       "wiresx": "",
       "room_id": ""
     },
-
     "info_holder": {
       "abrv": "CRE",
       "name": "Clube de Radioamadores do Entroncamento"
@@ -265,25 +267,21 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.7500000000",
       "rx_mhz": "431.1500000000",
       "channel": "RU700"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "67.0000000000",
       "bandwidth": "WFM"
     },
-
     "info_fusion": {
       "modulation": "F7W",
       "wiresx": "",
       "room_id": ""
     },
-
     "info_holder": {
       "abrv": "REP",
       "name": "Rede dos Emissores Portugueses"
@@ -302,17 +300,26 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.2125000000",
       "rx_mhz": "430.6125000000",
       "channel": "RU657"
     },
-
     "info_dmr": {
-      "ts1_default_tg": { "name": "Portugal", "id": 268 },
-      "ts2_default_tg": { "name": "Local", "id": 2 },
-      "ts1_alternative_tgs": [{ "name": "Portugues", "id": 915 }],
+      "ts1_default_tg": {
+        "name": "Portugal",
+        "id": 268
+      },
+      "ts2_default_tg": {
+        "name": "Local",
+        "id": 2
+      },
+      "ts1_alternative_tgs": [
+        {
+          "name": "Portugues",
+          "id": 915
+        }
+      ],
       "ts2_alternative_tgs": [],
       "modulation": "F7W",
       "id": 268408,
@@ -332,16 +339,14 @@
     },
     "callsign": "CQ0DPG",
     "notes": "",
-
     "status": "ON",
     "sysop": ""
   },
   {
     "info_simplex": {
-      "freq_mhz": "433.9000000000",
-      "channel": null
+      "tx_mhz": "433.9000000000",
+      "rx_mhz": "433.9000000000"
     },
-
     "info_holder": {
       "abrv": "ARADO",
       "name": "Associação de Radioamadores do Oeste"
@@ -360,19 +365,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.5000000000",
       "rx_mhz": "430.9000000000",
       "channel": "RU680"
     },
-
     "info_dstar": {
       "modulation": "6K00F7W",
       "gateway": "CQ0DLX G",
       "reflector": ""
     },
-
     "info_dmr": {
       "ts1_alternative_tgs": [],
       "ts2_alternative_tgs": [],
@@ -394,24 +396,32 @@
     },
     "callsign": "CQ0DLX",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.6250000000",
-      "rx_mhz": "431.0250000000",
-      "channel": null
+      "rx_mhz": "431.0250000000"
     },
-
     "info_dmr": {
-      "ts1_default_tg": { "name": "Portugal", "id": 268 },
-      "ts2_default_tg": { "name": "Local", "id": 2 },
+      "ts1_default_tg": {
+        "name": "Portugal",
+        "id": 268
+      },
+      "ts2_default_tg": {
+        "name": "Local",
+        "id": 2
+      },
       "ts1_alternative_tgs": [
-        { "name": "Worldwide English", "id": 91 },
-        { "name": "Portugues", "id": 915 }
+        {
+          "name": "Worldwide English",
+          "id": 91
+        },
+        {
+          "name": "Portugues",
+          "id": 915
+        }
       ],
       "ts2_alternative_tgs": [],
       "modulation": "F7W",
@@ -432,18 +442,15 @@
     },
     "callsign": "CQ0DAC",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.5500000000",
       "rx_mhz": "430.9500000000",
       "channel": "RU684"
     },
-
     "info_holder": {
       "abrv": "REP",
       "name": "Rede dos Emissores Portugueses"
@@ -463,10 +470,9 @@
   },
   {
     "info_simplex": {
-      "freq_mhz": "433.8750000000",
-      "channel": null
+      "tx_mhz": "433.8750000000",
+      "rx_mhz": "433.8750000000"
     },
-
     "info_holder": {
       "abrv": "ARLC",
       "name": "Associação de Radioamadores da Linha de Cascais"
@@ -485,19 +491,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.2250000000",
       "rx_mhz": "430.6250000000",
       "channel": "RU658"
     },
-
     "info_dstar": {
       "modulation": "6K00F7W",
       "gateway": "CQ0DSI G",
       "reflector": ""
     },
-
     "info_dmr": {
       "ts1_alternative_tgs": [],
       "ts2_alternative_tgs": [],
@@ -519,30 +522,25 @@
     },
     "callsign": "CQ0DSI",
     "notes": "",
-
     "status": "ON",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.2375000000",
       "rx_mhz": "430.6375000000",
       "channel": "RU659"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "74.4000000000",
       "bandwidth": "WFM"
     },
-
     "info_fusion": {
       "modulation": "F7W",
       "wiresx": "",
       "room_id": ""
     },
-
     "info_holder": {
       "abrv": "ARRLx",
       "name": "Associação de Radioamadores da Região de Lisboa"
@@ -561,25 +559,34 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.7250000000",
       "rx_mhz": "431.1250000000",
       "channel": "RU698"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "74.4000000000",
       "bandwidth": "WFM"
     },
-
     "info_dmr": {
-      "ts1_default_tg": { "name": "Portugal", "id": 268 },
-      "ts2_default_tg": { "name": "Local", "id": 2 },
+      "ts1_default_tg": {
+        "name": "Portugal",
+        "id": 268
+      },
+      "ts2_default_tg": {
+        "name": "Local",
+        "id": 2
+      },
       "ts1_alternative_tgs": [
-        { "name": "Worldwide English", "id": 91 },
-        { "name": "Portugues", "id": 915 }
+        {
+          "name": "Worldwide English",
+          "id": 91
+        },
+        {
+          "name": "Portugues",
+          "id": 915
+        }
       ],
       "ts2_alternative_tgs": [],
       "modulation": "F7W",
@@ -600,16 +607,14 @@
     },
     "callsign": "CQ0UCSC",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
     "info_simplex": {
-      "freq_mhz": "433.9250000000",
-      "channel": null
+      "tx_mhz": "433.9250000000",
+      "rx_mhz": "433.9250000000"
     },
-
     "info_holder": {
       "abrv": "REP",
       "name": "Rede dos Emissores Portugueses"
@@ -623,18 +628,15 @@
     },
     "callsign": "CQ0EHDC",
     "notes": "DMO.TETRA",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.4500000000",
       "rx_mhz": "430.8500000000",
       "channel": "RU676"
     },
-
     "info_dmr": {
       "ts1_alternative_tgs": [],
       "ts2_alternative_tgs": [],
@@ -661,21 +663,21 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.2000000000",
       "rx_mhz": "430.6000000000",
       "channel": "RU656"
     },
-
     "info_dstar": {
       "modulation": "6K00F7W",
       "gateway": "",
       "reflector": "XRF268 E"
     },
-
     "info_dmr": {
-      "ts2_default_tg": { "name": "Local", "id": 2 },
+      "ts2_default_tg": {
+        "name": "Local",
+        "id": 2
+      },
       "ts1_alternative_tgs": [],
       "ts2_alternative_tgs": [],
       "modulation": "F7W",
@@ -696,30 +698,38 @@
     },
     "callsign": "CQ0DPF",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.8500000000",
       "rx_mhz": "431.2500000000",
       "channel": "RU708"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "131.8000000000",
       "bandwidth": "WFM"
     },
-
     "info_dmr": {
-      "ts1_default_tg": { "name": "Portugal", "id": 268 },
-      "ts2_default_tg": { "name": "Local", "id": 2 },
+      "ts1_default_tg": {
+        "name": "Portugal",
+        "id": 268
+      },
+      "ts2_default_tg": {
+        "name": "Local",
+        "id": 2
+      },
       "ts1_alternative_tgs": [
-        { "name": "Worldwide English", "id": 91 },
-        { "name": "Portugues", "id": 915 }
+        {
+          "name": "Worldwide English",
+          "id": 91
+        },
+        {
+          "name": "Portugues",
+          "id": 915
+        }
       ],
       "ts2_alternative_tgs": [],
       "modulation": "F7W",
@@ -740,30 +750,38 @@
     },
     "callsign": "CQ0UML",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.2000000000",
       "rx_mhz": "430.6000000000",
       "channel": "RU656"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "88.5000000000",
       "bandwidth": "WFM"
     },
-
     "info_dmr": {
-      "ts1_default_tg": { "name": "Portugal", "id": 268 },
-      "ts2_default_tg": { "name": "Ilhas Azores", "id": 2686 },
+      "ts1_default_tg": {
+        "name": "Portugal",
+        "id": 268
+      },
+      "ts2_default_tg": {
+        "name": "Ilhas Azores",
+        "id": 2686
+      },
       "ts1_alternative_tgs": [
-        { "name": "Worldwide English", "id": 91 },
-        { "name": "Portugues", "id": 915 }
+        {
+          "name": "Worldwide English",
+          "id": 91
+        },
+        {
+          "name": "Portugues",
+          "id": 915
+        }
       ],
       "ts2_alternative_tgs": [],
       "modulation": "F7W",
@@ -784,24 +802,20 @@
     },
     "callsign": "CQ1UB",
     "notes": "",
-
     "status": "ON",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "51.9900000000",
       "rx_mhz": "51.3900000000",
       "channel": "RF99"
     },
-
     "info_fm": {
       "modulation": "14K0F3E",
       "tone": "74.4000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "REP",
       "name": "Rede dos Emissores Portugueses"
@@ -820,19 +834,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.7500000000",
       "rx_mhz": "145.1500000000",
       "channel": "RV60"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "114.8000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "ARBA",
       "name": "Associação de Radioamadores da Beira Alta"
@@ -850,19 +861,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.7750000000",
       "rx_mhz": "145.1750000000",
       "channel": "RV62"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "74.4000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "ARAS",
       "name": "Associação de Radioamadores de Amadora-Sintra"
@@ -880,19 +888,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.7375000000",
       "rx_mhz": "145.1375000000",
       "channel": "RV59"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "67.0000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "ARBA",
       "name": "Associação de Radioamadores da Beira Alta"
@@ -911,19 +916,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.6250000000",
       "rx_mhz": "145.0250000000",
       "channel": "RV50"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "123.0000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "ARAM",
       "name": "Associação de Radioamadores do Alto Minho"
@@ -942,19 +944,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.6750000000",
       "rx_mhz": "145.0750000000",
       "channel": "RV54"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "123.0000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "ARAT",
       "name": "Associação de Radioamadores do Alto Tâmega"
@@ -973,19 +972,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.6500000000",
       "rx_mhz": "145.0500000000",
       "channel": "RV52"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "123.0000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "ARBA",
       "name": "Associação de Radioamadores da Beira Alta"
@@ -1004,19 +1000,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.7625000000",
       "rx_mhz": "145.1625000000",
       "channel": "RV61"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "131.8000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "ARBA",
       "name": "Associação de Radioamadores da Beira Alta"
@@ -1035,19 +1028,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.6875000000",
       "rx_mhz": "145.0875000000",
       "channel": "RV55"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "123.0000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "ARBA",
       "name": "Associação de Radioamadores da Beira Alta"
@@ -1061,24 +1051,20 @@
     },
     "callsign": "CQ0VCO",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.7250000000",
       "rx_mhz": "145.1250000000",
       "channel": "RV58"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "114.8000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "ARBA",
       "name": "Associação de Radioamadores da Beira Alta"
@@ -1097,19 +1083,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.6000000000",
       "rx_mhz": "145.0000000000",
       "channel": "RV48"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "114.8000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "ARBA",
       "name": "Associação de Radioamadores da Beira Alta"
@@ -1128,19 +1111,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.7750000000",
       "rx_mhz": "145.1750000000",
       "channel": "RV62"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "82.5000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "TRGM",
       "name": "Tertúlia Radioamadorística Guglielmo Marconi"
@@ -1154,24 +1134,20 @@
     },
     "callsign": "CQ0VTM",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.6625000000",
       "rx_mhz": "145.0625000000",
       "channel": "RV53"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "82.5000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "ARCP",
       "name": "Associação de Radioamadores da Costa de Prata"
@@ -1185,24 +1161,20 @@
     },
     "callsign": "CQ0VCP",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.6375000000",
       "rx_mhz": "145.0375000000",
       "channel": "RV51"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "114.8000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "ARBB",
       "name": "Associação de Radioamadores da Beira Baixa"
@@ -1221,19 +1193,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.6125000000",
       "rx_mhz": "145.0125000000",
       "channel": "RV49"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "74.4000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "ARAL",
       "name": "Associação de Radioamadores do Distrito de Leiria"
@@ -1252,19 +1221,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.6875000000",
       "rx_mhz": "145.0875000000",
       "channel": "RV55"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "74.4000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "CRE",
       "name": "Clube de Radioamadores do Entroncamento"
@@ -1283,19 +1249,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.6625000000",
       "rx_mhz": "145.0625000000",
       "channel": "RV53"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "123.0000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "REP",
       "name": "Rede dos Emissores Portugueses"
@@ -1314,19 +1277,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.7500000000",
       "rx_mhz": "145.1500000000",
       "channel": "RV60"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "74.4000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "ARR",
       "name": "Associação de Radioamadores do Ribatejo"
@@ -1345,19 +1305,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.6375000000",
       "rx_mhz": "145.0375000000",
       "channel": "RV51"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "74.4000000000",
       "bandwidth": "NFM"
     },
-
     "info_location": {
       "latitude": "39.0861111100",
       "longitude": "-9.2761111110",
@@ -1372,19 +1329,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.6625000000",
       "rx_mhz": "145.0625000000",
       "channel": "RV53"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "74.4000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "REP",
       "name": "Rede dos Emissores Portugueses"
@@ -1403,19 +1357,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.7125000000",
       "rx_mhz": "145.1125000000",
       "channel": "RV57"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "74.4000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "LARS",
       "name": "Liga Amadores Rádio Sintra"
@@ -1434,19 +1385,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.6250000000",
       "rx_mhz": "145.0250000000",
       "channel": "RV50"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "74.4000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "REP",
       "name": "Rede dos Emissores Portugueses"
@@ -1465,19 +1413,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.6000000000",
       "rx_mhz": "145.0000000000",
       "channel": "RV48"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "74.4000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "REP",
       "name": "Rede dos Emissores Portugueses"
@@ -1496,19 +1441,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.7375000000",
       "rx_mhz": "145.1375000000",
       "channel": "RV59"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "74.4000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "ARLA",
       "name": "Associação de Radioamadores do Litoral Alentejano"
@@ -1522,24 +1464,20 @@
     },
     "callsign": "CQ0VARB",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.7000000000",
       "rx_mhz": "145.1000000000",
       "channel": "RV56"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "74.4000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "ARLA",
       "name": "Associação de Radioamadores do Litoral Alentejano"
@@ -1558,19 +1496,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.7500000000",
       "rx_mhz": "145.1500000000",
       "channel": "RV60"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "82.5000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "REP",
       "name": "Rede dos Emissores Portugueses"
@@ -1589,19 +1524,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.6500000000",
       "rx_mhz": "145.0500000000",
       "channel": "RV52"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "82.5000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "RCL",
       "name": "Radioamador Clube de Loulé"
@@ -1620,19 +1552,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.7625000000",
       "rx_mhz": "145.1625000000",
       "channel": "RV61"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "82.5000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "RCL",
       "name": "Radioamador Clube de Loulé"
@@ -1646,24 +1575,20 @@
     },
     "callsign": "CQ0VFD",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.5750000000",
       "rx_mhz": "144.9750000000",
       "channel": "RV46"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "82.5000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "RCL",
       "name": "Radioamador Clube de Loulé"
@@ -1682,19 +1607,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.6500000000",
       "rx_mhz": "145.0500000000",
       "channel": "RV52"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "88.5000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "GRP",
       "name": "Grupo de Radioamadores do Pico"
@@ -1712,19 +1634,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.6000000000",
       "rx_mhz": "145.0000000000",
       "channel": "RV48"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "123.0000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "CRA",
       "name": "Clube de Radioamadores dos Açores"
@@ -1742,19 +1661,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.7250000000",
       "rx_mhz": "145.1250000000",
       "channel": "RV58"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "88.5000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "URA",
       "name": "União dos Radioamadores dos Açores"
@@ -1767,24 +1683,20 @@
     },
     "callsign": "CQ1VCM",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.7000000000",
       "rx_mhz": "145.1000000000",
       "channel": "RV56"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "88.5000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "URA",
       "name": "União dos Radioamadores dos Açores"
@@ -1797,24 +1709,20 @@
     },
     "callsign": "CQ1VSB",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.7875000000",
       "rx_mhz": "145.1875000000",
       "channel": "RV63"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "88.5000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "ARF",
       "name": "Associação de Radioamadores das Flores"
@@ -1827,24 +1735,20 @@
     },
     "callsign": "CQ1VMA",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.7250000000",
       "rx_mhz": "145.1250000000",
       "channel": "RV58"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "82.5000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "RCL",
       "name": "Radioamador Clube de Loulé"
@@ -1863,19 +1767,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.7750000000",
       "rx_mhz": "145.1750000000",
       "channel": "RV62"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "88.5000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "ARA",
       "name": "Associação de Radioamadores dos Açores"
@@ -1893,19 +1794,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.7500000000",
       "rx_mhz": "145.1500000000",
       "channel": "RV60"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "88.5000000000",
       "bandwidth": "NFM"
     },
-
     "info_location": {
       "longitude": "-25.1765194400",
       "region": "AZR",
@@ -1919,19 +1817,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.6250000000",
       "rx_mhz": "145.0250000000",
       "channel": "RV50"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "88.5000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "ARA",
       "name": "Associação de Radioamadores dos Açores"
@@ -1949,19 +1844,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.7875000000",
       "rx_mhz": "145.1875000000",
       "channel": "RV63"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "88.5000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "URA",
       "name": "União dos Radioamadores dos Açores"
@@ -1975,24 +1867,20 @@
     },
     "callsign": "CQ1VFLW",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.6125000000",
       "rx_mhz": "145.0125000000",
       "channel": "RV49"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "67.0000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "URA",
       "name": "União dos Radioamadores dos Açores"
@@ -2006,24 +1894,20 @@
     },
     "callsign": "CQ1VGR",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.6625000000",
       "rx_mhz": "145.0625000000",
       "channel": "RV53"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "82.5000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "ARPV",
       "name": "Associação de Radioamadores da Praia da Vitória"
@@ -2037,25 +1921,24 @@
     },
     "callsign": "CQ1VSS",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.7375000000",
       "rx_mhz": "145.1375000000",
       "channel": "RV59"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "114.8000000000",
       "bandwidth": "NFM"
     },
-
-    "info_holder": { "abrv": "ADxG", "name": "Azores DX Group" },
+    "info_holder": {
+      "abrv": "ADxG",
+      "name": "Azores DX Group"
+    },
     "info_location": {
       "latitude": "38.7299222200",
       "longitude": "-27.3180833300",
@@ -2065,24 +1948,20 @@
     },
     "callsign": "CQ1VDX",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.6750000000",
       "rx_mhz": "145.0750000000",
       "channel": "RV54"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "88.5000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "CRA",
       "name": "Clube de Radioamadores dos Açores"
@@ -2101,19 +1980,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.7750000000",
       "rx_mhz": "145.1750000000",
       "channel": "RV62"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "123.0000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "CRA",
       "name": "Clube de Radioamadores dos Açores"
@@ -2132,19 +2008,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.6375000000",
       "rx_mhz": "145.0375000000",
       "channel": "RV51"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "67.0000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "URA",
       "name": "União dos Radioamadores dos Açores"
@@ -2163,19 +2036,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.7750000000",
       "rx_mhz": "145.1750000000",
       "channel": "RV62"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "88.5000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "ARRM",
       "name": "Associação de Radioamadores da Região da Madeira"
@@ -2194,19 +2064,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.7000000000",
       "rx_mhz": "145.1000000000",
       "channel": "RV56"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "88.5000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "ARRM",
       "name": "Associação de Radioamadores da Região da Madeira"
@@ -2220,7 +2087,6 @@
     },
     "callsign": "CQ2VPS",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
@@ -2230,7 +2096,6 @@
       "tone": "88.5000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "ARRM",
       "name": "Associação de Radioamadores da Região da Madeira"
@@ -2249,19 +2114,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.6500000000",
       "rx_mhz": "145.0500000000",
       "channel": "RV52"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "88.5000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "ARRM",
       "name": "Associação de Radioamadores da Região da Madeira"
@@ -2281,15 +2143,14 @@
   },
   {
     "info_simplex": {
-      "freq_mhz": "144.5000000000",
-      "channel": null
+      "rx_mhz": "144.5000000000",
+      "tx_mhz": "144.5000000000"
     },
     "info_fm": {
       "modulation": "10K0F3E",
       "tone": "74.4000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "ARAS",
       "name": "Associação de Radioamadores de Amadora-Sintra"
@@ -2308,23 +2169,28 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.7750000000",
       "rx_mhz": "145.1750000000",
       "channel": "RV62"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "123.0000000000",
       "bandwidth": "NFM"
     },
-
     "info_dmr": {
-      "ts2_default_tg": { "name": "Local", "id": 2 },
+      "ts2_default_tg": {
+        "name": "Local",
+        "id": 2
+      },
       "ts1_alternative_tgs": [],
-      "ts2_alternative_tgs": [{ "name": "Regional", "id": 8 }],
+      "ts2_alternative_tgs": [
+        {
+          "name": "Regional",
+          "id": 8
+        }
+      ],
       "modulation": "F7W",
       "id": 268109,
       "color_code": 1,
@@ -2348,25 +2214,21 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.7000000000",
       "rx_mhz": "145.1000000000",
       "channel": "RV56"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "82.5000000000",
       "bandwidth": "NFM"
     },
-
     "info_fusion": {
       "modulation": "F7W",
       "wiresx": "",
       "room_id": ""
     },
-
     "info_holder": {
       "abrv": "NRC",
       "name": "Núcleo de Radioamadores de Coimbra"
@@ -2385,13 +2247,11 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.4000000000",
       "rx_mhz": "430.8000000000",
       "channel": "RU672"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "67.0000000000",
@@ -2402,14 +2262,28 @@
       "gateway": "",
       "reflector": ""
     },
-
     "info_dmr": {
-      "ts1_default_tg": { "name": "Portugal", "id": 268 },
-      "ts2_default_tg": { "name": "Regional", "id": 8 },
+      "ts1_default_tg": {
+        "name": "Portugal",
+        "id": 268
+      },
+      "ts2_default_tg": {
+        "name": "Regional",
+        "id": 8
+      },
       "ts1_alternative_tgs": [
-        { "name": "Worldwide English", "id": 91 },
-        { "name": "Europe", "id": 92 },
-        { "name": "Portugues", "id": 915 }
+        {
+          "name": "Worldwide English",
+          "id": 91
+        },
+        {
+          "name": "Europe",
+          "id": 92
+        },
+        {
+          "name": "Portugues",
+          "id": 915
+        }
       ],
       "ts2_alternative_tgs": [],
       "modulation": "F7W",
@@ -2435,24 +2309,32 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.2250000000",
       "rx_mhz": "430.6250000000",
       "channel": "RU658"
     },
-
     "info_dstar": {
       "modulation": "6K00F7W",
       "gateway": "",
       "reflector": ""
     },
-
     "info_dmr": {
-      "ts1_default_tg": { "name": "Portugal", "id": 268 },
-      "ts2_default_tg": { "name": "Local", "id": 2 },
+      "ts1_default_tg": {
+        "name": "Portugal",
+        "id": 268
+      },
+      "ts2_default_tg": {
+        "name": "Local",
+        "id": 2
+      },
       "ts1_alternative_tgs": [],
-      "ts2_alternative_tgs": [{ "name": "Portugues", "id": 915 }],
+      "ts2_alternative_tgs": [
+        {
+          "name": "Portugues",
+          "id": 915
+        }
+      ],
       "modulation": "F7W",
       "id": 268101,
       "color_code": 1,
@@ -2476,13 +2358,11 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.2500000000",
       "rx_mhz": "430.6500000000",
       "channel": "RU660"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "123.0000000000",
@@ -2499,11 +2379,23 @@
       "room_id": ""
     },
     "info_dmr": {
-      "ts1_default_tg": { "name": "Portugal", "id": 268 },
-      "ts2_default_tg": { "name": "Regional", "id": 8 },
+      "ts1_default_tg": {
+        "name": "Portugal",
+        "id": 268
+      },
+      "ts2_default_tg": {
+        "name": "Regional",
+        "id": 8
+      },
       "ts1_alternative_tgs": [
-        { "name": "Worldwide English", "id": 91 },
-        { "name": "Portugues", "id": 915 }
+        {
+          "name": "Worldwide English",
+          "id": 91
+        },
+        {
+          "name": "Portugues",
+          "id": 915
+        }
       ],
       "ts2_alternative_tgs": [],
       "modulation": "F7W",
@@ -2529,19 +2421,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.6750000000",
       "rx_mhz": "145.0750000000",
       "channel": "RV54"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "74.4000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "REP",
       "name": "Rede dos Emissores Portugueses"
@@ -2560,19 +2449,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.6125000000",
       "rx_mhz": "145.0125000000",
       "channel": "RV49"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "123.0000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "REP",
       "name": "Rede dos Emissores Portugueses"
@@ -2591,19 +2477,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.6000000000",
       "rx_mhz": "145.0000000000",
       "channel": "RV48"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "88.5000000000",
       "bandwidth": "NFM"
     },
-
     "info_location": {
       "longitude": "-25.0907416700",
       "region": "AZR",
@@ -2612,24 +2495,20 @@
     },
     "callsign": "CQ1VPA",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "51.8100000000",
       "rx_mhz": "51.2100000000",
       "channel": "RF81"
     },
-
     "info_fm": {
       "modulation": "14K0F3E",
       "tone": "74.4000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "REP",
       "name": "Rede dos Emissores Portugueses"
@@ -2648,19 +2527,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.7000000000",
       "rx_mhz": "145.1000000000",
       "channel": "RV56"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "123.0000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "ARMi",
       "name": "Associação de Radioamadores do Minho"
@@ -2679,25 +2555,21 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.7750000000",
       "rx_mhz": "145.1750000000",
       "channel": "RV62"
     },
-
     "info_fm": {
       "modulation": "10K0F3E",
       "tone": "74.4000000000",
       "bandwidth": "NFM"
     },
-
     "info_fusion": {
       "modulation": "F7W",
       "wiresx": "",
       "room_id": ""
     },
-
     "info_holder": {
       "abrv": "ARRLx",
       "name": "Associação de Radioamadores da Região de Lisboa"
@@ -2716,13 +2588,11 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.5875000000",
       "rx_mhz": "144.9875000000",
       "channel": "RV47"
     },
-
     "info_dmr": {
       "ts1_alternative_tgs": [],
       "ts2_alternative_tgs": [],
@@ -2749,23 +2619,31 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.5875000000",
       "rx_mhz": "144.9875000000",
       "channel": "RV47"
     },
-
     "info_dstar": {
       "modulation": "6K00F7W",
       "gateway": "",
       "reflector": ""
     },
-
     "info_dmr": {
-      "ts1_default_tg": { "name": "Portugal", "id": 268 },
-      "ts2_default_tg": { "name": "Local", "id": 2 },
-      "ts1_alternative_tgs": [{ "name": "Portugues", "id": 915 }],
+      "ts1_default_tg": {
+        "name": "Portugal",
+        "id": 268
+      },
+      "ts2_default_tg": {
+        "name": "Local",
+        "id": 2
+      },
+      "ts1_alternative_tgs": [
+        {
+          "name": "Portugues",
+          "id": 915
+        }
+      ],
       "ts2_alternative_tgs": [],
       "modulation": "F7W",
       "id": 268308,
@@ -2785,28 +2663,35 @@
     },
     "callsign": "CQ0DKE",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.6500000000",
       "rx_mhz": "431.0500000000",
       "channel": "RU692"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "67.0000000000",
       "bandwidth": "WFM"
     },
-
     "info_dmr": {
-      "ts1_default_tg": { "name": "Portugal", "id": 268 },
-      "ts2_default_tg": { "name": "Local", "id": 2 },
-      "ts1_alternative_tgs": [{ "name": "Portugues", "id": 915 }],
+      "ts1_default_tg": {
+        "name": "Portugal",
+        "id": 268
+      },
+      "ts2_default_tg": {
+        "name": "Local",
+        "id": 2
+      },
+      "ts1_alternative_tgs": [
+        {
+          "name": "Portugues",
+          "id": 915
+        }
+      ],
       "ts2_alternative_tgs": [],
       "modulation": "F7W",
       "id": 268111,
@@ -2831,19 +2716,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.9000000000",
       "rx_mhz": "431.3000000000",
       "channel": "RU712"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "67.0000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "ARAT",
       "name": "Associação de Radioamadores do Alto Tâmega"
@@ -2862,19 +2744,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.5750000000",
       "rx_mhz": "144.9750000000",
       "channel": "RV46"
     },
-
     "info_dstar": {
       "modulation": "6K00F7W",
       "gateway": "CQ0DSE G",
       "reflector": ""
     },
-
     "info_holder": {
       "abrv": "ARBA",
       "name": "Associação de Radioamadores da Beira Alta"
@@ -2893,19 +2772,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "439.3250000000",
       "rx_mhz": "431.7250000000",
       "channel": "RU746"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "67.0000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARAM",
       "name": "Associação de Radioamadores do Alto Minho"
@@ -2919,24 +2795,20 @@
     },
     "callsign": "CQ0UAV",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.6750000000",
       "rx_mhz": "431.0750000000",
       "channel": "RU694"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "67.0000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARAT",
       "name": "Associação de Radioamadores do Alto Tâmega"
@@ -2955,19 +2827,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.5750000000",
       "rx_mhz": "144.9750000000",
       "channel": "RV46"
     },
-
     "info_dstar": {
       "modulation": "6K00F7W",
       "gateway": "CQ1DAH G",
       "reflector": "XRF268 T"
     },
-
     "info_holder": {
       "abrv": "URA",
       "name": "União dos Radioamadores dos Açores"
@@ -2986,19 +2855,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.7000000000",
       "rx_mhz": "431.1000000000",
       "channel": "RU696"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "123.0000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARETD",
       "name": "Assocaição de Radioamadores de Entre Tâmega e Douro"
@@ -3012,24 +2878,20 @@
     },
     "callsign": "CQ0URTD",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.9250000000",
       "rx_mhz": "431.3250000000",
       "channel": "RU714"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "123.0000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARBA",
       "name": "Associação de Radioamadores da Beira Alta"
@@ -3048,19 +2910,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "439.1500000000",
       "rx_mhz": "431.5500000000",
       "channel": "RU732"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "123.0000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARAT",
       "name": "Associação de Radioamadores do Alto Tâmega"
@@ -3074,24 +2933,20 @@
     },
     "callsign": "CQ0UMR",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "439.2750000000",
       "rx_mhz": "431.6750000000",
       "channel": "RU742"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "123.0000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARBA",
       "name": "Associação de Radioamadores da Beira Alta"
@@ -3110,19 +2965,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "439.1250000000",
       "rx_mhz": "431.5250000000",
       "channel": "RU730"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "123.0000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARBA",
       "name": "Associação de Radioamadores da Beira Alta"
@@ -3136,24 +2988,20 @@
     },
     "callsign": "CQ0UGM",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.9000000000",
       "rx_mhz": "431.3000000000",
       "channel": "RU712"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "114.8000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARBA",
       "name": "Associação de Radioamadores da Beira Alta"
@@ -3172,19 +3020,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "439.4000000000",
       "rx_mhz": "431.8000000000",
       "channel": "RU752"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "123.0000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARBL",
       "name": "Associação de Radioamadores da Beira Litoral"
@@ -3203,19 +3048,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "439.4000000000",
       "rx_mhz": "431.8000000000",
       "channel": "RU752"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "123.0000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARBL",
       "name": "Associação de Radioamadores da Beira Litoral"
@@ -3234,19 +3076,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.8750000000",
       "rx_mhz": "431.2750000000",
       "channel": "RU710"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "123.0000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARBL",
       "name": "Associação de Radioamadores da Beira Litoral"
@@ -3265,19 +3104,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.8000000000",
       "rx_mhz": "431.2000000000",
       "channel": "RU704"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "123.0000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "REP",
       "name": "Rede dos Emissores Portugueses"
@@ -3296,19 +3132,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "439.1750000000",
       "rx_mhz": "431.5750000000",
       "channel": "RU734"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "123.0000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARAL",
       "name": "Associação de Radioamadores do Distrito de Leiria"
@@ -3327,19 +3160,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.9500000000",
       "rx_mhz": "431.3500000000",
       "channel": "RU716"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "123.0000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARBA",
       "name": "Associação de Radioamadores da Beira Alta"
@@ -3358,19 +3188,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.9750000000",
       "rx_mhz": "431.3750000000",
       "channel": "RU718"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "114.8000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARBA",
       "name": "Associação de Radioamadores da Beira Alta"
@@ -3389,19 +3216,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "439.0500000000",
       "rx_mhz": "431.4500000000",
       "channel": "RU724"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "114.8000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARBA",
       "name": "Associação de Radioamadores da Beira Alta"
@@ -3415,24 +3239,20 @@
     },
     "callsign": "CQ0UCE",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "439.2500000000",
       "rx_mhz": "431.6500000000",
       "channel": "RU740"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "123.0000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARBA",
       "name": "Associação de Radioamadores da Beira Alta"
@@ -3451,19 +3271,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "439.3250000000",
       "rx_mhz": "431.7250000000",
       "channel": "RU746"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "123.0000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "REP",
       "name": "Rede dos Emissores Portugueses"
@@ -3477,24 +3294,20 @@
     },
     "callsign": "CQ0UCL",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.7000000000",
       "rx_mhz": "431.1000000000",
       "channel": "RU696"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "131.8000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARCP",
       "name": "Associação de Radioamadores da Costa de Prata"
@@ -3513,19 +3326,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "439.0500000000",
       "rx_mhz": "431.4500000000",
       "channel": "RU724"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "114.8000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARBA",
       "name": "Associação de Radioamadores da Beira Alta"
@@ -3544,19 +3354,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.8250000000",
       "rx_mhz": "431.2250000000",
       "channel": "RU706"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "114.8000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARBA",
       "name": "Associação de Radioamadores da Beira Alta"
@@ -3575,19 +3382,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "439.2000000000",
       "rx_mhz": "431.6000000000",
       "channel": "RU736"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "114.8000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARRLx",
       "name": "Associação de Radioamadores da Região de Lisboa"
@@ -3601,24 +3405,20 @@
     },
     "callsign": "CQ0UDE",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "439.1500000000",
       "rx_mhz": "431.5500000000",
       "channel": "RU732"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "131.8000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARC",
       "name": "Associação de Radioamadores de Coimbra"
@@ -3632,24 +3432,20 @@
     },
     "callsign": "CQ0UCOI",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.7750000000",
       "rx_mhz": "431.1750000000",
       "channel": "RU702"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "131.8000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARC",
       "name": "Associação de Radioamadores de Coimbra"
@@ -3668,19 +3464,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.9000000000",
       "rx_mhz": "431.3000000000",
       "channel": "RU712"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "82.5000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARCP",
       "name": "Associação de Radioamadores da Costa de Prata"
@@ -3699,19 +3492,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "439.3000000000",
       "rx_mhz": "431.7000000000",
       "channel": "RU744"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "131.8000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "REP",
       "name": "Rede dos Emissores Portugueses"
@@ -3730,19 +3520,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "439.1000000000",
       "rx_mhz": "431.5000000000",
       "channel": "RU728"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "82.5000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARBB",
       "name": "Associação de Radioamadores da Beira Baixa"
@@ -3761,19 +3548,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "439.0000000000",
       "rx_mhz": "431.4000000000",
       "channel": "RU720"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "131.8000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "REP",
       "name": "Rede dos Emissores Portugueses"
@@ -3792,19 +3576,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "439.2500000000",
       "rx_mhz": "431.6500000000",
       "channel": "RU740"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "82.5000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "REP",
       "name": "Rede dos Emissores Portugueses"
@@ -3818,24 +3599,20 @@
     },
     "callsign": "CQ0UCB",
     "notes": "",
-
     "status": "OT",
     "sysop": "CT2FXW"
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.8000000000",
       "rx_mhz": "431.2000000000",
       "channel": "RU704"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "131.8000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARAL",
       "name": "Associação de Radioamadores do Distrito de Leiria"
@@ -3849,24 +3626,20 @@
     },
     "callsign": "CQ0UAB",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "439.1750000000",
       "rx_mhz": "431.5750000000",
       "channel": "RU734"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "131.8000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARR",
       "name": "Associação de Radioamadores do Ribatejo"
@@ -3885,19 +3658,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.7250000000",
       "rx_mhz": "431.1250000000",
       "channel": "RU698"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "131.8000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARAL",
       "name": "Associação de Radioamadores do Distrito de Leiria"
@@ -3916,19 +3686,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "439.2500000000",
       "rx_mhz": "431.6500000000",
       "channel": "RU740"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "131.8000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARAL",
       "name": "Associação de Radioamadores do Distrito de Leiria"
@@ -3947,19 +3714,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "439.0250000000",
       "rx_mhz": "431.4250000000",
       "channel": "RU722"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "131.8000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARAL",
       "name": "Associação de Radioamadores do Distrito de Leiria"
@@ -3978,19 +3742,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "439.1500000000",
       "rx_mhz": "431.5500000000",
       "channel": "RU732"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "131.8000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARAL",
       "name": "Associação de Radioamadores do Distrito de Leiria"
@@ -4009,19 +3770,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.8750000000",
       "rx_mhz": "431.2750000000",
       "channel": "RU710"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "131.8000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "CRE",
       "name": "Clube de Radioamadores do Entroncamento"
@@ -4035,24 +3793,20 @@
     },
     "callsign": "CQ0UAI",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.8750000000",
       "rx_mhz": "431.2750000000",
       "channel": "RU710"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "114.8000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARCP",
       "name": "Associação de Radioamadores da Costa de Prata"
@@ -4071,19 +3825,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.6500000000",
       "rx_mhz": "431.0500000000",
       "channel": "RU692"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "131.8000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "REP",
       "name": "Rede dos Emissores Portugueses"
@@ -4097,24 +3848,20 @@
     },
     "callsign": "CQ0UCAN",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "439.4250000000",
       "rx_mhz": "431.8250000000",
       "channel": "RU754"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "74.4000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "LART",
       "name": "Liga de Amadores de Rádio Transmissões"
@@ -4128,24 +3875,20 @@
     },
     "callsign": "CQ0UCR",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "439.2000000000",
       "rx_mhz": "431.6000000000",
       "channel": "RU736"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "74.4000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "RCO",
       "name": "Radioamadores Centro Oeste"
@@ -4164,19 +3907,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "439.2750000000",
       "rx_mhz": "431.6750000000",
       "channel": "RU742"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "67.0000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "REP",
       "name": "Rede dos Emissores Portugueses"
@@ -4195,19 +3935,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "439.0750000000",
       "rx_mhz": "431.4750000000",
       "channel": "RU726"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "74.4000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARR",
       "name": "Associação de Radioamadores do Ribatejo"
@@ -4226,19 +3963,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.9750000000",
       "rx_mhz": "431.3750000000",
       "channel": "RU718"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "74.4000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARR",
       "name": "Associação de Radioamadores do Ribatejo"
@@ -4257,19 +3991,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.6750000000",
       "rx_mhz": "431.0750000000",
       "channel": "RU694"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "74.4000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "REP",
       "name": "Rede dos Emissores Portugueses"
@@ -4288,19 +4019,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "439.3500000000",
       "rx_mhz": "431.7500000000",
       "channel": "RU748"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "74.4000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "LART",
       "name": "Liga de Amadores de Rádio Transmissões"
@@ -4319,19 +4047,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.7500000000",
       "rx_mhz": "431.1500000000",
       "channel": "RU700"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "74.4000000000",
       "bandwidth": "WFM"
     },
-
     "info_location": {
       "latitude": "39.0861111100",
       "longitude": "-9.2761111110",
@@ -4346,19 +4071,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "439.0500000000",
       "rx_mhz": "431.4500000000",
       "channel": "RU724"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "74.4000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "REP",
       "name": "Rede dos Emissores Portugueses"
@@ -4377,19 +4099,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "439.1750000000",
       "rx_mhz": "431.5750000000",
       "channel": "RU734"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "74.4000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "REP",
       "name": "Rede dos Emissores Portugueses"
@@ -4408,19 +4127,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "439.3250000000",
       "rx_mhz": "431.7250000000",
       "channel": "RU746"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "74.4000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARVM",
       "name": "Associação de Radioamadores da Vila de Moscavide"
@@ -4439,19 +4155,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "439.1000000000",
       "rx_mhz": "431.5000000000",
       "channel": "RU728"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "74.4000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARAS",
       "name": "Associação de Radioamadores de Amadora-Sintra"
@@ -4465,24 +4178,20 @@
     },
     "callsign": "CQ0UAMR",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "439.1250000000",
       "rx_mhz": "431.5250000000",
       "channel": "RU730"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "74.4000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "LARS",
       "name": "Liga Amadores Rádio Sintra"
@@ -4501,19 +4210,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "439.0500000000",
       "rx_mhz": "431.4500000000",
       "channel": "RU724"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "74.4000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARLC",
       "name": "Associação de Radioamadores da Linha de Cascais"
@@ -4527,24 +4233,20 @@
     },
     "callsign": "CQ0UCAS",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.8000000000",
       "rx_mhz": "431.2000000000",
       "channel": "RU704"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "74.4000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARAS",
       "name": "Associação de Radioamadores de Amadora-Sintra"
@@ -4563,19 +4265,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.9500000000",
       "rx_mhz": "431.3500000000",
       "channel": "RU716"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "67.0000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "ARR",
       "name": "Associação de Radioamadores do Ribatejo"
@@ -4594,19 +4293,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.6500000000",
       "rx_mhz": "431.0500000000",
       "channel": "RU692"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "74.4000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "REP",
       "name": "Rede dos Emissores Portugueses"
@@ -4625,19 +4321,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": -7.6,
+    "info_rf": {
       "tx_mhz": "431.3500000000",
       "rx_mhz": "438.9500000000",
       "channel": "RU716R"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "74.4000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "REP",
       "name": "Rede dos Emissores Portugueses"
@@ -4651,24 +4344,20 @@
     },
     "callsign": "CQ0UHU",
     "notes": "",
-
     "status": "OT",
     "sysop": "CT1ETV"
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.9500000000",
       "rx_mhz": "431.3500000000",
       "channel": "RU716"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "74.4000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "REP",
       "name": "Rede dos Emissores Portugueses"
@@ -4682,24 +4371,20 @@
     },
     "callsign": "CQ0UHU",
     "notes": "",
-
     "status": "OT",
     "sysop": "CT1ETV"
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "439.0250000000",
       "rx_mhz": "431.4250000000",
       "channel": "RU722"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "74.4000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "REP",
       "name": "Rede dos Emissores Portugueses"
@@ -4718,19 +4403,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "439.3500000000",
       "rx_mhz": "431.7500000000",
       "channel": "RU748"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "114.8000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "REP",
       "name": "Rede dos Emissores Portugueses"
@@ -4749,19 +4431,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "439.4000000000",
       "rx_mhz": "431.8000000000",
       "channel": "RU752"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "74.4000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "ARLA",
       "name": "Associação de Radioamadores do Litoral Alentejano"
@@ -4780,19 +4459,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.9250000000",
       "rx_mhz": "431.3250000000",
       "channel": "RU714"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "82.5000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "ARLA",
       "name": "Associação de Radioamadores do Litoral Alentejano"
@@ -4811,19 +4487,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.7250000000",
       "rx_mhz": "431.1250000000",
       "channel": "RU698"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "114.8000000000",
       "bandwidth": "WFM"
     },
-
     "info_location": {
       "latitude": "37.9358916700",
       "longitude": "-7.5949444440",
@@ -4833,24 +4506,20 @@
     },
     "callsign": "CQ0USP",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.8000000000",
       "rx_mhz": "431.2000000000",
       "channel": "RU704"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "114.8000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "ARRLx",
       "name": "Associação de Radioamadores da Região de Lisboa"
@@ -4869,19 +4538,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.6500000000",
       "rx_mhz": "431.0500000000",
       "channel": "RU692"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "114.8000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARAL",
       "name": "Associação de Radioamadores do Distrito de Leiria"
@@ -4895,24 +4561,20 @@
     },
     "callsign": "CQ0UMT",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.6750000000",
       "rx_mhz": "431.0750000000",
       "channel": "RU694"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "131.8000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "RCL",
       "name": "Radioamador Clube de Loulé"
@@ -4926,24 +4588,20 @@
     },
     "callsign": "CQ0UFO",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 0.6,
+    "info_rf": {
       "tx_mhz": "145.5875000000",
       "rx_mhz": "144.9875000000",
       "channel": "RV47"
     },
-
     "info_dstar": {
       "modulation": "6K00F7W",
       "gateway": "CQ0DCH G",
       "reflector": "XRF268 H"
     },
-
     "info_holder": {
       "abrv": "ARAT",
       "name": "Associação de Radioamadores do Alto Tâmega"
@@ -4962,19 +4620,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "439.0250000000",
       "rx_mhz": "431.4250000000",
       "channel": "RU722"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "67.0000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARMi",
       "name": "Associação de Radioamadores do Minho"
@@ -4988,24 +4643,20 @@
     },
     "callsign": "CQ0UCVM",
     "notes": "",
-
     "status": "ON",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "439.1000000000",
       "rx_mhz": "431.5000000000",
       "channel": "RU728"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "67.0000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARMi",
       "name": "Associação de Radioamadores do Minho"
@@ -5024,19 +4675,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "439.2000000000",
       "rx_mhz": "431.6000000000",
       "channel": "RU736"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "123.0000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARMi",
       "name": "Associação de Radioamadores do Minho"
@@ -5055,19 +4703,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "439.4250000000",
       "rx_mhz": "431.8250000000",
       "channel": "RU754"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "123.0000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARMi",
       "name": "Associação de Radioamadores do Minho"
@@ -5086,25 +4731,21 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.8000000000",
       "rx_mhz": "431.2000000000",
       "channel": "RU704"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "67.0000000000",
       "bandwidth": "WFM"
     },
-
     "info_fusion": {
       "modulation": "F7W",
       "wiresx": "",
       "room_id": ""
     },
-
     "info_holder": {
       "abrv": "ARMi",
       "name": "Associação de Radioamadores do Minho"
@@ -5123,19 +4764,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "439.4250000000",
       "rx_mhz": "431.8250000000",
       "channel": "RU754"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "131.8000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "REP",
       "name": "Rede dos Emissores Portugueses"
@@ -5154,19 +4792,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "439.3750000000",
       "rx_mhz": "431.7750000000",
       "channel": "RU750"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "131.8000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "RCL",
       "name": "Radioamador Clube de Loulé"
@@ -5185,19 +4820,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.9250000000",
       "rx_mhz": "431.3250000000",
       "channel": "RU714"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "131.8000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "REP",
       "name": "Rede dos Emissores Portugueses"
@@ -5216,19 +4848,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.7000000000",
       "rx_mhz": "431.1000000000",
       "channel": "RU696"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "131.8000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "RCL",
       "name": "Radioamador Clube de Loulé"
@@ -5247,19 +4876,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "439.2250000000",
       "rx_mhz": "431.6250000000",
       "channel": "RU738"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "131.8000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "RCL",
       "name": "Radioamador Clube de Loulé"
@@ -5278,19 +4904,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "439.1250000000",
       "rx_mhz": "431.5250000000",
       "channel": "RU730"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "123.0000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARBA",
       "name": "Associação de Radioamadores da Beira Alta"
@@ -5304,25 +4927,24 @@
     },
     "callsign": "CQ0USJ",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.6750000000",
       "rx_mhz": "431.0750000000",
       "channel": "RU694"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "67.0000000000",
       "bandwidth": "NFM"
     },
-
-    "info_holder": { "abrv": "ADxG", "name": "Azores DX Group" },
+    "info_holder": {
+      "abrv": "ADxG",
+      "name": "Azores DX Group"
+    },
     "info_location": {
       "latitude": "38.7299222200",
       "longitude": "-27.3180833300",
@@ -5332,24 +4954,20 @@
     },
     "callsign": "CQ1UDX",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.7250000000",
       "rx_mhz": "431.1250000000",
       "channel": "RU698"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "88.5000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "URA",
       "name": "União dos Radioamadores dos Açores"
@@ -5368,20 +4986,20 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.8000000000",
       "rx_mhz": "431.2000000000",
       "channel": "RU704"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "123.0000000000",
       "bandwidth": "WFM"
     },
-
-    "info_holder": { "abrv": "ADT", "name": "Azores DX Team" },
+    "info_holder": {
+      "abrv": "ADT",
+      "name": "Azores DX Team"
+    },
     "info_location": {
       "latitude": "38.5755555600",
       "longitude": "-28.7127777800",
@@ -5396,19 +5014,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.7500000000",
       "rx_mhz": "431.1500000000",
       "channel": "RU700"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "88.5000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARA",
       "name": "Associação de Radioamadores dos Açores"
@@ -5427,19 +5042,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.9000000000",
       "rx_mhz": "431.3000000000",
       "channel": "RU712"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "88.5000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARA",
       "name": "Associação de Radioamadores dos Açores"
@@ -5458,19 +5070,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.6500000000",
       "rx_mhz": "431.0500000000",
       "channel": "RU692"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "88.5000000000",
       "bandwidth": "WFM"
     },
-
     "info_location": {
       "latitude": "36.9828638900",
       "longitude": "-25.0907416700",
@@ -5485,19 +5094,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.7750000000",
       "rx_mhz": "431.1750000000",
       "channel": "RU702"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "88.5000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARA",
       "name": "Associação de Radioamadores dos Açores"
@@ -5516,19 +5122,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.7000000000",
       "rx_mhz": "431.1000000000",
       "channel": "RU696"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "67.0000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "REP",
       "name": "Rede dos Emissores Portugueses"
@@ -5542,24 +5145,20 @@
     },
     "callsign": "CQ2UFX",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.6500000000",
       "rx_mhz": "431.0500000000",
       "channel": "RU692"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "82.5000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "REP",
       "name": "Rede dos Emissores Portugueses"
@@ -5579,15 +5178,14 @@
   },
   {
     "info_simplex": {
-      "freq_mhz": "433.4000000000",
-      "channel": null
+      "tx_mhz": "433.4000000000",
+      "rx_mhz": "433.4000000000"
     },
     "info_fm": {
       "modulation": "10K0F3E",
       "tone": "1750.0000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "CRE",
       "name": "Clube de Radioamadores do Entroncamento"
@@ -5607,15 +5205,14 @@
   },
   {
     "info_simplex": {
-      "freq_mhz": "433.4000000000",
-      "channel": null
+      "tx_mhz": "433.4000000000",
+      "rx_mhz": "433.4000000000"
     },
     "info_fm": {
       "modulation": "10K0F3E",
       "tone": "74.4000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "ARAS",
       "name": "Associação de Radioamadores de Amadora-Sintra"
@@ -5635,15 +5232,14 @@
   },
   {
     "info_simplex": {
-      "freq_mhz": "439.6250000000",
-      "channel": null
+      "tx_mhz": "439.6250000000",
+      "rx_mhz": "439.6250000000"
     },
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "82.5000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "URA",
       "name": "União dos Radioamadores dos Açores"
@@ -5657,24 +5253,20 @@
     },
     "callsign": "CQ1EURA",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.8750000000",
       "rx_mhz": "431.2750000000",
       "channel": "RU710"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "74.4000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "REP",
       "name": "Rede dos Emissores Portugueses"
@@ -5688,22 +5280,27 @@
     },
     "callsign": "CQ0UEC",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.4375000000",
       "rx_mhz": "430.8375000000",
       "channel": "RU675"
     },
-
     "info_dmr": {
-      "ts2_default_tg": { "name": "Regional", "id": 8 },
+      "ts2_default_tg": {
+        "name": "Regional",
+        "id": 8
+      },
       "ts1_alternative_tgs": [],
-      "ts2_alternative_tgs": [{ "name": "Local", "id": 2 }],
+      "ts2_alternative_tgs": [
+        {
+          "name": "Local",
+          "id": 2
+        }
+      ],
       "modulation": "",
       "id": 268110,
       "color_code": 1,
@@ -5722,24 +5319,33 @@
     },
     "callsign": "CQ0DPD",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.4750000000",
       "rx_mhz": "430.8750000000",
       "channel": "RU678"
     },
-
     "info_dmr": {
-      "ts1_default_tg": { "name": "Portugal", "id": 268 },
-      "ts2_default_tg": { "name": "Regional", "id": 8 },
+      "ts1_default_tg": {
+        "name": "Portugal",
+        "id": 268
+      },
+      "ts2_default_tg": {
+        "name": "Regional",
+        "id": 8
+      },
       "ts1_alternative_tgs": [
-        { "name": "Worldwide English", "id": 91 },
-        { "name": "Portugues", "id": 915 }
+        {
+          "name": "Worldwide English",
+          "id": 91
+        },
+        {
+          "name": "Portugues",
+          "id": 915
+        }
       ],
       "ts2_alternative_tgs": [],
       "modulation": "",
@@ -5760,18 +5366,15 @@
     },
     "callsign": "CQ0DMV",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.3625000000",
       "rx_mhz": "430.7625000000",
       "channel": "RU669"
     },
-
     "info_dmr": {
       "ts1_alternative_tgs": [],
       "ts2_alternative_tgs": [],
@@ -5798,20 +5401,33 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.2000000000",
       "rx_mhz": "430.6000000000",
       "channel": "RU656"
     },
-
     "info_dmr": {
-      "ts1_default_tg": { "name": "Portugal", "id": 268 },
-      "ts2_default_tg": { "name": "Regional", "id": 8 },
+      "ts1_default_tg": {
+        "name": "Portugal",
+        "id": 268
+      },
+      "ts2_default_tg": {
+        "name": "Regional",
+        "id": 8
+      },
       "ts1_alternative_tgs": [
-        { "name": "Worldwide English", "id": 91 },
-        { "name": "Europe", "id": 92 },
-        { "name": "Portugues", "id": 915 }
+        {
+          "name": "Worldwide English",
+          "id": 91
+        },
+        {
+          "name": "Europe",
+          "id": 92
+        },
+        {
+          "name": "Portugues",
+          "id": 915
+        }
       ],
       "ts2_alternative_tgs": [],
       "modulation": "",
@@ -5832,22 +5448,30 @@
     },
     "callsign": "CQ0DSF",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.5000000000",
       "rx_mhz": "430.9000000000",
       "channel": "RU680"
     },
-
     "info_dmr": {
-      "ts1_default_tg": { "name": "Portugal", "id": 268 },
-      "ts2_default_tg": { "name": "Regional", "id": 8 },
-      "ts1_alternative_tgs": [{ "name": "Portugues", "id": 915 }],
+      "ts1_default_tg": {
+        "name": "Portugal",
+        "id": 268
+      },
+      "ts2_default_tg": {
+        "name": "Regional",
+        "id": 8
+      },
+      "ts1_alternative_tgs": [
+        {
+          "name": "Portugues",
+          "id": 915
+        }
+      ],
       "ts2_alternative_tgs": [],
       "modulation": "",
       "id": 268203,
@@ -5867,24 +5491,33 @@
     },
     "callsign": "CQ0DFR",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.4000000000",
       "rx_mhz": "430.8000000000",
       "channel": "RU672"
     },
-
     "info_dmr": {
-      "ts1_default_tg": { "name": "Portugal", "id": 268 },
-      "ts2_default_tg": { "name": "Regional", "id": 8 },
+      "ts1_default_tg": {
+        "name": "Portugal",
+        "id": 268
+      },
+      "ts2_default_tg": {
+        "name": "Regional",
+        "id": 8
+      },
       "ts1_alternative_tgs": [
-        { "name": "Worldwide English", "id": 91 },
-        { "name": "Portugues", "id": 915 }
+        {
+          "name": "Worldwide English",
+          "id": 91
+        },
+        {
+          "name": "Portugues",
+          "id": 915
+        }
       ],
       "ts2_alternative_tgs": [],
       "modulation": "",
@@ -5910,19 +5543,29 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.3125000000",
       "rx_mhz": "430.7125000000",
       "channel": "RU665"
     },
-
     "info_dmr": {
-      "ts1_default_tg": { "name": "Portugal", "id": 268 },
-      "ts2_default_tg": { "name": "Local", "id": 2 },
+      "ts1_default_tg": {
+        "name": "Portugal",
+        "id": 268
+      },
+      "ts2_default_tg": {
+        "name": "Local",
+        "id": 2
+      },
       "ts1_alternative_tgs": [
-        { "name": "Worldwide English", "id": 91 },
-        { "name": "Portugues", "id": 915 }
+        {
+          "name": "Worldwide English",
+          "id": 91
+        },
+        {
+          "name": "Portugues",
+          "id": 915
+        }
       ],
       "ts2_alternative_tgs": [],
       "modulation": "",
@@ -5948,19 +5591,29 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.2125000000",
       "rx_mhz": "430.6125000000",
       "channel": "RU657"
     },
-
     "info_dmr": {
-      "ts1_default_tg": { "name": "Portugal", "id": 268 },
-      "ts2_default_tg": { "name": "Local", "id": 2 },
+      "ts1_default_tg": {
+        "name": "Portugal",
+        "id": 268
+      },
+      "ts2_default_tg": {
+        "name": "Local",
+        "id": 2
+      },
       "ts1_alternative_tgs": [
-        { "name": "Worldwide English", "id": 91 },
-        { "name": "Portugues", "id": 915 }
+        {
+          "name": "Worldwide English",
+          "id": 91
+        },
+        {
+          "name": "Portugues",
+          "id": 915
+        }
       ],
       "ts2_alternative_tgs": [],
       "modulation": "",
@@ -5986,13 +5639,11 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.2375000000",
       "rx_mhz": "430.6375000000",
       "channel": "RU659"
     },
-
     "info_holder": {
       "abrv": "REP",
       "name": "Rede dos Emissores Portugueses"
@@ -6006,32 +5657,45 @@
     },
     "callsign": "CQ0DCR",
     "notes": "",
-
     "status": "OT",
     "sysop": "CT1ETV"
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.3000000000",
       "rx_mhz": "430.7000000000",
       "channel": "RU664"
     },
-
     "info_dmr": {
-      "ts1_default_tg": { "name": "Portugal", "id": 268 },
-      "ts2_default_tg": { "name": "Regional", "id": 8 },
+      "ts1_default_tg": {
+        "name": "Portugal",
+        "id": 268
+      },
+      "ts2_default_tg": {
+        "name": "Regional",
+        "id": 8
+      },
       "ts1_alternative_tgs": [
-        { "name": "Worldwide English", "id": 91 },
-        { "name": "Portugues", "id": 915 }
+        {
+          "name": "Worldwide English",
+          "id": 91
+        },
+        {
+          "name": "Portugues",
+          "id": 915
+        }
       ],
-      "ts2_alternative_tgs": [{ "name": "Local", "id": 2 }],
+      "ts2_alternative_tgs": [
+        {
+          "name": "Local",
+          "id": 2
+        }
+      ],
       "modulation": "",
       "id": 268205,
       "color_code": 1,
       "ts_configuration": "(2->)268205\r\n(8->)268904"
     },
-
     "info_location": {
       "latitude": "40.2503611100",
       "longitude": "-8.3491194440",
@@ -6046,19 +5710,29 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.3625000000",
       "rx_mhz": "430.7625000000",
       "channel": "RU669"
     },
-
     "info_dmr": {
-      "ts1_default_tg": { "name": "Portugal", "id": 268 },
-      "ts2_default_tg": { "name": "Local", "id": 2 },
+      "ts1_default_tg": {
+        "name": "Portugal",
+        "id": 268
+      },
+      "ts2_default_tg": {
+        "name": "Local",
+        "id": 2
+      },
       "ts1_alternative_tgs": [
-        { "name": "Worldwide English", "id": 91 },
-        { "name": "Portugues", "id": 915 }
+        {
+          "name": "Worldwide English",
+          "id": 91
+        },
+        {
+          "name": "Portugues",
+          "id": 915
+        }
       ],
       "ts2_alternative_tgs": [],
       "modulation": "",
@@ -6079,18 +5753,15 @@
     },
     "callsign": "CQ0DFF",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.2500000000",
       "rx_mhz": "430.6500000000",
       "channel": "RU660"
     },
-
     "info_holder": {
       "abrv": "REP",
       "name": "Rede dos Emissores Portugueses"
@@ -6104,24 +5775,33 @@
     },
     "callsign": "CQ0DFU",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.2750000000",
       "rx_mhz": "430.6750000000",
       "channel": "RU662"
     },
-
     "info_dmr": {
-      "ts1_default_tg": { "name": "Portugal", "id": 268 },
-      "ts2_default_tg": { "name": "Local", "id": 2 },
+      "ts1_default_tg": {
+        "name": "Portugal",
+        "id": 268
+      },
+      "ts2_default_tg": {
+        "name": "Local",
+        "id": 2
+      },
       "ts1_alternative_tgs": [
-        { "name": "Worldwide English", "id": 91 },
-        { "name": "Portugues", "id": 915 }
+        {
+          "name": "Worldwide English",
+          "id": 91
+        },
+        {
+          "name": "Portugues",
+          "id": 915
+        }
       ],
       "ts2_alternative_tgs": [],
       "modulation": "",
@@ -6142,22 +5822,30 @@
     },
     "callsign": "CQ0DUG",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.2000000000",
       "rx_mhz": "430.6000000000",
       "channel": "RU656"
     },
-
     "info_dmr": {
-      "ts1_default_tg": { "name": "Portugal", "id": 268 },
-      "ts2_default_tg": { "name": "Local", "id": 2 },
-      "ts1_alternative_tgs": [{ "name": "Portugues", "id": 915 }],
+      "ts1_default_tg": {
+        "name": "Portugal",
+        "id": 268
+      },
+      "ts2_default_tg": {
+        "name": "Local",
+        "id": 2
+      },
+      "ts1_alternative_tgs": [
+        {
+          "name": "Portugues",
+          "id": 915
+        }
+      ],
       "ts2_alternative_tgs": [],
       "modulation": "",
       "id": 268207,
@@ -6182,19 +5870,29 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.3875000000",
       "rx_mhz": "430.7875000000",
       "channel": "RU671"
     },
-
     "info_dmr": {
-      "ts1_default_tg": { "name": "Portugal", "id": 268 },
-      "ts2_default_tg": { "name": "Local", "id": 2 },
+      "ts1_default_tg": {
+        "name": "Portugal",
+        "id": 268
+      },
+      "ts2_default_tg": {
+        "name": "Local",
+        "id": 2
+      },
       "ts1_alternative_tgs": [
-        { "name": "Worldwide English", "id": 91 },
-        { "name": "Portugues", "id": 915 }
+        {
+          "name": "Worldwide English",
+          "id": 91
+        },
+        {
+          "name": "Portugues",
+          "id": 915
+        }
       ],
       "ts2_alternative_tgs": [],
       "modulation": "",
@@ -6220,19 +5918,29 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.5000000000",
       "rx_mhz": "430.9000000000",
       "channel": "RU680"
     },
-
     "info_dmr": {
-      "ts1_default_tg": { "name": "Portugal", "id": 268 },
-      "ts2_default_tg": { "name": "Local", "id": 2 },
+      "ts1_default_tg": {
+        "name": "Portugal",
+        "id": 268
+      },
+      "ts2_default_tg": {
+        "name": "Local",
+        "id": 2
+      },
       "ts1_alternative_tgs": [
-        { "name": "Worldwide English", "id": 91 },
-        { "name": "Portugues", "id": 915 }
+        {
+          "name": "Worldwide English",
+          "id": 91
+        },
+        {
+          "name": "Portugues",
+          "id": 915
+        }
       ],
       "ts2_alternative_tgs": [],
       "modulation": "",
@@ -6258,13 +5966,11 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.4625000000",
       "rx_mhz": "430.8625000000",
       "channel": "RU677"
     },
-
     "info_holder": {
       "abrv": "REP",
       "name": "Rede dos Emissores Portugueses"
@@ -6283,19 +5989,20 @@
     "sysop": "CT1ETV"
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.3625000000",
       "rx_mhz": "430.7625000000",
       "channel": "RU669"
     },
-
     "info_dmr": {
       "ts1_default_tg": {
         "name": "PT Hotspot 2",
         "id": 268915
       },
-      "ts2_default_tg": { "name": "Local", "id": 2 },
+      "ts2_default_tg": {
+        "name": "Local",
+        "id": 2
+      },
       "ts1_alternative_tgs": [],
       "ts2_alternative_tgs": [],
       "modulation": "",
@@ -6321,21 +6028,36 @@
     "sysop": "CT2GPZ"
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.4375000000",
       "rx_mhz": "430.8375000000",
       "channel": "RU675"
     },
-
     "info_dmr": {
-      "ts1_default_tg": { "name": "Portugal", "id": 268 },
-      "ts2_default_tg": { "name": "Local", "id": 2 },
+      "ts1_default_tg": {
+        "name": "Portugal",
+        "id": 268
+      },
+      "ts2_default_tg": {
+        "name": "Local",
+        "id": 2
+      },
       "ts1_alternative_tgs": [
-        { "name": "Worldwide English", "id": 91 },
-        { "name": "Portugues", "id": 915 }
+        {
+          "name": "Worldwide English",
+          "id": 91
+        },
+        {
+          "name": "Portugues",
+          "id": 915
+        }
       ],
-      "ts2_alternative_tgs": [{ "name": "Emergencia", "id": 268112 }],
+      "ts2_alternative_tgs": [
+        {
+          "name": "Emergencia",
+          "id": 268112
+        }
+      ],
       "modulation": "",
       "id": 268307,
       "color_code": 1,
@@ -6354,18 +6076,15 @@
     },
     "callsign": "CQ0DMJ",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.5125000000",
       "rx_mhz": "430.9125000000",
       "channel": "RU681"
     },
-
     "info_dmr": {
       "ts1_alternative_tgs": [],
       "ts2_alternative_tgs": [],
@@ -6387,24 +6106,33 @@
     },
     "callsign": "CQ0DMTV",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.4250000000",
       "rx_mhz": "430.8250000000",
       "channel": "RU674"
     },
-
     "info_dmr": {
-      "ts1_default_tg": { "name": "Portugal", "id": 268 },
-      "ts2_default_tg": { "name": "Local", "id": 2 },
+      "ts1_default_tg": {
+        "name": "Portugal",
+        "id": 268
+      },
+      "ts2_default_tg": {
+        "name": "Local",
+        "id": 2
+      },
       "ts1_alternative_tgs": [
-        { "name": "Worldwide English", "id": 91 },
-        { "name": "Portugues", "id": 915 }
+        {
+          "name": "Worldwide English",
+          "id": 91
+        },
+        {
+          "name": "Portugues",
+          "id": 915
+        }
       ],
       "ts2_alternative_tgs": [],
       "modulation": "",
@@ -6430,20 +6158,26 @@
     "sysop": "CT1ETV"
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.2750000000",
       "rx_mhz": "430.6750000000",
       "channel": "RU662"
     },
-
     "info_dmr": {
-      "ts1_default_tg": { "name": "Portugal", "id": 268 },
+      "ts1_default_tg": {
+        "name": "Portugal",
+        "id": 268
+      },
       "ts2_default_tg": {
         "name": "PT Hotspot 1",
         "id": 268911
       },
-      "ts1_alternative_tgs": [{ "name": "Portugues", "id": 915 }],
+      "ts1_alternative_tgs": [
+        {
+          "name": "Portugues",
+          "id": 915
+        }
+      ],
       "ts2_alternative_tgs": [],
       "modulation": "",
       "id": 268309,
@@ -6468,17 +6202,26 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.3125000000",
       "rx_mhz": "430.7125000000",
       "channel": "RU665"
     },
-
     "info_dmr": {
-      "ts1_default_tg": { "name": "Portugal", "id": 268 },
-      "ts2_default_tg": { "name": "Local", "id": 2 },
-      "ts1_alternative_tgs": [{ "name": "Portugues", "id": 915 }],
+      "ts1_default_tg": {
+        "name": "Portugal",
+        "id": 268
+      },
+      "ts2_default_tg": {
+        "name": "Local",
+        "id": 2
+      },
+      "ts1_alternative_tgs": [
+        {
+          "name": "Portugues",
+          "id": 915
+        }
+      ],
       "ts2_alternative_tgs": [],
       "modulation": "",
       "id": 268302,
@@ -6503,17 +6246,26 @@
     "sysop": "CT2FXW/CT2JSS,/CT1BM"
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.2500000000",
       "rx_mhz": "430.6500000000",
       "channel": "RU660"
     },
-
     "info_dmr": {
-      "ts1_default_tg": { "name": "Portugal", "id": 268 },
-      "ts2_default_tg": { "name": "Local", "id": 2 },
-      "ts1_alternative_tgs": [{ "name": "Portugues", "id": 915 }],
+      "ts1_default_tg": {
+        "name": "Portugal",
+        "id": 268
+      },
+      "ts2_default_tg": {
+        "name": "Local",
+        "id": 2
+      },
+      "ts1_alternative_tgs": [
+        {
+          "name": "Portugues",
+          "id": 915
+        }
+      ],
       "ts2_alternative_tgs": [],
       "modulation": "",
       "id": 268310,
@@ -6538,21 +6290,36 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.4750000000",
       "rx_mhz": "430.8750000000",
       "channel": "RU678"
     },
-
     "info_dmr": {
-      "ts1_default_tg": { "name": "Portugal", "id": 268 },
-      "ts2_default_tg": { "name": "Regional", "id": 8 },
+      "ts1_default_tg": {
+        "name": "Portugal",
+        "id": 268
+      },
+      "ts2_default_tg": {
+        "name": "Regional",
+        "id": 8
+      },
       "ts1_alternative_tgs": [
-        { "name": "Worldwide English", "id": 91 },
-        { "name": "Portugues", "id": 915 }
+        {
+          "name": "Worldwide English",
+          "id": 91
+        },
+        {
+          "name": "Portugues",
+          "id": 915
+        }
       ],
-      "ts2_alternative_tgs": [{ "name": "Local", "id": 2 }],
+      "ts2_alternative_tgs": [
+        {
+          "name": "Local",
+          "id": 2
+        }
+      ],
       "modulation": "",
       "id": 268340,
       "color_code": 1,
@@ -6576,19 +6343,20 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.5375000000",
       "rx_mhz": "430.9375000000",
       "channel": "RU683"
     },
-
     "info_dmr": {
       "ts1_default_tg": {
         "name": "PT Hotspot 2",
         "id": 268915
       },
-      "ts2_default_tg": { "name": "Local", "id": 2 },
+      "ts2_default_tg": {
+        "name": "Local",
+        "id": 2
+      },
       "ts1_alternative_tgs": [],
       "ts2_alternative_tgs": [],
       "modulation": "",
@@ -6609,25 +6377,37 @@
     },
     "callsign": "CQ0DSS",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.5750000000",
       "rx_mhz": "430.9750000000",
       "channel": "RU686"
     },
-
     "info_dmr": {
-      "ts1_default_tg": { "name": "Portugal", "id": 268 },
-      "ts2_default_tg": { "name": "Local", "id": 2 },
+      "ts1_default_tg": {
+        "name": "Portugal",
+        "id": 268
+      },
+      "ts2_default_tg": {
+        "name": "Local",
+        "id": 2
+      },
       "ts1_alternative_tgs": [
-        { "name": "Worldwide English", "id": 91 },
-        { "name": "Europe", "id": 92 },
-        { "name": "Portugues", "id": 915 }
+        {
+          "name": "Worldwide English",
+          "id": 91
+        },
+        {
+          "name": "Europe",
+          "id": 92
+        },
+        {
+          "name": "Portugues",
+          "id": 915
+        }
       ],
       "ts2_alternative_tgs": [],
       "modulation": "",
@@ -6653,13 +6433,11 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.3875000000",
       "rx_mhz": "430.7875000000",
       "channel": "RU671"
     },
-
     "info_holder": {
       "abrv": "REP",
       "name": "Rede dos Emissores Portugueses"
@@ -6673,24 +6451,33 @@
     },
     "callsign": "CQ0DMT",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.3500000000",
       "rx_mhz": "430.7500000000",
       "channel": "RU668"
     },
-
     "info_dmr": {
-      "ts1_default_tg": { "name": "Portugal", "id": 268 },
-      "ts2_default_tg": { "name": "Local", "id": 2 },
+      "ts1_default_tg": {
+        "name": "Portugal",
+        "id": 268
+      },
+      "ts2_default_tg": {
+        "name": "Local",
+        "id": 2
+      },
       "ts1_alternative_tgs": [
-        { "name": "Worldwide English", "id": 91 },
-        { "name": "Portugues", "id": 915 }
+        {
+          "name": "Worldwide English",
+          "id": 91
+        },
+        {
+          "name": "Portugues",
+          "id": 915
+        }
       ],
       "ts2_alternative_tgs": [],
       "modulation": "",
@@ -6716,19 +6503,29 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.6000000000",
       "rx_mhz": "431.0000000000",
       "channel": "RU688"
     },
-
     "info_dmr": {
-      "ts1_default_tg": { "name": "Portugal", "id": 268 },
-      "ts2_default_tg": { "name": "Local", "id": 2 },
+      "ts1_default_tg": {
+        "name": "Portugal",
+        "id": 268
+      },
+      "ts2_default_tg": {
+        "name": "Local",
+        "id": 2
+      },
       "ts1_alternative_tgs": [
-        { "name": "Worldwide English", "id": 91 },
-        { "name": "Portugues", "id": 915 }
+        {
+          "name": "Worldwide English",
+          "id": 91
+        },
+        {
+          "name": "Portugues",
+          "id": 915
+        }
       ],
       "ts2_alternative_tgs": [],
       "modulation": "",
@@ -6754,13 +6551,11 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.2250000000",
       "rx_mhz": "430.6250000000",
       "channel": "RU658"
     },
-
     "info_dmr": {
       "ts1_alternative_tgs": [],
       "ts2_alternative_tgs": [],
@@ -6769,26 +6564,33 @@
       "color_code": 1,
       "ts_configuration": ""
     },
-
     "callsign": "CQ0DS",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.3375000000",
       "rx_mhz": "430.7375000000",
       "channel": "RU667"
     },
-
     "info_dmr": {
-      "ts1_default_tg": { "name": "Portugal", "id": 268 },
-      "ts2_default_tg": { "name": "Local", "id": 2 },
+      "ts1_default_tg": {
+        "name": "Portugal",
+        "id": 268
+      },
+      "ts2_default_tg": {
+        "name": "Local",
+        "id": 2
+      },
       "ts1_alternative_tgs": [],
-      "ts2_alternative_tgs": [{ "name": "CU3-Terceira Isl.", "id": 26863 }],
+      "ts2_alternative_tgs": [
+        {
+          "name": "CU3-Terceira Isl.",
+          "id": 26863
+        }
+      ],
       "modulation": "",
       "id": 268601,
       "color_code": 1,
@@ -6812,21 +6614,27 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.3000000000",
       "rx_mhz": "430.7000000000",
       "channel": "RU664"
     },
-
     "info_dmr": {
       "ts1_default_tg": {
         "name": "PT Hotspot 2",
         "id": 268915
       },
-      "ts2_default_tg": { "name": "Ilhas Azores", "id": 2686 },
+      "ts2_default_tg": {
+        "name": "Ilhas Azores",
+        "id": 2686
+      },
       "ts1_alternative_tgs": [],
-      "ts2_alternative_tgs": [{ "name": "CU7-Faial Ils.", "id": 26867 }],
+      "ts2_alternative_tgs": [
+        {
+          "name": "CU7-Faial Ils.",
+          "id": 26867
+        }
+      ],
       "modulation": "",
       "id": 268603,
       "color_code": 1,
@@ -6850,19 +6658,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.3875000000",
       "rx_mhz": "430.7875000000",
       "channel": "RU671"
     },
-
     "info_dstar": {
       "modulation": "6K00F7W",
       "gateway": "",
       "reflector": ""
     },
-
     "info_holder": {
       "abrv": "REP",
       "name": "Rede dos Emissores Portugueses"
@@ -6881,19 +6686,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.4750000000",
       "rx_mhz": "430.8750000000",
       "channel": "RU678"
     },
-
     "info_dstar": {
       "modulation": "6K00F7W",
       "gateway": "CQ0DOA G",
       "reflector": ""
     },
-
     "info_holder": {
       "abrv": "ARBL",
       "name": "Associação de Radioamadores da Beira Litoral"
@@ -6912,19 +6714,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.2250000000",
       "rx_mhz": "430.6250000000",
       "channel": "RU658"
     },
-
     "info_dstar": {
       "modulation": "6K00F7W",
       "gateway": "CQ0DMU G",
       "reflector": ""
     },
-
     "info_holder": {
       "abrv": "ARBA",
       "name": "Associação de Radioamadores da Beira Alta"
@@ -6943,19 +6742,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.3500000000",
       "rx_mhz": "430.7500000000",
       "channel": "RU668"
     },
-
     "info_dstar": {
       "modulation": "6K00F7W",
       "gateway": "",
       "reflector": ""
     },
-
     "info_holder": {
       "abrv": "REP",
       "name": "Rede dos Emissores Portugueses"
@@ -6974,19 +6770,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.4750000000",
       "rx_mhz": "430.8750000000",
       "channel": "RU678"
     },
-
     "info_dstar": {
       "modulation": "6K00F7W",
       "gateway": "",
       "reflector": ""
     },
-
     "info_holder": {
       "abrv": "TRGM",
       "name": "Tertúlia Radioamadorística Guglielmo Marconi"
@@ -7000,24 +6793,20 @@
     },
     "callsign": "CQ0DRO",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.4250000000",
       "rx_mhz": "430.8250000000",
       "channel": "RU674"
     },
-
     "info_dstar": {
       "modulation": "6K00F7W",
       "gateway": "CQ0DLR G",
       "reflector": "XRF268 E"
     },
-
     "info_holder": {
       "abrv": "ARAL",
       "name": "Associação de Radioamadores do Distrito de Leiria"
@@ -7036,19 +6825,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.5125000000",
       "rx_mhz": "430.9125000000",
       "channel": "RU681"
     },
-
     "info_dstar": {
       "modulation": "6K00F7W",
       "gateway": "CQ0DCH G",
       "reflector": "XRF268 H"
     },
-
     "info_holder": {
       "abrv": "ARAT",
       "name": "Associação de Radioamadores do Alto Tâmega"
@@ -7062,24 +6848,20 @@
     },
     "callsign": "CQ0DCH",
     "notes": "Repetidor VHF com o mesmo indicativo?",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.5125000000",
       "rx_mhz": "430.9125000000",
       "channel": "RU681"
     },
-
     "info_dstar": {
       "modulation": "6K00F7W",
       "gateway": "",
       "reflector": "XRF268 E"
     },
-
     "info_holder": {
       "abrv": "REP",
       "name": "Rede dos Emissores Portugueses"
@@ -7098,19 +6880,16 @@
     "sysop": "CT2GPZ"
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.2000000000",
       "rx_mhz": "430.6000000000",
       "channel": "RU656"
     },
-
     "info_dstar": {
       "modulation": "6K00F7W",
       "gateway": "CQ0DTV G",
       "reflector": ""
     },
-
     "info_holder": {
       "abrv": "ARADO",
       "name": "Associação de Radioamadores do Oeste"
@@ -7129,19 +6908,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.3250000000",
       "rx_mhz": "430.7250000000",
       "channel": "RU666"
     },
-
     "info_dstar": {
       "modulation": "6K00F7W",
       "gateway": "",
       "reflector": ""
     },
-
     "info_holder": {
       "abrv": "REP",
       "name": "Rede dos Emissores Portugueses"
@@ -7160,19 +6936,16 @@
     "sysop": "CT1ETV"
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.4500000000",
       "rx_mhz": "430.8500000000",
       "channel": "RU676"
     },
-
     "info_dstar": {
       "modulation": "6K00F7W",
       "gateway": "CQ0DMC G",
       "reflector": "DCS268E"
     },
-
     "info_holder": {
       "abrv": "REP",
       "name": "Rede dos Emissores Portugueses"
@@ -7191,19 +6964,16 @@
     "sysop": "CT1ETV"
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.4000000000",
       "rx_mhz": "430.8000000000",
       "channel": "RU672"
     },
-
     "info_dstar": {
       "modulation": "6K00F7W",
       "gateway": "CQ0DCS G",
       "reflector": "XRF268 E"
     },
-
     "info_holder": {
       "abrv": "ARLC",
       "name": "Associação de Radioamadores da Linha de Cascais"
@@ -7222,19 +6992,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.6125000000",
       "rx_mhz": "431.0125000000",
       "channel": "RU689"
     },
-
     "info_dstar": {
       "modulation": "6K00F7W",
       "gateway": "CQ0DSA G",
       "reflector": "XRF268 E"
     },
-
     "info_holder": {
       "abrv": "ARLA",
       "name": "Associação de Radioamadores do Litoral Alentejano"
@@ -7248,18 +7015,15 @@
     },
     "callsign": "CQ0DSA",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.5250000000",
       "rx_mhz": "430.9250000000",
       "channel": "RU682"
     },
-
     "info_holder": {
       "abrv": "ARLA",
       "name": "Associação de Radioamadores do Litoral Alentejano"
@@ -7278,19 +7042,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.2000000000",
       "rx_mhz": "430.6000000000",
       "channel": "RU656"
     },
-
     "info_dstar": {
       "modulation": "6K00F7W",
       "gateway": "CQ0DFO G",
       "reflector": ""
     },
-
     "info_holder": {
       "abrv": "RCL",
       "name": "Radioamador Clube de Loulé"
@@ -7309,19 +7070,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.2250000000",
       "rx_mhz": "430.6250000000",
       "channel": "RU658"
     },
-
     "info_dstar": {
       "modulation": "6K00F7W",
       "gateway": "",
       "reflector": "XRF268 E"
     },
-
     "info_holder": {
       "abrv": "RCL",
       "name": "Radioamador Clube de Loulé"
@@ -7340,19 +7098,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.2875000000",
       "rx_mhz": "430.6875000000",
       "channel": "RU663"
     },
-
     "info_dstar": {
       "modulation": "6K00F7W",
       "gateway": "",
       "reflector": ""
     },
-
     "info_holder": {
       "abrv": "REP",
       "name": "Rede dos Emissores Portugueses"
@@ -7371,19 +7126,15 @@
     "sysop": "CT1ETV"
   },
   {
-    "info_half_duplex": {
-      "shift": -35.0,
+    "info_rf": {
       "tx_mhz": "1259.2000000000",
-      "rx_mhz": "1294.2000000000",
-      "channel": null
+      "rx_mhz": "1294.2000000000"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "0.0000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARBA",
       "name": "Associação de Radioamadores da Beira Alta"
@@ -7402,19 +7153,15 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 28.0,
+    "info_rf": {
       "tx_mhz": "1298.0500000000",
-      "rx_mhz": "1270.0500000000",
-      "channel": null
+      "rx_mhz": "1270.0500000000"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "0.0000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARCP",
       "name": "Associação de Radioamadores da Costa de Prata"
@@ -7433,19 +7180,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.4500000000",
       "rx_mhz": "430.8500000000",
       "channel": "RU676"
     },
-
     "info_dstar": {
       "modulation": "6K00F7W",
       "gateway": "",
       "reflector": ""
     },
-
     "info_holder": {
       "abrv": "URA",
       "name": "União dos Radioamadores dos Açores"
@@ -7464,13 +7208,10 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": -35.0,
+    "info_rf": {
       "tx_mhz": "1258.2000000000",
-      "rx_mhz": "1293.2000000000",
-      "channel": null
+      "rx_mhz": "1293.2000000000"
     },
-
     "info_holder": {
       "abrv": "ARCP",
       "name": "Associação de Radioamadores da Costa de Prata"
@@ -7484,24 +7225,19 @@
     },
     "callsign": "CQ0SBR",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 28.0,
+    "info_rf": {
       "tx_mhz": "1298.0750000000",
-      "rx_mhz": "1270.0750000000",
-      "channel": null
+      "rx_mhz": "1270.0750000000"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "0.0000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "AMSAT - PO",
       "name": "Associação de Amadores de Satélite de Portugal"
@@ -7520,19 +7256,15 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": -294.3,
+    "info_rf": {
       "tx_mhz": "145.4750000000",
-      "rx_mhz": "439.7750000000",
-      "channel": null
+      "rx_mhz": "439.7750000000"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "114.8000000000",
       "bandwidth": "NFM"
     },
-
     "info_location": {
       "latitude": "40.1458333300",
       "longitude": "-7.4583333330",
@@ -7547,19 +7279,15 @@
     "sysop": "CT7ABA"
   },
   {
-    "info_half_duplex": {
-      "shift": 294.3,
+    "info_rf": {
       "tx_mhz": "439.7750000000",
-      "rx_mhz": "145.4750000000",
-      "channel": null
+      "rx_mhz": "145.4750000000"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "82.5000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "REP",
       "name": "Rede dos Emissores Portugueses"
@@ -7578,19 +7306,16 @@
     "sysop": "CT7ABA"
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.4000000000",
       "rx_mhz": "430.8000000000",
       "channel": "RU672"
     },
-
     "info_fusion": {
       "modulation": "F7W",
       "wiresx": "",
       "room_id": ""
     },
-
     "info_holder": {
       "abrv": "ARBA",
       "name": "Associação de Radioamadores da Beira Alta"
@@ -7609,19 +7334,16 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.4000000000",
       "rx_mhz": "430.8000000000",
       "channel": "RU672"
     },
-
     "info_fusion": {
       "modulation": "F7W",
       "wiresx": "",
       "room_id": ""
     },
-
     "info_holder": {
       "abrv": "ARBA",
       "name": "Associação de Radioamadores da Beira Alta"
@@ -7640,19 +7362,15 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 409.34,
+    "info_rf": {
       "tx_mhz": "438.9500000000",
-      "rx_mhz": "29.6100000000",
-      "channel": null
+      "rx_mhz": "29.6100000000"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "74.4000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "REP",
       "name": "Rede dos Emissores Portugueses"
@@ -7666,24 +7384,19 @@
     },
     "callsign": "CQ0EUH",
     "notes": "",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": -402.34,
+    "info_rf": {
       "tx_mhz": "29.0100000000",
-      "rx_mhz": "431.3500000000",
-      "channel": null
+      "rx_mhz": "431.3500000000"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "74.4000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "REP",
       "name": "Rede dos Emissores Portugueses"
@@ -7702,19 +7415,15 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 402.34,
+    "info_rf": {
       "tx_mhz": "431.3500000000",
-      "rx_mhz": "29.0100000000",
-      "channel": null
+      "rx_mhz": "29.0100000000"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "74.4000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "REP",
       "name": "Rede dos Emissores Portugueses"
@@ -7733,13 +7442,10 @@
     "sysop": "CT1ETV"
   },
   {
-    "info_half_duplex": {
-      "shift": -831.875,
+    "info_rf": {
       "tx_mhz": "439.4750000000",
-      "rx_mhz": "1271.3500000000",
-      "channel": null
+      "rx_mhz": "1271.3500000000"
     },
-
     "info_holder": {
       "abrv": "REP",
       "name": "Rede dos Emissores Portugueses"
@@ -7753,24 +7459,19 @@
     },
     "callsign": "CQ0ESNT",
     "notes": "",
-
     "status": "OT",
     "sysop": "CT4AN"
   },
   {
-    "info_half_duplex": {
-      "shift": -380.875,
+    "info_rf": {
       "tx_mhz": "51.1000000000",
-      "rx_mhz": "431.9750000000",
-      "channel": null
+      "rx_mhz": "431.9750000000"
     },
-
     "info_fm": {
       "modulation": "14K0F3E",
       "tone": "74.4000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARLC",
       "name": "Associação de Radioamadores da Linha de Cascais"
@@ -7789,19 +7490,15 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 380.875,
+    "info_rf": {
       "tx_mhz": "431.9750000000",
-      "rx_mhz": "51.1000000000",
-      "channel": null
+      "rx_mhz": "51.1000000000"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "74.4000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARLC",
       "name": "Associação de Radioamadores da Linha de Cascais"
@@ -7820,19 +7517,15 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 286.625,
+    "info_rf": {
       "tx_mhz": "431.9750000000",
-      "rx_mhz": "145.3500000000",
-      "channel": null
+      "rx_mhz": "145.3500000000"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "82.5000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "RCL",
       "name": "Radioamador Clube de Loulé"
@@ -7851,19 +7544,15 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": -286.625,
+    "info_rf": {
       "tx_mhz": "145.3500000000",
-      "rx_mhz": "431.9750000000",
-      "channel": null
+      "rx_mhz": "431.9750000000"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "131.8000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "RCL",
       "name": "Radioamador Clube de Loulé"
@@ -7882,19 +7571,15 @@
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": -295.0,
+    "info_rf": {
       "tx_mhz": "144.5500000000",
-      "rx_mhz": "439.5500000000",
-      "channel": null
+      "rx_mhz": "439.5500000000"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "82.5000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "URA",
       "name": "União dos Radioamadores dos Açores"
@@ -7908,24 +7593,19 @@
     },
     "callsign": "CQ1EPIX",
     "notes": "Confirmado pela associação a 2021/10/29",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 295.0,
+    "info_rf": {
       "tx_mhz": "439.5500000000",
-      "rx_mhz": "144.5500000000",
-      "channel": null
+      "rx_mhz": "144.5500000000"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "82.5000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "URA",
       "name": "União dos Radioamadores dos Açores"
@@ -7939,24 +7619,19 @@
     },
     "callsign": "CQ1EPIX",
     "notes": "Confirmado pela associação a 2021/10/29",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": -294.3,
+    "info_rf": {
       "tx_mhz": "145.4000000000",
-      "rx_mhz": "439.7000000000",
-      "channel": null
+      "rx_mhz": "439.7000000000"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "67.0000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "URA",
       "name": "União dos Radioamadores dos Açores"
@@ -7970,24 +7645,19 @@
     },
     "callsign": "CQ1EZS",
     "notes": "Confirmado pela associação a 2021/10/29",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 294.3,
+    "info_rf": {
       "tx_mhz": "439.7000000000",
-      "rx_mhz": "145.4000000000",
-      "channel": null
+      "rx_mhz": "145.4000000000"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "88.5000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "URA",
       "name": "União dos Radioamadores dos Açores"
@@ -8001,24 +7671,19 @@
     },
     "callsign": "CQ1EZS",
     "notes": "Confirmado pela associação a 2021/10/29",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": -294.275,
+    "info_rf": {
       "tx_mhz": "145.4250000000",
-      "rx_mhz": "439.7000000000",
-      "channel": null
+      "rx_mhz": "439.7000000000"
     },
-
     "info_fm": {
       "modulation": "11K0F3E",
       "tone": "123.0000000000",
       "bandwidth": "NFM"
     },
-
     "info_holder": {
       "abrv": "URA",
       "name": "União dos Radioamadores dos Açores"
@@ -8032,24 +7697,19 @@
     },
     "callsign": "CQ1EZN",
     "notes": "Confirmado pela associação a 2021/10/29",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 294.275,
+    "info_rf": {
       "tx_mhz": "439.7000000000",
-      "rx_mhz": "145.4250000000",
-      "channel": null
+      "rx_mhz": "145.4250000000"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "88.5000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "URA",
       "name": "União dos Radioamadores dos Açores"
@@ -8063,18 +7723,15 @@
     },
     "callsign": "CQ1EZN",
     "notes": "Confirmado pela associação a 2021/10/29",
-
     "status": "OT",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "438.4750000000",
       "rx_mhz": "430.8750000000",
       "channel": "RU678"
     },
-
     "info_dmr": {
       "ts1_alternative_tgs": [],
       "ts2_alternative_tgs": [],
@@ -8096,24 +7753,20 @@
     },
     "callsign": "CQ0DMI",
     "notes": "Falta a info DMR.",
-
     "status": "OFF",
     "sysop": ""
   },
   {
-    "info_half_duplex": {
-      "shift": 7.6,
+    "info_rf": {
       "tx_mhz": "439.0250000000",
       "rx_mhz": "431.4250000000",
       "channel": "RU722"
     },
-
     "info_fm": {
       "modulation": "16K0F3E",
       "tone": "67.0000000000",
       "bandwidth": "WFM"
     },
-
     "info_holder": {
       "abrv": "ARMi",
       "name": "Associação de Radioamadores do Minho"
