@@ -1,27 +1,17 @@
 {
     "[python]": {
-        "editor.defaultFormatter": "ms-python.black-formatter",
         "editor.rulers": [
             90
         ],
-        "editor.formatOnSaveMode": "file",
-        "editor.formatOnType": false,
-        "editor.formatOnPaste": false,
     },
-    "python.linting.pylintArgs": [
-        "--load-plugins",
-        "pylint_django",
-        "--django-settings-module",
-        "config.settings"
-    ],
     "pylint.args": [
         "--load-plugins",
         "pylint_django",
         "--django-settings-module",
         "config.settings"
     ],
-    "python.linting.enabled": true,
-    "python.linting.pylintEnabled": true,
     "python.languageServer": "Pylance",
-    "python.formatting.provider": "none",
+    "editor.formatOnSaveMode": "file",
+    "editor.formatOnType": false,
+    "editor.formatOnPaste": false,
 }
