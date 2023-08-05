@@ -299,7 +299,7 @@ class DimDmr(models.Model):
 
     modulation = models.CharField(max_length=32, blank=True, verbose_name="modulation")
     # A DMR repeater has an unique DMR TG associated.
-    tg = models.OneToOneField(DimDmrTg, on_delete=models.RESTRICT)
+    tg = models.ForeignKey(DimDmrTg, on_delete=models.RESTRICT)
     color_code = models.IntegerField(verbose_name="C.C.")
     ts1_default_tg = models.ForeignKey(
         DimDmrTg,

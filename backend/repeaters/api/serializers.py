@@ -141,6 +141,7 @@ class DimDmrSerializer(  # pylint: disable=too-many-ancestors
 ):
     __doc__ = DimDmr.__doc__
 
+    tg = DimDmrTgSerializer(many=False, required=True)
     ts1_default_tg = DimDmrTgSerializer(many=False, required=False)
     ts2_default_tg = DimDmrTgSerializer(many=False, required=False)
     ts1_alternative_tgs = DimDmrTgSerializer(many=True, required=False)
@@ -152,7 +153,10 @@ class DimDmrSerializer(  # pylint: disable=too-many-ancestors
 
     def create(self, validated_data):
         try:
-            return DimDmr.objects.get(id=validated_data["id"])
+            return DimDmr.objects.get(tg__id=validated_data["tg"]["id"])
+            # TODO(ruilvo, 2023-08-05): This is a hack to avoid creating duplicate
+            # objects. This needs some fixing, in particular updating
+            # the other fields in case they have changed.
         except ObjectDoesNotExist:
             return super().create(validated_data)
 
