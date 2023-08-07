@@ -21,7 +21,8 @@
 				"streetsidesoftware.code-spell-checker-portuguese",
 				"ms-python.vscode-pylance",
 				"ms-python.pylint",
-				"ms-python.python"
+				"ms-python.python",
+				"ms-python.black-formatter"
 			]
 		}
 	}
