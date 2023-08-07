@@ -23,7 +23,25 @@
 				"ms-python.pylint",
 				"ms-python.python",
 				"ms-python.black-formatter"
-			]
+			],
+			"settings": {
+				"[python]": {
+					"editor.rulers": [
+						90
+					],
+					"editor.defaultFormatter": "ms-python.black-formatter",
+					"editor.formatOnSaveMode": "file",
+					"editor.formatOnType": false,
+					"editor.formatOnPaste": false
+				},
+				"pylint.args": [
+					"--load-plugins",
+					"pylint_django",
+					"--django-settings-module",
+					"config.settings"
+				],
+				"python.languageServer": "Pylance"
+			}
 		}
 	}
 }
