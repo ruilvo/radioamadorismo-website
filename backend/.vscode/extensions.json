@@ -1,6 +1,6 @@
 {
     "recommendations": [
-        "github.copilot-nightly",
+        "github.copilot",
         "visualstudioexptteam.vscodeintellicode"
     ]
 }
