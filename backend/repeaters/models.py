@@ -96,7 +96,7 @@ class DimRf(ComputedFieldsModel):
     @computed(
         models.CharField(
             max_length=64,
-            verbose_name="RF",
+            verbose_name="mode",
             choices=MODE_CHOICES,
             default=ModeOptions.SIMPLEX,
         ),
@@ -262,7 +262,7 @@ class DimDmrTg(models.Model):
     Models enough information for describing a DMR TG.
     """
 
-    class CallModeOptions: # pylint: disable=too-few-public-methods
+    class CallModeOptions:  # pylint: disable=too-few-public-methods
         """
         Define the call mode options for DMR TGs.
         """
@@ -356,7 +356,7 @@ class DimLocation(models.Model):
     Models enough information for describing a repeater's location.
     """
 
-    class RegionOptions: # pylint: disable=too-few-public-methods
+    class RegionOptions:  # pylint: disable=too-few-public-methods
         """
         Define the region options for a repeater's location.
         """

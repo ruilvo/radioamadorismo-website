@@ -117,7 +117,7 @@ class DimDmrTgSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
 
     def create(self, validated_data):
         name = validated_data.get("name", None)
-        id = validated_data.get( # pylint: disable=invalid-name,redefined-builtin
+        id = validated_data.get(  # pylint: disable=invalid-name,redefined-builtin
             "id", None
         )
         call_mode = validated_data.get("call_mode", None)
