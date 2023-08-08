@@ -1,3 +1,7 @@
+"""
+Define the Django views for the repeaters app
+"""
+
 import io
 
 from django.views.decorators.http import require_safe
