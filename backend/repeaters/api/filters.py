@@ -239,7 +239,7 @@ class FactRepeaterFilter(FilterSet):
     """
 
     modes = filters.CharFilter(
-        label="Modes, (,-separated)", method=factrepeater__modes_search
+        label="Modulation modes, (,-separated)", method=factrepeater__modes_search
     )
     info_rf__freq_mhz_search = filters.NumberFilter(
         label="Frequency (MHz)", method=factrepeater__info_rf__freq_mhz_search
