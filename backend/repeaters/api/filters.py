@@ -150,6 +150,79 @@ class DimLocationFilter(FilterSet):
         }
 
 
+def factrepeater__info_rf__freq_mhz_search(queryset, _, value):
+    """
+    Looks for a frequency value both to be equal in tx_mhz and rx_mhz fields.
+    """
+    queryset = queryset.filter(
+        Q(info_rf__tx_mhz__exact=value) | Q(info_rf__rx_mhz__exact=value)
+    ).distinct()
+    return queryset
+
+
+def factrepeater__info_rf__freq_mhz_search__gte(queryset, _, value):
+    """
+    Looks for a frequency value to be GTE both in tx_mhz and rx_mhz fields.
+    """
+    queryset = queryset.filter(
+        Q(info_rf__tx_mhz__gte=value) | Q(info_rf__rx_mhz__gte=value)
+    ).distinct()
+    return queryset
+
+
+def factrepeater__info_rf__freq_mhz_search__lte(queryset, _, value):
+    """
+    Looks for a frequency value to be LTE both in tx_mhz and rx_mhz fields.
+    """
+    queryset = queryset.filter(
+        Q(info_rf__tx_mhz__lte=value) | Q(info_rf__rx_mhz__lte=value)
+    ).distinct()
+    return queryset
+
+
+def factrepeater__info_rf__bands_seach(queryset, _, value):
+    """
+    Allows searching for multiple bands at the same time, comma separated.
+    """
+    band = re.findall(r"[\w]+", value)
+    queryset_filtered = queryset.filter(
+        reduce(lambda x, y: x | y, [Q(info_rf__band__icontains=b) for b in band])
+    ).distinct()
+    return queryset_filtered
+
+
+def factrepeater__info_rf__modes_search(queryset, _, value):
+    """
+    Allows searching for multiple modes at the same time, comma separated.
+    """
+    modes = re.findall(r"[\w]+", value)
+    queryset_filtered = queryset.filter(
+        reduce(lambda x, y: x | y, [Q(info_rf__rf__icontains=r) for r in modes])
+    ).distinct()
+    return queryset_filtered
+
+
+def factrepeater__info_holder__holder_search(queryset, _, value):
+    """
+    Allows searching for holder data both in the abrv and name fields.
+    """
+    queryset = queryset.filter(
+        Q(info_holder__abrv__icontains=value) | Q(info_holder__name__icontains=value)
+    ).distinct()
+    return queryset
+
+
+def factrepeater__info_location__region_search(queryset, _, value):
+    """
+    Allows searching for multiple regions at the same time, comma separated.
+    """
+    regions = re.findall(r"[\w]+", value)
+    queryset_filtered = queryset.filter(
+        reduce(lambda x, y: x | y, [Q(info_location__region=r) for r in regions])
+    ).distinct()
+    return queryset_filtered
+
+
 def factrepeater__modes_search(queryset, _, value):
     """
     Allows searching for multiple modes at the same time, comma separated.
@@ -167,6 +240,29 @@ class FactRepeaterFilter(FilterSet):
 
     modes = filters.CharFilter(
         label="Modes, (,-separated)", method=factrepeater__modes_search
+    )
+    info_rf__freq_mhz_search = filters.NumberFilter(
+        label="Frequency (MHz)", method=factrepeater__info_rf__freq_mhz_search
+    )
+    info_rf__freq_mhz_search__gte = filters.NumberFilter(
+        label="Frequency (MHz) is greater than or equal to ",
+        method=factrepeater__info_rf__freq_mhz_search__gte,
+    )
+    info_rf__freq_mhz_search__lte = filters.NumberFilter(
+        label="Frequency (MHz) is less than or equal to ",
+        method=factrepeater__info_rf__freq_mhz_search__lte,
+    )
+    info_rf__bands = filters.CharFilter(
+        label="Bands (,-separated)", method=factrepeater__info_rf__bands_seach
+    )
+    info_rf__modes = filters.CharFilter(
+        label="RF modes (,-separated)", method=factrepeater__info_rf__modes_search
+    )
+    info_holder__holder = filters.CharFilter(
+        label="Holder contains", method=factrepeater__info_holder__holder_search
+    )
+    info_location__regions = filters.CharFilter(
+        label="Regions (,-separated)", method=factrepeater__info_location__region_search
     )
 
     class Meta:
