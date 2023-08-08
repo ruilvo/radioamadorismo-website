@@ -7,10 +7,8 @@ On the Anytone D878UVII+, names are limited to 16 chars.
 import io
 import csv
 
-from typing import Tuple, List, Dict
 
 from django.db.models import Q
-from django.db.models.query import QuerySet
 
 from repeaters.models import (
     DimLocation,
@@ -19,8 +17,6 @@ from repeaters.models import (
     DimDmrTg,
     FactRepeater,
 )
-
-from repeaters.vendor.utils import rename_duplicates_in_list
 
 
 class D878UVIIPlusDialect(csv.excel):
@@ -53,8 +49,8 @@ csv.register_dialect("d878uviiplus", D878UVIIPlusDialect)
 # RoamingZone.CSV  -> Done as a placeholder
 # ScanList.CSV  -> Done as a placeholder
 # TalkGroups.CSV  -> Done
-# Zone.CSV
-# codeplug.LST  -> TODO
+# Zone.CSV -> Done
+# codeplug.LST  -> Not needed
 
 
 def radioidlist_csv() -> io.StringIO:
@@ -168,7 +164,7 @@ def autorepeateroffsetfrequencys_csv() -> io.StringIO:
     return sio
 
 
-class DimDmrTgAnytoneUVIIPlusSerializer:
+class DimDmrTgAnytoneUVIIPlusSerializer:  # pylint: disable=too-few-public-methods
     """
     Generates the TalkGroups.csv CSV file for the D878UVII+ with the DMR talkgroups.
     """
@@ -210,7 +206,7 @@ class DimDmrTgAnytoneUVIIPlusSerializer:
         return sio
 
 
-class ReceiveGroupsAnytoneUVIIPlusSerializer:
+class ReceiveGroupsAnytoneUVIIPlusSerializer:  # pylint: disable=too-few-public-methods
     """
     Generates `ReceiveGroupCallList.csv` as a StringIO.
 
@@ -252,12 +248,12 @@ class ReceiveGroupsAnytoneUVIIPlusSerializer:
         return sio
 
 
-class ChannelAnytoneUVIIPlusSerializer:
+class ChannelAnytoneUVIIPlusSerializer:  # pylint: disable=too-few-public-methods
     """
     Generates `Channel.csv` as a StringIO.
     """
 
-    def __init__(self):
+    def __init__(self):  # pylint: disable=too-many-locals
         """
         Let's generate the data according to these rules:
 
@@ -585,5 +581,111 @@ class ChannelAnytoneUVIIPlusSerializer:
                             "0",  # Send Talker Alias
                         ]
                     )
+
+        return sio
+
+
+class ZoneAnytoneUVIIPlusSerializer:  # pylint: disable=too-few-public-methods
+    """
+    Generates `Zone.csv` as a StringIO.
+    """
+
+    def __init__(self, channel_serializer: ChannelAnytoneUVIIPlusSerializer):
+        """
+        We shall make zones for PT, Madeira and Azores.
+        Each zone will have a max of 16 channels.
+        A different zone for each combination of FM/DMR 2m/70cm.
+        """
+
+        # Generate the data to be written to the CSV file
+        raw_data = {}
+
+        for zone_prefix, dict_name in [
+            ("CPT 2m FM", "continent_2m_fm"),
+            ("CPT 70cm FM", "continent_70cm_fm"),
+            ("CPT 2m DMR", "continent_2m_dmr"),
+            ("CPT 70cm DMR", "continent_70cm_dmr"),
+            ("MDA 2m FM", "madeira_2m_fm"),
+            ("MDA 70cm FM", "madeira_70cm_fm"),
+            ("MDA 2m DMR", "madeira_2m_dmr"),
+            ("MDA 70cm DMR", "madeira_70cm_dmr"),
+            ("AZR 2m FM", "azores_2m_fm"),
+            ("AZR 70cm FM", "azores_70cm_fm"),
+            ("AZR 2m DMR", "azores_2m_dmr"),
+            ("AZR 70cm DMR", "azores_70cm_dmr"),
+        ]:
+            count = 1
+
+            for idx, elem in enumerate(channel_serializer.data[dict_name]):
+                zone_name = f"{zone_prefix} {count}"
+                # Check whether we need to create a new zone
+                if idx % 16 == 0:
+                    raw_data[zone_name] = {
+                        "members": [],
+                        "rxs": [],
+                        "txs": [],
+                    }
+                    count += 1
+
+                raw_data[zone_name]["members"].append(elem["name"])
+                raw_data[zone_name]["rxs"].append(elem["rx"])
+                raw_data[zone_name]["txs"].append(elem["tx"])
+
+        self.data = {}
+        for idx, (zone_name, zone_data) in enumerate(raw_data.items()):
+            self.data[zone_name] = {
+                "no": f"{idx+1}",
+                "members": "|".join(zone_data["members"]),
+                "rxs": "|".join(zone_data["rxs"]),
+                "txs": "|".join(zone_data["txs"]),
+                "a_chan": zone_data["members"][0],
+                "a_rx": zone_data["rxs"][0],
+                "a_tx": zone_data["txs"][0],
+                "b_chan": zone_data["members"][0],
+                "b_rx": zone_data["rxs"][0],
+                "b_tx": zone_data["txs"][0],
+            }
+
+    def generate_csv(self) -> io.StringIO:
+        """
+        Generate the CSV file as a StringIO object.
+        """
+
+        sio = io.StringIO()
+        writer = csv.writer(sio, dialect="d878uviiplus")
+
+        header = [
+            "No.",
+            "Zone Name",
+            "Zone Channel Member",
+            "Zone Channel Member RX Frequency",
+            "Zone Channel Member TX Frequency",
+            "A Channel",
+            "A Channel RX Frequency",
+            "A Channel TX Frequency",
+            "B Channel",
+            "B Channel RX Frequency",
+            "B Channel TX Frequency",
+            "Zone Hide ",  # For some reason the trailing space is part of the name...
+        ]
+        writer.writerow(header)
+
+        for zone_name, zone_data in self.data.items():
+            writer.writerow(
+                [
+                    zone_data["no"],  # No.
+                    zone_name,  # Zone Name
+                    zone_data["members"],  # Zone Channel Member
+                    zone_data["rxs"],  # Zone Channel Member RX Frequency
+                    zone_data["txs"],  # Zone Channel Member TX Frequency
+                    zone_data["a_chan"],  # A Channel
+                    zone_data["a_rx"],  # A Channel RX Frequency
+                    zone_data["a_tx"],  # A Channel TX Frequency
+                    zone_data["b_chan"],  # B Channel
+                    zone_data["b_rx"],  # B Channel RX Frequency
+                    zone_data["b_tx"],  # B Channel TX Frequency
+                    "0",  # Zone Hide
+                ]
+            )
 
         return sio
