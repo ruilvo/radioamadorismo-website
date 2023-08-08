@@ -28,17 +28,17 @@ from drf_spectacular.views import (
 urlpatterns = [
     # Django
     path("admin/", admin.site.urls),
-    # DRF
-    path(
-        "restframework/",
-        include("rest_framework.urls"),
-        name="drf-auth",
-    ),
     # API
     path(
         "api/",
         include(
             [
+                # DRF
+                path(
+                    "restframework/",
+                    include("rest_framework.urls"),
+                    name="drf-auth",
+                ),
                 # Auth
                 path(
                     "auth/",
