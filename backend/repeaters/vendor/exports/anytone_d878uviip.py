@@ -614,18 +614,22 @@ class ZoneAnytoneUVIIPlusSerializer:  # pylint: disable=too-few-public-methods
             ("AZR 2m DMR", "azores_2m_dmr"),
             ("AZR 70cm DMR", "azores_70cm_dmr"),
         ]:
-            count = 1
+            count = 0
 
             for idx, elem in enumerate(channel_serializer.data[dict_name]):
-                zone_name = f"{zone_prefix} {count}"
-                # Check whether we need to create a new zone
+                # Check whether we need to create a new zone (pt. 1)
                 if idx % 16 == 0:
+                    count += 1
+
+                zone_name = f"{zone_prefix} {count}"
+
+                # Check whether we need to create a new zone (pt. 2)
+                if zone_name not in raw_data.keys():
                     raw_data[zone_name] = {
                         "members": [],
                         "rxs": [],
                         "txs": [],
                     }
-                    count += 1
 
                 raw_data[zone_name]["members"].append(elem["name"])
                 raw_data[zone_name]["rxs"].append(elem["rx"])
