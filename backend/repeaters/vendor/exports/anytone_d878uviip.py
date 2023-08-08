@@ -38,7 +38,7 @@ csv.register_dialect("d878uviiplus", D878UVIIPlusDialect)
 # AR4EncryptionCode.CSV  -> Not needed
 # AnalogAddressBook.CSV  -> Not needed
 # AutoRepeaterOffsetFrequencys.CSV  -> Done
-# Channel.CSV
+# Channel.CSV  -> Done
 # DTMFEncode.CSV  -> Not needed
 # DigitalContactList.CSV  -> Won't do
 # FM.CSV  -> Not needed
