@@ -360,10 +360,13 @@ class ChannelAnytoneUVIIPlusSerializer:
                         if elem.info_fm.bandwidth == DimFm.BandwidthOptions.NFM
                         else "25K"
                     )
+                    ctcss = "Off"
+                    if elem.info_fm.tone:
+                        ctcss = f"{elem.info_fm.tone:.1f}"
                     current_data |= {
                         "name": elem.callsign,
                         "bw": bw,
-                        "ctcss": f"{elem.info_fm.tone:.1f}",
+                        "ctcss": ctcss,
                     }
                     self.data[key].append(current_data)
                 elif "dmr" in key:
@@ -399,3 +402,188 @@ class ChannelAnytoneUVIIPlusSerializer:
                         self.data[key].append(data_with_ts)
                 else:
                     raise ValueError(f"Unknown key: {key}")
+
+    def generate_csv(self) -> io.StringIO:
+        """
+        Generate the CSV file as a StringIO object.
+        """
+
+        sio = io.StringIO()
+        writer = csv.writer(sio, dialect="d878uviiplus")
+
+        header = [
+            "No.",
+            "Channel Name",
+            "Receive Frequency",
+            "Transmit Frequency",
+            "Channel Type",
+            "Transmit Power",
+            "Band Width",
+            "CTCSS/DCS Decode",
+            "CTCSS/DCS Encode",
+            "Contact",
+            "Contact Call Type",
+            "Contact TG/DMR ID",
+            "Radio ID",
+            "Busy Lock/TX Permit",
+            "Squelch Mode",
+            "Optional Signal",
+            "DTMF ID",
+            "2Tone ID",
+            "5Tone ID",
+            "PTT ID",
+            "Color Code",
+            "Slot",
+            "Scan List",
+            "Receive Group List",
+            "PTT Prohibit",
+            "Reverse",
+            "Simplex TDMA",
+            "Slot Suit",
+            "AES Digital Encryption",
+            "Digital Encryption",
+            "Call Confirmation",
+            "Talk Around(Simplex)",
+            "Work Alone",
+            "Custom CTCSS",
+            "2TONE Decode",
+            "Ranging",
+            "Through Mode",
+            "APRS RX",
+            "Analog APRS PTT Mode",
+            "Digital APRS PTT Mode",
+            "APRS Report Type",
+            "Digital APRS Report Channel",
+            "Correct Frequency[Hz]",
+            "SMS Confirmation",
+            "Exclude channel from roaming",
+            "DMR MODE",
+            "DataACK Disable",
+            "R5toneBot",
+            "R5ToneEot",
+            "Auto Scan",
+            "Ana Aprs Mute",
+            "Send Talker Alias",
+        ]
+        writer.writerow(header)
+
+        for key, data in self.data.items():
+            for elem in data:
+                if "fm" in key:
+                    # Write data for FM repeaters
+                    writer.writerow(
+                        [
+                            elem["no"],  # No.
+                            elem["name"],  # Channel Name
+                            elem["rx"],  # Receive Frequency
+                            elem["tx"],  # Transmit Frequency
+                            "A-Analog",  # Channel Type
+                            "High",  # Transmit Power
+                            elem["bw"],  # Band Width
+                            "Off",  # CTCSS/DCS Decode
+                            elem["ctcss"],  # CTCSS/DCS Encode
+                            "Portugal",  # Contact
+                            "Group Call",  # Contact Call Type
+                            "268",  # Contact TG/DMR ID
+                            "CT0ZZZ",  # Radio ID
+                            "Off",  # Busy Lock/TX Permit
+                            "Carrier",  # Squelch Mode
+                            "Off",  # Optional Signal
+                            "1",  # DTMF ID
+                            "1",  # 2Tone ID
+                            "1",  # 5Tone ID
+                            "Off",  # PTT ID
+                            "1",  # Color Code
+                            "1",  # Slot
+                            "None",  # Scan List
+                            "None",  # Receive Group List
+                            "Off",  # PTT Prohibit
+                            "Off",  # Reverse
+                            "Off",  # Simplex TDMA
+                            "Off",  # Slot Suit
+                            "Normal Encryption",  # AES Digital Encryption
+                            "Off",  # Digital Encryption
+                            "Off",  # Call Confirmation
+                            "Off",  # Talk Around(Simplex)
+                            "Off",  # Work Alone
+                            "251.1",  # Custom CTCSS
+                            "1",  # 2TONE Decode
+                            "Off",  # Ranging
+                            "On",  # Through Mode
+                            "Off",  # APRS RX
+                            "Off",  # Analog APRS PTT Mode
+                            "Off",  # Digital APRS PTT Mode
+                            "Off",  # APRS Report Type
+                            "1",  # Digital APRS Report Channel
+                            "0",  # Correct Frequency[Hz]
+                            "Off",  # SMS Confirmation
+                            "0",  # Exclude channel from roaming
+                            "0",  # DMR MODE
+                            "0",  # DataACK Disable
+                            "0",  # R5toneBot
+                            "0",  # R5ToneEot
+                            "0",  # Auto Scan
+                            "0",  # Ana Aprs Mute
+                            "0",  # Send Talker Alias
+                        ]
+                    )
+                elif "dmr" in key:
+                    # Write data for DMR repeaters
+                    writer.writerow(
+                        [
+                            elem["no"],  # No.
+                            elem["name"],  # Channel Name
+                            elem["rx"],  # Receive Frequency
+                            elem["tx"],  # Transmit Frequency
+                            "D-Digital",  # Channel Type
+                            "High",  # Transmit Power
+                            "12.5K",  # Band Width
+                            "Off",  # CTCSS/DCS Decode
+                            "Off",  # CTCSS/DCS Encode
+                            elem["contact"],  # Contact
+                            elem["contact_call_type"],  # Contact Call Type
+                            elem["contact_id"],  # Contact TG/DMR ID
+                            "CT0ZZZ",  # Radio ID
+                            "Off",  # Busy Lock/TX Permit
+                            "Carrier",  # Squelch Mode
+                            "Off",  # Optional Signal
+                            "1",  # DTMF ID
+                            "1",  # 2Tone ID
+                            "1",  # 5Tone ID
+                            "Off",  # PTT ID
+                            elem["color_code"],  # Color Code
+                            elem["slot"],  # Slot
+                            "None",  # Scan List
+                            "None",  # Receive Group List
+                            "Off",  # PTT Prohibit
+                            "Off",  # Reverse
+                            "Off",  # Simplex TDMA
+                            "Off",  # Slot Suit
+                            "Normal Encryption",  # AES Digital Encryption
+                            "Off",  # Digital Encryption
+                            "Off",  # Call Confirmation
+                            "Off",  # Talk Around(Simplex)
+                            "Off",  # Work Alone
+                            "251.1",  # Custom CTCSS
+                            "1",  # 2TONE Decode
+                            "Off",  # Ranging
+                            "On",  # Through Mode
+                            "Off",  # APRS RX
+                            "Off",  # Analog APRS PTT Mode
+                            "Off",  # Digital APRS PTT Mode
+                            "Off",  # APRS Report Type
+                            "1",  # Digital APRS Report Channel
+                            "0",  # Correct Frequency[Hz]
+                            "Off",  # SMS Confirmation
+                            "0",  # Exclude channel from roaming
+                            "0",  # DMR MODE
+                            "0",  # DataACK Disable
+                            "0",  # R5toneBot
+                            "0",  # R5ToneEot
+                            "0",  # Auto Scan
+                            "0",  # Ana Aprs Mute
+                            "0",  # Send Talker Alias
+                        ]
+                    )
+
+        return sio
