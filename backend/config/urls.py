@@ -28,6 +28,15 @@ from drf_spectacular.views import (
 urlpatterns = [
     # Django
     path("admin/", admin.site.urls),
+    # Other backend endpoints
+    path(
+        "backend/",
+        include(
+            [
+                path("repeaters/", include("repeaters.urls")),
+            ]
+        ),
+    ),
     # API
     path(
         "api/",
