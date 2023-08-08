@@ -57,7 +57,7 @@ def dimrf__modes_search(queryset, _, value):
     """
     modes = re.findall(r"[\w]+", value)
     queryset_filtered = queryset.filter(
-        reduce(lambda x, y: x | y, [Q(rf__icontains=r) for r in modes])
+        reduce(lambda x, y: x | y, [Q(mode__icontains=r) for r in modes])
     ).distinct()
     return queryset_filtered
 
@@ -197,7 +197,7 @@ def factrepeater__info_rf__modes_search(queryset, _, value):
     """
     modes = re.findall(r"[\w]+", value)
     queryset_filtered = queryset.filter(
-        reduce(lambda x, y: x | y, [Q(info_rf__rf__icontains=r) for r in modes])
+        reduce(lambda x, y: x | y, [Q(info_rf__mode__icontains=r) for r in modes])
     ).distinct()
     return queryset_filtered
 
