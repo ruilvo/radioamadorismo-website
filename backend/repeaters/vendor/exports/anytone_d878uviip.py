@@ -343,7 +343,6 @@ class ChannelAnytoneUVIIPlusSerializer:  # pylint: disable=too-few-public-method
             for elem in qs:
                 count += 1
                 current_data = {
-                    "no": f"{count}",
                     # Repeater Tx is radio Rx
                     "rx": f"{elem.info_rf.tx_mhz:.5f}",
                     # and vice-versa
@@ -360,6 +359,7 @@ class ChannelAnytoneUVIIPlusSerializer:  # pylint: disable=too-few-public-method
                     if elem.info_fm.tone:
                         ctcss = f"{elem.info_fm.tone:.1f}"
                     current_data |= {
+                        "no": f"{count}",
                         "name": elem.callsign,
                         "bw": bw,
                         "ctcss": ctcss,
@@ -379,6 +379,7 @@ class ChannelAnytoneUVIIPlusSerializer:  # pylint: disable=too-few-public-method
                         )
                         contact_id = elem.info_dmr.ts1_default_tg.id
                         if ts == "TS2":
+                            count += 1  # Needs an extra tick of the counter
                             contact = elem.info_dmr.ts2_default_tg.name
                             contact_call_type = (
                                 "Group Call"
@@ -388,6 +389,7 @@ class ChannelAnytoneUVIIPlusSerializer:  # pylint: disable=too-few-public-method
                             )
                             contact_id = elem.info_dmr.ts2_default_tg.id
                         data_with_ts = current_data.copy() | {
+                            "no": f"{count}",
                             "name": f"{elem.callsign} {ts}",
                             "contact": contact,
                             "contact_call_type": contact_call_type,
@@ -550,7 +552,7 @@ class ChannelAnytoneUVIIPlusSerializer:  # pylint: disable=too-few-public-method
                             elem["color_code"],  # Color Code
                             elem["slot"],  # Slot
                             "None",  # Scan List
-                            "None",  # Receive Group List
+                            "Todos TGs",  # Receive Group List
                             "Off",  # PTT Prohibit
                             "Off",  # Reverse
                             "Off",  # Simplex TDMA
