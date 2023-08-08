@@ -303,16 +303,12 @@ class DimDmr(models.Model):
     color_code = models.IntegerField(verbose_name="C.C.")
     ts1_default_tg = models.ForeignKey(
         DimDmrTg,
-        blank=True,
-        null=True,
-        on_delete=models.SET_NULL,
+        on_delete=models.RESTRICT,
         related_name="%(class)s_ts1_default_tg",
     )
     ts2_default_tg = models.ForeignKey(
         DimDmrTg,
-        blank=True,
-        null=True,
-        on_delete=models.SET_NULL,
+        on_delete=models.RESTRICT,
         related_name="%(class)s_ts2_default_tg",
     )
     ts1_alternative_tgs = models.ManyToManyField(
@@ -470,37 +466,35 @@ class FactRepeater(ComputedFieldsModel):
     # RF
     info_rf = models.ForeignKey(
         DimRf,
-        on_delete=models.SET_NULL,
-        blank=True,
-        null=True,
+        on_delete=models.RESTRICT,
         verbose_name="info - RF",
     )
 
     # Modulation
     info_fm = models.ForeignKey(
         DimFm,
-        on_delete=models.SET_NULL,
+        on_delete=models.RESTRICT,
         blank=True,
         null=True,
         verbose_name="info - FM",
     )
     info_dstar = models.ForeignKey(
         DimDStar,
-        on_delete=models.SET_NULL,
+        on_delete=models.RESTRICT,
         blank=True,
         null=True,
         verbose_name="info - D-STAR",
     )
     info_fusion = models.ForeignKey(
         DimFusion,
-        on_delete=models.SET_NULL,
+        on_delete=models.RESTRICT,
         blank=True,
         null=True,
         verbose_name="info - Fusion/C4FM",
     )
     info_dmr = models.ForeignKey(
         DimDmr,
-        on_delete=models.SET_NULL,
+        on_delete=models.RESTRICT,
         blank=True,
         null=True,
         verbose_name="info - DMR",
@@ -509,16 +503,14 @@ class FactRepeater(ComputedFieldsModel):
     # Info
     info_holder = models.ForeignKey(
         DimHolder,
-        on_delete=models.SET_NULL,
+        on_delete=models.RESTRICT,
         blank=True,
         null=True,
         verbose_name="info - holder",
     )
     info_location = models.ForeignKey(
         DimLocation,
-        on_delete=models.SET_NULL,
-        blank=True,
-        null=True,
+        on_delete=models.RESTRICT,
         verbose_name="info - location",
     )
 
@@ -526,11 +518,9 @@ class FactRepeater(ComputedFieldsModel):
         ArrayField(
             models.CharField(
                 max_length=64,
-                blank=True,
-                null=True,
                 verbose_name="mode",
                 choices=MODE_CHOICES,
-                default=None,
+                default=[],
             ),
             size=4,
         ),
