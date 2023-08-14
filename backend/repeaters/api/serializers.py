@@ -30,13 +30,15 @@ class DimRfSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
         fields = "__all__"
 
     def create(self, validated_data):
-        tx_mhz = validated_data.get("tx_mhz", None)
-        rx_mhz = validated_data.get("rx_mhz", None)
-        channel = validated_data.get("channel", None)
+        tx_mhz = validated_data["tx_mhz"]
+        rx_mhz = validated_data["rx_mhz"]
         new_object, new_object_created = DimRf.objects.get_or_create(
             tx_mhz=tx_mhz, rx_mhz=rx_mhz, defaults=validated_data
         )
-        if not new_object_created and channel is not None:
+        if new_object_created:
+            return new_object
+        channel = validated_data.get("channel", None)
+        if channel is not None:
             new_object.channel = channel
             new_object.save()
         return new_object
@@ -50,7 +52,7 @@ class DimFmSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
         fields = "__all__"
 
     def create(self, validated_data):
-        modulation = validated_data.get("modulation", None)
+        modulation = validated_data["modulation"]
         tone = validated_data.get("tone", None)
         if modulation is not None and tone is not None:
             new_object, _ = DimFm.objects.get_or_create(
