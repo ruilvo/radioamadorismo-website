@@ -2,8 +2,6 @@
 Serializers for the repeaters API.
 """
 
-from django.core.exceptions import ObjectDoesNotExist
-
 from rest_framework import serializers
 
 from drf_writable_nested.serializers import WritableNestedModelSerializer
@@ -55,9 +53,12 @@ class DimFmSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
         modulation = validated_data["modulation"]
         tone = validated_data.get("tone", None)
         if modulation is not None and tone is not None:
-            new_object, _ = DimFm.objects.get_or_create(
+            new_object, new_object_created = DimFm.objects.get_or_create(
                 modulation=modulation, tone=tone, defaults=validated_data
             )
+            if not new_object_created:
+                new_object.bandwidth = validated_data["bandwidth"]
+                new_object.save()
             return new_object
         return DimFm.objects.create(**validated_data)
 
@@ -70,20 +71,17 @@ class DimDStarSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
         fields = "__all__"
 
     def create(self, validated_data):
-        modulation = validated_data.get("modulation", None)
-        gateway = validated_data.get("gateway", None)
-        reflector = validated_data.get("reflector", None)
-        if gateway is not None and reflector is not None:
-            new_object, new_object_created = DimDStar.objects.get_or_create(
-                gateway=gateway,
-                reflector=reflector,
-                defaults=validated_data,
-            )
-            if not new_object_created and modulation is not None:
-                new_object.modulation = modulation
-                new_object.save()
-            return new_object
-        return DimDStar.objects.create(**validated_data)
+        gateway = validated_data["gateway"]
+        reflector = validated_data["reflector"]
+        new_object, new_object_created = DimDStar.objects.get_or_create(
+            gateway=gateway,
+            reflector=reflector,
+            defaults=validated_data,
+        )
+        if not new_object_created:
+            new_object.modulation = validated_data["modulation"]
+            new_object.save()
+        return new_object
 
 
 class DimFusionSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
@@ -94,20 +92,17 @@ class DimFusionSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
         fields = "__all__"
 
     def create(self, validated_data):
-        modulation = validated_data.get("modulation", None)
-        wiresx = validated_data.get("wiresx", None)
-        room_id = validated_data.get("room_id", None)
-        if wiresx is not None and room_id is not None:
-            new_object, new_object_created = DimFusion.objects.get_or_create(
-                wiresx=wiresx,
-                room_id=room_id,
-                defaults=validated_data,
-            )
-            if not new_object_created and modulation is not None:
-                new_object.modulation = modulation
-                new_object.save()
-            return new_object
-        return DimFusion.objects.create(**validated_data)
+        wiresx = validated_data["wiresx"]
+        room_id = validated_data["room_id"]
+        new_object, new_object_created = DimFusion.objects.get_or_create(
+            wiresx=wiresx,
+            room_id=room_id,
+            defaults=validated_data,
+        )
+        if not new_object_created:
+            new_object.modulation = validated_data["modulation"]
+            new_object.save()
+        return new_object
 
 
 class DimDmrTgSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
@@ -118,22 +113,16 @@ class DimDmrTgSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
         fields = "__all__"
 
     def create(self, validated_data):
-        name = validated_data.get("name", None)
-        id = validated_data.get(  # pylint: disable=invalid-name,redefined-builtin
-            "id", None
+        id = validated_data["id"]  # pylint: disable=invalid-name,redefined-builtin
+        new_object, new_object_created = DimDmrTg.objects.get_or_create(
+            id=id,
+            defaults=validated_data,
         )
-        call_mode = validated_data.get("call_mode", None)
-        if id is not None:
-            new_object, new_object_created = DimDmrTg.objects.get_or_create(
-                id=id,
-                defaults=validated_data,
-            )
-            if not new_object_created:
-                new_object.name = name
-                new_object.call_mode = call_mode
-                new_object.save()
-            return new_object
-        return DimDmrTg.objects.create(**validated_data)
+        if not new_object_created:
+            new_object.name = validated_data["name"]
+            new_object.call_mode = validated_data["call_mode"]
+            new_object.save()
+        return new_object
 
 
 class DimDmrSerializer(  # pylint: disable=too-many-ancestors
@@ -142,23 +131,49 @@ class DimDmrSerializer(  # pylint: disable=too-many-ancestors
     __doc__ = DimDmr.__doc__
 
     tg = DimDmrTgSerializer(many=False, required=True)
-    ts1_default_tg = DimDmrTgSerializer(many=False, required=False)
-    ts2_default_tg = DimDmrTgSerializer(many=False, required=False)
-    ts1_alternative_tgs = DimDmrTgSerializer(many=True, required=False)
-    ts2_alternative_tgs = DimDmrTgSerializer(many=True, required=False)
+    ts1_default_tg = DimDmrTgSerializer(many=False, required=True)
+    ts2_default_tg = DimDmrTgSerializer(many=False, required=True)
+    ts1_alternative_tgs = DimDmrTgSerializer(many=True, required=True)
+    ts2_alternative_tgs = DimDmrTgSerializer(many=True, required=True)
 
     class Meta:
         model = DimDmr
         fields = "__all__"
 
     def create(self, validated_data):
+        # Find and/or create the TGs
+        tg = DimDmrTgSerializer().create(validated_data["tg"])
+        ts1_default_tg = DimDmrTgSerializer().create(validated_data["ts1_default_tg"])
+        ts2_default_tg = DimDmrTgSerializer().create(validated_data["ts2_default_tg"])
+        ts1_alternative_tgs = [
+            DimDmrTgSerializer().create(tg)
+            for tg in validated_data["ts1_alternative_tgs"]
+        ]
+        ts2_alternative_tgs = [
+            DimDmrTgSerializer().create(tg)
+            for tg in validated_data["ts2_alternative_tgs"]
+        ]
+        ts_configuration = validated_data["ts_configuration"]
+
+        # Find an object to update, or create a new one
         try:
-            return DimDmr.objects.get(tg__id=validated_data["tg"]["id"])
-            # TODO(ruilvo, 2023-08-05): This is a hack to avoid creating duplicate
-            # objects. This needs some fixing, in particular updating
-            # the other fields in case they have changed.
-        except ObjectDoesNotExist:
-            return super().create(validated_data)
+            new_object = DimDmr.objects.get(tg__id=tg.id)
+            new_object.ts1_default_tg = ts1_default_tg
+            new_object.ts2_default_tg = ts2_default_tg
+            new_object.ts1_alternative_tgs = ts1_alternative_tgs
+            new_object.ts2_alternative_tgs = ts2_alternative_tgs
+            new_object.ts_configuration = ts_configuration
+            new_object.save()
+        except DimDmr.DoesNotExist:
+            new_object = DimDmr.objects.create(
+                tg=tg,
+                ts1_default_tg=ts1_default_tg,
+                ts2_default_tg=ts2_default_tg,
+                ts1_alternative_tgs=ts1_alternative_tgs,
+                ts2_alternative_tgs=ts2_alternative_tgs,
+                ts_configuration=ts_configuration,
+            )
+        return new_object
 
 
 class DimHolderSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
@@ -169,19 +184,16 @@ class DimHolderSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
         fields = "__all__"
 
     def create(self, validated_data):
-        abrv = validated_data.get("abrv", None)
-        name = validated_data.get("name", None)
-        if abrv is not None:
-            new_object, new_object_created = DimHolder.objects.get_or_create(
-                abrv=abrv,
-                defaults=validated_data,
-            )
-            if not new_object_created:
-                if name is not None:
-                    new_object.name = name
-                new_object.save()
-            return new_object
-        return DimHolder.objects.create(**validated_data)
+        abrv = validated_data["abrv"]
+        name = validated_data["name"]
+        new_object, new_object_created = DimHolder.objects.get_or_create(
+            abrv=abrv,
+            defaults=validated_data,
+        )
+        if not new_object_created:
+            new_object.name = name
+            new_object.save()
+        return new_object
 
 
 class DimLocationSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
@@ -194,9 +206,6 @@ class DimLocationSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
     def create(self, validated_data):
         latitude = validated_data.get("latitude", None)
         longitude = validated_data.get("longitude", None)
-        region = validated_data.get("region", None)
-        place = validated_data.get("place", None)
-        qth_loc = validated_data.get("qth_loc", None)
         if latitude is not None and longitude is not None:
             new_object, new_object_created = DimLocation.objects.get_or_create(
                 latitude=latitude,
@@ -204,12 +213,9 @@ class DimLocationSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
                 defaults=validated_data,
             )
             if not new_object_created:
-                if region is not None:
-                    new_object.region = region
-                if place is not None:
-                    new_object.place = place
-                if qth_loc is not None:
-                    new_object.qth_loc = qth_loc
+                new_object.region = validated_data["region"]
+                new_object.place = validated_data["place"]
+                new_object.qth_loc = validated_data["qth_loc"]
                 new_object.save()
             return new_object
         return DimLocation.objects.create(**validated_data)
