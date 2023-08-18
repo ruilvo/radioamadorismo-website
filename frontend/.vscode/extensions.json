@@ -1,7 +1,6 @@
 {
   "recommendations": [
-    "github.copilot-nightly",
-    "visualstudioexptteam.vscodeintellicode"
+    "github.copilot",
   ],
   "unwantedRecommendations": [
     "octref.vetur",
