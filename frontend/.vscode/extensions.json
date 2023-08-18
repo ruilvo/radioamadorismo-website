@@ -1,7 +1,5 @@
 {
-  "recommendations": [
-    "github.copilot",
-  ],
+  "recommendations": ["github.copilot"],
   "unwantedRecommendations": [
     "octref.vetur",
     "hookyqr.beautify",

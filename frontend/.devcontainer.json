@@ -1,8 +1,6 @@
 {
   "name": "Frontend",
-  "dockerComposeFile": [
-    "../docker-compose.dev.yaml"
-  ],
+  "dockerComposeFile": ["../docker-compose.dev.yaml"],
   "service": "frontend",
   "shutdownAction": "none",
   "workspaceFolder": "/workspace/frontend",
@@ -32,9 +30,7 @@
       "settings": {
         "editor.formatOnSave": true,
         "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.codeActionsOnSave": [
-          "source.fixAll.eslint"
-        ],
+        "editor.codeActionsOnSave": ["source.fixAll.eslint"],
         "eslint.validate": [
           "javascript",
           "javascriptreact",
