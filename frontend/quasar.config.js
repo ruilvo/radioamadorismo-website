@@ -8,8 +8,6 @@
 // Configuration for your app
 // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js
 
-/* eslint-disable @typescript-eslint/no-var-requires */
-
 const { configure } = require('quasar/wrappers');
 
 module.exports = configure(function (/* ctx */) {
@@ -63,6 +61,9 @@ module.exports = configure(function (/* ctx */) {
       // https: true
       open: false, // opens browser window automatically
       port: 8080,
+      watch: {
+        usePolling: true,
+      },
       proxy: {
         '/api': {
           target: 'http://backend:8000',
@@ -86,11 +87,11 @@ module.exports = configure(function (/* ctx */) {
     framework: {
       config: {},
 
-      iconSet: 'material-icons', // Quasar icon set
+      // iconSet: 'material-icons', // Quasar icon set
       lang: 'pt', // Quasar language pack
 
       // Quasar plugins
-      plugins: ['LoadingBar'],
+      plugins: [],
     },
   };
 });
