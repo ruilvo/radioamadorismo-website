@@ -8,7 +8,7 @@
           round
           icon="menu"
           aria-label="Menu"
-          @click="toggleLeftDrawer"
+          @click="() => left_drawer.toggle()"
         />
 
         <q-toolbar-title>
@@ -22,7 +22,7 @@
       </q-toolbar>
     </q-header>
 
-    <q-drawer show-if-above v-model="leftDrawerOpen" side="left" bordered>
+    <q-drawer show-if-above v-model="left_drawer.open" side="left" bordered>
       <q-list>
         <q-item-label header> Essential Links </q-item-label>
 
@@ -41,10 +41,13 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
 import EssentialLink, {
   EssentialLinkProps,
 } from 'components/EssentialLink.vue';
+
+import { useLeftDrawerStore } from 'stores/left-drawer';
+
+const left_drawer = useLeftDrawerStore();
 
 const essentialLinks: EssentialLinkProps[] = [
   {
@@ -90,10 +93,4 @@ const essentialLinks: EssentialLinkProps[] = [
     link: 'https://awesome.quasar.dev',
   },
 ];
-
-const leftDrawerOpen = ref(false);
-
-function toggleLeftDrawer() {
-  leftDrawerOpen.value = !leftDrawerOpen.value;
-}
 </script>
