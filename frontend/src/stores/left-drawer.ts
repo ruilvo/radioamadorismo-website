@@ -1,7 +1,11 @@
 import { defineStore } from 'pinia';
 
+interface LeftDrawerState {
+  open: boolean;
+}
+
 export const useLeftDrawerStore = defineStore('left-drawer', {
-  state: () => ({
+  state: (): LeftDrawerState => ({
     open: true,
   }),
   actions: {
