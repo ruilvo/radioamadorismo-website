@@ -8,7 +8,7 @@
           round
           icon="menu"
           aria-label="Menu"
-          @click="() => left_drawer.toggle()"
+          @click="left_drawer.toggle()"
         />
 
         <q-toolbar-title>
