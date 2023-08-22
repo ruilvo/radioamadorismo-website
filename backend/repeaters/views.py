@@ -12,11 +12,19 @@ from repeaters.vendor.exports.anytone_d878uviip import (
     ReceiveGroupsAnytoneUVIIPlusSerializer,
     ChannelAnytoneUVIIPlusSerializer,
     ZoneAnytoneUVIIPlusSerializer,
+    codeplug_zip,
 )
 
 
 def generate_csv_response(filename: str, content: io.StringIO) -> HttpResponse:
     response = HttpResponse(content.getvalue(), content_type="text/csv")
+    response["Content-Disposition"] = f'attachment;filename="{filename}"'
+
+    return response
+
+
+def generate_zip_response(filename: str, content: io.BytesIO) -> HttpResponse:
+    response = HttpResponse(content.getvalue(), content_type="application/zip")
     response["Content-Disposition"] = f'attachment;filename="{filename}"'
 
     return response
@@ -54,3 +62,8 @@ def d878uvii_zones_view(_: HttpRequest):
             ChannelAnytoneUVIIPlusSerializer()
         ).generate_csv(),
     )
+
+
+@require_safe
+def d878uvii_codeplug_view(_: HttpRequest):
+    return generate_zip_response("codeplug.zip", codeplug_zip())

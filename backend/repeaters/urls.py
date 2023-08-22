@@ -9,6 +9,7 @@ from repeaters.views import (
     d878uvii_rgs_view,
     d878uvii_channels_view,
     d878uvii_zones_view,
+    d878uvii_codeplug_view,
 )
 
 urlpatterns = [
@@ -37,6 +38,11 @@ urlpatterns = [
                             ),
                             path(
                                 "zone/", d878uvii_zones_view, name="d878uvii_zones_view"
+                            ),
+                            path(
+                                "codeplug/",
+                                d878uvii_codeplug_view,
+                                name="d878uvii_codeplug_view",
                             ),
                         ]
                     ),
