@@ -2,10 +2,10 @@
 Define the Django views for the repeaters app
 """
 
-import io
-
 from django.views.decorators.http import require_safe
-from django.http import HttpRequest, HttpResponse
+from django.http import HttpRequest
+
+from repeaters.vendor.responses import generate_csv_response, generate_zip_response
 
 from repeaters.vendor.exports.anytone_d878uviip import (
     DimDmrTgAnytoneUVIIPlusSerializer,
@@ -14,20 +14,6 @@ from repeaters.vendor.exports.anytone_d878uviip import (
     ZoneAnytoneUVIIPlusSerializer,
     codeplug_zip,
 )
-
-
-def generate_csv_response(filename: str, content: io.StringIO) -> HttpResponse:
-    response = HttpResponse(content.getvalue(), content_type="text/csv")
-    response["Content-Disposition"] = f'attachment;filename="{filename}"'
-
-    return response
-
-
-def generate_zip_response(filename: str, content: io.BytesIO) -> HttpResponse:
-    response = HttpResponse(content.getvalue(), content_type="application/zip")
-    response["Content-Disposition"] = f'attachment;filename="{filename}"'
-
-    return response
 
 
 @require_safe
