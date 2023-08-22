@@ -1,5 +1,5 @@
 <template>
-  <div class="q-pa-md q-gutter-y-md">
+  <MainLayout>
     <h2>Gerador de Passcodes de APRS-IS</h2>
     <div class="row items-center q-gutter-x-md">
       <h4>Indicativo:</h4>
@@ -15,12 +15,14 @@
     <h4 v-if="passcode != '' && !thinking" class="col-auto">
       O Passcode para o APRS-IS é: {{ passcode }}
     </h4>
-  </div>
+  </MainLayout>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
 import { api } from 'boot/axios';
+
+import MainLayout from 'components/layout/MainLayout.vue';
 
 const callsign = ref('');
 const passcode = ref('');
