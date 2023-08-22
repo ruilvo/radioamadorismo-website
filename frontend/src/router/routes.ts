@@ -1,10 +1,19 @@
 import { RouteRecordRaw } from 'vue-router';
 
+import aprs_routes from './routes/aprs';
+
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
-    children: [{ path: '', component: () => import('pages/IndexPage.vue') }],
+    children: [
+      {
+        name: 'home',
+        path: '',
+        component: () => import('pages/IndexPage.vue'),
+      },
+      ...aprs_routes,
+    ],
   },
 
   // Always leave this as last one,
