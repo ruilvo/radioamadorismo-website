@@ -27,7 +27,7 @@ services:
       - backend
     volumes:
       - frontend_dist_data:/workspace/frontend/dist
-    restart: always
+    restart: unless-stopped
     logging:
       driver: "json-file"
       options:
