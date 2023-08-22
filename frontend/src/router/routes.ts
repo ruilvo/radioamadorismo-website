@@ -1,6 +1,7 @@
 import { RouteRecordRaw } from 'vue-router';
 
 import aprs_routes from './routes/aprs';
+import repeaters_routes from './routes/repeaters';
 
 const routes: RouteRecordRaw[] = [
   {
@@ -13,6 +14,7 @@ const routes: RouteRecordRaw[] = [
         component: () => import('pages/IndexPage.vue'),
       },
       ...aprs_routes,
+      ...repeaters_routes,
     ],
   },
 
