@@ -120,7 +120,10 @@ class DimDmrTgSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
         )
         if not new_object_created:
             new_object.name = validated_data["name"]
-            new_object.call_mode = validated_data["call_mode"]
+            try:
+                new_object.call_mode = validated_data["call_mode"]
+            except KeyError:  # `call_mode` isn't always available, whatever.
+                pass
             new_object.save()
         return new_object
 
@@ -154,25 +157,28 @@ class DimDmrSerializer(  # pylint: disable=too-many-ancestors
             for tg in validated_data["ts2_alternative_tgs"]
         ]
         ts_configuration = validated_data["ts_configuration"]
+        color_code = validated_data["color_code"]
 
         # Find an object to update, or create a new one
         try:
             new_object = DimDmr.objects.get(tg__id=tg.id)
             new_object.ts1_default_tg = ts1_default_tg
             new_object.ts2_default_tg = ts2_default_tg
-            new_object.ts1_alternative_tgs = ts1_alternative_tgs
-            new_object.ts2_alternative_tgs = ts2_alternative_tgs
-            new_object.ts_configuration = ts_configuration
-            new_object.save()
+            new_object.color_code = color_code
         except DimDmr.DoesNotExist:
             new_object = DimDmr.objects.create(
                 tg=tg,
+                color_code=color_code,
                 ts1_default_tg=ts1_default_tg,
                 ts2_default_tg=ts2_default_tg,
-                ts1_alternative_tgs=ts1_alternative_tgs,
-                ts2_alternative_tgs=ts2_alternative_tgs,
-                ts_configuration=ts_configuration,
             )
+        new_object.ts_configuration = ts_configuration
+        # https://stackoverflow.com/a/50015229/5168563
+        for tg in ts1_alternative_tgs:
+            new_object.ts1_alternative_tgs.add(tg)
+        for tg in ts2_alternative_tgs:
+            new_object.ts2_alternative_tgs.add(tg)
+        new_object.save()
         return new_object
 
 
