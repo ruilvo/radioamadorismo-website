@@ -15,6 +15,8 @@ from repeaters.vendor.exports.anytone_d878uviip import (
     codeplug_zip,
 )
 
+from repeaters.vendor.exports.chirp import chirp_csv
+
 
 @require_safe
 def d878uvii_tgs_view(_: HttpRequest):
@@ -53,3 +55,8 @@ def d878uvii_zones_view(_: HttpRequest):
 @require_safe
 def d878uvii_codeplug_view(_: HttpRequest):
     return generate_zip_response("codeplug.zip", codeplug_zip())
+
+
+@require_safe
+def chirp_csv_view(_: HttpRequest):
+    return generate_csv_response("chirp.csv", chirp_csv())
