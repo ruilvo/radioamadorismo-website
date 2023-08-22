@@ -1,7 +1,7 @@
 {
   "name": "portaldoradioamador-frontend",
   "version": "0.0.1",
-  "description": "Pagina de apoio ao Portal do Radioamador",
+  "description": "Pagina do Portal do Radioamador",
   "productName": "Portal do Radioamador",
   "author": "Rui Oliveira <ruimail24@gmail.com>",
   "private": true,
