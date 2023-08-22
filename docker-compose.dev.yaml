@@ -16,6 +16,12 @@ services:
       - frontend_node_modules:/workspace/frontend/node_modules
     depends_on:
       - backend
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "10"
   backend:
     build:
       context: ./backend
