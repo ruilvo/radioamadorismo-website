@@ -1,6 +1,6 @@
 # Portal do Radioamador (portaldoradioamador-frontend)
 
-Website de suporte ao Portal do Radioamador
+Website do Portal do Radioamador
 
 ## Install the dependencies
 
