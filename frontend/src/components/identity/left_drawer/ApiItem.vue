@@ -1,5 +1,11 @@
 <template>
-  <q-expansion-item key="api-tab" expand-separator icon="api" label="API">
+  <q-expansion-item
+    default-opened
+    key="api-tab"
+    expand-separator
+    icon="api"
+    label="API"
+  >
     <q-item
       key="swagger-api"
       clickable
