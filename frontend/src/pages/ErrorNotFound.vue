@@ -5,19 +5,17 @@
     <div>
       <div style="font-size: 30vh">404</div>
 
-      <div class="text-h2" style="opacity: 0.4">Oops. Nothing here...</div>
+      <div class="text-h2" style="opacity: 0.4">Oops. Nada aqui...</div>
 
       <q-btn
         class="q-mt-xl"
         color="white"
         text-color="blue"
         unelevated
-        to="/"
+        :to="{ name: 'home' }"
         label="Go Home"
         no-caps
       />
     </div>
   </div>
 </template>
-
-<script setup lang="ts"></script>
