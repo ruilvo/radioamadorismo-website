@@ -24,4 +24,29 @@ admin.site.register(DimDmrTg)
 admin.site.register(DimDmr)
 admin.site.register(DimHolder)
 admin.site.register(DimLocation)
-admin.site.register(FactRepeater)
+
+
+class FactRepeaterAdmin(admin.ModelAdmin):
+    """
+    Admin interface for the FactRepeater model.
+    """
+
+    list_display = (
+        "id",
+        "callsign",
+        "modes",
+        "info_holder",
+    )
+    search_fields = (
+        "id",
+        "callsign",
+        "info_holder__abrv",
+    )
+    ordering = (
+        "id",
+        "callsign",
+        "info_holder",
+    )
+
+
+admin.site.register(FactRepeater, FactRepeaterAdmin)
