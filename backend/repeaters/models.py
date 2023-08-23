@@ -393,7 +393,7 @@ class DimLocation(models.Model):
     def __str__(self) -> str:
         coordinates_str = PLACEHOLDER_STR
         if self.latitude is not None and self.longitude is not None:
-            coordinates_str = f" ({self.latitude}, {self.longitude})"
+            coordinates_str = f" ({self.latitude:.4f}, {self.longitude:.4f})"
         return (
             f"{self.region if self.region else PLACEHOLDER_STR}, "
             + f"{self.place if self.place else PLACEHOLDER_STR}, "
