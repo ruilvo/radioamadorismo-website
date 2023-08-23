@@ -41,23 +41,140 @@ class DimRfAdmin(admin.ModelAdmin):
         "mode",
     )
     ordering = (
-        "id",
-        "channel",
+        "mode",
+        "band",
         "tx_mhz",
         "rx_mhz",
+        "channel",
         "shift_mhz",
-        "band",
-        "mode",
+        "id",
     )
 
 
 admin.site.register(DimRf, DimRfAdmin)
 
-admin.site.register(DimFm)
-admin.site.register(DimDStar)
-admin.site.register(DimFusion)
-admin.site.register(DimDmrTg)
-admin.site.register(DimDmr)
+
+class DimFmAdmin(admin.ModelAdmin):
+    """
+    Admin interface for the DimFm model.
+    """
+
+    list_display = (
+        "bandwidth",
+        "modulation",
+        "tone",
+    )
+    search_fields = (
+        "bandwidth",
+        "modulation",
+        "tone",
+    )
+    ordering = (
+        "bandwidth",
+        "modulation",
+        "tone",
+    )
+
+
+admin.site.register(DimFm, DimFmAdmin)
+
+
+class DimDStarAdmin(admin.ModelAdmin):
+    """
+    Admin interface for the DimDStar model.
+    """
+
+    list_display = (
+        "modulation",
+        "gateway",
+        "reflector",
+    )
+    search_fields = (
+        "modulation",
+        "gateway",
+        "reflector",
+    )
+    ordering = (
+        "modulation",
+        "gateway",
+        "reflector",
+    )
+
+
+admin.site.register(DimDStar, DimDStarAdmin)
+
+
+class DimFusionAdmin(admin.ModelAdmin):
+    """
+    Admin interface for the DimFusion model.
+    """
+
+    list_display = (
+        "modulation",
+        "wiresx",
+        "room_id",
+    )
+    search_fields = (
+        "modulation",
+        "wiresx",
+        "room_id",
+    )
+    ordering = (
+        "modulation",
+        "wiresx",
+        "room_id",
+    )
+
+
+admin.site.register(DimFusion, DimFusionAdmin)
+
+
+class DimDmrTgAdmin(admin.ModelAdmin):
+    """
+    Admin interface for the DimDmrTg model.
+    """
+
+    list_display = (
+        "call_mode",
+        "id",
+        "name",
+    )
+    search_fields = (
+        "call_mode",
+        "id",
+        "name",
+    )
+    ordering = (
+        "call_mode",
+        "id",
+        "name",
+    )
+
+
+admin.site.register(DimDmrTg, DimDmrTgAdmin)
+
+
+class DimDmrAdmin(admin.ModelAdmin):
+    """
+    Admin interface for the DimDmr model.
+    """
+
+    list_display = (
+        "get_id",
+        "get_name",
+    )
+    search_fields = ("__str__",)
+
+    @admin.display(description="ID")
+    def get_id(self, obj: DimDmr):
+        return obj.tg.id
+
+    @admin.display(description="Name")
+    def get_name(self, obj: DimDmr):
+        return obj.tg.name
+
+
+admin.site.register(DimDmr, DimDmrAdmin)
 
 
 class DimHolderAdmin(admin.ModelAdmin):
@@ -76,9 +193,9 @@ class DimHolderAdmin(admin.ModelAdmin):
         "name",
     )
     ordering = (
-        "id",
         "abrv",
         "name",
+        "id",
     )
 
 
@@ -107,12 +224,12 @@ class DimLocationAdmin(admin.ModelAdmin):
         "longitude",
     )
     ordering = (
-        "id",
-        "place",
         "region",
         "qth_loc",
         "latitude",
         "longitude",
+        "place",
+        "id",
     )
 
 
@@ -136,9 +253,9 @@ class FactRepeaterAdmin(admin.ModelAdmin):
         "info_holder__abrv",
     )
     ordering = (
-        "id",
-        "callsign",
         "info_holder",
+        "callsign",
+        "id",
     )
 
 
