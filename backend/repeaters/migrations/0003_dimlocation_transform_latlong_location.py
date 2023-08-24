@@ -5,7 +5,7 @@ from django.db import migrations
 from django.contrib.gis.geos import Point
 
 
-def combine_names(apps, _):
+def transform_latlong_location(apps, _):
     # We can't import the Person model directly as it may be a newer
     # version than this migration expects. We use the historical version.
     DimLocation = apps.get_model("repeaters", "DimLocation")
@@ -22,4 +22,6 @@ class Migration(migrations.Migration):
         ("repeaters", "0002_dimlocation_location"),
     ]
 
-    operations = []
+    operations = [
+        migrations.RunPython(transform_latlong_location),
+    ]
