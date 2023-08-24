@@ -13,7 +13,6 @@ from repeaters.models import (
     DimFusion,
     DimDmrTg,
     DimDmr,
-    DimHolder,
     DimLocation,
     FactRepeater,
 )
@@ -192,33 +191,6 @@ class DimDmrAdmin(admin.ModelAdmin):
 
 
 admin.site.register(DimDmr, DimDmrAdmin)
-
-
-class DimHolderAdmin(admin.ModelAdmin):
-    """
-    Admin interface for the DimHolder model.
-    """
-
-    save_as = True
-    # inlines = (FactRepeaterInline,)
-    list_display = (
-        "id",
-        "abrv",
-        "name",
-    )
-    search_fields = (
-        "id",
-        "abrv",
-        "name",
-    )
-    ordering = (
-        "abrv",
-        "name",
-        "id",
-    )
-
-
-admin.site.register(DimHolder, DimHolderAdmin)
 
 
 class DimLocationAdmin(GeoModelAdmin):

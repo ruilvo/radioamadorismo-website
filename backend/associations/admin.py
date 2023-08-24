@@ -4,6 +4,8 @@ Admin interface for the associations app.
 
 from django.contrib import admin
 
+from repeaters.admin import FactRepeaterInline
+
 from associations.models import Association
 
 
@@ -13,7 +15,7 @@ class AssociationAdmin(admin.ModelAdmin):
     """
 
     save_as = True
-    # inlines = (FactRepeaterInline,)
+    inlines = (FactRepeaterInline,)
     list_display = (
         "id",
         "abrv",

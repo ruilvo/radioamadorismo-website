@@ -9,7 +9,7 @@ from django.db.models import Q
 
 from django_filters.rest_framework import filters, FilterSet
 
-from repeaters.models import DimRf, DimHolder, DimLocation, FactRepeater
+from repeaters.models import DimRf, DimLocation, FactRepeater
 
 # https://stackoverflow.com/a/62878113/5168563
 
@@ -89,33 +89,6 @@ class DimRfFilter(FilterSet):
             "channel": ["iexact", "icontains"],
             "band": ["iexact"],
             "mode": ["iexact", "icontains"],
-        }
-
-
-def dimholder__holder_search(queryset, _, value):
-    """
-    Allows searching for holder data both in the abrv and name fields.
-    """
-    queryset = queryset.filter(
-        Q(abrv__icontains=value) | Q(name__icontains=value)
-    ).distinct()
-    return queryset
-
-
-class DimHolderFilter(FilterSet):
-    """
-    Custom FilterSet for DimHolder model.
-    """
-
-    holder = filters.CharFilter(
-        label="Holder contains", method=dimholder__holder_search
-    )
-
-    class Meta:
-        model = DimHolder
-        fields = {
-            "abrv": ["iexact", "icontains"],
-            "name": ["iexact", "icontains"],
         }
 
 
@@ -300,9 +273,9 @@ class FactRepeaterFilter(FilterSet):
             "info_dmr__ts1_default_tg__id": ["exact"],
             "info_dmr__ts2_default_tg__name": ["iexact", "icontains"],
             "info_dmr__ts2_default_tg__id": ["exact"],
-            # DimHolder
-            # "info_holder__abrv": ["iexact", "icontains"],
-            # "info_holder__name": ["iexact", "icontains"],
+            # Association
+            "info_holder__abrv": ["iexact", "icontains"],
+            "info_holder__name": ["iexact", "icontains"],
             # DimLocation
             "info_location__latitude": ["exact", "gte", "lte"],
             "info_location__longitude": ["exact", "gte", "lte"],

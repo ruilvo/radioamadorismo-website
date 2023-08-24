@@ -46,7 +46,7 @@ class AssociationViewSet(  # pylint: disable=too-many-ancestors
     NestedWritableModelViewSet
 ):
     """
-    ViewSet for DimHolder model.
+    ViewSet for Association model.
     """
 
     queryset = Association.objects.all()

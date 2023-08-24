@@ -7,6 +7,8 @@ from rest_framework import serializers
 from drf_writable_nested.serializers import WritableNestedModelSerializer
 from drf_writable_nested.mixins import UniqueFieldsMixin
 
+from associations.api.serializers import AssociationSerializer
+
 from repeaters.models import (
     DimRf,
     DimFm,
@@ -14,7 +16,6 @@ from repeaters.models import (
     DimFusion,
     DimDmrTg,
     DimDmr,
-    DimHolder,
     DimLocation,
     FactRepeater,
 )
@@ -182,28 +183,6 @@ class DimDmrSerializer(  # pylint: disable=too-many-ancestors
         return new_object
 
 
-class DimHolderSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
-    __doc__ = DimHolder.__doc__
-
-    class Meta:
-        model = DimHolder
-        fields = "__all__"
-
-    def create(self, validated_data):
-        abrv = validated_data["abrv"]
-        new_object, new_object_created = DimHolder.objects.get_or_create(
-            abrv=abrv,
-            defaults=validated_data,
-        )
-        if not new_object_created:
-            new_object.name = validated_data["name"]
-            new_object.email = validated_data["email"]
-            new_object.website = validated_data["website"]
-            new_object.notes = validated_data["notes"]
-            new_object.save()
-        return new_object
-
-
 class DimLocationSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
     __doc__ = DimLocation.__doc__
 
@@ -239,7 +218,7 @@ class FactRepeaterSerializer(  # pylint: disable=too-many-ancestors
     info_dstar = DimDStarSerializer(many=False, required=False)
     info_fusion = DimFusionSerializer(many=False, required=False)
     info_dmr = DimDmrSerializer(many=False, required=False)
-    # info_holder = DimHolderSerializer(many=False, required=False)
+    info_holder = AssociationSerializer(many=False, required=False)
     info_location = DimLocationSerializer(many=False, required=False)
 
     class Meta:

@@ -11,7 +11,6 @@ from repeaters.api.views import (
     DimFusionViewSet,
     DimDmrTgViewSet,
     DimDmrViewSet,
-    DimHolderViewSet,
     DimLocationViewSet,
     FactRepeaterViewSet,
 )
@@ -25,7 +24,6 @@ router.register("dim-dstar", DimDStarViewSet, basename="dim-dstar")
 router.register("dim-fusion", DimFusionViewSet, basename="dim-fusion")
 router.register("dim-dmr-tg", DimDmrTgViewSet, basename="dim-dmr-tg")
 router.register("dim-dmr", DimDmrViewSet, basename="dim-dmr")
-router.register("dim-holder", DimHolderViewSet, basename="dim-holder")
 router.register("dim-location", DimLocationViewSet, basename="dim-location")
 
 urlpatterns = router.urls
