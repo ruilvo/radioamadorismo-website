@@ -27,7 +27,7 @@ module.exports = configure(function (/* ctx */) {
     // app boot file (/src/boot)
     // --> boot files are part of "main.js"
     // https://v2.quasar.dev/quasar-cli-vite/boot-files
-    boot: ['axios'],
+    boot: ['axios', 'loading-bar'],
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#css
     css: ['app.scss'],
@@ -91,7 +91,7 @@ module.exports = configure(function (/* ctx */) {
       lang: 'pt', // Quasar language pack
 
       // Quasar plugins
-      plugins: [],
+      plugins: ['LoadingBar'],
     },
   };
 });
