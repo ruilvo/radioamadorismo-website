@@ -1,28 +1,29 @@
 <template>
-  <MainLayout>
-    <h2>Gerador de Passcodes de APRS-IS</h2>
-    <div class="row items-center q-gutter-x-md">
-      <h4>Indicativo:</h4>
-      <q-input v-model="callsign" filled dense square />
+  <div class="q-pa-md">
+    <div class="q-gutter-md">
+      <h2>Gerador de Passcodes de APRS-IS</h2>
+      <q-separator />
+      <div class="row items-center q-gutter-x-md">
+        <h4>Indicativo:</h4>
+        <q-input v-model="callsign" filled dense square />
+      </div>
+      <q-btn
+        color="primary"
+        label="Submeter"
+        class="col-auto"
+        :disable="callsign === ''"
+        @click="submit"
+      />
+      <h4 v-if="passcode != '' && !thinking" class="col-auto">
+        O Passcode para o APRS-IS é: {{ passcode }}
+      </h4>
     </div>
-    <q-btn
-      color="primary"
-      label="Submeter"
-      class="col-auto"
-      :disable="callsign === ''"
-      @click="submit"
-    />
-    <h4 v-if="passcode != '' && !thinking" class="col-auto">
-      O Passcode para o APRS-IS é: {{ passcode }}
-    </h4>
-  </MainLayout>
+  </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
 import { api } from 'boot/axios';
-
-import MainLayout from 'components/layout/MainLayout.vue';
 
 const callsign = ref('');
 const passcode = ref('');

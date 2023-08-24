@@ -1,11 +1,9 @@
 <template>
-  <MainLayout>
-    <h1>Portal do Radioamador</h1>
-    <hr />
-    <p>Serviços de utilidade para radioamadores.</p>
-  </MainLayout>
+  <div class="q-pa-md">
+    <div class="q-gutter-md">
+      <h1>Portal do Radioamador</h1>
+      <q-separator />
+      <p>Serviços de utilidade para radioamadores.</p>
+    </div>
+  </div>
 </template>
-
-<script setup lang="ts">
-import MainLayout from 'components/layout/MainLayout.vue';
-</script>
