@@ -212,22 +212,16 @@ class DimLocationAdmin(admin.ModelAdmin):
         "place",
         "region",
         "qth_loc",
-        "latitude",
-        "longitude",
     )
     search_fields = (
         "id",
         "place",
         "region",
         "qth_loc",
-        "latitude",
-        "longitude",
     )
     ordering = (
         "region",
         "qth_loc",
-        "latitude",
-        "longitude",
         "place",
         "id",
     )

@@ -278,62 +278,62 @@ class ChannelAnytoneUVIIPlusSerializer:  # pylint: disable=too-few-public-method
                 Q(info_location__region=DimLocation.RegionOptions.CONTINENT)
                 & Q(info_rf__band=DimRf.BandOptions.B_2M)
                 & Q(modes__contains=[FactRepeater.ModeOptions.FM])
-            ).order_by("-info_location__latitude"),
+            ),  # .order_by("-info_location__latitude"),
             "continent_70cm_fm": FactRepeater.objects.filter(
                 Q(info_location__region=DimLocation.RegionOptions.CONTINENT)
                 & Q(info_rf__band=DimRf.BandOptions.B_70CM)
                 & Q(modes__contains=[FactRepeater.ModeOptions.FM])
-            ).order_by("-info_location__latitude"),
+            ),  # .order_by("-info_location__latitude"),
             "continent_2m_dmr": FactRepeater.objects.filter(
                 Q(info_location__region=DimLocation.RegionOptions.CONTINENT)
                 & Q(info_rf__band=DimRf.BandOptions.B_2M)
                 & Q(modes__contains=[FactRepeater.ModeOptions.DMR])
-            ).order_by("-info_location__latitude"),
+            ),  # .order_by("-info_location__latitude"),
             "continent_70cm_dmr": FactRepeater.objects.filter(
                 Q(info_location__region=DimLocation.RegionOptions.CONTINENT)
                 & Q(info_rf__band=DimRf.BandOptions.B_70CM)
                 & Q(modes__contains=[FactRepeater.ModeOptions.DMR])
-            ).order_by("-info_location__latitude"),
+            ),  # .order_by("-info_location__latitude"),
             "madeira_2m_fm": FactRepeater.objects.filter(
                 Q(info_location__region=DimLocation.RegionOptions.MADEIRA)
                 & Q(info_rf__band=DimRf.BandOptions.B_2M)
                 & Q(modes__contains=[FactRepeater.ModeOptions.FM])
-            ).order_by("info_location__longitude"),
+            ),  # .order_by("info_location__longitude"),
             "madeira_70cm_fm": FactRepeater.objects.filter(
                 Q(info_location__region=DimLocation.RegionOptions.MADEIRA)
                 & Q(info_rf__band=DimRf.BandOptions.B_70CM)
                 & Q(modes__contains=[FactRepeater.ModeOptions.FM])
-            ).order_by("info_location__longitude"),
+            ),  # .order_by("info_location__longitude"),
             "madeira_2m_dmr": FactRepeater.objects.filter(
                 Q(info_location__region=DimLocation.RegionOptions.MADEIRA)
                 & Q(info_rf__band=DimRf.BandOptions.B_2M)
                 & Q(modes__contains=[FactRepeater.ModeOptions.DMR])
-            ).order_by("info_location__longitude"),
+            ),  # .order_by("info_location__longitude"),
             "madeira_70cm_dmr": FactRepeater.objects.filter(
                 Q(info_location__region=DimLocation.RegionOptions.MADEIRA)
                 & Q(info_rf__band=DimRf.BandOptions.B_70CM)
                 & Q(modes__contains=[FactRepeater.ModeOptions.DMR])
-            ).order_by("info_location__longitude"),
+            ),  # .order_by("info_location__longitude"),
             "azores_2m_fm": FactRepeater.objects.filter(
                 Q(info_location__region=DimLocation.RegionOptions.AZORES)
                 & Q(info_rf__band=DimRf.BandOptions.B_2M)
                 & Q(modes__contains=[FactRepeater.ModeOptions.FM])
-            ).order_by("info_location__longitude"),
+            ),  # .order_by("info_location__longitude"),
             "azores_70cm_fm": FactRepeater.objects.filter(
                 Q(info_location__region=DimLocation.RegionOptions.AZORES)
                 & Q(info_rf__band=DimRf.BandOptions.B_70CM)
                 & Q(modes__contains=[FactRepeater.ModeOptions.FM])
-            ).order_by("info_location__longitude"),
+            ),  # .order_by("info_location__longitude"),
             "azores_2m_dmr": FactRepeater.objects.filter(
                 Q(info_location__region=DimLocation.RegionOptions.AZORES)
                 & Q(info_rf__band=DimRf.BandOptions.B_2M)
                 & Q(modes__contains=[FactRepeater.ModeOptions.DMR])
-            ).order_by("info_location__longitude"),
+            ),  # .order_by("info_location__longitude"),
             "azores_70cm_dmr": FactRepeater.objects.filter(
                 Q(info_location__region=DimLocation.RegionOptions.AZORES)
                 & Q(info_rf__band=DimRf.BandOptions.B_70CM)
                 & Q(modes__contains=[FactRepeater.ModeOptions.DMR])
-            ).order_by("info_location__longitude"),
+            ),  # .order_by("info_location__longitude"),
         }
 
         # Create the data to be written to the CSV file

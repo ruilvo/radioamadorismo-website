@@ -41,32 +41,32 @@ def chirp_csv() -> io.StringIO:
             Q(info_location__region=DimLocation.RegionOptions.CONTINENT)
             & Q(info_rf__band=DimRf.BandOptions.B_2M)
             & Q(modes__contains=[FactRepeater.ModeOptions.FM])
-        ).order_by("-info_location__latitude"),
+        ),  # .order_by("-info_location__latitude"),
         FactRepeater.objects.filter(  # Continent 70cm FM
             Q(info_location__region=DimLocation.RegionOptions.CONTINENT)
             & Q(info_rf__band=DimRf.BandOptions.B_70CM)
             & Q(modes__contains=[FactRepeater.ModeOptions.FM])
-        ).order_by("-info_location__latitude"),
+        ),  # .order_by("-info_location__latitude"),
         FactRepeater.objects.filter(  # Madeira 2m FM
             Q(info_location__region=DimLocation.RegionOptions.MADEIRA)
             & Q(info_rf__band=DimRf.BandOptions.B_2M)
             & Q(modes__contains=[FactRepeater.ModeOptions.FM])
-        ).order_by("info_location__longitude"),
+        ),  # .order_by("info_location__longitude"),
         FactRepeater.objects.filter(  # Madeira 70cm FM
             Q(info_location__region=DimLocation.RegionOptions.MADEIRA)
             & Q(info_rf__band=DimRf.BandOptions.B_70CM)
             & Q(modes__contains=[FactRepeater.ModeOptions.FM])
-        ).order_by("info_location__longitude"),
+        ),  # .order_by("info_location__longitude"),
         FactRepeater.objects.filter(  # Azores 2m FM
             Q(info_location__region=DimLocation.RegionOptions.AZORES)
             & Q(info_rf__band=DimRf.BandOptions.B_2M)
             & Q(modes__contains=[FactRepeater.ModeOptions.FM])
-        ).order_by("info_location__longitude"),
+        ),  # order_by("info_location__longitude"),
         FactRepeater.objects.filter(  # Azores 70cm FM
             Q(info_location__region=DimLocation.RegionOptions.AZORES)
             & Q(info_rf__band=DimRf.BandOptions.B_70CM)
             & Q(modes__contains=[FactRepeater.ModeOptions.FM])
-        ).order_by("info_location__longitude"),
+        ),  # .order_by("info_location__longitude"),
     ]
 
     data = []

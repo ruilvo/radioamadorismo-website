@@ -209,23 +209,6 @@ class DimLocationSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
         model = DimLocation
         fields = "__all__"
 
-    def create(self, validated_data):
-        latitude = validated_data.get("latitude", None)
-        longitude = validated_data.get("longitude", None)
-        if latitude is not None and longitude is not None:
-            new_object, new_object_created = DimLocation.objects.get_or_create(
-                latitude=latitude,
-                longitude=longitude,
-                defaults=validated_data,
-            )
-            if not new_object_created:
-                new_object.region = validated_data["region"]
-                new_object.place = validated_data["place"]
-                new_object.qth_loc = validated_data["qth_loc"]
-                new_object.save()
-            return new_object
-        return DimLocation.objects.create(**validated_data)
-
 
 class FactRepeaterSerializer(  # pylint: disable=too-many-ancestors
     WritableNestedModelSerializer

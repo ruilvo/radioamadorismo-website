@@ -142,8 +142,6 @@ class DimLocationFilter(FilterSet):
     class Meta:
         model = DimLocation
         fields = {
-            "latitude": ["exact", "gte", "lte"],
-            "longitude": ["exact", "gte", "lte"],
             "region": ["iexact"],
             "place": ["iexact", "icontains"],
             "qth_loc": ["iexact", "icontains"],
@@ -304,8 +302,6 @@ class FactRepeaterFilter(FilterSet):
             "info_holder__abrv": ["iexact", "icontains"],
             "info_holder__name": ["iexact", "icontains"],
             # DimLocation
-            "info_location__latitude": ["exact", "gte", "lte"],
-            "info_location__longitude": ["exact", "gte", "lte"],
             "info_location__region": ["iexact"],
             "info_location__place": ["iexact", "icontains"],
             "info_location__qth_loc": ["iexact"],
