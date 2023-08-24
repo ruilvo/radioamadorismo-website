@@ -27,6 +27,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "whitenoise.runserver_nostatic",  # WhiteNoise static files handling
     "django.contrib.staticfiles",
+    # Django.contrib apps
+    "django.contrib.gis",
     # REST framework
     "rest_framework",
     "rest_framework.authtoken",
@@ -189,7 +191,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap3"
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
+        "ENGINE": "django.contrib.gis.db.backends.postgis",
         "NAME": os.environ.get("POSTGRES_DB", "radioamadorismo_website_default"),
         "USER": os.environ.get("POSTGRES_USER", "radioamadorismo_website_user"),
         "PASSWORD": os.environ.get(
