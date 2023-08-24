@@ -28,6 +28,7 @@ class DimRfAdmin(admin.ModelAdmin):
     Admin interface for the DimRf model.
     """
 
+    save_as = True
     inlines = (FactRepeaterInline,)
     list_display = (
         "id",
@@ -66,6 +67,7 @@ class DimFmAdmin(admin.ModelAdmin):
     Admin interface for the DimFm model.
     """
 
+    save_as = True
     inlines = (FactRepeaterInline,)
     list_display = (
         "bandwidth",
@@ -92,6 +94,7 @@ class DimDStarAdmin(admin.ModelAdmin):
     Admin interface for the DimDStar model.
     """
 
+    save_as = True
     inlines = (FactRepeaterInline,)
     list_display = (
         "modulation",
@@ -118,6 +121,7 @@ class DimFusionAdmin(admin.ModelAdmin):
     Admin interface for the DimFusion model.
     """
 
+    save_as = True
     inlines = (FactRepeaterInline,)
     list_display = (
         "modulation",
@@ -144,6 +148,7 @@ class DimDmrTgAdmin(admin.ModelAdmin):
     Admin interface for the DimDmrTg model.
     """
 
+    save_as = True
     list_display = (
         "call_mode",
         "id",
@@ -169,6 +174,7 @@ class DimDmrAdmin(admin.ModelAdmin):
     Admin interface for the DimDmr model.
     """
 
+    save_as = True
     inlines = (FactRepeaterInline,)
     list_display = (
         "get_id",
@@ -193,6 +199,7 @@ class DimHolderAdmin(admin.ModelAdmin):
     Admin interface for the DimHolder model.
     """
 
+    save_as = True
     inlines = (FactRepeaterInline,)
     list_display = (
         "id",
@@ -222,6 +229,7 @@ class DimLocationAdmin(GeoModelAdmin):
     geomap_field_longitude = "id_longitude"
     geomap_field_latitude = "id_latitude"
 
+    save_as = True
     inlines = (FactRepeaterInline,)
     list_display = (
         "id",
@@ -257,6 +265,7 @@ class FactRepeaterAdmin(admin.ModelAdmin):
     Admin interface for the FactRepeater model.
     """
 
+    save_as = True
     autocomplete_fields = (
         "info_rf",
         "info_fm",
