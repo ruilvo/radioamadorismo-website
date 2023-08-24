@@ -36,16 +36,9 @@ from repeaters.api.filters import (
 )
 
 
-class FactRepeaterViewSet(viewsets.ModelViewSet):  # pylint: disable=too-many-ancestors
-    """
-    ViewSet for FactRepeater model.
-    """
-
-    queryset = FactRepeater.objects.all()
-    serializer_class = FactRepeaterSerializer
-
-    filterset_class = FactRepeaterFilter
-
+class NestedWritableModelViewSet(  # pylint: disable=too-many-ancestors
+    viewsets.ModelViewSet
+):
     def create(self, request, *args, **kwargs):
         """
         Create a list of model instances if a list is provided or a
@@ -72,7 +65,20 @@ class FactRepeaterViewSet(viewsets.ModelViewSet):  # pylint: disable=too-many-an
         return serializer
 
 
-class DimRfViewSet(viewsets.ModelViewSet):  # pylint: disable=too-many-ancestors
+class FactRepeaterViewSet(  # pylint: disable=too-many-ancestors
+    NestedWritableModelViewSet
+):
+    """
+    ViewSet for FactRepeater model.
+    """
+
+    queryset = FactRepeater.objects.all()
+    serializer_class = FactRepeaterSerializer
+
+    filterset_class = FactRepeaterFilter
+
+
+class DimRfViewSet(NestedWritableModelViewSet):  # pylint: disable=too-many-ancestors
     """
     ViewSet for DimRf model.
     """
@@ -82,7 +88,7 @@ class DimRfViewSet(viewsets.ModelViewSet):  # pylint: disable=too-many-ancestors
     filterset_class = DimRfFilter
 
 
-class DimFmViewSet(viewsets.ModelViewSet):  # pylint: disable=too-many-ancestors
+class DimFmViewSet(NestedWritableModelViewSet):  # pylint: disable=too-many-ancestors
     """
     ViewSet for DimFm model.
     """
@@ -91,7 +97,7 @@ class DimFmViewSet(viewsets.ModelViewSet):  # pylint: disable=too-many-ancestors
     serializer_class = DimFmSerializer
 
 
-class DimDStarViewSet(viewsets.ModelViewSet):  # pylint: disable=too-many-ancestors
+class DimDStarViewSet(NestedWritableModelViewSet):  # pylint: disable=too-many-ancestors
     """
     ViewSet for DimDStar model.
     """
@@ -100,7 +106,9 @@ class DimDStarViewSet(viewsets.ModelViewSet):  # pylint: disable=too-many-ancest
     serializer_class = DimDStarSerializer
 
 
-class DimFusionViewSet(viewsets.ModelViewSet):  # pylint: disable=too-many-ancestors
+class DimFusionViewSet(  # pylint: disable=too-many-ancestors
+    NestedWritableModelViewSet
+):
     """
     ViewSet for DimFusion model.
     """
@@ -109,7 +117,7 @@ class DimFusionViewSet(viewsets.ModelViewSet):  # pylint: disable=too-many-ances
     serializer_class = DimFusionSerializer
 
 
-class DimDmrTgViewSet(viewsets.ModelViewSet):  # pylint: disable=too-many-ancestors
+class DimDmrTgViewSet(NestedWritableModelViewSet):  # pylint: disable=too-many-ancestors
     """
     ViewSet for DimDmrTg model.
     """
@@ -118,7 +126,7 @@ class DimDmrTgViewSet(viewsets.ModelViewSet):  # pylint: disable=too-many-ancest
     serializer_class = DimDmrTgSerializer
 
 
-class DimDmrViewSet(viewsets.ModelViewSet):  # pylint: disable=too-many-ancestors
+class DimDmrViewSet(NestedWritableModelViewSet):  # pylint: disable=too-many-ancestors
     """
     ViewSet for DimDmr model.
     """
@@ -127,7 +135,9 @@ class DimDmrViewSet(viewsets.ModelViewSet):  # pylint: disable=too-many-ancestor
     serializer_class = DimDmrSerializer
 
 
-class DimHolderViewSet(viewsets.ModelViewSet):  # pylint: disable=too-many-ancestors
+class DimHolderViewSet(  # pylint: disable=too-many-ancestors
+    NestedWritableModelViewSet
+):
     """
     ViewSet for DimHolder model.
     """
@@ -137,7 +147,9 @@ class DimHolderViewSet(viewsets.ModelViewSet):  # pylint: disable=too-many-ances
     filterset_class = DimHolderFilter
 
 
-class DimLocationViewSet(viewsets.ModelViewSet):
+class DimLocationViewSet(  # pylint: disable=too-many-ancestors
+    NestedWritableModelViewSet
+):
     """
     ViewSet for DimLocation model.
     """
