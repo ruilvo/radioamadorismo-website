@@ -22,5 +22,5 @@ class Association(models.Model):
         return f"{self.abrv}: {self.name if self.name else PLACEHOLDER_STR}"
 
     class Meta:
-        verbose_name = "info - holder"
-        verbose_name_plural = "info - holders"
+        verbose_name = "Association"
+        verbose_name_plural = "Associations"
