@@ -4,6 +4,8 @@ Admin interface for the repeaters app.
 
 from django.contrib import admin
 
+from django.contrib.gis.admin import GISModelAdmin
+
 from repeaters.models import (
     DimRf,
     DimFm,
@@ -202,7 +204,7 @@ class DimHolderAdmin(admin.ModelAdmin):
 admin.site.register(DimHolder, DimHolderAdmin)
 
 
-class DimLocationAdmin(admin.ModelAdmin):
+class DimLocationAdmin(GISModelAdmin):
     """
     Admin interface for the DimLocation model.
     """
