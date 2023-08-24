@@ -212,14 +212,12 @@ class DimDStar(models.Model):
     Models enough information for describing D-STAR repeaters.
     """
 
-    modulation = models.CharField(max_length=32, blank=True, verbose_name="modulation")
     gateway = models.CharField(max_length=32, blank=True, verbose_name="gateway")
     reflector = models.CharField(max_length=64, blank=True, verbose_name="reflector")
 
     def __str__(self) -> str:
         return (
-            f"{self.modulation if self.modulation else PLACEHOLDER_STR}, "
-            + f"{self.gateway if self.gateway else PLACEHOLDER_STR}, "
+            +f"{self.gateway if self.gateway else PLACEHOLDER_STR}, "
             + f"{self.reflector if self.reflector else PLACEHOLDER_STR}"
         )
 
@@ -239,14 +237,12 @@ class DimFusion(models.Model):
     Models enough information for describing Fusion/C4FM repeaters.
     """
 
-    modulation = models.CharField(max_length=32, blank=True, verbose_name="modulation")
     wiresx = models.CharField(max_length=32, blank=True, verbose_name="wiresx")
     room_id = models.CharField(max_length=32, blank=True, verbose_name="room ID")
 
     def __str__(self) -> str:
         return (
-            f"{self.modulation if self.modulation else PLACEHOLDER_STR}, "
-            + f"{self.wiresx if self.wiresx else PLACEHOLDER_STR}, "
+            +f"{self.wiresx if self.wiresx else PLACEHOLDER_STR}, "
             + f"{self.room_id if self.room_id else PLACEHOLDER_STR}"
         )
 
@@ -301,7 +297,6 @@ class DimDmr(models.Model):
     Models enough information for describing DMR repeaters.
     """
 
-    modulation = models.CharField(max_length=32, blank=True, verbose_name="modulation")
     # A DMR repeater has an unique DMR TG associated.
     tg = models.ForeignKey(DimDmrTg, on_delete=models.RESTRICT)
     color_code = models.IntegerField(verbose_name="C.C.")

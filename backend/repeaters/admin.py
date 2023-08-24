@@ -97,17 +97,14 @@ class DimDStarAdmin(admin.ModelAdmin):
     save_as = True
     inlines = (FactRepeaterInline,)
     list_display = (
-        "modulation",
         "gateway",
         "reflector",
     )
     search_fields = (
-        "modulation",
         "gateway",
         "reflector",
     )
     ordering = (
-        "modulation",
         "gateway",
         "reflector",
     )
@@ -124,17 +121,14 @@ class DimFusionAdmin(admin.ModelAdmin):
     save_as = True
     inlines = (FactRepeaterInline,)
     list_display = (
-        "modulation",
         "wiresx",
         "room_id",
     )
     search_fields = (
-        "modulation",
         "wiresx",
         "room_id",
     )
     ordering = (
-        "modulation",
         "wiresx",
         "room_id",
     )

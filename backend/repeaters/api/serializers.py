@@ -81,7 +81,6 @@ class DimDStarSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
             defaults=validated_data,
         )
         if not new_object_created:
-            new_object.modulation = validated_data["modulation"]
             new_object.save()
         return new_object
 
@@ -102,7 +101,6 @@ class DimFusionSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
             defaults=validated_data,
         )
         if not new_object_created:
-            new_object.modulation = validated_data["modulation"]
             new_object.save()
         return new_object
 

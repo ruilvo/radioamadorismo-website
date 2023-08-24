@@ -258,15 +258,12 @@ class FactRepeaterFilter(FilterSet):
             "info_fm__tone": ["exact"],
             "info_fm__bandwidth": ["iexact"],
             # DimDStar
-            "info_dstar__modulation": ["iexact", "icontains"],
             "info_dstar__gateway": ["iexact"],
             "info_dstar__reflector": ["iexact"],
             # DimFusion
-            "info_fusion__modulation": ["iexact", "icontains"],
             "info_fusion__wiresx": ["iexact"],
             "info_fusion__room_id": ["iexact"],
             # DimDmr
-            "info_dmr__modulation": ["iexact", "icontains"],
             "info_dmr__tg__name": ["iexact", "icontains"],
             "info_dmr__tg__id": ["exact"],
             "info_dmr__ts1_default_tg__name": ["iexact", "icontains"],
