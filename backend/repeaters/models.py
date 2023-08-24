@@ -335,6 +335,24 @@ class DimDmr(models.Model):
         verbose_name_plural = "info - DMR"
 
 
+class DimTetra(models.Model):
+    """
+    Models enough information for describing TETRA repeaters.
+    """
+
+    mcc = models.IntegerField(verbose_name="MCC")
+    mnc = models.IntegerField(verbose_name="MNC")
+
+    class Meta:
+        verbose_name = "info - TETRA"
+        verbose_name_plural = "info - TETRA"
+        constraints = [
+            models.UniqueConstraint(
+                fields=["mcc", "mnc"], name="unique MCC/MNC combination"
+            )
+        ]
+
+
 class DimLocation(models.Model, GeoItem):
     """
     Models enough information for describing a repeater's location.
@@ -440,12 +458,14 @@ class FactRepeater(ComputedFieldsModel):
         DMR = "dmr"
         DSTAR = "dstar"
         FUSION = "fusion"
+        TETRA = "tetra"
 
     MODE_CHOICES = (
         (ModeOptions.FM, "FM"),
         (ModeOptions.DMR, "DMR"),
         (ModeOptions.DSTAR, "D-Star"),
         (ModeOptions.FUSION, "Fusion"),
+        (ModeOptions.TETRA, "TETRA"),
     )
 
     callsign = models.CharField(max_length=16, verbose_name="callsign")
@@ -495,6 +515,13 @@ class FactRepeater(ComputedFieldsModel):
         null=True,
         verbose_name="info - DMR",
     )
+    info_tetra = models.ForeignKey(
+        DimTetra,
+        on_delete=models.RESTRICT,
+        blank=True,
+        null=True,
+        verbose_name="info - TETRA",
+    )
 
     # Info
     info_holder = models.ForeignKey(
@@ -520,7 +547,9 @@ class FactRepeater(ComputedFieldsModel):
             ),
             size=4,
         ),
-        depends=[("self", ["info_fm", "info_dstar", "info_fusion", "info_dmr"])],
+        depends=[
+            ("self", ["info_fm", "info_dstar", "info_fusion", "info_dmr", "info_tetra"])
+        ],
     )
     def modes(self) -> list[str]:
         """
@@ -536,6 +565,8 @@ class FactRepeater(ComputedFieldsModel):
             modes.append(self.ModeOptions.FUSION)
         if self.info_dmr is not None:
             modes.append(self.ModeOptions.DMR)
+        if self.info_tetra is not None:
+            modes.append(self.ModeOptions.TETRA)
         return modes
 
     def __str__(self) -> str:

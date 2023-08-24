@@ -16,6 +16,7 @@ from repeaters.models import (
     DimFusion,
     DimDmrTg,
     DimDmr,
+    DimTetra,
     DimLocation,
     FactRepeater,
 )
@@ -180,6 +181,28 @@ class DimDmrSerializer(  # pylint: disable=too-many-ancestors
         for tg in ts2_alternative_tgs:
             new_object.ts2_alternative_tgs.add(tg)
         new_object.save()
+        return new_object
+
+
+class DimTetraSerializer(  # pylint: disable=too-many-ancestors
+    UniqueFieldsMixin, WritableNestedModelSerializer
+):
+    __doc__ = DimTetra.__doc__
+
+    class Meta:
+        model = DimTetra
+        fields = "__all__"
+
+    def create(self, validated_data):
+        mcc = validated_data["mcc"]
+        mnc = validated_data["mnc"]
+        new_object, new_object_created = DimTetra.objects.get_or_create(
+            mcc=mcc,
+            mnc=mnc,
+            defaults=validated_data,
+        )
+        if not new_object_created:
+            new_object.save()
         return new_object
 
 

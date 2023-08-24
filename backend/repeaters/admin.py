@@ -13,6 +13,7 @@ from repeaters.models import (
     DimFusion,
     DimDmrTg,
     DimDmr,
+    DimTetra,
     DimLocation,
     FactRepeater,
 )
@@ -193,6 +194,30 @@ class DimDmrAdmin(admin.ModelAdmin):
 admin.site.register(DimDmr, DimDmrAdmin)
 
 
+class DimTetraAdmin(admin.ModelAdmin):
+    """
+    Admin interface for the DimTetra model.
+    """
+
+    save_as = True
+    inlines = (FactRepeaterInline,)
+    list_display = (
+        "mcc",
+        "mnc",
+    )
+    search_fields = (
+        "mcc",
+        "mnc",
+    )
+    ordering = (
+        "mcc",
+        "mnc",
+    )
+
+
+admin.site.register(DimTetra, DimTetraAdmin)
+
+
 class DimLocationAdmin(GeoModelAdmin):
     """
     Admin interface for the DimLocation model.
@@ -244,6 +269,7 @@ class FactRepeaterAdmin(admin.ModelAdmin):
         "info_dstar",
         "info_fusion",
         "info_dmr",
+        "info_tetra",
         "info_holder",
         "info_location",
     )

@@ -12,6 +12,7 @@ from repeaters.models import (
     DimFusion,
     DimDmrTg,
     DimDmr,
+    DimTetra,
     DimLocation,
     FactRepeater,
 )
@@ -22,6 +23,7 @@ from repeaters.api.serializers import (
     DimFusionSerializer,
     DimDmrTgSerializer,
     DimDmrSerializer,
+    DimTetraSerializer,
     DimLocationSerializer,
     FactRepeaterSerializer,
 )
@@ -130,6 +132,15 @@ class DimDmrViewSet(NestedWritableModelViewSet):  # pylint: disable=too-many-anc
 
     queryset = DimDmr.objects.all()
     serializer_class = DimDmrSerializer
+
+
+class DimTetraViewSet(NestedWritableModelViewSet):  # pylint: disable=too-many-ancestors
+    """
+    ViewSet for DimTetra model.
+    """
+
+    queryset = DimTetra.objects.all()
+    serializer_class = DimTetraSerializer
 
 
 class DimLocationViewSet(  # pylint: disable=too-many-ancestors
