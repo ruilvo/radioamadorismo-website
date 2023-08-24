@@ -16,6 +16,7 @@ class AssociationAdmin(admin.ModelAdmin):
     """
 
     save_as = True
+    save_on_top = True
     inlines = (FactRepeaterInline,)
     list_display = (
         "id",
