@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     # REST framework
     "rest_framework",
     "rest_framework.authtoken",
+    "rest_framework_gis",
     "dj_rest_auth",
     "corsheaders",
     "django_filters",
