@@ -257,7 +257,7 @@ class DimLocationAdmin(GeoModelAdmin):
 admin.site.register(DimLocation, DimLocationAdmin)
 
 
-class FactRepeaterAdmin(admin.ModelAdmin):
+class FactRepeaterAdmin(GeoModelAdmin):
     """
     Admin interface for the FactRepeater model.
     """

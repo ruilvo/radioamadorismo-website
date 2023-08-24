@@ -425,7 +425,7 @@ class DimLocation(models.Model, GeoItem):
         ]
 
 
-class FactRepeater(ComputedFieldsModel):
+class FactRepeater(ComputedFieldsModel, GeoItem):
     """
     Models a repeater's full information.
     """
@@ -568,6 +568,26 @@ class FactRepeater(ComputedFieldsModel):
         if self.info_tetra is not None:
             modes.append(self.ModeOptions.TETRA)
         return modes
+
+    @property
+    def geomap_longitude(self):
+        if self.info_location is None:
+            return ""
+        return (
+            ""
+            if self.info_location.longitude is None
+            else str(self.info_location.longitude)
+        )
+
+    @property
+    def geomap_latitude(self):
+        if self.info_location is None:
+            return ""
+        return (
+            ""
+            if self.info_location.latitude is None
+            else str(self.info_location.latitude)
+        )
 
     def __str__(self) -> str:
         return str(self.callsign)
