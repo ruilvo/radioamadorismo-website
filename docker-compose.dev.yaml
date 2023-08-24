@@ -44,7 +44,9 @@ services:
         max-size: "200k"
         max-file: "10"
   db:
-    image: postgres:15
+    build:
+      context: ./postgres
+      dockerfile: Dockerfile
     volumes:
       - postgres_data_dev:/var/lib/postgresql/data
     env_file:
