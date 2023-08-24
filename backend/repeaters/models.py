@@ -9,6 +9,8 @@ from typing import Optional
 from django.db import models
 from django.contrib.postgres.fields import ArrayField
 
+from django.contrib.gis.db import models as gis_models
+
 from computedfields.models import ComputedFieldsModel, computed
 
 from repeaters.vendor.bands import Band23cm, Band70cm, Band2m, Band6m, Band10m
@@ -371,16 +373,7 @@ class DimLocation(models.Model):
 
     # In the future, update this to GeoDjango
     # https://docs.djangoproject.com/en/3.2/ref/contrib/gis/
-    latitude = models.DecimalField(
-        max_digits=32, decimal_places=16, blank=True, null=True, verbose_name="latitude"
-    )
-    longitude = models.DecimalField(
-        max_digits=32,
-        decimal_places=16,
-        blank=True,
-        null=True,
-        verbose_name="longitude",
-    )
+    location = gis_models.PointField(blank=True, null=True)
     region = models.CharField(
         max_length=64,
         verbose_name="region",
@@ -391,24 +384,15 @@ class DimLocation(models.Model):
     qth_loc = models.CharField(max_length=32, blank=True, verbose_name="QTH loc.")
 
     def __str__(self) -> str:
-        coordinates_str = PLACEHOLDER_STR
-        if self.latitude is not None and self.longitude is not None:
-            coordinates_str = f" ({self.latitude:.4f}, {self.longitude:.4f})"
         return (
             f"{self.region if self.region else PLACEHOLDER_STR}, "
             + f"{self.place if self.place else PLACEHOLDER_STR}, "
-            + f"{self.qth_loc if self.qth_loc else PLACEHOLDER_STR}, "
-            + coordinates_str
+            + f"{self.qth_loc if self.qth_loc else PLACEHOLDER_STR}"
         )
 
     class Meta:
         verbose_name = "info - location"
         verbose_name_plural = "info - locations"
-        constraints = [
-            models.UniqueConstraint(
-                fields=["latitude", "longitude"], name="unique lat./long. combination"
-            )
-        ]
 
 
 class FactRepeater(ComputedFieldsModel):
