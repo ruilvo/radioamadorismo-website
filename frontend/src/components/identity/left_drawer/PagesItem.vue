@@ -16,5 +16,16 @@
     </q-item-section>
     <q-item-section>Passcodes APRS-IS</q-item-section>
   </q-item>
+  <q-item
+    key="associations-item"
+    clickable
+    :to="{ name: 'associations' }"
+    exact
+  >
+    <q-item-section avatar>
+      <q-icon name="store" />
+    </q-item-section>
+    <q-item-section>Associações</q-item-section>
+  </q-item>
   <!-- Other items here -->
 </template>

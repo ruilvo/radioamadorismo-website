@@ -2,6 +2,7 @@ import { RouteRecordRaw } from 'vue-router';
 
 import aprs_routes from './routes/aprs';
 import repeaters_routes from './routes/repeaters';
+import associations_routes from './routes/associations';
 
 const routes: RouteRecordRaw[] = [
   {
@@ -15,6 +16,7 @@ const routes: RouteRecordRaw[] = [
       },
       ...aprs_routes,
       ...repeaters_routes,
+      ...associations_routes,
     ],
   },
 
