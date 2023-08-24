@@ -257,6 +257,15 @@ class FactRepeaterAdmin(admin.ModelAdmin):
     Admin interface for the FactRepeater model.
     """
 
+    autocomplete_fields = (
+        "info_rf",
+        "info_fm",
+        "info_dstar",
+        "info_fusion",
+        "info_dmr",
+        "info_holder",
+        "info_location",
+    )
     list_display = (
         "id",
         "callsign",
