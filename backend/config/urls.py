@@ -88,6 +88,11 @@ urlpatterns = [
                                 include("aprs.api.urls"),
                                 name="aprs",
                             ),
+                            path(
+                                "associations/",
+                                include("associations.api.urls"),
+                                name="associations",
+                            ),
                         ]
                     ),
                 ),

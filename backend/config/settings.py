@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "users",
     "repeaters",
     "aprs",
+    "associations",
 ]
 
 MIDDLEWARE = [
