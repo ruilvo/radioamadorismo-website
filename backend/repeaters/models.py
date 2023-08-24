@@ -13,6 +13,8 @@ from computedfields.models import ComputedFieldsModel, computed
 
 from django_admin_geomap import GeoItem
 
+from associations.models import Association
+
 from repeaters.vendor.bands import Band23cm, Band70cm, Band2m, Band6m, Band10m
 
 PLACEHOLDER_STR = "-----"
@@ -516,6 +518,13 @@ class FactRepeater(ComputedFieldsModel):
     # Info
     info_holder = models.ForeignKey(
         DimHolder,
+        on_delete=models.RESTRICT,
+        blank=True,
+        null=True,
+        verbose_name="info - holder",
+    )
+    info_holder_temp = models.ForeignKey(
+        Association,
         on_delete=models.RESTRICT,
         blank=True,
         null=True,
