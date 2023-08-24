@@ -10,10 +10,11 @@ def combine_names(apps, _):
     # version than this migration expects. We use the historical version.
     DimLocation = apps.get_model("repeaters", "DimLocation")
     for location in DimLocation.objects.all():
-        location.location = Point(
-            float(location.longitude if location.longitude is not None else 0.0),
-            float(location.latitude if location.latitude is not None else 0.0),
-        )
+        lat = float(location.latitude) if location.latitude is not None else 0.0
+        long = float(location.longitude) if location.longitude is not None else 0.0
+        print(f"lat: {lat}, long: {long}")
+        loc = Point(long, lat)
+        location.location = loc
         location.save()
 
 
