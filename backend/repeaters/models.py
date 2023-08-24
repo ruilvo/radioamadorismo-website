@@ -340,6 +340,9 @@ class DimHolder(models.Model):
 
     abrv = models.CharField(max_length=16, verbose_name="abrv.", unique=True)
     name = models.CharField(max_length=512, blank=True, verbose_name="name")
+    email = models.EmailField(blank=True, verbose_name="e-mail")
+    website = models.URLField(blank=True, verbose_name="website")
+    notes = models.TextField(blank=True, verbose_name="notes")
 
     def __str__(self) -> str:
         return f"{self.abrv}: {self.name if self.name else PLACEHOLDER_STR}"

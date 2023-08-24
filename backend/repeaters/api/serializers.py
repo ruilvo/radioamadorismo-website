@@ -191,13 +191,15 @@ class DimHolderSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
 
     def create(self, validated_data):
         abrv = validated_data["abrv"]
-        name = validated_data["name"]
         new_object, new_object_created = DimHolder.objects.get_or_create(
             abrv=abrv,
             defaults=validated_data,
         )
         if not new_object_created:
-            new_object.name = name
+            new_object.name = validated_data["name"]
+            new_object.email = validated_data["email"]
+            new_object.website = validated_data["website"]
+            new_object.notes = validated_data["twitter"]
             new_object.save()
         return new_object
 
