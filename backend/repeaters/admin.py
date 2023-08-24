@@ -23,6 +23,7 @@ class FactRepeaterInline(admin.StackedInline):
     model = FactRepeater
 
 
+@admin.register(DimRf)
 class DimRfAdmin(admin.ModelAdmin):
     """
     Admin interface for the DimRf model.
@@ -60,9 +61,7 @@ class DimRfAdmin(admin.ModelAdmin):
     )
 
 
-admin.site.register(DimRf, DimRfAdmin)
-
-
+@admin.register(DimFm)
 class DimFmAdmin(admin.ModelAdmin):
     """
     Admin interface for the DimFm model.
@@ -91,9 +90,7 @@ class DimFmAdmin(admin.ModelAdmin):
     )
 
 
-admin.site.register(DimFm, DimFmAdmin)
-
-
+@admin.register(DimDStar)
 class DimDStarAdmin(admin.ModelAdmin):
     """
     Admin interface for the DimDStar model.
@@ -119,9 +116,7 @@ class DimDStarAdmin(admin.ModelAdmin):
     )
 
 
-admin.site.register(DimDStar, DimDStarAdmin)
-
-
+@admin.register(DimFusion)
 class DimFusionAdmin(admin.ModelAdmin):
     """
     Admin interface for the DimFusion model.
@@ -147,9 +142,7 @@ class DimFusionAdmin(admin.ModelAdmin):
     )
 
 
-admin.site.register(DimFusion, DimFusionAdmin)
-
-
+@admin.register(DimDmrTg)
 class DimDmrTgAdmin(admin.ModelAdmin):
     """
     Admin interface for the DimDmrTg model.
@@ -174,9 +167,7 @@ class DimDmrTgAdmin(admin.ModelAdmin):
     )
 
 
-admin.site.register(DimDmrTg, DimDmrTgAdmin)
-
-
+@admin.register(DimDmr)
 class DimDmrAdmin(admin.ModelAdmin):
     """
     Admin interface for the DimDmr model.
@@ -200,9 +191,7 @@ class DimDmrAdmin(admin.ModelAdmin):
         return obj.tg.name
 
 
-admin.site.register(DimDmr, DimDmrAdmin)
-
-
+@admin.register(DimTetra)
 class DimTetraAdmin(admin.ModelAdmin):
     """
     Admin interface for the DimTetra model.
@@ -228,9 +217,7 @@ class DimTetraAdmin(admin.ModelAdmin):
     )
 
 
-admin.site.register(DimTetra, DimTetraAdmin)
-
-
+@admin.register(DimLocation)
 class DimLocationAdmin(GeoModelAdmin):
     """
     Admin interface for the DimLocation model.
@@ -268,9 +255,7 @@ class DimLocationAdmin(GeoModelAdmin):
     )
 
 
-admin.site.register(DimLocation, DimLocationAdmin)
-
-
+@admin.register(FactRepeater)
 class FactRepeaterAdmin(GeoModelAdmin):
     """
     Admin interface for the FactRepeater model.
@@ -304,6 +289,3 @@ class FactRepeaterAdmin(GeoModelAdmin):
         "callsign",
         "id",
     )
-
-
-admin.site.register(FactRepeater, FactRepeaterAdmin)

@@ -9,6 +9,7 @@ from repeaters.admin import FactRepeaterInline
 from associations.models import Association
 
 
+@admin.register(Association)
 class AssociationAdmin(admin.ModelAdmin):
     """
     Admin interface for the Association model.
@@ -31,6 +32,3 @@ class AssociationAdmin(admin.ModelAdmin):
         "name",
         "id",
     )
-
-
-admin.site.register(Association, AssociationAdmin)
