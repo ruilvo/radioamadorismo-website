@@ -29,6 +29,7 @@ class DimRfAdmin(admin.ModelAdmin):
     """
 
     save_as = True
+    save_on_top = True
     inlines = (FactRepeaterInline,)
     list_display = (
         "id",
@@ -68,6 +69,7 @@ class DimFmAdmin(admin.ModelAdmin):
     """
 
     save_as = True
+    save_on_top = True
     inlines = (FactRepeaterInline,)
     list_display = (
         "id",
@@ -98,6 +100,7 @@ class DimDStarAdmin(admin.ModelAdmin):
     """
 
     save_as = True
+    save_on_top = True
     inlines = (FactRepeaterInline,)
     list_display = (
         "id",
@@ -125,6 +128,7 @@ class DimFusionAdmin(admin.ModelAdmin):
     """
 
     save_as = True
+    save_on_top = True
     inlines = (FactRepeaterInline,)
     list_display = (
         "id",
@@ -152,6 +156,7 @@ class DimDmrTgAdmin(admin.ModelAdmin):
     """
 
     save_as = True
+    save_on_top = True
     list_display = (
         "id",
         "call_mode",
@@ -178,6 +183,7 @@ class DimDmrAdmin(admin.ModelAdmin):
     """
 
     save_as = True
+    save_on_top = True
     inlines = (FactRepeaterInline,)
     list_display = (
         "get_id",
@@ -203,6 +209,7 @@ class DimTetraAdmin(admin.ModelAdmin):
     """
 
     save_as = True
+    save_on_top = True
     inlines = (FactRepeaterInline,)
     list_display = (
         "id",
@@ -233,6 +240,7 @@ class DimLocationAdmin(GeoModelAdmin):
     geomap_field_latitude = "id_latitude"
 
     save_as = True
+    save_on_top = True
     inlines = (FactRepeaterInline,)
     list_display = (
         "id",
@@ -269,6 +277,7 @@ class FactRepeaterAdmin(GeoModelAdmin):
     """
 
     save_as = True
+    save_on_top = True
     autocomplete_fields = (
         "info_rf",
         "info_fm",
