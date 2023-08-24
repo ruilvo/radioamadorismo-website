@@ -70,11 +70,13 @@ class DimFmAdmin(admin.ModelAdmin):
     save_as = True
     inlines = (FactRepeaterInline,)
     list_display = (
+        "id",
         "bandwidth",
         "modulation",
         "tone",
     )
     search_fields = (
+        "id",
         "bandwidth",
         "modulation",
         "tone",
@@ -83,6 +85,7 @@ class DimFmAdmin(admin.ModelAdmin):
         "bandwidth",
         "modulation",
         "tone",
+        "id",
     )
 
 
@@ -97,16 +100,19 @@ class DimDStarAdmin(admin.ModelAdmin):
     save_as = True
     inlines = (FactRepeaterInline,)
     list_display = (
+        "id",
         "gateway",
         "reflector",
     )
     search_fields = (
+        "id",
         "gateway",
         "reflector",
     )
     ordering = (
         "gateway",
         "reflector",
+        "id",
     )
 
 
@@ -121,16 +127,19 @@ class DimFusionAdmin(admin.ModelAdmin):
     save_as = True
     inlines = (FactRepeaterInline,)
     list_display = (
+        "id",
         "wiresx",
         "room_id",
     )
     search_fields = (
+        "id",
         "wiresx",
         "room_id",
     )
     ordering = (
         "wiresx",
         "room_id",
+        "id",
     )
 
 
@@ -144,8 +153,8 @@ class DimDmrTgAdmin(admin.ModelAdmin):
 
     save_as = True
     list_display = (
-        "call_mode",
         "id",
+        "call_mode",
         "name",
     )
     search_fields = (
@@ -196,16 +205,19 @@ class DimTetraAdmin(admin.ModelAdmin):
     save_as = True
     inlines = (FactRepeaterInline,)
     list_display = (
+        "id",
         "mcc",
         "mnc",
     )
     search_fields = (
+        "id",
         "mcc",
         "mnc",
     )
     ordering = (
         "mcc",
         "mnc",
+        "id",
     )
 
 
