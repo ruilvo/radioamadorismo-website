@@ -12,7 +12,6 @@ def combine_names(apps, _):
     for location in DimLocation.objects.all():
         lat = float(location.latitude) if location.latitude is not None else 0.0
         long = float(location.longitude) if location.longitude is not None else 0.0
-        print(f"lat: {lat}, long: {long}")
         loc = Point(long, lat)
         location.location = loc
         location.save()
