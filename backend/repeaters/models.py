@@ -217,7 +217,7 @@ class DimDStar(models.Model):
 
     def __str__(self) -> str:
         return (
-            +f"{self.gateway if self.gateway else PLACEHOLDER_STR}, "
+            f"{self.gateway if self.gateway else PLACEHOLDER_STR}, "
             + f"{self.reflector if self.reflector else PLACEHOLDER_STR}"
         )
 
@@ -242,7 +242,7 @@ class DimFusion(models.Model):
 
     def __str__(self) -> str:
         return (
-            +f"{self.wiresx if self.wiresx else PLACEHOLDER_STR}, "
+            f"{self.wiresx if self.wiresx else PLACEHOLDER_STR}, "
             + f"{self.room_id if self.room_id else PLACEHOLDER_STR}"
         )
 
