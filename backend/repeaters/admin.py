@@ -19,11 +19,16 @@ from repeaters.models import (
 )
 
 
+class FactRepeaterInline(admin.StackedInline):
+    model = FactRepeater
+
+
 class DimRfAdmin(admin.ModelAdmin):
     """
     Admin interface for the DimRf model.
     """
 
+    inlines = (FactRepeaterInline,)
     list_display = (
         "id",
         "channel",
@@ -61,6 +66,7 @@ class DimFmAdmin(admin.ModelAdmin):
     Admin interface for the DimFm model.
     """
 
+    inlines = (FactRepeaterInline,)
     list_display = (
         "bandwidth",
         "modulation",
@@ -86,6 +92,7 @@ class DimDStarAdmin(admin.ModelAdmin):
     Admin interface for the DimDStar model.
     """
 
+    inlines = (FactRepeaterInline,)
     list_display = (
         "modulation",
         "gateway",
@@ -111,6 +118,7 @@ class DimFusionAdmin(admin.ModelAdmin):
     Admin interface for the DimFusion model.
     """
 
+    inlines = (FactRepeaterInline,)
     list_display = (
         "modulation",
         "wiresx",
@@ -161,6 +169,7 @@ class DimDmrAdmin(admin.ModelAdmin):
     Admin interface for the DimDmr model.
     """
 
+    inlines = (FactRepeaterInline,)
     list_display = (
         "get_id",
         "get_name",
@@ -184,6 +193,7 @@ class DimHolderAdmin(admin.ModelAdmin):
     Admin interface for the DimHolder model.
     """
 
+    inlines = (FactRepeaterInline,)
     list_display = (
         "id",
         "abrv",
@@ -212,6 +222,7 @@ class DimLocationAdmin(GeoModelAdmin):
     geomap_field_longitude = "id_longitude"
     geomap_field_latitude = "id_latitude"
 
+    inlines = (FactRepeaterInline,)
     list_display = (
         "id",
         "place",
