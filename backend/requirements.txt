@@ -11,6 +11,7 @@ drf-writable-nested
 django-crispy-forms
 crispy-bootstrap3
 django-computedfields
+django-admin-geomap
 # Dependencies
 psycopg2
 Pillow

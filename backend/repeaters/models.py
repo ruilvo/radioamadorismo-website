@@ -11,6 +11,8 @@ from django.contrib.postgres.fields import ArrayField
 
 from computedfields.models import ComputedFieldsModel, computed
 
+from django_admin_geomap import GeoItem
+
 from repeaters.vendor.bands import Band23cm, Band70cm, Band2m, Band6m, Band10m
 
 PLACEHOLDER_STR = "-----"
@@ -347,7 +349,7 @@ class DimHolder(models.Model):
         verbose_name_plural = "info - holders"
 
 
-class DimLocation(models.Model):
+class DimLocation(models.Model, GeoItem):
     """
     Models enough information for describing a repeater's location.
     """
@@ -389,6 +391,14 @@ class DimLocation(models.Model):
     )
     place = models.CharField(max_length=512, blank=True, verbose_name="place")
     qth_loc = models.CharField(max_length=32, blank=True, verbose_name="QTH loc.")
+
+    @property
+    def geomap_longitude(self):
+        return "" if self.longitude is None else str(self.longitude)
+
+    @property
+    def geomap_latitude(self):
+        return "" if self.latitude is None else str(self.latitude)
 
     def __str__(self) -> str:
         coordinates_str = PLACEHOLDER_STR

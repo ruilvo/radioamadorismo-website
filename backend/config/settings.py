@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     "drf_spectacular_sidecar",
     "crispy_forms",
     "crispy_bootstrap3",
+    "django_admin_geomap",
     # Other
     "django_extensions",
     "computedfields",
