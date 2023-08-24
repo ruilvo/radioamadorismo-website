@@ -239,7 +239,7 @@ class FactRepeaterSerializer(  # pylint: disable=too-many-ancestors
     info_dstar = DimDStarSerializer(many=False, required=False)
     info_fusion = DimFusionSerializer(many=False, required=False)
     info_dmr = DimDmrSerializer(many=False, required=False)
-    info_holder = DimHolderSerializer(many=False, required=False)
+    # info_holder = DimHolderSerializer(many=False, required=False)
     info_location = DimLocationSerializer(many=False, required=False)
 
     class Meta:

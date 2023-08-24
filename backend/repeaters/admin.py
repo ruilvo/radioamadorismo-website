@@ -200,7 +200,7 @@ class DimHolderAdmin(admin.ModelAdmin):
     """
 
     save_as = True
-    inlines = (FactRepeaterInline,)
+    # inlines = (FactRepeaterInline,)
     list_display = (
         "id",
         "abrv",
@@ -272,22 +272,22 @@ class FactRepeaterAdmin(admin.ModelAdmin):
         "info_dstar",
         "info_fusion",
         "info_dmr",
-        "info_holder",
+        # "info_holder",
         "info_location",
     )
     list_display = (
         "id",
         "callsign",
         "modes",
-        "info_holder",
+        # "info_holder",
     )
     search_fields = (
         "id",
         "callsign",
-        "info_holder__abrv",
+        # "info_holder__abrv",
     )
     ordering = (
-        "info_holder",
+        # "info_holder",
         "callsign",
         "id",
     )

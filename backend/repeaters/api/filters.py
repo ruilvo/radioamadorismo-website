@@ -301,8 +301,8 @@ class FactRepeaterFilter(FilterSet):
             "info_dmr__ts2_default_tg__name": ["iexact", "icontains"],
             "info_dmr__ts2_default_tg__id": ["exact"],
             # DimHolder
-            "info_holder__abrv": ["iexact", "icontains"],
-            "info_holder__name": ["iexact", "icontains"],
+            # "info_holder__abrv": ["iexact", "icontains"],
+            # "info_holder__name": ["iexact", "icontains"],
             # DimLocation
             "info_location__latitude": ["exact", "gte", "lte"],
             "info_location__longitude": ["exact", "gte", "lte"],
