@@ -10,6 +10,7 @@ from django.db import models
 from django.contrib.postgres.fields import ArrayField
 
 from django.contrib.gis.db import models as gis_models
+from django.contrib.gis.geos import Point
 
 from computedfields.models import ComputedFieldsModel, computed
 
@@ -373,7 +374,7 @@ class DimLocation(models.Model):
 
     # In the future, update this to GeoDjango
     # https://docs.djangoproject.com/en/3.2/ref/contrib/gis/
-    location = gis_models.PointField(blank=True, null=True)
+    location = gis_models.PointField(blank=True, default=Point(40.3, -7.6))
     region = models.CharField(
         max_length=64,
         verbose_name="region",
