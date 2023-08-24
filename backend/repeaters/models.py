@@ -516,7 +516,7 @@ class FactRepeater(ComputedFieldsModel):
     )
 
     # Info
-    info_holder_temp = models.ForeignKey(
+    info_holder = models.ForeignKey(
         Association,
         on_delete=models.RESTRICT,
         blank=True,
