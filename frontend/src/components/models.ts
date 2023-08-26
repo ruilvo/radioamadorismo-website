@@ -14,7 +14,7 @@ export interface DimFm {
   bandwidth: string; // TODO: enum
 }
 
-export interface DimDStar {
+export interface DimDstar {
   id: number;
   gateway: string;
   reflector: string;
@@ -65,7 +65,7 @@ export interface Repeater {
   id: number;
   info_rf: null | DimRf;
   info_fm: null | DimFm;
-  info_dstar: null | DimDStar;
+  info_dstar: null | DimDstar;
   info_fusion: null | DimFusion;
   info_dmr: null | DimDmr;
   info_holder: null | Association;
