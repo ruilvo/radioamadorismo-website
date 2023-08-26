@@ -21,7 +21,7 @@
         />
       </div>
       <q-separator />
-      <RepeatersTree />
+      <RepeatersTable />
     </div>
   </div>
 </template>
