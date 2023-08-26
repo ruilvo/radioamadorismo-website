@@ -20,6 +20,12 @@
           href="/backend/repeaters/export/d878uvii/codeplug/"
         />
       </div>
+      <q-separator />
+      <RepeatersTree />
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+import RepeatersTree from 'components/repeaters/RepeatersTree.vue';
+</script>
