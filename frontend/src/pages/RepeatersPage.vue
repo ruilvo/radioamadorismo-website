@@ -27,5 +27,5 @@
 </template>
 
 <script setup lang="ts">
-import RepeatersTree from 'components/repeaters/RepeatersTree.vue';
+import RepeatersTable from 'components/repeaters/RepeatersTable.vue';
 </script>
