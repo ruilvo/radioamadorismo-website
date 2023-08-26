@@ -8,7 +8,7 @@ from rest_framework.response import Response
 from repeaters.models import (
     DimRf,
     DimFm,
-    DimDStar,
+    DimDstar,
     DimFusion,
     DimDmrTg,
     DimDmr,
@@ -19,7 +19,7 @@ from repeaters.models import (
 from repeaters.api.serializers import (
     DimRfSerializer,
     DimFmSerializer,
-    DimDStarSerializer,
+    DimDstarSerializer,
     DimFusionSerializer,
     DimDmrTgSerializer,
     DimDmrSerializer,
@@ -96,13 +96,13 @@ class DimFmViewSet(NestedWritableModelViewSet):  # pylint: disable=too-many-ance
     serializer_class = DimFmSerializer
 
 
-class DimDStarViewSet(NestedWritableModelViewSet):  # pylint: disable=too-many-ancestors
+class DimDstarViewSet(NestedWritableModelViewSet):  # pylint: disable=too-many-ancestors
     """
-    ViewSet for DimDStar model.
+    ViewSet for DimDstar model.
     """
 
-    queryset = DimDStar.objects.all()
-    serializer_class = DimDStarSerializer
+    queryset = DimDstar.objects.all()
+    serializer_class = DimDstarSerializer
 
 
 class DimFusionViewSet(  # pylint: disable=too-many-ancestors

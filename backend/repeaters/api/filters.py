@@ -257,7 +257,7 @@ class FactRepeaterFilter(FilterSet):
             "info_fm__modulation": ["iexact", "icontains"],
             "info_fm__tone": ["exact"],
             "info_fm__bandwidth": ["iexact"],
-            # DimDStar
+            # DimDstar
             "info_dstar__gateway": ["iexact"],
             "info_dstar__reflector": ["iexact"],
             # DimFusion

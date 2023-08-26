@@ -207,7 +207,7 @@ class DimFm(models.Model):
         ]
 
 
-class DimDStar(models.Model):
+class DimDstar(models.Model):
     """
     Models enough information for describing D-STAR repeaters.
     """
@@ -490,7 +490,7 @@ class FactRepeater(ComputedFieldsModel, GeoItem):
         verbose_name="info - FM",
     )
     info_dstar = models.ForeignKey(
-        DimDStar,
+        DimDstar,
         on_delete=models.RESTRICT,
         blank=True,
         null=True,

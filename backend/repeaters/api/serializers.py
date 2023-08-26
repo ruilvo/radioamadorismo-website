@@ -12,7 +12,7 @@ from associations.api.serializers import AssociationSerializer
 from repeaters.models import (
     DimRf,
     DimFm,
-    DimDStar,
+    DimDstar,
     DimFusion,
     DimDmrTg,
     DimDmr,
@@ -65,17 +65,17 @@ class DimFmSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
         return DimFm.objects.create(**validated_data)
 
 
-class DimDStarSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
-    __doc__ = DimDStar.__doc__
+class DimDstarSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
+    __doc__ = DimDstar.__doc__
 
     class Meta:
-        model = DimDStar
+        model = DimDstar
         fields = "__all__"
 
     def create(self, validated_data):
         gateway = validated_data["gateway"]
         reflector = validated_data["reflector"]
-        new_object, new_object_created = DimDStar.objects.get_or_create(
+        new_object, new_object_created = DimDstar.objects.get_or_create(
             gateway=gateway,
             reflector=reflector,
             defaults=validated_data,
@@ -236,7 +236,7 @@ class FactRepeaterSerializer(  # pylint: disable=too-many-ancestors
 
     info_rf = DimRfSerializer(many=False, required=False)
     info_fm = DimFmSerializer(many=False, required=False)
-    info_dstar = DimDStarSerializer(many=False, required=False)
+    info_dstar = DimDstarSerializer(many=False, required=False)
     info_fusion = DimFusionSerializer(many=False, required=False)
     info_dmr = DimDmrSerializer(many=False, required=False)
     info_holder = AssociationSerializer(many=False, required=False)

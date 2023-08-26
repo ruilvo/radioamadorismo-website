@@ -9,7 +9,7 @@ from django_admin_geomap import ModelAdmin as GeoModelAdmin
 from repeaters.models import (
     DimRf,
     DimFm,
-    DimDStar,
+    DimDstar,
     DimFusion,
     DimDmrTg,
     DimDmr,
@@ -90,10 +90,10 @@ class DimFmAdmin(admin.ModelAdmin):
     )
 
 
-@admin.register(DimDStar)
-class DimDStarAdmin(admin.ModelAdmin):
+@admin.register(DimDstar)
+class DimDstarTriggerMigrationAdmin(admin.ModelAdmin):
     """
-    Admin interface for the DimDStar model.
+    Admin interface for the DimDstar model.
     """
 
     save_as = True
