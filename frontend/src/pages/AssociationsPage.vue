@@ -43,14 +43,7 @@
 import { ref, onMounted, Ref } from 'vue';
 import { api } from 'boot/axios';
 
-interface Association {
-  id: number;
-  abrv: string;
-  name: string;
-  email: string;
-  website: string;
-  notes: string;
-}
+import { Association } from 'src/components/models';
 
 const associations: Ref<Array<Association>> = ref([]);
 
