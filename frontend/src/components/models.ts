@@ -61,7 +61,7 @@ export interface DimLocation {
   qth_loc: string;
 }
 
-export interface Repeater {
+export interface FactRepeater {
   id: number;
   info_rf: null | DimRf;
   info_fm: null | DimFm;
