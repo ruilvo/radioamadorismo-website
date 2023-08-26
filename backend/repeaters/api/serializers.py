@@ -241,6 +241,7 @@ class FactRepeaterSerializer(  # pylint: disable=too-many-ancestors
     info_dmr = DimDmrSerializer(many=False, required=False)
     info_holder = AssociationSerializer(many=False, required=False)
     info_location = DimLocationSerializer(many=False, required=False)
+    info_tetra = DimTetraSerializer(many=False, required=False)
 
     class Meta:
         model = FactRepeater
