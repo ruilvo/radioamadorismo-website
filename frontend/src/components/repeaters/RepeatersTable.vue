@@ -74,11 +74,19 @@ const pagination: Ref<Pagination> = ref({
 
 const repeaters: Ref<Array<FactRepeater>> = ref([]);
 
-async function requestRepeaters(limit: number, offset: number): Promise<void> {
+async function requestRepeaters(
+  limit: number,
+  offset: number,
+  ordering: string | null = null,
+): Promise<void> {
   loading.value = true;
+  var ordering_str = '';
+  if (ordering != null) {
+    ordering_str = `&ordering=${ordering}`;
+  }
   try {
     const response = await api.get(
-      `/api/v1/repeaters/fact-repeater/?limit=${limit}&offset=${offset}`,
+      `/api/v1/repeaters/fact-repeater/?limit=${limit}&offset=${offset}${ordering_str}`,
     );
     repeaters.value = response.data.results;
     pagination.value.rowsNumber = response.data.count;
@@ -86,96 +94,6 @@ async function requestRepeaters(limit: number, offset: number): Promise<void> {
     console.error(error);
   }
   loading.value = false;
-}
-
-function sortRepeaters(rowKey: string, descending: boolean) {
-  // TODO(ruilvo, 2023-08-27): In the future, this should be done in the backend
-  switch (rowKey) {
-    case 'callsign':
-      repeaters.value.sort((a, b) => {
-        return descending
-          ? b.callsign.localeCompare(a.callsign)
-          : a.callsign.localeCompare(b.callsign);
-      });
-      break;
-    case 'info_location__place':
-      repeaters.value.sort((a, b) => {
-        if (a.info_location == null || b.info_location == null) {
-          return 0;
-        }
-        return descending
-          ? b.info_location.place.localeCompare(a.info_location.place)
-          : a.info_location.place.localeCompare(b.info_location.place);
-      });
-      break;
-    case 'info_location__qth_loc':
-      repeaters.value.sort((a, b) => {
-        if (a.info_location == null || b.info_location == null) {
-          return 0;
-        }
-        return descending
-          ? b.info_location.qth_loc.localeCompare(a.info_location.qth_loc)
-          : a.info_location.qth_loc.localeCompare(b.info_location.qth_loc);
-      });
-      break;
-    case 'info_holder__abrv':
-      repeaters.value.sort((a, b) => {
-        if (a.info_holder == null || b.info_holder == null) {
-          return 0;
-        }
-        return descending
-          ? b.info_holder.abrv.localeCompare(a.info_holder.abrv)
-          : a.info_holder.abrv.localeCompare(b.info_holder.abrv);
-      });
-      break;
-    case 'info_holder__name':
-      repeaters.value.sort((a, b) => {
-        if (a.info_holder == null || b.info_holder == null) {
-          return 0;
-        }
-        return descending
-          ? b.info_holder.name.localeCompare(a.info_holder.name)
-          : a.info_holder.name.localeCompare(b.info_holder.name);
-      });
-      break;
-    case 'info_rf__tx_mhz':
-      repeaters.value.sort((a, b) => {
-        if (a.info_rf == null || b.info_rf == null) {
-          return 0;
-        }
-        return descending
-          ? Number.parseFloat(b.info_rf.tx_mhz) -
-              Number.parseFloat(a.info_rf.tx_mhz)
-          : Number.parseFloat(a.info_rf.tx_mhz) -
-              Number.parseFloat(b.info_rf.tx_mhz);
-      });
-      break;
-    case 'info_rf__rx_mhz':
-      repeaters.value.sort((a, b) => {
-        if (a.info_rf == null || b.info_rf == null) {
-          return 0;
-        }
-        return descending
-          ? Number.parseFloat(b.info_rf.rx_mhz) -
-              Number.parseFloat(a.info_rf.rx_mhz)
-          : Number.parseFloat(a.info_rf.rx_mhz) -
-              Number.parseFloat(b.info_rf.rx_mhz);
-      });
-      break;
-    case 'modes':
-      repeaters.value.sort((a, b) => {
-        return descending
-          ? format_modes_field(b.modes).localeCompare(
-              format_modes_field(a.modes),
-            )
-          : format_modes_field(a.modes).localeCompare(
-              format_modes_field(b.modes),
-            );
-      });
-      break;
-    default:
-      break;
-  }
 }
 
 function onRequest(requestProp: {
@@ -197,11 +115,14 @@ function onRequest(requestProp: {
     limit = pagination.value.rowsNumber;
   }
   const offset = (page - 1) * limit;
-  requestRepeaters(limit, offset).then(() => {
-    if (sortBy != null) {
-      sortRepeaters(sortBy, descending);
+  var ordering = null;
+  if (sortBy != null) {
+    ordering = sortBy;
+    if (descending) {
+      ordering = `-${ordering}`;
     }
-  });
+  }
+  requestRepeaters(limit, offset, ordering);
   pagination.value.page = page;
   pagination.value.rowsPerPage = rowsPerPage;
   pagination.value.sortBy = sortBy;
@@ -335,7 +256,6 @@ const columns: Array<TableColumn> = [
       return format_modes_field(repeater.modes);
     },
     align: 'center',
-    sortable: true,
   },
 ];
 </script>
