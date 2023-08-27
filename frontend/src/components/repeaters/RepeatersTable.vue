@@ -15,7 +15,7 @@
         <q-tr>
           <!--  First row of the header -->
           <q-th :props="props" key="callsign" rowspan="2">Indicativo</q-th>
-          <q-th colspan="2" class="text-center">Localização</q-th>
+          <q-th colspan="3" class="text-center">Localização</q-th>
           <q-th colspan="2" class="text-center">Entidade</q-th>
           <q-th colspan="2" class="text-center">RF</q-th>
           <q-th :props="props" key="modes" rowspan="2">Modos</q-th>
@@ -24,6 +24,7 @@
           <!--  Second row of the header -->
 
           <!--  Info - location -->
+          <q-th :props="props" key="info_location__region">Região</q-th>
           <q-th :props="props" key="info_location__place">Local</q-th>
           <q-th :props="props" key="info_location__qth_loc">QTH loc.</q-th>
 
@@ -151,6 +152,16 @@ function format_modes_field(field: Array<string>): string {
   return modes_formatted.join(', ');
 }
 
+function format_region_field(field: string): string {
+  const regionMap: { [key: string]: string } = {
+    CPT: 'Continente',
+    AZR: 'Açores',
+    MDA: 'Madeira',
+    OT: '',
+  };
+  return regionMap[field];
+}
+
 // Generated with copilot
 /* eslint-disable @typescript-eslint/no-explicit-any */
 interface TableColumn {
@@ -174,6 +185,18 @@ const columns: Array<TableColumn> = [
     name: 'callsign',
     label: 'Indicativo',
     field: 'callsign',
+    align: 'center',
+    sortable: true,
+  },
+  {
+    name: 'info_location__region',
+    label: 'Local',
+    field: (repeater: FactRepeater) => {
+      if (repeater.info_location != null) {
+        return format_region_field(repeater.info_location.region);
+      }
+      return '';
+    },
     align: 'center',
     sortable: true,
   },
