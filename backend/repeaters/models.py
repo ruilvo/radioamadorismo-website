@@ -15,6 +15,8 @@ from django_admin_geomap import GeoItem
 
 from associations.models import Association
 
+from portal.qth_loc import qthloc_from_latlon
+
 from repeaters.vendor.bands import Band23cm, Band70cm, Band2m, Band6m, Band10m
 
 PLACEHOLDER_STR = "-----"
@@ -348,7 +350,7 @@ class DimTetra(models.Model):
         ]
 
 
-class DimLocation(models.Model, GeoItem):
+class DimLocation(ComputedFieldsModel, GeoItem):
     """
     Models enough information for describing a repeater's location.
     """
@@ -389,7 +391,19 @@ class DimLocation(models.Model, GeoItem):
         default=RegionOptions.CONTINENT,
     )
     place = models.CharField(max_length=512, blank=True, verbose_name="place")
-    qth_loc = models.CharField(max_length=32, blank=True, verbose_name="QTH loc.")
+
+    @computed(
+        models.CharField(
+            max_length=32,
+            blank=True,
+            verbose_name="QTH loc.",
+        )
+    )
+    def qth_loc(self) -> str:
+        """
+        Computes the QTH locator for the repeater based on the latitude and longitude.
+        """
+        return qthloc_from_latlon(self.latitude, self.longitude)
 
     @property
     def geomap_longitude(self):
