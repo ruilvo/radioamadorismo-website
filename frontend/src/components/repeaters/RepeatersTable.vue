@@ -36,6 +36,14 @@
           <q-th :props="props" key="info_rf__rx_mhz">Rx (MHz)</q-th>
         </q-tr>
       </template>
+
+      <template v-slot:body-cell-callsign="props">
+        <q-td :props="props">
+          <a :href="'/api/v1/repeaters/fact-repeater/' + props.row.id">{{
+            props.row.callsign
+          }}</a>
+        </q-td>
+      </template>
     </q-table>
   </div>
 </template>
