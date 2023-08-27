@@ -170,8 +170,19 @@ function sortRepeaters(rowKey: string, descending: boolean) {
   }
 }
 
-function onRequest(props: { pagination: typeof pagination.value }) {
-  const { page, rowsPerPage, sortBy, descending } = props.pagination;
+function onRequest(requestProp: {
+  pagination: {
+    sortBy: string;
+    descending: boolean;
+    page: number;
+    rowsPerPage: number;
+  };
+  /* eslint-disable @typescript-eslint/no-explicit-any */
+  filter?: any;
+  getCellValue: (col: any, row: any) => any;
+  /* eslint-enable @typescript-eslint/no-explicit-any */
+}): void {
+  const { page, rowsPerPage, sortBy, descending } = requestProp.pagination;
   console.log(sortBy, descending);
   var limit = rowsPerPage;
   if (limit === 0) {
