@@ -1,5 +1,4 @@
 <template>
-  <h3>Listagem de repetidores</h3>
   <div class="row">
     <q-table
       :rows="repeaters"

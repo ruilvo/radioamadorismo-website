@@ -5,9 +5,14 @@
       <q-separator />
       <q-banner inline-actions class="text-white bg-red">
         <h5><b>Página em construção.</b></h5>
-        Por enquanto, a lista de repetidores pode ser consultada diretamente via
-        API, usando a ligação na barra lateral.
+        Mais detalhes podem ser consultados usando diretamente a API, usando as
+        ligações na barra lateral.
       </q-banner>
+      <q-separator />
+      <h3>Listagem de repetidores</h3>
+      <RepeatersTable />
+      <q-separator />
+      <h3>Exportação</h3>
       <div class="column q-px-md q-gutter-y-md">
         <q-btn
           color="primary"
@@ -20,8 +25,6 @@
           href="/backend/repeaters/export/d878uvii/codeplug/"
         />
       </div>
-      <q-separator />
-      <RepeatersTable />
     </div>
   </div>
 </template>
