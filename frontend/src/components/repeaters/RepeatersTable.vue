@@ -1,14 +1,15 @@
 <template>
   <h3>Listagem de repetidores</h3>
   <div class="row">
-    <q-table :data="repeaters" :columns="columns" row-key="id" class="col-12">
+    <q-table :rows="repeaters" :columns="columns" row-key="id" class="col-12">
       <template v-slot:header="props">
         <q-tr>
           <!--  First row of the header -->
           <q-td :props="props" key="callsign" rowspan="2">Indicativo</q-td>
-          <q-td colspan="3">Localização</q-td>
-          <q-td colspan="2">Entidade</q-td>
-          <q-td colspan="2">RF</q-td>
+          <q-td colspan="2" class="text-center">Localização</q-td>
+          <q-td colspan="2" class="text-center">Entidade</q-td>
+          <q-td colspan="2" class="text-center">RF</q-td>
+          <q-td :props="props" key="modes" rowspan="2">Modos</q-td>
         </q-tr>
         <q-tr>
           <!--  Second row of the header -->
@@ -47,11 +48,28 @@ onMounted(async () => {
   }
 });
 
+function format_rf_field(field: string): string {
+  return Number.parseFloat(field).toFixed(4).toString();
+}
+
+function format_modes_field(field: Array<string>): string {
+  const modeMap: { [key: string]: string } = {
+    fm: 'FM',
+    dmr: 'DMR',
+    dstar: 'D-Star',
+    fusion: 'Fusion',
+    tetra: 'TETRA',
+  };
+  const modes_formatted = field.map((mode) => modeMap[mode]);
+  return modes_formatted.join(', ');
+}
+
 const columns = [
   {
     name: 'callsign',
     label: 'Indicativo',
     field: 'callsign',
+    align: 'center',
   },
   {
     name: 'info_location__place',
@@ -62,6 +80,7 @@ const columns = [
       }
       return '';
     },
+    align: 'center',
   },
   {
     name: 'info_location__qth_loc',
@@ -72,6 +91,7 @@ const columns = [
       }
       return '';
     },
+    align: 'center',
   },
   {
     name: 'info_holder__abrv',
@@ -82,6 +102,7 @@ const columns = [
       }
       return '';
     },
+    align: 'center',
   },
   {
     name: 'info_holder__name',
@@ -92,26 +113,37 @@ const columns = [
       }
       return '';
     },
+    align: 'center',
   },
   {
     name: 'info_rf__tx_mhz',
     label: 'Tx (MHz)',
     field: (repeater: FactRepeater) => {
       if (repeater.info_rf != null) {
-        return repeater.info_rf.tx_mhz;
+        return format_rf_field(repeater.info_rf.tx_mhz);
       }
       return '';
     },
+    align: 'center',
   },
   {
     name: 'info_rf__rx_mhz',
     label: 'Rx (MHz)',
     field: (repeater: FactRepeater) => {
       if (repeater.info_rf != null) {
-        return repeater.info_rf.rx_mhz;
+        return format_rf_field(repeater.info_rf.rx_mhz);
       }
       return '';
     },
+    align: 'center',
+  },
+  {
+    name: 'modes',
+    label: 'Modos',
+    field: (repeater: FactRepeater) => {
+      return format_modes_field(repeater.modes);
+    },
+    align: 'center',
   },
 ];
 </script>
