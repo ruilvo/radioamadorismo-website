@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "django_extensions",
     "computedfields",
     # Local
+    "portal",
     "users",
     "repeaters",
     "aprs",
