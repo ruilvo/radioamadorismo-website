@@ -17,7 +17,7 @@ from associations.models import Association
 
 from portal.qth_loc import qthloc_from_latlon
 
-from repeaters.vendor.bands import Band23cm, Band70cm, Band2m, Band6m, Band10m
+from portal.bands import Band23cm, Band70cm, Band2m, Band6m, Band10m
 
 PLACEHOLDER_STR = "-----"
 

@@ -1,5 +1,5 @@
 """
-Misc utilities for this Django app.
+Misc list utilities for this project.
 """
 
 

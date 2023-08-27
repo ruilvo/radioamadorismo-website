@@ -5,9 +5,9 @@ Define the Django views for the repeaters app
 from django.views.decorators.http import require_safe
 from django.http import HttpRequest
 
-from repeaters.vendor.responses import generate_csv_response, generate_zip_response
+from portal.responses import generate_csv_response, generate_zip_response
 
-from repeaters.vendor.exports.anytone_d878uviip import (
+from repeaters.exports.anytone_d878uviip import (
     DimDmrTgAnytoneUVIIPlusSerializer,
     ReceiveGroupsAnytoneUVIIPlusSerializer,
     ChannelAnytoneUVIIPlusSerializer,
@@ -15,7 +15,7 @@ from repeaters.vendor.exports.anytone_d878uviip import (
     codeplug_zip,
 )
 
-from repeaters.vendor.exports.chirp import chirp_csv
+from repeaters.exports.chirp import chirp_csv
 
 
 @require_safe
