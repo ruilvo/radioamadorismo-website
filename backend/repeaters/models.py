@@ -420,7 +420,7 @@ class DimLocation(ComputedFieldsModel, GeoItem):
         return (
             f"{self.region if self.region else PLACEHOLDER_STR}, "
             + f"{self.place if self.place else PLACEHOLDER_STR}, "
-            + f"{self.qth_loc if self.qth_loc else PLACEHOLDER_STR}, "
+            + f"{self.qth_loc}, "
             + coordinates_str
         )
 
