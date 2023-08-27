@@ -78,7 +78,7 @@ def qthloc_to_latlon(location):
     longitude += int(location[2]) * 2
     # Subsquare
     if len(location) == 6:
-        longitude_minutes = (ord(location[4]) - ord("a")) * 5
+        longitude_minutes = (ord(location[4].lower()) - ord("a")) * 5
         longitude += longitude_minutes / 60
 
     latitude = 0.0
@@ -89,7 +89,7 @@ def qthloc_to_latlon(location):
     latitude += int(location[3])
     # Subsquare
     if len(location) == 6:
-        latitude_minutes = (ord(location[5]) - ord("a")) * 2.5
+        latitude_minutes = (ord(location[5].lower()) - ord("a")) * 2.5
         latitude += latitude_minutes / 60
 
     return latitude - 90, longitude - 180
