@@ -52,3 +52,7 @@ class AssociationViewSet(  # pylint: disable=too-many-ancestors
     queryset = Association.objects.all()
     serializer_class = AssociationSerializer
     filterset_class = AssociationFilter
+    ordering_fields = (
+        "abrv",
+        "name",
+    )

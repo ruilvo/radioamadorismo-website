@@ -99,6 +99,8 @@ class FactRepeaterViewSet(  # pylint: disable=too-many-ancestors
         "info_dmr__color_code",
         "info_tetra__mcc",
         "info_tetra__mnc",
+        "info_holder__abrv",
+        "info_holder__name",
         "info_location__latitude",
         "info_location__longitude",
         "info_location__region",
