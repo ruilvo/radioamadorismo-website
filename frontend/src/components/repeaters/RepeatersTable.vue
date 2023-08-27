@@ -1,30 +1,37 @@
 <template>
   <h3>Listagem de repetidores</h3>
   <div class="row">
-    <q-table :rows="repeaters" :columns="columns" row-key="id" class="col-12">
+    <q-table
+      :rows="repeaters"
+      :columns="columns"
+      no-data-label="Sem dados para apresentar"
+      no-results-label="Sem resultados para apresentar"
+      row-key="id"
+      class="col-12"
+    >
       <template v-slot:header="props">
         <q-tr>
           <!--  First row of the header -->
-          <q-td :props="props" key="callsign" rowspan="2">Indicativo</q-td>
-          <q-td colspan="2" class="text-center">Localização</q-td>
-          <q-td colspan="2" class="text-center">Entidade</q-td>
-          <q-td colspan="2" class="text-center">RF</q-td>
-          <q-td :props="props" key="modes" rowspan="2">Modos</q-td>
+          <q-th :props="props" key="callsign" rowspan="2">Indicativo</q-th>
+          <q-th colspan="2" class="text-center">Localização</q-th>
+          <q-th colspan="2" class="text-center">Entidade</q-th>
+          <q-th colspan="2" class="text-center">RF</q-th>
+          <q-th :props="props" key="modes" rowspan="2">Modos</q-th>
         </q-tr>
         <q-tr>
           <!--  Second row of the header -->
 
           <!--  Info - location -->
-          <q-td :props="props" key="info_location__place">Local</q-td>
-          <q-td :props="props" key="info_location__qth_loc">QTH loc.</q-td>
+          <q-th :props="props" key="info_location__place">Local</q-th>
+          <q-th :props="props" key="info_location__qth_loc">QTH loc.</q-th>
 
           <!--  Info - holder -->
-          <q-td :props="props" key="info_holder__abrv">Abrv.</q-td>
-          <q-td :props="props" key="info_holder__name">Nome</q-td>
+          <q-th :props="props" key="info_holder__abrv">Abrv.</q-th>
+          <q-th :props="props" key="info_holder__name">Nome</q-th>
 
           <!--  Info - RF -->
-          <q-td :props="props" key="info_rf__tx_mhz">Tx (MHz)</q-td>
-          <q-td :props="props" key="info_rf__rx_mhz">Rx (MHz)</q-td>
+          <q-th :props="props" key="info_rf__tx_mhz">Tx (MHz)</q-th>
+          <q-th :props="props" key="info_rf__rx_mhz">Rx (MHz)</q-th>
         </q-tr>
       </template>
     </q-table>
@@ -64,12 +71,31 @@ function format_modes_field(field: Array<string>): string {
   return modes_formatted.join(', ');
 }
 
-const columns = [
+// Generated with copilot
+/* eslint-disable @typescript-eslint/no-explicit-any */
+interface TableColumn {
+  name: string;
+  label: string;
+  field: string | ((row: FactRepeater) => any);
+  required?: boolean;
+  align?: 'center' | 'left' | 'right';
+  sortable?: boolean;
+  sort?: (a: any, b: any, rowA: FactRepeater, rowB: FactRepeater) => number;
+  format?: (val: any, row: FactRepeater) => any;
+  classes?: string;
+  style?: string;
+  headerClasses?: string;
+  headerStyle?: string;
+}
+/* eslint-enable @typescript-eslint/no-explicit-any */
+
+const columns: Array<TableColumn> = [
   {
     name: 'callsign',
     label: 'Indicativo',
     field: 'callsign',
     align: 'center',
+    sortable: true,
   },
   {
     name: 'info_location__place',
@@ -81,6 +107,7 @@ const columns = [
       return '';
     },
     align: 'center',
+    sortable: true,
   },
   {
     name: 'info_location__qth_loc',
@@ -92,6 +119,7 @@ const columns = [
       return '';
     },
     align: 'center',
+    sortable: true,
   },
   {
     name: 'info_holder__abrv',
@@ -103,6 +131,7 @@ const columns = [
       return '';
     },
     align: 'center',
+    sortable: true,
   },
   {
     name: 'info_holder__name',
@@ -114,6 +143,7 @@ const columns = [
       return '';
     },
     align: 'center',
+    sortable: true,
   },
   {
     name: 'info_rf__tx_mhz',
@@ -125,6 +155,7 @@ const columns = [
       return '';
     },
     align: 'center',
+    sortable: true,
   },
   {
     name: 'info_rf__rx_mhz',
@@ -136,6 +167,7 @@ const columns = [
       return '';
     },
     align: 'center',
+    sortable: true,
   },
   {
     name: 'modes',
@@ -144,6 +176,7 @@ const columns = [
       return format_modes_field(repeater.modes);
     },
     align: 'center',
+    sortable: true,
   },
 ];
 </script>
