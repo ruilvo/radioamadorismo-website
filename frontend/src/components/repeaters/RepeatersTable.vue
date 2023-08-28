@@ -53,9 +53,15 @@
 import { ref, onMounted, Ref } from 'vue';
 import { api } from 'boot/axios';
 
-import { components } from 'src/types/api';
+import { AxiosResponse } from 'axios';
+
+import { paths, components } from 'src/types/api';
 
 type FactRepeater = components['schemas']['FactRepeater'];
+type FactRepeaterResponse =
+  paths['/api/v1/repeaters/fact-repeater/']['get']['responses']['200']['content']['application/json'];
+type FactRepeaterRequest =
+  paths['/api/v1/repeaters/fact-repeater/']['get']['parameters']['query'];
 
 const loading = ref(false);
 
@@ -83,16 +89,14 @@ async function requestRepeaters(
   ordering: string | null = null,
 ): Promise<void> {
   loading.value = true;
-  var ordering_str = '';
-  if (ordering != null) {
-    ordering_str = `&ordering=${ordering}`;
-  }
   try {
-    const response = await api.get(
-      `/api/v1/repeaters/fact-repeater/?limit=${limit}&offset=${offset}${ordering_str}`,
-    );
-    repeaters.value = response.data.results;
-    pagination.value.rowsNumber = response.data.count;
+    const response: AxiosResponse<FactRepeaterResponse, FactRepeaterRequest> =
+      await api.get('/api/v1/repeaters/fact-repeater/', {
+        params: { limit, offset, ordering },
+      });
+    // TODO(ruilvo, 2023-08-28): Handle null adequately.
+    repeaters.value = response.data.results!;
+    pagination.value.rowsNumber = response.data.count!;
   } catch (error) {
     console.error(error);
   }
@@ -142,7 +146,7 @@ function format_rf_field(field: string): string {
   return Number.parseFloat(field).toFixed(4).toString();
 }
 
-function format_modes_field(field: Array<string>): string {
+function format_modes_field(field: readonly string[]): string {
   const modeMap: { [key: string]: string } = {
     fm: 'FM',
     dmr: 'DMR',
@@ -195,7 +199,7 @@ const columns: Array<TableColumn> = [
     label: 'Local',
     field: (repeater: FactRepeater) => {
       if (repeater.info_location != null) {
-        return format_region_field(repeater.info_location.region);
+        return format_region_field(repeater.info_location.region!);
       }
       return '';
     },
