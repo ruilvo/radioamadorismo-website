@@ -43,7 +43,9 @@
 import { ref, onMounted, Ref } from 'vue';
 import { api } from 'boot/axios';
 
-import { Association } from 'src/components/models';
+import { components } from 'src/types/api';
+
+type Association = components['schemas']['Association'];
 
 const associations: Ref<Array<Association>> = ref([]);
 

@@ -10,7 +10,8 @@
     "format": "prettier --write \"**/*.{js,ts,vue,scss,html,md,json}\" --ignore-path .gitignore",
     "test": "echo \"No test specified\" && exit 0",
     "dev": "quasar dev",
-    "build": "quasar build"
+    "build": "quasar build",
+    "generate-types": "openapi-typescript http://backend:8000/api/schema/?format=json -o src/types/api.ts"
   },
   "dependencies": {
     "@quasar/extras": "^1.16.5",
@@ -30,6 +31,7 @@
     "eslint": "^8.47.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-vue": "^9.17.0",
+    "openapi-typescript": "^6.5.3",
     "prettier": "^3.0.2",
     "typescript": "^5.1.6"
   },

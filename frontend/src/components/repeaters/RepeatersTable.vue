@@ -53,7 +53,9 @@
 import { ref, onMounted, Ref } from 'vue';
 import { api } from 'boot/axios';
 
-import { FactRepeater } from 'src/components/models';
+import { components } from 'src/types/api';
+
+type FactRepeater = components['schemas']['FactRepeater'];
 
 const loading = ref(false);
 
