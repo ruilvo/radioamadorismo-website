@@ -403,7 +403,7 @@ class DimLocation(ComputedFieldsModel, GeoItem):
         """
         Computes the QTH locator for the repeater based on the latitude and longitude.
         """
-        return qthloc_from_latlon(self.latitude, self.longitude)
+        return qthloc_from_latlon(float(self.latitude), float(self.longitude))
 
     @property
     def geomap_longitude(self):
