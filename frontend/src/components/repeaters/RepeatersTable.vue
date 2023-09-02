@@ -94,7 +94,7 @@ async function requestRepeaters(
       await api.get('/api/v1/repeaters/fact-repeater/', {
         params: { limit, offset, ordering },
       });
-    // TODO(ruilvo, 2023-08-28): Handle null adequately.
+    // These fields aren't null because this only happens on success
     repeaters.value = response.data.results!;
     pagination.value.rowsNumber = response.data.count!;
   } catch (error) {
@@ -199,6 +199,7 @@ const columns: Array<TableColumn> = [
     label: 'Local',
     field: (repeater: FactRepeater) => {
       if (repeater.info_location != null) {
+        // On reading, this field is never null
         return format_region_field(repeater.info_location.region!);
       }
       return '';
