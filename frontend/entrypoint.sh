@@ -1,8 +1,9 @@
 #!/bin/bash
 
+npm i
+
 if [[ -z "${DEVELOPMENT}" ]]
 then
-    npm i
     npm run build
 fi
 
