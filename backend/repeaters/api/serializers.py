@@ -223,7 +223,6 @@ class DimLocationSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
             if not new_object_created:
                 new_object.region = validated_data["region"]
                 new_object.place = validated_data["place"]
-                new_object.qth_loc = validated_data["qth_loc"]
                 new_object.save()
             return new_object
         return DimLocation.objects.create(**validated_data)
