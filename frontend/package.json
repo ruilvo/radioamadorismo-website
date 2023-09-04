@@ -14,26 +14,26 @@
     "generate-types": "openapi-typescript http://backend:8000/api/schema/?format=json -o src/types/api.ts"
   },
   "dependencies": {
-    "@quasar/extras": "^1.16.5",
-    "axios": "^1.4.0",
+    "@quasar/extras": "^1.16.6",
+    "axios": "^1.5.0",
     "pinia": "^2.1.6",
     "pinia-plugin-persistedstate": "^3.2.0",
-    "quasar": "^2.12.5",
+    "quasar": "^2.12.6",
     "vue": "^3.3.4",
     "vue-router": "^4.2.4"
   },
   "devDependencies": {
-    "@quasar/app-vite": "^1.4.5",
-    "@types/node": "^20.5.1",
-    "@typescript-eslint/eslint-plugin": "^6.4.0",
-    "@typescript-eslint/parser": "^6.4.0",
+    "@quasar/app-vite": "^1.5.0",
+    "@types/node": "^20.5.8",
+    "@typescript-eslint/eslint-plugin": "^6.5.0",
+    "@typescript-eslint/parser": "^6.5.0",
     "autoprefixer": "^10.4.15",
-    "eslint": "^8.47.0",
+    "eslint": "^8.48.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-vue": "^9.17.0",
-    "openapi-typescript": "^6.5.3",
-    "prettier": "^3.0.2",
-    "typescript": "^5.1.6"
+    "openapi-typescript": "^6.5.4",
+    "prettier": "^3.0.3",
+    "typescript": "^5.2.2"
   },
   "engines": {
     "node": "^18 || ^16 || ^14.19 || ^20",
