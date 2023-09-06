@@ -3,20 +3,20 @@
     <h3>Informação RF</h3>
     <q-markup-table>
       <thead>
-        <th class="text-center">Frequência Tx</th>
-        <th class="text-center">Frequência Rx</th>
-        <th class="text-center text-italic">Shift</th>
+        <th class="text-center">Modulação</th>
+        <th class="text-center">Tom</th>
+        <th class="text-center text-italic">Largura de banda</th>
       </thead>
       <tbody>
         <tr>
           <td class="text-center">
-            {{ format_rf_field(props.info_rf.tx_mhz!) }}
+            {{ props.info_fm.modulation! }}
           </td>
           <td class="text-center">
-            {{ format_rf_field(props.info_rf.rx_mhz!) }}
+            {{ format_rf_field(props.info_fm.tone!) }}
           </td>
           <td class="text-center text-italic">
-            {{ format_rf_field(props.info_rf.shift_mhz!) }}
+            {{ props.info_fm.bandwidth! }}
           </td>
         </tr>
       </tbody>
@@ -27,11 +27,11 @@
 <script setup lang="ts">
 import { components } from 'src/types/api';
 
-type DimRf = components['schemas']['DimRf'];
+type DimFm = components['schemas']['DimFm'];
 
 const props = defineProps({
-  info_rf: {
-    type: Object as () => DimRf,
+  info_fm: {
+    type: Object as () => DimFm,
     required: true,
   },
 });

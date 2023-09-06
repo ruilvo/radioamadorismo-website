@@ -7,7 +7,14 @@
       <div class="q-gutter-md">
         <h2>{{ props.id }}: {{ repeater?.callsign }}</h2>
         <q-separator />
-        <InfoRfSection :info_rf="repeater?.info_rf" />
+        <InfoRfSection
+          v-if="repeater.info_rf !== null"
+          :info_rf="repeater.info_rf!"
+        />
+        <InfoFmSection
+          v-if="repeater.info_fm !== null"
+          :info_fm="repeater.info_fm!"
+        />
       </div>
     </div>
   </div>
@@ -20,6 +27,7 @@ import { api } from 'boot/axios';
 import { paths, components } from 'src/types/api';
 
 import InfoRfSection from 'components/repeaters/InfoRfSection.vue';
+import InfoFmSection from 'components/repeaters/InfoFmSection.vue';
 
 type FactRepeater = components['schemas']['FactRepeater'];
 type FactRepeaterIdResponse =
