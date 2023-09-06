@@ -10,13 +10,13 @@
       <tbody>
         <tr>
           <td class="text-center">
-            {{ format_rf_field(props.info_rf.tx_mhz!) }}
+            {{ format_decimal_field(props.info_rf.tx_mhz!) }}
           </td>
           <td class="text-center">
-            {{ format_rf_field(props.info_rf.rx_mhz!) }}
+            {{ format_decimal_field(props.info_rf.rx_mhz!) }}
           </td>
           <td class="text-center text-italic">
-            {{ format_rf_field(props.info_rf.shift_mhz!) }}
+            {{ format_decimal_field(props.info_rf.shift_mhz!) }}
           </td>
         </tr>
       </tbody>
@@ -27,6 +27,8 @@
 <script setup lang="ts">
 import { components } from 'src/types/api';
 
+import { format_decimal_field } from 'src/functions/repeaters';
+
 type DimRf = components['schemas']['DimRf'];
 
 const props = defineProps({
@@ -35,8 +37,4 @@ const props = defineProps({
     required: true,
   },
 });
-
-function format_rf_field(field: string): string {
-  return Number.parseFloat(field).toFixed(4).toString();
-}
 </script>

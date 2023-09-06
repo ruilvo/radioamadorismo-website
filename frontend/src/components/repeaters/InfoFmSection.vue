@@ -1,6 +1,6 @@
 <template>
   <div class="q-gutter-y-md">
-    <h3>Informação RF</h3>
+    <h3>Informação FM</h3>
     <q-markup-table>
       <thead>
         <th class="text-center">Modulação</th>
@@ -13,7 +13,7 @@
             {{ props.info_fm.modulation! }}
           </td>
           <td class="text-center">
-            {{ format_rf_field(props.info_fm.tone!) }}
+            {{ format_decimal_field(props.info_fm.tone!, 1) }}
           </td>
           <td class="text-center text-italic">
             {{ props.info_fm.bandwidth! }}
@@ -27,6 +27,8 @@
 <script setup lang="ts">
 import { components } from 'src/types/api';
 
+import { format_decimal_field } from 'src/functions/repeaters';
+
 type DimFm = components['schemas']['DimFm'];
 
 const props = defineProps({
@@ -35,8 +37,4 @@ const props = defineProps({
     required: true,
   },
 });
-
-function format_rf_field(field: string): string {
-  return Number.parseFloat(field).toFixed(4).toString();
-}
 </script>

@@ -57,6 +57,12 @@ import { AxiosResponse } from 'axios';
 
 import { paths, components } from 'src/types/api';
 
+import {
+  format_decimal_field,
+  format_modes_field,
+  format_region_field,
+} from 'src/functions/repeaters';
+
 type FactRepeater = components['schemas']['FactRepeater'];
 type FactRepeaterResponse =
   paths['/api/v1/repeaters/fact-repeater/']['get']['responses']['200']['content']['application/json'];
@@ -141,32 +147,6 @@ onMounted(() => {
   const offset = (pagination.value.page - 1) * limit;
   requestRepeaters(limit, offset);
 });
-
-function format_rf_field(field: string): string {
-  return Number.parseFloat(field).toFixed(4).toString();
-}
-
-function format_modes_field(field: readonly string[]): string {
-  const modeMap: { [key: string]: string } = {
-    fm: 'FM',
-    dmr: 'DMR',
-    dstar: 'D-Star',
-    fusion: 'Fusion',
-    tetra: 'TETRA',
-  };
-  const modes_formatted = field.map((mode) => modeMap[mode]);
-  return modes_formatted.join(', ');
-}
-
-function format_region_field(field: string): string {
-  const regionMap: { [key: string]: string } = {
-    CPT: 'Continente',
-    AZR: 'Açores',
-    MDA: 'Madeira',
-    OT: '',
-  };
-  return regionMap[field];
-}
 
 // Generated with copilot
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -260,7 +240,7 @@ const columns: Array<TableColumn> = [
     label: 'Tx (MHz)',
     field: (repeater: FactRepeater) => {
       if (repeater.info_rf != null) {
-        return format_rf_field(repeater.info_rf.tx_mhz);
+        return format_decimal_field(repeater.info_rf.tx_mhz);
       }
       return '';
     },
@@ -272,7 +252,7 @@ const columns: Array<TableColumn> = [
     label: 'Rx (MHz)',
     field: (repeater: FactRepeater) => {
       if (repeater.info_rf != null) {
-        return format_rf_field(repeater.info_rf.rx_mhz);
+        return format_decimal_field(repeater.info_rf.rx_mhz);
       }
       return '';
     },
