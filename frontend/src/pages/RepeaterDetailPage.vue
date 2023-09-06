@@ -1,12 +1,18 @@
 <template>
   <div class="q-pa-md">
-    <div v-if="repeater === null">
-      <q-spinner-gears />
-    </div>
-    <div v-else>
-      <div class="q-gutter-md">
+    <div class="q-gutter-md">
+      <template v-if="repeater !== null">
         <h2>{{ props.id }}: {{ repeater?.callsign }}</h2>
         <q-separator />
+        <FactRepeaterSection :repeater="repeater" />
+        <InfoLocationSection
+          v-if="repeater.info_location !== null"
+          :info_location="repeater.info_location!"
+        />
+        <InfoHolderSection
+          v-if="repeater.info_holder !== null"
+          :info_holder="repeater.info_holder!"
+        />
         <InfoRfSection
           v-if="repeater.info_rf !== null"
           :info_rf="repeater.info_rf!"
@@ -15,7 +21,23 @@
           v-if="repeater.info_fm !== null"
           :info_fm="repeater.info_fm!"
         />
-      </div>
+        <InfoDmrSection
+          v-if="repeater.info_dmr !== null"
+          :info_dmr="repeater.info_dmr!"
+        />
+        <InfoDstarSection
+          v-if="repeater.info_dstar !== null"
+          :info_dstar="repeater.info_dstar!"
+        />
+        <InfoFusionSection
+          v-if="repeater.info_fusion !== null"
+          :info_fusion="repeater.info_fusion!"
+        />
+        <InfoTetraSection
+          v-if="repeater.info_tetra !== null"
+          :info_tetra="repeater.info_tetra!"
+        />
+      </template>
     </div>
   </div>
 </template>
@@ -28,6 +50,13 @@ import { paths, components } from 'src/types/api';
 
 import InfoRfSection from 'components/repeaters/InfoRfSection.vue';
 import InfoFmSection from 'components/repeaters/InfoFmSection.vue';
+import InfoLocationSection from 'components/repeaters/InfoLocationSection.vue';
+import InfoDstarSection from 'components/repeaters/InfoDstarSection.vue';
+import InfoFusionSection from 'components/repeaters/InfoFusionSection.vue';
+import InfoHolderSection from 'components/repeaters/InfoHolderSection.vue';
+import InfoDmrSection from 'components/repeaters/InfoDmrSection.vue';
+import InfoTetraSection from 'components/repeaters/InfoTetraSection.vue';
+import FactRepeaterSection from 'components/repeaters/FactRepeaterSection.vue';
 
 type FactRepeater = components['schemas']['FactRepeater'];
 type FactRepeaterIdResponse =

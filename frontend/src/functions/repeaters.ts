@@ -26,3 +26,14 @@ export function format_region_field(field: string): string {
   };
   return regionMap[field];
 }
+
+export function format_status_field(field: string) {
+  const statusMap: { [key: string]: string } = {
+    OFF: 'Desligado',
+    ON: 'Ligado',
+    PROJECT: 'Projeto',
+    PROBLEMS: 'Problemas',
+    OT: 'Outro/Desconhecido',
+  };
+  return statusMap[field];
+}
