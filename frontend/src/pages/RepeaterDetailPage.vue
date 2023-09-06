@@ -1,10 +1,14 @@
 <template>
   <div class="q-pa-md">
-    <div class="q-gutter-md">
-      <h2>{{ props.id }}</h2>
-      <q-separator />
-      <div>Some text</div>
-      <q-separator />
+    <div v-if="repeater === null">
+      <q-spinner-gears />
+    </div>
+    <div v-else>
+      <div class="q-gutter-md">
+        <h2>{{ props.id }}: {{ repeater?.callsign }}</h2>
+        <q-separator />
+        <InfoRfSection :info_rf="repeater?.info_rf" />
+      </div>
     </div>
   </div>
 </template>
@@ -14,6 +18,8 @@ import { ref, onMounted, Ref } from 'vue';
 import { api } from 'boot/axios';
 
 import { paths, components } from 'src/types/api';
+
+import InfoRfSection from 'components/repeaters/InfoRfSection.vue';
 
 type FactRepeater = components['schemas']['FactRepeater'];
 type FactRepeaterIdResponse =
@@ -30,6 +36,9 @@ onMounted(() => {
     .get<FactRepeaterIdResponse>('/api/v1/repeaters/fact-repeater/' + props.id)
     .then((response) => {
       repeater.value = response.data;
+    })
+    .catch((error) => {
+      console.error(error);
     });
 });
 </script>
