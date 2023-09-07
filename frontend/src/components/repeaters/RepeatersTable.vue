@@ -55,6 +55,8 @@ import { api } from 'boot/axios';
 
 import { AxiosResponse } from 'axios';
 
+import { QTableProps } from 'quasar';
+
 import { paths, components } from 'src/types/api';
 
 import {
@@ -71,13 +73,16 @@ type FactRepeaterRequest =
 
 const loading = ref(false);
 
-interface Pagination {
+type PaginationRequestProp = {
   page: number;
   rowsPerPage: number;
-  rowsNumber: number;
   sortBy: string | null;
   descending: boolean;
-}
+};
+
+type Pagination = PaginationRequestProp & {
+  rowsNumber: number;
+};
 
 const pagination: Ref<Pagination> = ref({
   page: 1,
@@ -110,12 +115,7 @@ async function requestRepeaters(
 }
 
 function onRequest(requestProp: {
-  pagination: {
-    sortBy: string;
-    descending: boolean;
-    page: number;
-    rowsPerPage: number;
-  };
+  pagination: PaginationRequestProp;
   /* eslint-disable @typescript-eslint/no-explicit-any */
   filter?: any;
   getCellValue: (col: any, row: any) => any;
@@ -147,25 +147,7 @@ onMounted(() => {
   requestRepeaters(limit, offset);
 });
 
-// Generated with copilot
-/* eslint-disable @typescript-eslint/no-explicit-any */
-interface TableColumn {
-  name: string;
-  label: string;
-  field: string | ((row: FactRepeater) => any);
-  required?: boolean;
-  align?: 'center' | 'left' | 'right';
-  sortable?: boolean;
-  sort?: (a: any, b: any, rowA: FactRepeater, rowB: FactRepeater) => number;
-  format?: (val: any, row: FactRepeater) => any;
-  classes?: string;
-  style?: string;
-  headerClasses?: string;
-  headerStyle?: string;
-}
-/* eslint-enable @typescript-eslint/no-explicit-any */
-
-const columns: Array<TableColumn> = [
+const columns: QTableProps['columns'] = [
   {
     name: 'callsign',
     label: 'Indicativo',
