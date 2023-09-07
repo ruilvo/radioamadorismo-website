@@ -143,6 +143,7 @@ class DimFmViewSet(NestedWritableModelViewSet):  # pylint: disable=too-many-ance
         "modulation",
         "tone",
         "ctcss_sql",
+        "transit_pilot",
         "bandwidth",
     )
 

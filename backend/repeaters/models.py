@@ -186,6 +186,13 @@ class DimFm(models.Model):
         max_digits=32, decimal_places=16, blank=True, null=True, verbose_name="CTCSS"
     )
     ctcss_sql = models.BooleanField(default=False, verbose_name="CTCSS SQL")
+    transit_pilot = models.DecimalField(
+        max_digits=32,
+        decimal_places=16,
+        blank=True,
+        null=True,
+        verbose_name="transit pilot",
+    )
     bandwidth = models.CharField(
         max_length=64,
         verbose_name="bandwidth",
@@ -194,10 +201,16 @@ class DimFm(models.Model):
     )
 
     def __str__(self) -> str:
+        def get_value_or_placeholder(value):
+            if value is None:
+                return PLACEHOLDER_STR
+            return f"{float(value):.1f}"
+
         return (
             f"{self.modulation if self.modulation else PLACEHOLDER_STR}, "
-            + f"{float(self.ctcss):.1f}, "
-            + f"{'no CTCSS sql, ' if not self.ctcss_sql else ''}"
+            + f"{get_value_or_placeholder(self.ctcss)}, "
+            + f"{'no CTCSS sql' if not self.ctcss_sql else 'CTCSS sql'}, "
+            + f"{get_value_or_placeholder(self.transit_pilot)}, "
             + f"{self.bandwidth}"
         )
 
@@ -206,8 +219,14 @@ class DimFm(models.Model):
         verbose_name_plural = "info - FM"
         constraints = [
             models.UniqueConstraint(
-                fields=["modulation", "ctcss", "ctcss_sql"],
-                name="unique mod./tone/SQL combination",
+                fields=[
+                    "modulation",
+                    "ctcss",
+                    "ctcss_sql",
+                    "transit_pilot",
+                    "bandwidth",
+                ],
+                name="unique mod./tone/CTCSS SQL/transit pilot/bandwidth combination",
             )
         ]
 

@@ -257,6 +257,7 @@ class FactRepeaterFilter(FilterSet):
             "info_fm__modulation": ["iexact", "icontains"],
             "info_fm__ctcss": ["exact"],
             "info_fm__ctcss_sql": ["exact"],
+            "info_fm__transit_pilot": ["exact", "gte", "lte"],
             "info_fm__bandwidth": ["iexact"],
             # DimDstar
             "info_dstar__gateway": ["iexact"],

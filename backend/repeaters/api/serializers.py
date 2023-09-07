@@ -61,6 +61,9 @@ class DimFmSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
         instance.modulation = validated_data.get("modulation", instance.modulation)
         instance.ctcss = validated_data.get("ctcss", instance.ctcss)
         instance.ctcss_sql = validated_data.get("ctcss_sql", instance.ctcss_sql)
+        instance.transit_pilot = validated_data.get(
+            "transit_pilot", instance.transit_pilot
+        )
         instance.bandwidth = validated_data.get("bandwidth", instance.bandwidth)
         instance.save()
         return instance
