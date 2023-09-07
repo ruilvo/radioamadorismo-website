@@ -363,6 +363,8 @@ export interface components {
       /** Format: decimal */
       ctcss?: string | null;
       ctcss_sql?: boolean;
+      /** Format: decimal */
+      transit_pilot?: string | null;
       bandwidth?: components["schemas"]["BandwidthEnum"];
     };
     /** @description Models enough information for describing Fusion/C4FM repeaters. */
@@ -663,6 +665,8 @@ export interface components {
       /** Format: decimal */
       ctcss?: string | null;
       ctcss_sql?: boolean;
+      /** Format: decimal */
+      transit_pilot?: string | null;
       bandwidth?: components["schemas"]["BandwidthEnum"];
     };
     /** @description Models enough information for describing Fusion/C4FM repeaters. */
@@ -2139,6 +2143,9 @@ export interface operations {
         info_fm__ctcss_sql?: boolean;
         info_fm__modulation__icontains?: string;
         info_fm__modulation__iexact?: string;
+        info_fm__transit_pilot?: number;
+        info_fm__transit_pilot__gte?: number;
+        info_fm__transit_pilot__lte?: number;
         info_fusion__room_id__iexact?: string;
         info_fusion__wiresx__iexact?: string;
         info_holder__abrv__icontains?: string;
