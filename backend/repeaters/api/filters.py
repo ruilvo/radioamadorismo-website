@@ -206,6 +206,15 @@ def factrepeater__modes_search(queryset, _, value):
     return queryset.filter(modes__overlap=query_modes)
 
 
+def factrepeater__modes__active_search(queryset, _, value):
+    """
+    Search for repeaters that have at least one active mode.
+    """
+    if bool(value):
+        return queryset.filter(~Q(modes__len=0))
+    return queryset
+
+
 class FactRepeaterFilter(FilterSet):
     """
     Custom FilterSet for FactRepeater model.
@@ -213,6 +222,9 @@ class FactRepeaterFilter(FilterSet):
 
     modes = filters.CharFilter(
         label="Modulation modes, (,-separated)", method=factrepeater__modes_search
+    )
+    modes__active = filters.BooleanFilter(
+        label="Has at least one active mode", method=factrepeater__modes__active_search
     )
     info_rf__freq_mhz_search = filters.NumberFilter(
         label="Frequency (MHz)", method=factrepeater__info_rf__freq_mhz_search

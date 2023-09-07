@@ -98,7 +98,7 @@ async function requestRepeaters(
   try {
     const response: AxiosResponse<FactRepeaterResponse, FactRepeaterRequest> =
       await api.get('/api/v1/repeaters/fact-repeater/', {
-        params: { limit, offset, ordering },
+        params: { limit, offset, ordering, modes__active: true },
       });
     // These fields aren't null because this only happens on success
     repeaters.value = response.data.results!;
