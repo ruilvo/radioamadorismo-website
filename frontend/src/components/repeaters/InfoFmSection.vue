@@ -3,7 +3,8 @@
   <q-markup-table>
     <thead>
       <th class="text-center">Modulação</th>
-      <th class="text-center">Tom</th>
+      <th class="text-center">Tom (CTCSS)</th>
+      <th class="text-center text-italic">CTCSS squelch</th>
     </thead>
     <tbody>
       <tr>
@@ -11,7 +12,10 @@
           {{ props.info_fm.modulation! }}
         </td>
         <td class="text-center">
-          {{ format_decimal_field(props.info_fm.tone!, 1) }}
+          {{ format_decimal_field(props.info_fm.ctcss!, 1) }}
+        </td>
+        <td class="text-center">
+          {{ props.info_fm.ctcss_sql! === true ? 'Sim' : 'Não' }}
         </td>
       </tr>
     </tbody>
