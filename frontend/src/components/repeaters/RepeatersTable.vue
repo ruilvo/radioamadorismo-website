@@ -122,7 +122,6 @@ function onRequest(requestProp: {
   /* eslint-enable @typescript-eslint/no-explicit-any */
 }): void {
   const { page, rowsPerPage, sortBy, descending } = requestProp.pagination;
-  console.log(sortBy, descending);
   var limit = rowsPerPage;
   if (limit === 0) {
     limit = pagination.value.rowsNumber;
