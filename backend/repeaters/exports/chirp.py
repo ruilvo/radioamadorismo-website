@@ -72,6 +72,12 @@ def chirp_csv() -> io.StringIO:
     data = []
 
     index = 1
+
+    def tone_or_67_0(ctcss):
+        if ctcss:
+            return f"{ctcss:.1f}"
+        return "67.0"
+
     for qs in qss:
         for repeater in qs:
             # Create the data for the CSV file
@@ -82,9 +88,9 @@ def chirp_csv() -> io.StringIO:
                     "Frequency": f"{repeater.info_rf.tx_mhz:.4f}",
                     "Duplex": "-",
                     "Offset": f"{repeater.info_rf.shift_mhz:.4f}",
-                    "Tone": "Tone",
-                    "rToneFreq": f"{repeater.info_fm.tone:.1f}",
-                    "cToneFreq": f"{repeater.info_fm.tone:.1f}",
+                    "Tone": "Tone" if repeater.info_fm.ctcss else "",
+                    "rToneFreq": tone_or_67_0(repeater.info_fm.ctcss),
+                    "cToneFreq": tone_or_67_0(repeater.info_fm.ctcss),
                     "DtcsCode": "023",
                     "DtcsPolarity": "NN",
                     "Mode": "FM",  # TODO(ruilvo, 2023-08-22): Consider differentiating between FM and NFM.

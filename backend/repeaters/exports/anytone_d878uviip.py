@@ -357,8 +357,8 @@ class ChannelAnytoneUVIIPlusSerializer:  # pylint: disable=too-few-public-method
                         else "25K"
                     )
                     ctcss = "Off"
-                    if elem.info_fm.tone:
-                        ctcss = f"{elem.info_fm.tone:.1f}"
+                    if elem.info_fm.ctcss:
+                        ctcss = f"{elem.info_fm.ctcss:.1f}"
                     current_data |= {
                         "no": f"{count}",
                         "name": elem.callsign,
