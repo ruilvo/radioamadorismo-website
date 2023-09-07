@@ -142,7 +142,8 @@ class DimFmViewSet(NestedWritableModelViewSet):  # pylint: disable=too-many-ance
     ordering_fields = (
         "modulation",
         "tone",
-        "tone_sql" "bandwidth",
+        "ctcss_sql",
+        "bandwidth",
     )
 
 

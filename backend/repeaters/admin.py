@@ -74,21 +74,21 @@ class DimFmAdmin(admin.ModelAdmin):
         "id",
         "bandwidth",
         "modulation",
-        "tone",
-        "tone_sql",
+        "ctcss",
+        "ctcss_sql",
     )
     search_fields = (
         "id",
         "bandwidth",
         "modulation",
-        "tone",
-        "tone_sql",
+        "ctcss",
+        "ctcss_sql",
     )
     ordering = (
         "bandwidth",
         "modulation",
-        "tone",
-        "tone_sql",
+        "ctcss",
+        "ctcss_sql",
         "id",
     )
 
