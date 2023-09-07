@@ -60,6 +60,7 @@ class DimFmSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
     def update(self, instance: DimFm, validated_data):
         instance.modulation = validated_data.get("modulation", instance.modulation)
         instance.tone = validated_data.get("tone", instance.tone)
+        instance.tone_sql = validated_data.get("tone_sql", instance.tone_sql)
         instance.bandwidth = validated_data.get("bandwidth", instance.bandwidth)
         instance.save()
         return instance

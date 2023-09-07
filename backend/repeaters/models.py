@@ -185,6 +185,7 @@ class DimFm(models.Model):
     tone = models.DecimalField(
         max_digits=32, decimal_places=16, blank=True, null=True, verbose_name="tone"
     )
+    tone_sql = models.BooleanField(default=False, verbose_name="tone SQL")
     bandwidth = models.CharField(
         max_length=64,
         verbose_name="bandwidth",
@@ -196,6 +197,7 @@ class DimFm(models.Model):
         return (
             f"{self.modulation if self.modulation else PLACEHOLDER_STR}, "
             + f"{float(self.tone):.1f}, "
+            + f"{'no tone sql, ' if not self.tone_sql else ''}"
             + f"{self.bandwidth}"
         )
 
@@ -204,7 +206,8 @@ class DimFm(models.Model):
         verbose_name_plural = "info - FM"
         constraints = [
             models.UniqueConstraint(
-                fields=["modulation", "tone"], name="unique mod./tone combination"
+                fields=["modulation", "tone", "tone_sql"],
+                name="unique mod./tone/SQL combination",
             )
         ]
 
