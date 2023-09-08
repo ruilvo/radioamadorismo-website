@@ -12,6 +12,7 @@
       <h3>Listagem de repetidores</h3>
       <RepeatersTable :repeaters="repeaters" />
       <q-separator />
+      <h3>Exportação <i>(Codeplug)</i></h3>
       <RepeatersExport />
     </div>
   </div>

@@ -1,5 +1,4 @@
 <template>
-  <h3>Exportação</h3>
   <div class="column q-px-md q-gutter-y-md">
     <q-btn
       color="primary"
