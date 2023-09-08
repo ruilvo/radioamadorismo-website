@@ -1,9 +1,13 @@
 export const repeaters_routes = [
   {
-    name: 'repeaters',
+    name: 'repeaters-parent',
     path: 'repeaters/',
-    component: () => import('pages/RepeatersPage.vue'),
     children: [
+      {
+        name: 'repeaters',
+        path: '',
+        component: () => import('pages/RepeatersPage.vue'),
+      },
       {
         name: 'repeater_detail',
         path: ':id',
