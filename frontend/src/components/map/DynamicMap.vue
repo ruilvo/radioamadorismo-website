@@ -1,7 +1,7 @@
 <template>
   <l-map
-    :use-global-leaflet="false"
     :zoom="zoom"
+    :max-zoom="19"
     :center="props.initialCenter"
     @update:zoom="onZoomUpdated"
     ref="map"
@@ -15,6 +15,10 @@
 import { ref, PropType } from 'vue';
 
 import 'leaflet/dist/leaflet.css';
+
+import L from 'leaflet';
+globalThis.L = L;
+
 import { LMap } from '@vue-leaflet/vue-leaflet';
 
 import DyamicTileLayer from 'components/map/DynamicTileLayer.vue';
