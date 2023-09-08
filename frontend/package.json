@@ -27,10 +27,12 @@
     "@types/node": "^20.5.9",
     "@typescript-eslint/eslint-plugin": "^6.6.0",
     "@typescript-eslint/parser": "^6.6.0",
+    "@vue-leaflet/vue-leaflet": "^0.10.1",
     "autoprefixer": "^10.4.15",
     "eslint": "^8.48.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-vue": "^9.17.0",
+    "leaflet": "^1.9.4",
     "openapi-typescript": "^6.5.5",
     "prettier": "^3.0.3",
     "typescript": "^5.2.2"
