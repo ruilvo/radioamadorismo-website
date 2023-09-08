@@ -52,25 +52,32 @@ watch(loading, (newLoadingValue) => {
 });
 
 async function requestRepeaters(
-  limit: number,
-  offset: number,
   ordering: string | null = null,
+  step = 10,
 ): Promise<void> {
+  var count = step;
+  var limit = count;
+  var offset = 0;
   loading.value = true;
-  try {
-    const response: AxiosResponse<FactRepeaterResponse, FactRepeaterRequest> =
-      await api.get('/api/v1/repeaters/fact-repeater/', {
-        params: { limit, offset, ordering, modes__active: true },
-      });
-    // These fields aren't null because this only happens on success
-    repeaters.value = response.data.results!;
-  } catch (error) {
-    console.error(error);
+  while (count > repeaters.value.length) {
+    try {
+      const response: AxiosResponse<FactRepeaterResponse, FactRepeaterRequest> =
+        await api.get('/api/v1/repeaters/fact-repeater/', {
+          params: { limit, offset, ordering, modes__active: true },
+        });
+      // These fields aren't null because this only happens on success
+      repeaters.value.push(...response.data.results!);
+      count = response.data.count!;
+      offset += step;
+    } catch (error) {
+      console.error(error);
+      break;
+    }
   }
   loading.value = false;
 }
 
 onMounted(() => {
-  requestRepeaters(99999, 0);
+  requestRepeaters();
 });
 </script>
