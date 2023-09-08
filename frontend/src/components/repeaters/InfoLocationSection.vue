@@ -68,14 +68,13 @@ const props = defineProps({
   },
 });
 
-const zoom = ref(2);
+const zoom = ref(15);
 
 function onZoomUpdated(newZoom: number) {
   zoom.value = newZoom;
 }
 
 const mapPoint = computed(() => {
-  console.log(zoom);
   if (props.info_location === null) {
     return [0, 0];
   }
