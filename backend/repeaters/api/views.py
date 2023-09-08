@@ -108,11 +108,6 @@ class FactRepeaterViewSet(  # pylint: disable=too-many-ancestors
         "info_location__qth_loc",
     )
 
-    ordering = (  # Default ordering
-        "info_location__region",
-        "-info_location__latitude",
-    )
-
 
 class DimRfViewSet(NestedWritableModelViewSet):  # pylint: disable=too-many-ancestors
     """
