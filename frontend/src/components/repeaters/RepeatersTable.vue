@@ -40,7 +40,9 @@
 
       <template v-slot:body-cell-callsign="props">
         <q-td :props="props">
-          <router-link :to="{ name: 'repeater', params: { id: props.row.id } }">
+          <router-link
+            :to="{ name: 'repeater_detail', params: { id: props.row.id } }"
+          >
             {{ props.row.callsign }}
           </router-link>
         </q-td>
