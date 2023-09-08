@@ -30,29 +30,21 @@
   </q-markup-table>
   <div class="row">
     <div class="col-12" style="height: 400px">
-      <l-map
-        :use-global-leaflet="false"
-        :zoom="zoom"
-        :center="mapPoint"
-        @update:zoom="onZoomUpdated"
-        ref="map"
-      >
-        <DyamicTileLayer :zoom="zoom" />
+      <DynamicMap :initial-zoom="initialZoom" :initial-center="mapPoint">
         <l-marker :lat-lng="mapPoint"> </l-marker>
-      </l-map>
+      </DynamicMap>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
+import { computed } from 'vue';
 
-import 'leaflet/dist/leaflet.css';
-import { LMap, LMarker } from '@vue-leaflet/vue-leaflet';
+import { LMarker } from '@vue-leaflet/vue-leaflet';
 
 import { components } from 'src/types/api';
 
-import DyamicTileLayer from 'components/map/DynamicTileLayer.vue';
+import DynamicMap from 'components/map/DynamicMap.vue';
 
 import {
   format_decimal_field,
@@ -68,11 +60,7 @@ const props = defineProps({
   },
 });
 
-const zoom = ref(15);
-
-function onZoomUpdated(newZoom: number) {
-  zoom.value = newZoom;
-}
+const initialZoom = 15;
 
 const mapPoint = computed(() => {
   if (props.info_location === null) {

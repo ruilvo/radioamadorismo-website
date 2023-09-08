@@ -2,7 +2,7 @@
   <l-tile-layer
     :name="mapTileLayer.name"
     :url="mapTileLayer.url"
-    :max-zoom="mapTileLayer.maxZoom"
+    :max-zoom="19"
     :attribution="mapTileLayer.attribution"
     layer-type="base"
   ></l-tile-layer>
