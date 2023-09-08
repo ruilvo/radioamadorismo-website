@@ -28,7 +28,7 @@ type TileLayerParams = {
   attribution: string;
 };
 
-const valentimTileLayer = {
+const valentimTileLayer: TileLayerParams = {
   name: 'Valentim',
   url: 'https://map.valentim.org/otmpt/{z}/{x}/{y}.png',
   maxZoom: 17,

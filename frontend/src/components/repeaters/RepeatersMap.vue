@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-12" style="height: 400px">
       <DynamicMap :initial-zoom="initialZoom" :initial-center="initialCenter">
-        <l-marker-cluster-group>
+        <l-marker-cluster-group :chunked-loading="true">
           <l-marker
             v-for="item in mapData"
             :key="item.id"
