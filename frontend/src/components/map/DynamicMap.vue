@@ -1,6 +1,7 @@
 <template>
   <l-map
     :zoom="zoom"
+    :max-zoom="19"
     :center="props.initialCenter as PointExpression"
     @update:zoom="onZoomUpdated"
     ref="map"
