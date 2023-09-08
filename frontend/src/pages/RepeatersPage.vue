@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, Ref, watch } from 'vue';
+import { ref, onMounted, Ref, watch, onBeforeUnmount } from 'vue';
 
 import { useQuasar } from 'quasar';
 
@@ -43,6 +43,8 @@ const $q = useQuasar();
 const repeaters: Ref<Array<FactRepeater>> = ref([]);
 const loading = ref(false);
 
+const controller = new AbortController();
+
 watch(loading, (newLoadingValue) => {
   if (newLoadingValue) {
     $q.loadingBar.start();
@@ -64,6 +66,7 @@ async function requestRepeaters(
       const response: AxiosResponse<FactRepeaterResponse, FactRepeaterRequest> =
         await api.get('/api/v1/repeaters/fact-repeater/', {
           params: { limit, offset, ordering, modes__active: true },
+          signal: controller.signal,
         });
       // These fields aren't null because this only happens on success
       repeaters.value.push(...response.data.results!);
@@ -77,7 +80,17 @@ async function requestRepeaters(
   loading.value = false;
 }
 
+var repeatersPromise: Promise<void> | null = null;
+
 onMounted(() => {
-  requestRepeaters();
+  repeatersPromise = requestRepeaters();
+});
+
+onBeforeUnmount(async () => {
+  controller.abort();
+  await repeatersPromise;
+  // For some reason, the loading bar doesn't stop when the page is unmounted
+  loading.value = false;
+  $q.loadingBar.stop();
 });
 </script>
