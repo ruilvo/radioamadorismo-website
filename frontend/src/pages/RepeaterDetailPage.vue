@@ -48,15 +48,15 @@ import { api } from 'boot/axios';
 
 import { paths, components } from 'src/types/api';
 
-import InfoRfSection from 'components/repeaters/InfoRfSection.vue';
-import InfoFmSection from 'components/repeaters/InfoFmSection.vue';
-import InfoLocationSection from 'components/repeaters/InfoLocationSection.vue';
-import InfoDstarSection from 'components/repeaters/InfoDstarSection.vue';
-import InfoFusionSection from 'components/repeaters/InfoFusionSection.vue';
-import InfoHolderSection from 'components/repeaters/InfoHolderSection.vue';
-import InfoDmrSection from 'components/repeaters/InfoDmrSection.vue';
-import InfoTetraSection from 'components/repeaters/InfoTetraSection.vue';
-import FactRepeaterSection from 'components/repeaters/FactRepeaterSection.vue';
+import InfoRfSection from 'components/repeaters/detail/sections/InfoRfSection.vue';
+import InfoFmSection from 'components/repeaters/detail/sections/InfoFmSection.vue';
+import InfoLocationSection from 'components/repeaters/detail/sections/InfoLocationSection.vue';
+import InfoDstarSection from 'components/repeaters/detail/sections/InfoDstarSection.vue';
+import InfoFusionSection from 'components/repeaters/detail/sections/InfoFusionSection.vue';
+import InfoHolderSection from 'components/repeaters/detail/sections/InfoHolderSection.vue';
+import InfoDmrSection from 'components/repeaters/detail/sections/InfoDmrSection.vue';
+import InfoTetraSection from 'components/repeaters/detail/sections/InfoTetraSection.vue';
+import FactRepeaterSection from 'components/repeaters/detail/sections/FactRepeaterSection.vue';
 
 type FactRepeater = components['schemas']['FactRepeater'];
 type FactRepeaterIdResponse =
