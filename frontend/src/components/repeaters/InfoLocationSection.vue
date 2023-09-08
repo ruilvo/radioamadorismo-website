@@ -60,7 +60,7 @@ const props = defineProps({
   },
 });
 
-const initialZoom = 15;
+const initialZoom = 12;
 
 const mapPoint = computed(() => {
   if (props.info_location === null) {
