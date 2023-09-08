@@ -10,7 +10,7 @@
       </q-banner>
       <q-separator />
       <h3>Listagem de repetidores</h3>
-      <RepeatersTable />
+      <RepeatersTable :repeaters="repeaters" />
       <q-separator />
       <RepeatersExport />
     </div>
@@ -18,6 +18,58 @@
 </template>
 
 <script setup lang="ts">
+import { ref, onMounted, Ref, watch } from 'vue';
+
+import { useQuasar } from 'quasar';
+
+import { api } from 'boot/axios';
+
+import { AxiosResponse } from 'axios';
+
+import { paths, components } from 'src/types/api';
+
 import RepeatersTable from 'components/repeaters/RepeatersTable.vue';
 import RepeatersExport from 'components/repeaters/RepeatersExport.vue';
+
+type FactRepeater = components['schemas']['FactRepeater'];
+type FactRepeaterResponse =
+  paths['/api/v1/repeaters/fact-repeater/']['get']['responses']['200']['content']['application/json'];
+type FactRepeaterRequest =
+  paths['/api/v1/repeaters/fact-repeater/']['get']['parameters']['query'];
+
+const $q = useQuasar();
+
+const repeaters: Ref<Array<FactRepeater>> = ref([]);
+const loading = ref(false);
+
+watch(loading, (newLoadingValue) => {
+  if (newLoadingValue) {
+    $q.loadingBar.start();
+  } else {
+    $q.loadingBar.stop();
+  }
+});
+
+async function requestRepeaters(
+  limit: number,
+  offset: number,
+  ordering: string | null = null,
+): Promise<void> {
+  loading.value = true;
+  try {
+    const response: AxiosResponse<FactRepeaterResponse, FactRepeaterRequest> =
+      await api.get('/api/v1/repeaters/fact-repeater/', {
+        params: { limit, offset, ordering, modes__active: true },
+      });
+    // These fields aren't null because this only happens on success
+    repeaters.value = response.data.results!;
+  } catch (error) {
+    console.error(error);
+  }
+  loading.value = false;
+}
+
+onMounted(() => {
+  requestRepeaters(99999, 0);
+});
 </script>

@@ -1,11 +1,8 @@
 <template>
   <div class="row">
     <q-table
-      :rows="repeaters"
+      :rows="props.repeaters"
       :columns="columns"
-      :loading="loading"
-      v-model:pagination="pagination"
-      @request="onRequest"
       no-data-label="Sem dados para apresentar"
       no-results-label="Sem resultados para apresentar"
       row-key="id"
@@ -52,14 +49,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, Ref } from 'vue';
-import { api } from 'boot/axios';
-
-import { AxiosResponse } from 'axios';
-
 import { QTableProps } from 'quasar';
 
-import { paths, components } from 'src/types/api';
+import { components } from 'src/types/api';
 
 import {
   format_decimal_field,
@@ -68,85 +60,12 @@ import {
 } from 'src/functions/repeaters';
 
 type FactRepeater = components['schemas']['FactRepeater'];
-type FactRepeaterResponse =
-  paths['/api/v1/repeaters/fact-repeater/']['get']['responses']['200']['content']['application/json'];
-type FactRepeaterRequest =
-  paths['/api/v1/repeaters/fact-repeater/']['get']['parameters']['query'];
 
-const loading = ref(false);
-
-type PaginationRequestProp = {
-  page: number;
-  rowsPerPage: number;
-  sortBy: string | null;
-  descending: boolean;
-};
-
-type Pagination = PaginationRequestProp & {
-  rowsNumber: number;
-};
-
-const pagination: Ref<Pagination> = ref({
-  page: 1,
-  rowsPerPage: 10,
-  rowsNumber: 10,
-  sortBy: null,
-  descending: false,
-});
-
-const repeaters: Ref<Array<FactRepeater>> = ref([]);
-
-async function requestRepeaters(
-  limit: number,
-  offset: number,
-  ordering: string | null = null,
-): Promise<void> {
-  loading.value = true;
-  try {
-    const response: AxiosResponse<FactRepeaterResponse, FactRepeaterRequest> =
-      await api.get('/api/v1/repeaters/fact-repeater/', {
-        params: { limit, offset, ordering, modes__active: true },
-      });
-    // These fields aren't null because this only happens on success
-    repeaters.value = response.data.results!;
-    pagination.value.rowsNumber = response.data.count!;
-  } catch (error) {
-    console.error(error);
-  }
-  loading.value = false;
-}
-
-function onRequest(requestProp: {
-  pagination: PaginationRequestProp;
-  /* eslint-disable @typescript-eslint/no-explicit-any */
-  filter?: any;
-  getCellValue: (col: any, row: any) => any;
-  /* eslint-enable @typescript-eslint/no-explicit-any */
-}): void {
-  const { page, rowsPerPage, sortBy, descending } = requestProp.pagination;
-  var limit = rowsPerPage;
-  if (limit === 0) {
-    limit = pagination.value.rowsNumber;
-  }
-  const offset = (page - 1) * limit;
-  var ordering = null;
-  if (sortBy != null) {
-    ordering = sortBy;
-    if (descending) {
-      ordering = `-${ordering}`;
-    }
-  }
-  requestRepeaters(limit, offset, ordering);
-  pagination.value.page = page;
-  pagination.value.rowsPerPage = rowsPerPage;
-  pagination.value.sortBy = sortBy;
-  pagination.value.descending = descending;
-}
-
-onMounted(() => {
-  const limit = pagination.value.rowsPerPage;
-  const offset = (pagination.value.page - 1) * limit;
-  requestRepeaters(limit, offset);
+const props = defineProps({
+  repeaters: {
+    type: Array as () => FactRepeater[],
+    required: true,
+  },
 });
 
 const columns: QTableProps['columns'] = [
