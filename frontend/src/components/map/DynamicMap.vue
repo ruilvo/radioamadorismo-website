@@ -1,8 +1,7 @@
 <template>
   <l-map
-    :use-global-leaflet="false"
     :zoom="zoom"
-    :center="props.initialCenter"
+    :center="props.initialCenter as PointExpression"
     @update:zoom="onZoomUpdated"
     ref="map"
   >
@@ -14,7 +13,7 @@
 <script setup lang="ts">
 import { ref, PropType } from 'vue';
 
-import 'leaflet/dist/leaflet.css';
+import { LatLngExpression, PointExpression } from 'leaflet';
 import { LMap } from '@vue-leaflet/vue-leaflet';
 
 import DyamicTileLayer from 'components/map/DynamicTileLayer.vue';
@@ -25,7 +24,7 @@ const props = defineProps({
     required: true,
   },
   initialCenter: {
-    type: Array as PropType<number[]>,
+    type: Object as PropType<LatLngExpression>,
     required: true,
   },
 });

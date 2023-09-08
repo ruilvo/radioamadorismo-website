@@ -11,7 +11,6 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 
-import 'leaflet/dist/leaflet.css';
 import { LTileLayer } from '@vue-leaflet/vue-leaflet';
 
 const props = defineProps({

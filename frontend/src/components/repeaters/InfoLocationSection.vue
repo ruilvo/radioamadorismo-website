@@ -38,8 +38,9 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, ComputedRef } from 'vue';
 
+import { LatLngExpression } from 'leaflet';
 import { LMarker } from '@vue-leaflet/vue-leaflet';
 
 import { components } from 'src/types/api';
@@ -62,7 +63,7 @@ const props = defineProps({
 
 const initialZoom = 12;
 
-const mapPoint = computed(() => {
+const mapPoint: ComputedRef<LatLngExpression> = computed(() => {
   if (props.info_location === null) {
     return [0, 0];
   }
