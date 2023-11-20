@@ -9,7 +9,7 @@ from portal.responses import generate_csv_response, generate_zip_response
 
 from repeaters.exports.anytone_d878uviip import (
     DimDmrTgAnytoneUVIIPlusSerializer,
-    ReceiveGroupsAnytoneUVIIPlusSerializer,
+    ReceiveGroupCallListAnytoneUVIIPlusSerializer,
     ChannelAnytoneUVIIPlusSerializer,
     ZoneAnytoneUVIIPlusSerializer,
     codeplug_zip,
@@ -29,7 +29,7 @@ def d878uvii_tgs_view(_: HttpRequest):
 def d878uvii_rgs_view(_: HttpRequest):
     return generate_csv_response(
         "ReceiveGroupCallList.csv",
-        ReceiveGroupsAnytoneUVIIPlusSerializer(
+        ReceiveGroupCallListAnytoneUVIIPlusSerializer(
             DimDmrTgAnytoneUVIIPlusSerializer()
         ).generate_csv(),
     )

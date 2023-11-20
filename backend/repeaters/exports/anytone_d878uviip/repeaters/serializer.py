@@ -1,13 +1,9 @@
 """
-Module to generate the files part of the CSV export for the D878UVII+.
-
-On the Anytone D878UVII+, names are limited to 16 chars.
+Repeaters serialization for Anytone D878UVII+.
 """
 
 import io
 import csv
-import zipfile
-
 
 from django.db.models import Q
 
@@ -18,63 +14,6 @@ from repeaters.models import (
     DimDmrTg,
     FactRepeater,
 )
-
-
-class D878UVIIPlusDialect(csv.excel):
-    quotechar = '"'
-    quoting = csv.QUOTE_ALL
-
-
-csv.register_dialect("d878uviiplus", D878UVIIPlusDialect)
-
-
-# 2ToneEncode.CSV  -> Not needed
-# 5ToneEncode.CSV  -> Not needed
-# AESEncryptionCode.CSV  -> Not needed
-# APRS.CSV  -> TODO or not?
-# AR4EncryptionCode.CSV  -> Not needed
-# AnalogAddressBook.CSV  -> Not needed
-# AutoRepeaterOffsetFrequencys.CSV  -> Done
-# Channel.CSV  -> Done
-# DTMFEncode.CSV  -> Not needed
-# DigitalContactList.CSV  -> Won't do
-# FM.CSV  -> Not needed
-# GPSRoaming.CSV  -> Won't do for now
-# HotKey_HotKey.CSV  -> Not needed
-# HotKey_QuickCall.CSV  -> Not needed
-# HotKey_State.CSV  -> Not needed
-# PrefabricatedSMS.CSV  -> Not needed
-# RadioIDList.CSV  -> Done as a placeholder
-# ReceiveGroupCallList.CSV  -> Done
-# RoamingChannel.CSV  -> Done as a placeholder
-# RoamingZone.CSV  -> Done as a placeholder
-# ScanList.CSV  -> Done as a placeholder
-# TalkGroups.CSV  -> Done
-# Zone.CSV -> Done
-# codeplug.LST  -> Not needed
-
-
-def radioidlist_csv() -> io.StringIO:
-    """
-    Generates a placeholder RadioIDList.csv
-    """
-
-    header = ["No.", "Radio ID", "Name"]
-
-    sio = io.StringIO()
-    writer = csv.writer(sio, dialect="d878uvii")
-    writer.writerow(header)
-
-    placeholder_radio_id = ("1", "268000", "CT0ZZZ")
-    writer.writerow(
-        [
-            f"{placeholder_radio_id[0]}",
-            f"{placeholder_radio_id[1]}",
-            f"{placeholder_radio_id[2]}",
-        ]
-    )
-
-    return sio
 
 
 def scanlist_csv() -> io.StringIO:
@@ -150,21 +89,6 @@ def roamingchannel_csv() -> io.StringIO:
     return sio
 
 
-def autorepeateroffsetfrequencys_csv() -> io.StringIO:
-    """
-    Generates a placeholder AutoRepeaterOffsetFrequencys.csv
-    """
-
-    sio = io.StringIO()
-    writer = csv.writer(sio, dialect="d878uvii")
-
-    writer.writerow(["No.", "Offset Frequency"])
-    writer.writerow(["1", "600.00 KHz"])
-    writer.writerow(["2", "7.60000 MHz"])
-
-    return sio
-
-
 class DimDmrTgAnytoneUVIIPlusSerializer:  # pylint: disable=too-few-public-methods
     """
     Generates the TalkGroups.csv CSV file for the D878UVII+ with the DMR talkgroups.
@@ -207,7 +131,7 @@ class DimDmrTgAnytoneUVIIPlusSerializer:  # pylint: disable=too-few-public-metho
         return sio
 
 
-class ReceiveGroupsAnytoneUVIIPlusSerializer:  # pylint: disable=too-few-public-methods
+class ReceiveGroupCallListAnytoneUVIIPlusSerializer:  # pylint: disable=too-few-public-methods
     """
     Generates `ReceiveGroupCallList.csv` as a StringIO.
 
@@ -696,28 +620,3 @@ class ZoneAnytoneUVIIPlusSerializer:  # pylint: disable=too-few-public-methods
             )
 
         return sio
-
-
-def codeplug_zip() -> io.BytesIO:
-    """
-    Makes a .zip file with the necessary csv files.
-    """
-    tgs_serializer = DimDmrTgAnytoneUVIIPlusSerializer()
-    rx_group_call_list_serializer = ReceiveGroupsAnytoneUVIIPlusSerializer(
-        tgs_serializer
-    )
-    channel_serializer = ChannelAnytoneUVIIPlusSerializer()
-    zones_serializer = ZoneAnytoneUVIIPlusSerializer(channel_serializer)
-
-    file_io = io.BytesIO()
-    with zipfile.ZipFile(file_io, "w") as zip_file:
-        for fname, fdata in (
-            ("TalkGroups.csv", tgs_serializer),
-            ("ReceiveGroupCallList.csv", rx_group_call_list_serializer),
-            ("Channel.csv", channel_serializer),
-            ("Zone.csv", zones_serializer),
-        ):
-            with zip_file.open(fname, "w") as csv_file:
-                csv_file.write(fdata.generate_csv().getvalue().encode("utf-8"))
-
-    return file_io
