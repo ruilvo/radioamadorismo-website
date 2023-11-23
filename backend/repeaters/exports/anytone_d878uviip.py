@@ -896,11 +896,9 @@ class DigitalContactListCSVSerializer:
 
         writer.writerow(header)
 
-        data = json.load(
-            requests.get(
-                "https://radioid.net/api/dmr/user/?country=Portugal", timeout=5.0
-            ).json()
-        )["results"]
+        data = requests.get(
+            "https://radioid.net/api/dmr/user/?country=Portugal", timeout=5.0
+        ).json()["results"]
 
         for idx, user in enumerate(data):
             writer.writerow(
@@ -908,11 +906,11 @@ class DigitalContactListCSVSerializer:
                     f"{idx+1}",
                     f"{user['id']}",
                     user["callsign"],
-                    unidecode(user["fname"]),
-                    unidecode(user["city"]),
-                    unidecode(user["state"]),
-                    unidecode(user["country"]),
-                    unidecode(user["remarks"]),
+                    unidecode(user["fname"] if user["fname"] else ""),
+                    unidecode(user["city"] if user["city"] else ""),
+                    unidecode(user["state"] if user["state"] else ""),
+                    unidecode(user["country"] if user["country"] else ""),
+                    unidecode(user["remarks"] if user["remarks"] else ""),
                     CallType.PRIVATE,
                     "None",
                 ]
@@ -1132,7 +1130,7 @@ class ChannelCSVSerializer:
 
     def write(self) -> io.StringIO:
         sio = io.StringIO()
-        writer = csv.writer(sio, dialect="d878uv")
+        writer = csv.writer(sio, dialect="d878uviiplus")
 
         header = [
             "No.",
@@ -1325,33 +1323,23 @@ class RepeatersSerializer:
         used_ts1_alternative_tgs = DimDmrTg.objects.filter(
             dimdmr_ts1_alternative_tgs__isnull=False
         ).distinct()
-
-        rx_list = None
-        for idx, tg_db in enumerate(used_ts1_alternative_tgs):
-            if idx % _MAXIMUM_TGS_PER_RX_LIST == 0:
-                rx_list = self._receive_group_call_list_csv.add_rx_list(
-                    f"TS1 TGs {idx // 50 + 1}"
-                )
-                # Find the TG in the talk groups CSV
-                tg = filter(
-                    lambda tg: tg.name == tg_db.name, self._talk_groups_csv.tgs
-                )[0]
-                rx_list.tgs.append(tg)
-
-        # Do the same for TS2
         used_ts2_alternative_tgs = DimDmrTg.objects.filter(
             dimdmr_ts2_alternative_tgs__isnull=False
         ).distinct()
 
-        rx_list = None
-        for idx, tg_db in enumerate(used_ts2_alternative_tgs):
-            if idx % _MAXIMUM_TGS_PER_RX_LIST == 0:
-                rx_list = self._receive_group_call_list_csv.add_rx_list(
-                    f"TS2 TGs {idx // 50 + 1}"
-                )
+        for tg_list, name in (
+            (used_ts1_alternative_tgs, "TS1 TGs"),
+            (used_ts2_alternative_tgs, "TS2 TGs"),
+        ):
+            rx_list = None
+            for idx, tg_db in enumerate(tg_list):
+                if idx % _MAXIMUM_TGS_PER_RX_LIST == 0:
+                    rx_list = self._receive_group_call_list_csv.add_rx_list(
+                        f"{name} {idx // _MAXIMUM_TGS_PER_RX_LIST + 1}"
+                    )
                 # Find the TG in the talk groups CSV
-                tg = filter(
-                    lambda tg: tg.name == tg_db.name, self._talk_groups_csv.tgs
+                tg = list(
+                    filter(lambda tg: tg.name == tg_db.name, self._talk_groups_csv.tgs)
                 )[0]
                 rx_list.tgs.append(tg)
 
@@ -1363,7 +1351,7 @@ class RepeatersSerializer:
                 for idx, repeater in enumerate(self._data[region][band][_FM]):
                     if idx % _MAXIMUM_CHANNELS_PER_SCAN_ZONE == 0:
                         scan_list = self._scan_list_csv.add_scan_list(
-                            f"{region} {band} FM {idx // 50 + 1}"
+                            f"{region} {band} FM {idx // _MAXIMUM_CHANNELS_PER_SCAN_ZONE + 1}"
                         )
                     channel = self._channel_csv.add_channel(
                         repeater.callsign,
@@ -1378,6 +1366,7 @@ class RepeatersSerializer:
                         repeater.info_fm.ctcss,
                     )
                     zone.channels.append(channel)
+                    scan_list.channels.append(channel)
 
     @property
     def codeplug(self) -> io.BytesIO:
