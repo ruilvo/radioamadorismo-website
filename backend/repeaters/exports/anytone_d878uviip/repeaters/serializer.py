@@ -15,6 +15,303 @@ from repeaters.models import (
     FactRepeater,
 )
 
+"""
+Repeaters serialization for Anytone D878UVII+.
+"""
+
+import io
+import csv
+
+from django.db.models import Q
+from django.db.models.manager import BaseManager
+
+from repeaters.models import (
+    DimLocation,
+    DimRf,
+    DimFm,
+    DimDmrTg,
+    FactRepeater,
+)
+
+_CPT = DimLocation.RegionOptions.CONTINENT
+_MDA = DimLocation.RegionOptions.MADEIRA
+_AZR = DimLocation.RegionOptions.AZORES
+_B_2M = DimRf.BandOptions.B_2M
+_B_70CM = DimRf.BandOptions.B_70CM
+_FM = FactRepeater.ModeOptions.FM
+_DMR = FactRepeater.ModeOptions.DMR
+
+
+class AnytoneUVIIPlusRepeatersSerializer:
+    """
+    Creates the files needed to import the repeaters into the Anytone D878UVII+.
+    """
+
+    def __init__(self):  # pylint: disable=too-many-locals
+        """
+        Let's generate the data according to these rules:
+
+        Continent 2m FM, sorted by descending latitude
+        Continent 70cm FM, sorted by descending latitude
+        Continent 2m DMR, sorted by descending latitude
+        Continent 70cm DMR, sorted by descending latitude
+        Madeira 2m FM, sorted by ascending longitude
+        Madeira 70cm FM, sorted by ascending longitude
+        Madeira 2m DMR, sorted by ascending longitude
+        Madeira 70cm DMR, sorted by ascending longitude
+        Azores 2m FM, sorted by ascending longitude
+        Azores 70cm FM, sorted by ascending longitude
+        Azores 2m DMR, sorted by ascending longitude
+        Azores 70cm DMR, sorted by ascending longitude
+        """
+
+        # Generate the querysets for the data that is going to be written to the CSV file
+        repeaters_querysets = {
+            _CPT: {
+                _B_2M: {
+                    _FM: FactRepeater.objects.filter(
+                        Q(info_location__region=_CPT)
+                        & Q(info_rf__band=_B_2M)
+                        & Q(modes__contains=[_FM])
+                    ).order_by("-info_location__latitude"),
+                    _DMR: FactRepeater.objects.filter(
+                        Q(info_location__region=_CPT)
+                        & Q(info_rf__band=_B_2M)
+                        & Q(modes__contains=[_DMR])
+                    ).order_by("-info_location__latitude"),
+                },
+                _B_70CM: {
+                    _FM: FactRepeater.objects.filter(
+                        Q(info_location__region=_CPT)
+                        & Q(info_rf__band=_B_70CM)
+                        & Q(modes__contains=[_FM])
+                    ).order_by("-info_location__latitude"),
+                    _DMR: FactRepeater.objects.filter(
+                        Q(info_location__region=_CPT)
+                        & Q(info_rf__band=_B_70CM)
+                        & Q(modes__contains=[_DMR])
+                    ).order_by("-info_location__latitude"),
+                },
+            },
+            _MDA: {
+                _B_2M: {
+                    _FM: FactRepeater.objects.filter(
+                        Q(info_location__region=_MDA)
+                        & Q(info_rf__band=_B_2M)
+                        & Q(modes__contains=[_FM])
+                    ).order_by("info_location__longitude"),
+                    _DMR: FactRepeater.objects.filter(
+                        Q(info_location__region=_MDA)
+                        & Q(info_rf__band=_B_2M)
+                        & Q(modes__contains=[_DMR])
+                    ).order_by("info_location__longitude"),
+                },
+                _B_70CM: {
+                    _FM: FactRepeater.objects.filter(
+                        Q(info_location__region=_MDA)
+                        & Q(info_rf__band=_B_70CM)
+                        & Q(modes__contains=[_FM])
+                    ).order_by("info_location__longitude"),
+                    _DMR: FactRepeater.objects.filter(
+                        Q(info_location__region=_MDA)
+                        & Q(info_rf__band=_B_70CM)
+                        & Q(modes__contains=[_DMR])
+                    ).order_by("info_location__longitude"),
+                },
+            },
+            _AZR: {
+                _B_2M: {
+                    _FM: FactRepeater.objects.filter(
+                        Q(info_location__region=_AZR)
+                        & Q(info_rf__band=_B_2M)
+                        & Q(modes__contains=[_FM])
+                    ).order_by("info_location__longitude"),
+                    _DMR: FactRepeater.objects.filter(
+                        Q(info_location__region=_AZR)
+                        & Q(info_rf__band=_B_2M)
+                        & Q(modes__contains=[_DMR])
+                    ).order_by("info_location__longitude"),
+                },
+                _B_70CM: {
+                    _FM: FactRepeater.objects.filter(
+                        Q(info_location__region=_AZR)
+                        & Q(info_rf__band=_B_70CM)
+                        & Q(modes__contains=[_FM])
+                    ).order_by("info_location__longitude"),
+                    _DMR: FactRepeater.objects.filter(
+                        Q(info_location__region=_AZR)
+                        & Q(info_rf__band=_B_70CM)
+                        & Q(modes__contains=[_DMR])
+                    ).order_by("info_location__longitude"),
+                },
+            },
+        }
+
+        # Prepare `Channel.csv`
+        self.channel_idx = 1
+        self.channel_csv = io.StringIO()
+        self.channel_writer = csv.writer(self.channel_csv, dialect="d878uvii")
+        self._write_channel_header()
+
+        # Prepare `Zone.csv`
+        self.zone_idx = 1
+        self.zone_csv = io.StringIO()
+        self.zone_writer = csv.writer(self.zone_csv, dialect="d878uvii")
+        self._write_zone_header()
+
+        for region in [_CPT, _MDA, _AZR]:
+            for band in [_B_2M, _B_70CM]:
+                self._add_fm_channels(repeaters_querysets[region][band][_FM])
+
+    def _write_channel_header(self):
+        header = [
+            "No.",
+            "Channel Name",
+            "Receive Frequency",
+            "Transmit Frequency",
+            "Channel Type",
+            "Transmit Power",
+            "Band Width",
+            "CTCSS/DCS Decode",
+            "CTCSS/DCS Encode",
+            "Contact",
+            "Contact Call Type",
+            "Contact TG/DMR ID",
+            "Radio ID",
+            "Busy Lock/TX Permit",
+            "Squelch Mode",
+            "Optional Signal",
+            "DTMF ID",
+            "2Tone ID",
+            "5Tone ID",
+            "PTT ID",
+            "Color Code",
+            "Slot",
+            "Scan List",
+            "Receive Group List",
+            "PTT Prohibit",
+            "Reverse",
+            "Simplex TDMA",
+            "Slot Suit",
+            "AES Digital Encryption",
+            "Digital Encryption",
+            "Call Confirmation",
+            "Talk Around(Simplex)",
+            "Work Alone",
+            "Custom CTCSS",
+            "2TONE Decode",
+            "Ranging",
+            "Through Mode",
+            "APRS RX",
+            "Analog APRS PTT Mode",
+            "Digital APRS PTT Mode",
+            "APRS Report Type",
+            "Digital APRS Report Channel",
+            "Correct Frequency[Hz]",
+            "SMS Confirmation",
+            "Exclude channel from roaming",
+            "DMR MODE",
+            "DataACK Disable",
+            "R5toneBot",
+            "R5ToneEot",
+            "Auto Scan",
+            "Ana Aprs Mute",
+            "Send Talker Alias",
+        ]
+        self.channel_writer.writerow(header)
+
+    def _write_channel_fm_row(self, repeater: FactRepeater):
+        rx = f"{repeater.info_rf.tx_mhz:.5f}"  # Repeater TX is the radio RX
+        tx = f"{repeater.info_rf.rx_mhz:.5f}"
+        bw = (
+            "12.5K"
+            if repeater.info_fm.bandwidth == DimFm.BandwidthOptions.NFM
+            else "25K"
+        )
+        ctcss = "Off" if not repeater.info_fm.ctcss else f"{repeater.info_fm.ctcss:.1f}"
+        self.channel_writer.writerow(
+            [
+                self.channel_idx,  # No.
+                repeater.callsign,  # Channel Name
+                rx,  # Receive Frequency
+                tx,  # Transmit Frequency
+                "A-Analog",  # Channel Type
+                "High",  # Transmit Power
+                bw,  # Band Width
+                "Off",  # CTCSS/DCS Decode
+                ctcss,  # CTCSS/DCS Encode
+                "Portugal",  # Contact
+                "Group Call",  # Contact Call Type
+                "268",  # Contact TG/DMR ID
+                "CT0ZZZ",  # Radio ID
+                "Off",  # Busy Lock/TX Permit
+                "Carrier",  # Squelch Mode
+                "Off",  # Optional Signal
+                "1",  # DTMF ID
+                "1",  # 2Tone ID
+                "1",  # 5Tone ID
+                "Off",  # PTT ID
+                "1",  # Color Code
+                "1",  # Slot
+                "None",  # Scan List
+                "None",  # Receive Group List
+                "Off",  # PTT Prohibit
+                "Off",  # Reverse
+                "Off",  # Simplex TDMA
+                "Off",  # Slot Suit
+                "Normal Encryption",  # AES Digital Encryption
+                "Off",  # Digital Encryption
+                "Off",  # Call Confirmation
+                "Off",  # Talk Around(Simplex)
+                "Off",  # Work Alone
+                "251.1",  # Custom CTCSS
+                "1",  # 2TONE Decode
+                "Off",  # Ranging
+                "On",  # Through Mode
+                "Off",  # APRS RX
+                "Off",  # Analog APRS PTT Mode
+                "Off",  # Digital APRS PTT Mode
+                "Off",  # APRS Report Type
+                "1",  # Digital APRS Report Channel
+                "0",  # Correct Frequency[Hz]
+                "Off",  # SMS Confirmation
+                "0",  # Exclude channel from roaming
+                "0",  # DMR MODE
+                "0",  # DataACK Disable
+                "0",  # R5toneBot
+                "0",  # R5ToneEot
+                "0",  # Auto Scan
+                "0",  # Ana Aprs Mute
+                "0",  # Send Talker Alias
+            ]
+        )
+        self.channel_idx += 1
+
+    def _write_zone_header(self):
+        header = [
+            "No.",
+            "Zone Name",
+            "Zone Channel Member",
+            "Zone Channel Member RX Frequency",
+            "Zone Channel Member TX Frequency",
+            "A Channel",
+            "A Channel RX Frequency",
+            "A Channel TX Frequency",
+            "B Channel",
+            "B Channel RX Frequency",
+            "B Channel TX Frequency",
+            "Zone Hide ",  # For some reason the trailing space is part of the name...
+        ]
+        self.zone_writer.writerow(header)
+
+    def _write_zone_fm_row(self):
+        pass
+
+    def _add_fm_channels(self, qs: BaseManager[FactRepeater]):
+        """
+        Add FM channels to the channels list.
+        """
+
 
 def scanlist_csv() -> io.StringIO:
     """
@@ -196,70 +493,6 @@ class ChannelAnytoneUVIIPlusSerializer:  # pylint: disable=too-few-public-method
         Azores 70cm DMR, sorted by ascending longitude
         """
 
-        # Generate the querysets for the data that is going to be written to the CSV file
-        qss = {
-            "continent_2m_fm": FactRepeater.objects.filter(
-                Q(info_location__region=DimLocation.RegionOptions.CONTINENT)
-                & Q(info_rf__band=DimRf.BandOptions.B_2M)
-                & Q(modes__contains=[FactRepeater.ModeOptions.FM])
-            ).order_by("-info_location__latitude"),
-            "continent_70cm_fm": FactRepeater.objects.filter(
-                Q(info_location__region=DimLocation.RegionOptions.CONTINENT)
-                & Q(info_rf__band=DimRf.BandOptions.B_70CM)
-                & Q(modes__contains=[FactRepeater.ModeOptions.FM])
-            ).order_by("-info_location__latitude"),
-            "continent_2m_dmr": FactRepeater.objects.filter(
-                Q(info_location__region=DimLocation.RegionOptions.CONTINENT)
-                & Q(info_rf__band=DimRf.BandOptions.B_2M)
-                & Q(modes__contains=[FactRepeater.ModeOptions.DMR])
-            ).order_by("-info_location__latitude"),
-            "continent_70cm_dmr": FactRepeater.objects.filter(
-                Q(info_location__region=DimLocation.RegionOptions.CONTINENT)
-                & Q(info_rf__band=DimRf.BandOptions.B_70CM)
-                & Q(modes__contains=[FactRepeater.ModeOptions.DMR])
-            ).order_by("-info_location__latitude"),
-            "madeira_2m_fm": FactRepeater.objects.filter(
-                Q(info_location__region=DimLocation.RegionOptions.MADEIRA)
-                & Q(info_rf__band=DimRf.BandOptions.B_2M)
-                & Q(modes__contains=[FactRepeater.ModeOptions.FM])
-            ).order_by("info_location__longitude"),
-            "madeira_70cm_fm": FactRepeater.objects.filter(
-                Q(info_location__region=DimLocation.RegionOptions.MADEIRA)
-                & Q(info_rf__band=DimRf.BandOptions.B_70CM)
-                & Q(modes__contains=[FactRepeater.ModeOptions.FM])
-            ).order_by("info_location__longitude"),
-            "madeira_2m_dmr": FactRepeater.objects.filter(
-                Q(info_location__region=DimLocation.RegionOptions.MADEIRA)
-                & Q(info_rf__band=DimRf.BandOptions.B_2M)
-                & Q(modes__contains=[FactRepeater.ModeOptions.DMR])
-            ).order_by("info_location__longitude"),
-            "madeira_70cm_dmr": FactRepeater.objects.filter(
-                Q(info_location__region=DimLocation.RegionOptions.MADEIRA)
-                & Q(info_rf__band=DimRf.BandOptions.B_70CM)
-                & Q(modes__contains=[FactRepeater.ModeOptions.DMR])
-            ).order_by("info_location__longitude"),
-            "azores_2m_fm": FactRepeater.objects.filter(
-                Q(info_location__region=DimLocation.RegionOptions.AZORES)
-                & Q(info_rf__band=DimRf.BandOptions.B_2M)
-                & Q(modes__contains=[FactRepeater.ModeOptions.FM])
-            ).order_by("info_location__longitude"),
-            "azores_70cm_fm": FactRepeater.objects.filter(
-                Q(info_location__region=DimLocation.RegionOptions.AZORES)
-                & Q(info_rf__band=DimRf.BandOptions.B_70CM)
-                & Q(modes__contains=[FactRepeater.ModeOptions.FM])
-            ).order_by("info_location__longitude"),
-            "azores_2m_dmr": FactRepeater.objects.filter(
-                Q(info_location__region=DimLocation.RegionOptions.AZORES)
-                & Q(info_rf__band=DimRf.BandOptions.B_2M)
-                & Q(modes__contains=[FactRepeater.ModeOptions.DMR])
-            ).order_by("info_location__longitude"),
-            "azores_70cm_dmr": FactRepeater.objects.filter(
-                Q(info_location__region=DimLocation.RegionOptions.AZORES)
-                & Q(info_rf__band=DimRf.BandOptions.B_70CM)
-                & Q(modes__contains=[FactRepeater.ModeOptions.DMR])
-            ).order_by("info_location__longitude"),
-        }
-
         # Create the data to be written to the CSV file
         count = 0
         self.data = {}
@@ -273,24 +506,7 @@ class ChannelAnytoneUVIIPlusSerializer:  # pylint: disable=too-few-public-method
                     # and vice-versa
                     "tx": f"{elem.info_rf.rx_mhz:.5f}",
                 }
-                if "fm" in key:
-                    # Generate data for FM repeaters
-                    bw = (
-                        "12.5K"
-                        if elem.info_fm.bandwidth == DimFm.BandwidthOptions.NFM
-                        else "25K"
-                    )
-                    ctcss = "Off"
-                    if elem.info_fm.ctcss:
-                        ctcss = f"{elem.info_fm.ctcss:.1f}"
-                    current_data |= {
-                        "no": f"{count}",
-                        "name": elem.callsign,
-                        "bw": bw,
-                        "ctcss": ctcss,
-                    }
-                    self.data[key].append(current_data)
-                elif "dmr" in key:
+                if "dmr" in key:
                     # Generate data for DMR repeaters
                     color_code = str(elem.info_dmr.color_code)
                     for ts_n in [1, 2]:
@@ -331,126 +547,9 @@ class ChannelAnytoneUVIIPlusSerializer:  # pylint: disable=too-few-public-method
         Generate the CSV file as a StringIO object.
         """
 
-        sio = io.StringIO()
-        writer = csv.writer(sio, dialect="d878uviiplus")
-
-        header = [
-            "No.",
-            "Channel Name",
-            "Receive Frequency",
-            "Transmit Frequency",
-            "Channel Type",
-            "Transmit Power",
-            "Band Width",
-            "CTCSS/DCS Decode",
-            "CTCSS/DCS Encode",
-            "Contact",
-            "Contact Call Type",
-            "Contact TG/DMR ID",
-            "Radio ID",
-            "Busy Lock/TX Permit",
-            "Squelch Mode",
-            "Optional Signal",
-            "DTMF ID",
-            "2Tone ID",
-            "5Tone ID",
-            "PTT ID",
-            "Color Code",
-            "Slot",
-            "Scan List",
-            "Receive Group List",
-            "PTT Prohibit",
-            "Reverse",
-            "Simplex TDMA",
-            "Slot Suit",
-            "AES Digital Encryption",
-            "Digital Encryption",
-            "Call Confirmation",
-            "Talk Around(Simplex)",
-            "Work Alone",
-            "Custom CTCSS",
-            "2TONE Decode",
-            "Ranging",
-            "Through Mode",
-            "APRS RX",
-            "Analog APRS PTT Mode",
-            "Digital APRS PTT Mode",
-            "APRS Report Type",
-            "Digital APRS Report Channel",
-            "Correct Frequency[Hz]",
-            "SMS Confirmation",
-            "Exclude channel from roaming",
-            "DMR MODE",
-            "DataACK Disable",
-            "R5toneBot",
-            "R5ToneEot",
-            "Auto Scan",
-            "Ana Aprs Mute",
-            "Send Talker Alias",
-        ]
-        writer.writerow(header)
-
         for key, data in self.data.items():
             for elem in data:
-                if "fm" in key:
-                    # Write data for FM repeaters
-                    writer.writerow(
-                        [
-                            elem["no"],  # No.
-                            elem["name"],  # Channel Name
-                            elem["rx"],  # Receive Frequency
-                            elem["tx"],  # Transmit Frequency
-                            "A-Analog",  # Channel Type
-                            "High",  # Transmit Power
-                            elem["bw"],  # Band Width
-                            "Off",  # CTCSS/DCS Decode
-                            elem["ctcss"],  # CTCSS/DCS Encode
-                            "Portugal",  # Contact
-                            "Group Call",  # Contact Call Type
-                            "268",  # Contact TG/DMR ID
-                            "CT0ZZZ",  # Radio ID
-                            "Off",  # Busy Lock/TX Permit
-                            "Carrier",  # Squelch Mode
-                            "Off",  # Optional Signal
-                            "1",  # DTMF ID
-                            "1",  # 2Tone ID
-                            "1",  # 5Tone ID
-                            "Off",  # PTT ID
-                            "1",  # Color Code
-                            "1",  # Slot
-                            "None",  # Scan List
-                            "None",  # Receive Group List
-                            "Off",  # PTT Prohibit
-                            "Off",  # Reverse
-                            "Off",  # Simplex TDMA
-                            "Off",  # Slot Suit
-                            "Normal Encryption",  # AES Digital Encryption
-                            "Off",  # Digital Encryption
-                            "Off",  # Call Confirmation
-                            "Off",  # Talk Around(Simplex)
-                            "Off",  # Work Alone
-                            "251.1",  # Custom CTCSS
-                            "1",  # 2TONE Decode
-                            "Off",  # Ranging
-                            "On",  # Through Mode
-                            "Off",  # APRS RX
-                            "Off",  # Analog APRS PTT Mode
-                            "Off",  # Digital APRS PTT Mode
-                            "Off",  # APRS Report Type
-                            "1",  # Digital APRS Report Channel
-                            "0",  # Correct Frequency[Hz]
-                            "Off",  # SMS Confirmation
-                            "0",  # Exclude channel from roaming
-                            "0",  # DMR MODE
-                            "0",  # DataACK Disable
-                            "0",  # R5toneBot
-                            "0",  # R5ToneEot
-                            "0",  # Auto Scan
-                            "0",  # Ana Aprs Mute
-                            "0",  # Send Talker Alias
-                        ]
-                    )
-                elif "dmr" in key:
+                if "dmr" in key:
                     # Write data for DMR repeaters
                     writer.writerow(
                         [
