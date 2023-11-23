@@ -1,414 +1,1138 @@
 """
-Module to generate the files part of the CSV export for the D878UVII+.
-
-On the Anytone D878UVII+, names are limited to 16 chars.
+Codeplug generation for the Anytone D878UVII+.
 """
 
 import io
 import csv
+import requests
+import json
 import zipfile
 
+from enum import StrEnum
+from dataclasses import dataclass, field
+from typing import List, Optional
 
 from django.db.models import Q
+from django.db.models.manager import BaseManager
+
+from unidecode import unidecode
 
 from repeaters.models import (
     DimLocation,
     DimRf,
     DimFm,
+    DimDmr,
     DimDmrTg,
     FactRepeater,
 )
 
 
-class D878UVIIPlusDialect(csv.excel):
+class CSVDialect(csv.excel):
     quotechar = '"'
     quoting = csv.QUOTE_ALL
 
 
-csv.register_dialect("d878uviiplus", D878UVIIPlusDialect)
+csv.register_dialect("d878uviiplus", CSVDialect)
+
+_CPT = DimLocation.RegionOptions.CONTINENT
+_MDA = DimLocation.RegionOptions.MADEIRA
+_AZR = DimLocation.RegionOptions.AZORES
+_B_2M = DimRf.BandOptions.B_2M
+_B_70CM = DimRf.BandOptions.B_70CM
+_FM = FactRepeater.ModeOptions.FM
+_DMR = FactRepeater.ModeOptions.DMR
+_NFM = DimFm.BandwidthOptions.NFM
+_WFM = DimFm.BandwidthOptions.WFM
+_GROUP_CALL = DimDmrTg.CallModeOptions.GROUP_CALL
+_PRIVATE_CALL = DimDmrTg.CallModeOptions.PRIVATE_CALL
+
+_MAXIMUM_CHANNELS_PER_SCAN_ZONE = 48
+_MAXIMUM_TGS_PER_RX_LIST = 64
 
 
-# 2ToneEncode.CSV  -> Not needed
-# 5ToneEncode.CSV  -> Not needed
-# AESEncryptionCode.CSV  -> Not needed
-# APRS.CSV  -> TODO or not?
-# AR4EncryptionCode.CSV  -> Not needed
-# AnalogAddressBook.CSV  -> Not needed
-# AutoRepeaterOffsetFrequencys.CSV  -> Done
-# Channel.CSV  -> Done
-# DTMFEncode.CSV  -> Not needed
-# DigitalContactList.CSV  -> Won't do
-# FM.CSV  -> Not needed
-# GPSRoaming.CSV  -> Won't do for now
-# HotKey_HotKey.CSV  -> Not needed
-# HotKey_QuickCall.CSV  -> Not needed
-# HotKey_State.CSV  -> Not needed
-# PrefabricatedSMS.CSV  -> Not needed
-# RadioIDList.CSV  -> Done as a placeholder
-# ReceiveGroupCallList.CSV  -> Done
-# RoamingChannel.CSV  -> Done as a placeholder
-# RoamingZone.CSV  -> Done as a placeholder
-# ScanList.CSV  -> Done as a placeholder
-# TalkGroups.CSV  -> Done
-# Zone.CSV -> Done
-# codeplug.LST  -> Not needed
+class ChannelMode(StrEnum):
+    FM = "A-Analog"
+    DMR = "D-Digital"
 
 
-def radioidlist_csv() -> io.StringIO:
-    """
-    Generates a placeholder RadioIDList.csv
-    """
+class CallType(StrEnum):
+    GROUP = "Group Call"
+    PRIVATE = "Private Call"
 
-    header = ["No.", "Radio ID", "Name"]
 
-    sio = io.StringIO()
-    writer = csv.writer(sio, dialect="d878uvii")
-    writer.writerow(header)
+@dataclass
+class TalkGroup:
+    idx: int
+    radio_id: int
+    name: str
+    call_type: CallType = CallType.GROUP
 
-    placeholder_radio_id = ("1", "268000", "CT0ZZZ")
-    writer.writerow(
-        [
-            f"{placeholder_radio_id[0]}",
-            f"{placeholder_radio_id[1]}",
-            f"{placeholder_radio_id[2]}",
+    def serialize(self) -> List[str]:
+        return [
+            f"{self.idx}",  # "No."
+            f"{self.radio_id}",  # "Radio ID"
+            self.name,  # "Name"
+            self.call_type,  # "Call Type"
+            "None",  # "Call Alert"
         ]
-    )
-
-    return sio
 
 
-def scanlist_csv() -> io.StringIO:
-    """
-    Generates a placeholder ScanList.csv
-    """
+@dataclass
+class RadioId:
+    idx: int
+    radio_id: int
+    name: str
 
-    header = [
-        "No.",
-        "Scan List Name",
-        "Scan Channel Member",
-        "Scan Channel Member RX Frequency",
-        "Scan Channel Member TX Frequency",
-        "Scan Mode",
-        "Priority Channel Select",
-        "Priority Channel 1",
-        "Priority Channel 1 RX Frequency",
-        "Priority Channel 1 TX Frequency",
-        "Priority Channel 2",
-        "Priority Channel 2 RX Frequency",
-        "Priority Channel 2 TX Frequency",
-        "Revert Channel",
-        "Look Back Time A[s]",
-        "Look Back Time B[s]",
-        "Dropout Delay Time[s]",
-        "Dwell Time[s]",
-    ]
-
-    sio = io.StringIO()
-    writer = csv.writer(sio, dialect="d878uvii")
-    writer.writerow(header)
-
-    return sio
+    def serialize(self) -> List[str]:
+        return [
+            f"{self.idx}",  # "No."
+            f"{self.radio_id}",  # "Radio ID"
+            self.name,  # "Name"
+        ]
 
 
-def roamingzone_csv() -> io.StringIO:
-    """
-    Generates a placeholder RoamingZone.csv
-    """
+@dataclass
+class ScanList:
+    idx: int
+    name: str
+    channels: list["Channel"] = field(default_factory=lambda: [])
 
-    header = [
-        "No.",
-        "Name",
-        "Roaming Channel Member",
-        "",
-    ]
-
-    sio = io.StringIO()
-    writer = csv.writer(sio, dialect="d878uvii")
-    writer.writerow(header)
-
-    return sio
-
-
-def roamingchannel_csv() -> io.StringIO:
-    """
-    Generates a placeholder RoamingChannel.csv
-    """
-
-    header = [
-        "No.",
-        "Receive Frequency",
-        "Transmit Frequency",
-        "Color Code",
-        "Slot",
-        "Name",
-    ]
-
-    sio = io.StringIO()
-    writer = csv.writer(sio, dialect="d878uvii")
-    writer.writerow(header)
-
-    return sio
+    def serialize(self) -> List[str]:
+        return [
+            f"{self.idx}",  # "No."
+            self.name,  # "Scan List Name"
+            "|".join([c.name for c in self.channels]),  # "Scan Channel Member"
+            "|".join(
+                f"{c.rx_mhz:.5f}" for c in self.channels
+            ),  # "Scan Channel Member RX Frequency"
+            "|".join(
+                f"{c.tx_mhz:.5f}" for c in self.channels
+            ),  # "Scan Channel Member TX Frequency"
+            "Off",  # "Scan Mode"
+            "Off",  # "Priority Channel Select"
+            "Off",  # "Priority Channel 1"
+            "",  # "Priority Channel 1 RX Frequency"
+            "",  # "Priority Channel 1 TX Frequency"
+            "Off",  # "Priority Channel 2"
+            "",  # "Priority Channel 2 RX Frequency"
+            "",  # "Priority Channel 2 TX Frequency"
+            "Selected",  # "Revert Channel"
+            "2.0",  # "Look Back Time A[s]"
+            "3.0",  # "Look Back Time B[s]"
+            "3.1",  # "Dropout Delay Time[s]"
+            "3.1",  # "Dwell Time[s]"
+        ]
 
 
-def autorepeateroffsetfrequencys_csv() -> io.StringIO:
-    """
-    Generates a placeholder AutoRepeaterOffsetFrequencys.csv
-    """
+@dataclass
+class RxList:
+    idx: int
+    name: str
+    tgs: list[TalkGroup] = field(default_factory=lambda: [])
 
-    sio = io.StringIO()
-    writer = csv.writer(sio, dialect="d878uvii")
+    def serialize(self) -> List[str]:
+        return [
+            f"{self.idx}",  # "No."
+            self.name,  # "Group Name"
+            "|".join([tg.name for tg in self.tgs]),  # "Contact"
+            "|".join(f"{tg.radio_id}" for tg in self.tgs),  # "Contact TG/DMR ID"
+        ]
 
-    writer.writerow(["No.", "Offset Frequency"])
-    writer.writerow(["1", "600.00 KHz"])
-    writer.writerow(["2", "7.60000 MHz"])
 
-    return sio
+@dataclass
+class Channel:
+    idx: int
+    name: str
+    rx_mhz: float
+    tx_mhz: float
+    mode: ChannelMode
+    tg: TalkGroup
+    radio_id: RadioId
+    scan_list: ScanList
+    rx_list: RxList
+    bw: str = _NFM
+    ctcss: Optional[float] = None
+    color_code: int = 1
+    slot: int = 1
+
+    def serialize(self) -> List[str]:
+        bw = "12.5K" if self.bw == _NFM else "25K"
+        ctcss = "Off" if not self.ctcss else f"{self.ctcss:.1f}"
+        scan_list = "None" if not self.scan_list else self.scan_list.name
+        rx_list = "None" if not self.rx_list else self.rx_list.name  # TODO: implement
+        send_talker_alias = "0" if self.mode == ChannelMode.FM else "1"
+        return [
+            f"{self.idx}",  # "No."
+            self.name,  # "Channel Name"
+            f"{self.rx_mhz:.5f}",  # "Receive Frequency"
+            f"{self.tx_mhz:.5f}",  # "Transmit Frequency"
+            self.mode,  # "Channel Type"
+            "High",  # "Transmit Power"
+            bw,  # "Band Width"
+            "Off",  # "CTCSS/DCS Decode"
+            ctcss,  # "CTCSS/DCS Encode"
+            self.tg.name,  # "Contact"
+            self.tg.call_type,  # "Contact Call Type"
+            self.tg.radio_id,  # "Contact TG/DMR ID"
+            self.radio_id.name,  # "Radio ID"
+            "Off",  # "Busy Lock/TX Permit"
+            "Carrier",  # "Squelch Mode"
+            "Off",  # "Optional Signal"
+            "1",  # "DTMF ID"
+            "1",  # "2Tone ID"
+            "1",  # "5Tone ID"
+            "Off",  # "PTT ID"
+            f"{self.color_code}",  # "Color Code"
+            f"{self.color_code}",  # "Slot"
+            scan_list,  # "Scan List"
+            rx_list,  # "Receive Group List"
+            "Off",  # "PTT Prohibit"
+            "Off",  # "Reverse"
+            "Off",  # "Simplex TDMA"
+            "Off",  # "Slot Suit"
+            "Normal Encryption",  # "AES Digital Encryption"
+            "Off",  # "Digital Encryption"
+            "Off",  # "Call Confirmation"
+            "Off",  # "Talk Around(Simplex)"
+            "Off",  # "Work Alone"
+            "251.1",  # "Custom CTCSS"
+            "1",  # "2TONE Decode"
+            "Off",  # "Ranging"
+            "On",  # "Through Mode"
+            "Off",  # "APRS RX"
+            "Off",  # "Analog APRS PTT Mode"
+            "Off",  # "Digital APRS PTT Mode"
+            "Off",  # "APRS Report Type"
+            "1",  # "Digital APRS Report Channel"
+            "0",  # "Correct Frequency[Hz]"
+            "Off",  # "SMS Confirmation"
+            "0",  # "Exclude channel from roaming"
+            "0",  # "DMR MODE"
+            "0",  # "DataACK Disable"
+            "0",  # "R5toneBot"
+            "0",  # "R5ToneEot"
+            "0",  # "Auto Scan"
+            "0",  # "Ana Aprs Mute"
+            send_talker_alias,  # "Send Talker Alias"
+            "0",  # "AnaAprsTxPath"
+            "0",  # "ARC4"
+            "0",  # "ex_emg_kind"
+        ]
 
 
-class DimDmrTgAnytoneUVIIPlusSerializer:  # pylint: disable=too-few-public-methods
-    """
-    Generates the TalkGroups.csv CSV file for the D878UVII+ with the DMR talkgroups.
-    """
+@dataclass
+class Zone:
+    idx: int
+    name: str
+    channels: list[Channel] = field(default_factory=lambda: [])
 
-    def __init__(self):
-        qs = DimDmrTg.objects.all().order_by("id")
+    def serialize(self) -> List[str]:
+        return [
+            f"{self.idx}",  # "No."
+            self.name,  # "Zone Name"
+            "|".join([c.name for c in self.channels]),  # "Zone Channel Member"
+            "|".join(
+                f"{c.rx_mhz:.5f}" for c in self.channels
+            ),  # "Zone Channel Member RX Frequency"
+            "|".join(
+                f"{c.tx_mhz:.5f}" for c in self.channels
+            ),  # "Zone Channel Member TX Frequency"
+            self.channels[0].name,  # "A Channel"
+            f"{self.channels[0].rx_mhz:.5f}",  # "A Channel RX Frequency"
+            f"{self.channels[0].tx_mhz:.5f}",  # "A Channel TX Frequency"
+            self.channels[0].name,  # "B Channel"
+            f"{self.channels[0].rx_mhz:.5f}",  # "B Channel RX Frequency"
+            f"{self.channels[0].tx_mhz:.5f}",  # "B Channel TX Frequency"
+            "0",  # "Zone Hide "
+        ]
 
-        # Generate the data to be written to the CSV file
-        self.data = {}
-        for tg in qs:
-            self.data[tg.pk] = {
-                "id": tg.id,
-                "name": tg.name,
-                "type": tg.call_mode,
-            }
 
-    def generate_csv(self) -> io.StringIO:
-        """
-        Generate the TalkGroups.csv file as a StringIO object.
-        """
+# 23
+# 0,"Channel.CSV"  -> ChannelCSVSerializer
+# 1,"RadioIDList.CSV"  -> RadioIDListCSVSerializer
+# 2,"Zone.CSV"  -> ZoneCSVSerializer
+# 3,"ScanList.CSV"  -> ScanListCSVSerializer
+# 4,"AnalogAddressBook.CSV"  -> AnalogAddressBookCSVSerializer
+# 5,"TalkGroups.CSV"  -> TalkGroupsCSVSerializer
+# 6,"PrefabricatedSMS.CSV"  -> PrefabricatedSMSCSVSerializer
+# 7,"FM.CSV"  -> FMCSVSerializer
+# 8,"ReceiveGroupCallList.CSV"  -> ReceiveGroupCallListCSVSerializer
+# 9,"5ToneEncode.CSV"  -> FiveToneEncodeCSVSerializer
+# 10,"2ToneEncode.CSV"  -> TwoToneEncodeCSVSerializer
+# 11,"DTMFEncode.CSV"  -> DTMFEncodeCSVSerializer
+# 12,"HotKey_QuickCall.CSV"
+# 13,"HotKey_State.CSV"
+# 14,"HotKey_HotKey.CSV"
+# 15,"DigitalContactList.CSV"  -> DigitalContactListCSVSerializer
+# 16,"AutoRepeaterOffsetFrequencys.CSV"  -> AutoRepeaterOffsetFrequencysCSVSerializer
+# 17,"RoamingChannel.CSV"
+# 18,"RoamingZone.CSV"
+# 19,"APRS.CSV"  -> APRSCSVSerializer
+# 20,"GPSRoaming.CSV"
+# 21,"AESEncryptionCode.CSV"  -> AESEncryptionCodeCSVSerializer
+# 22,"AR4EncryptionCode.CSV"  -> AR4EncryptionCodeCSVSerializer
 
+
+class AR4EncryptionCodeCSVSerializer:
+    @property
+    def filename(self) -> str:
+        return "AR4EncryptionCode.CSV"
+
+    def write(self) -> io.StringIO:
         sio = io.StringIO()
         writer = csv.writer(sio, dialect="d878uviiplus")
 
-        header = ["No.", "Radio ID", "Name", "Call Type", "Call Alert"]
+        header = ["id", "aeskey"]
+
         writer.writerow(header)
 
-        for index, item in enumerate(self.data.values()):
+        for _ in range(255):
             writer.writerow(
                 [
-                    f"{index+1}",  # Needs to be 1-indexed
-                    f"{item['id']}",
-                    f"{item['name']}",
-                    f"{'Group Call' if item['type'] == 'GROUP_CALL' else 'Private Call'}",
-                    "None",  # Call Alert
+                    "0",
+                    "          ",
                 ]
             )
 
         return sio
 
 
-class ReceiveGroupsAnytoneUVIIPlusSerializer:  # pylint: disable=too-few-public-methods
-    """
-    Generates `ReceiveGroupCallList.csv` as a StringIO.
+class AESEncryptionCodeCSVSerializer:
+    @property
+    def filename(self) -> str:
+        return "AESEncryptionCode.CSV"
 
-    We'll be generating a single group with all the talkgroups to keep it simple.
-    """
-
-    def __init__(self, tg_serializer: DimDmrTgAnytoneUVIIPlusSerializer):
-        self.data = {}
-        for index, elem in enumerate(tg_serializer.data.values()):
-            self.data[index + 1] = {
-                "id": elem["id"],
-                "contact": elem["name"],
-            }
-
-    def generate_csv(self) -> io.StringIO:
-        """
-        Generate the CSV file as a StringIO object.
-        """
-
+    def write(self) -> io.StringIO:
         sio = io.StringIO()
         writer = csv.writer(sio, dialect="d878uviiplus")
 
-        header = ["No.", "Group Name", "Contact", "Contact TG/DMR ID"]
+        header = ["id", "num", "aeskey"]
+
         writer.writerow(header)
 
-        values = self.data.values()
-        contacts = [item["contact"] for item in values]
-        ids = [str(item["id"]) for item in values]
-
-        writer.writerow(
-            [
-                "1",
-                "Todos TGs",
-                f"{'|'.join(contacts)}",
-                f"{'|'.join(ids)}",
-            ]
-        )
+        for _ in range(255):
+            writer.writerow(
+                [
+                    "0",
+                    "0",
+                    "0                                                               ",
+                ]
+            )
 
         return sio
 
 
-class ChannelAnytoneUVIIPlusSerializer:  # pylint: disable=too-few-public-methods
-    """
-    Generates `Channel.csv` as a StringIO.
-    """
+class AutoRepeaterOffsetFrequencysCSVSerializer:
+    @property
+    def filename(self) -> str:
+        return "AutoRepeaterOffsetFrequencys.CSV"
 
-    def __init__(self):  # pylint: disable=too-many-locals
-        """
-        Let's generate the data according to these rules:
-
-        Continent 2m FM, sorted by descending latitude
-        Continent 70cm FM, sorted by descending latitude
-        Continent 2m DMR, sorted by descending latitude
-        Continent 70cm DMR, sorted by descending latitude
-        Madeira 2m FM, sorted by ascending longitude
-        Madeira 70cm FM, sorted by ascending longitude
-        Madeira 2m DMR, sorted by ascending longitude
-        Madeira 70cm DMR, sorted by ascending longitude
-        Azores 2m FM, sorted by ascending longitude
-        Azores 70cm FM, sorted by ascending longitude
-        Azores 2m DMR, sorted by ascending longitude
-        Azores 70cm DMR, sorted by ascending longitude
-        """
-
-        # Generate the querysets for the data that is going to be written to the CSV file
-        qss = {
-            "continent_2m_fm": FactRepeater.objects.filter(
-                Q(info_location__region=DimLocation.RegionOptions.CONTINENT)
-                & Q(info_rf__band=DimRf.BandOptions.B_2M)
-                & Q(modes__contains=[FactRepeater.ModeOptions.FM])
-            ).order_by("-info_location__latitude"),
-            "continent_70cm_fm": FactRepeater.objects.filter(
-                Q(info_location__region=DimLocation.RegionOptions.CONTINENT)
-                & Q(info_rf__band=DimRf.BandOptions.B_70CM)
-                & Q(modes__contains=[FactRepeater.ModeOptions.FM])
-            ).order_by("-info_location__latitude"),
-            "continent_2m_dmr": FactRepeater.objects.filter(
-                Q(info_location__region=DimLocation.RegionOptions.CONTINENT)
-                & Q(info_rf__band=DimRf.BandOptions.B_2M)
-                & Q(modes__contains=[FactRepeater.ModeOptions.DMR])
-            ).order_by("-info_location__latitude"),
-            "continent_70cm_dmr": FactRepeater.objects.filter(
-                Q(info_location__region=DimLocation.RegionOptions.CONTINENT)
-                & Q(info_rf__band=DimRf.BandOptions.B_70CM)
-                & Q(modes__contains=[FactRepeater.ModeOptions.DMR])
-            ).order_by("-info_location__latitude"),
-            "madeira_2m_fm": FactRepeater.objects.filter(
-                Q(info_location__region=DimLocation.RegionOptions.MADEIRA)
-                & Q(info_rf__band=DimRf.BandOptions.B_2M)
-                & Q(modes__contains=[FactRepeater.ModeOptions.FM])
-            ).order_by("info_location__longitude"),
-            "madeira_70cm_fm": FactRepeater.objects.filter(
-                Q(info_location__region=DimLocation.RegionOptions.MADEIRA)
-                & Q(info_rf__band=DimRf.BandOptions.B_70CM)
-                & Q(modes__contains=[FactRepeater.ModeOptions.FM])
-            ).order_by("info_location__longitude"),
-            "madeira_2m_dmr": FactRepeater.objects.filter(
-                Q(info_location__region=DimLocation.RegionOptions.MADEIRA)
-                & Q(info_rf__band=DimRf.BandOptions.B_2M)
-                & Q(modes__contains=[FactRepeater.ModeOptions.DMR])
-            ).order_by("info_location__longitude"),
-            "madeira_70cm_dmr": FactRepeater.objects.filter(
-                Q(info_location__region=DimLocation.RegionOptions.MADEIRA)
-                & Q(info_rf__band=DimRf.BandOptions.B_70CM)
-                & Q(modes__contains=[FactRepeater.ModeOptions.DMR])
-            ).order_by("info_location__longitude"),
-            "azores_2m_fm": FactRepeater.objects.filter(
-                Q(info_location__region=DimLocation.RegionOptions.AZORES)
-                & Q(info_rf__band=DimRf.BandOptions.B_2M)
-                & Q(modes__contains=[FactRepeater.ModeOptions.FM])
-            ).order_by("info_location__longitude"),
-            "azores_70cm_fm": FactRepeater.objects.filter(
-                Q(info_location__region=DimLocation.RegionOptions.AZORES)
-                & Q(info_rf__band=DimRf.BandOptions.B_70CM)
-                & Q(modes__contains=[FactRepeater.ModeOptions.FM])
-            ).order_by("info_location__longitude"),
-            "azores_2m_dmr": FactRepeater.objects.filter(
-                Q(info_location__region=DimLocation.RegionOptions.AZORES)
-                & Q(info_rf__band=DimRf.BandOptions.B_2M)
-                & Q(modes__contains=[FactRepeater.ModeOptions.DMR])
-            ).order_by("info_location__longitude"),
-            "azores_70cm_dmr": FactRepeater.objects.filter(
-                Q(info_location__region=DimLocation.RegionOptions.AZORES)
-                & Q(info_rf__band=DimRf.BandOptions.B_70CM)
-                & Q(modes__contains=[FactRepeater.ModeOptions.DMR])
-            ).order_by("info_location__longitude"),
-        }
-
-        # Create the data to be written to the CSV file
-        count = 0
-        self.data = {}
-        for key, qs in qss.items():
-            self.data[key] = []
-            for elem in qs:
-                count += 1
-                current_data = {
-                    # Repeater Tx is radio Rx
-                    "rx": f"{elem.info_rf.tx_mhz:.5f}",
-                    # and vice-versa
-                    "tx": f"{elem.info_rf.rx_mhz:.5f}",
-                }
-                if "fm" in key:
-                    # Generate data for FM repeaters
-                    bw = (
-                        "12.5K"
-                        if elem.info_fm.bandwidth == DimFm.BandwidthOptions.NFM
-                        else "25K"
-                    )
-                    ctcss = "Off"
-                    if elem.info_fm.ctcss:
-                        ctcss = f"{elem.info_fm.ctcss:.1f}"
-                    current_data |= {
-                        "no": f"{count}",
-                        "name": elem.callsign,
-                        "bw": bw,
-                        "ctcss": ctcss,
-                    }
-                    self.data[key].append(current_data)
-                elif "dmr" in key:
-                    # Generate data for DMR repeaters
-                    color_code = str(elem.info_dmr.color_code)
-                    for ts_n in [1, 2]:
-                        ts = f"TS{ts_n}"
-                        contact = elem.info_dmr.ts1_default_tg.name
-                        contact_call_type = (
-                            "Group Call"
-                            if elem.info_dmr.ts1_default_tg.call_mode
-                            == DimDmrTg.CallModeOptions.GROUP_CALL
-                            else "Private Call"
-                        )
-                        contact_id = elem.info_dmr.ts1_default_tg.id
-                        if ts == "TS2":
-                            count += 1  # Needs an extra tick of the counter
-                            contact = elem.info_dmr.ts2_default_tg.name
-                            contact_call_type = (
-                                "Group Call"
-                                if elem.info_dmr.ts2_default_tg.call_mode
-                                == DimDmrTg.CallModeOptions.GROUP_CALL
-                                else "Private Call"
-                            )
-                            contact_id = elem.info_dmr.ts2_default_tg.id
-                        data_with_ts = current_data.copy() | {
-                            "no": f"{count}",
-                            "name": f"{elem.callsign} {ts}",
-                            "contact": contact,
-                            "contact_call_type": contact_call_type,
-                            "contact_id": contact_id,
-                            "color_code": color_code,
-                            "slot": f"{ts_n}",
-                        }
-                        self.data[key].append(data_with_ts)
-                else:
-                    raise ValueError(f"Unknown key: {key}")
-
-    def generate_csv(self) -> io.StringIO:
-        """
-        Generate the CSV file as a StringIO object.
-        """
-
+    def write(self) -> io.StringIO:
         sio = io.StringIO()
         writer = csv.writer(sio, dialect="d878uviiplus")
+
+        header = ["No.", "Offset Frequency"]
+
+        writer.writerow(header)
+
+        rows = [
+            ["1", "600.00 KHz"],
+            ["2", "7.60000 MHz"],
+        ]
+        for row in rows:
+            writer.writerow(row)
+
+        return sio
+
+
+class AnalogAddressBookCSVSerializer:
+    @property
+    def filename(self) -> str:
+        return "AnalogAddressBook.CSV"
+
+    def write(self) -> io.StringIO:
+        sio = io.StringIO()
+        writer = csv.writer(sio, dialect="d878uviiplus")
+
+        header = ["No.", "Number", "Name"]
+
+        writer.writerow(header)
+
+        return sio
+
+
+class APRSCSVSerializer:
+    @property
+    def filename(self) -> str:
+        return "APRS.CSV"
+
+    def write(self) -> io.StringIO:
+        sio = io.StringIO()
+        writer = csv.writer(sio, dialect="d878uviiplus")
+
+        header = [
+            "Manual TX Interval[s]",
+            "APRS Auto TX Interval[s]",
+            "Support For Roaming",
+            "Fixed Location Beacon",
+            "LatiDegree",
+            "LatiMinInt",
+            "LatiMinMark",
+            "North or South",
+            "LongtiDegree",
+            "LongtiMinInt",
+            "LongtiMinMark",
+            "East or West Hemisphere",
+            "channel1",
+            "slot1",
+            "Aprs Tg1",
+            "Call Type1",
+            "channel2",
+            "slot2",
+            "Aprs Tg2",
+            "Call Type2",
+            "channel3",
+            "slot3",
+            "Aprs Tg3",
+            "Call Type3",
+            "channel4",
+            "slot4",
+            "Aprs Tg4",
+            "Call Type4",
+            "channel5",
+            "slot5",
+            "Aprs Tg5",
+            "Call Type5",
+            "channel6",
+            "slot6",
+            "Aprs Tg6",
+            "Call Type6",
+            "channel7",
+            "slot7",
+            "Aprs Tg7",
+            "Call Type7",
+            "channel8",
+            "slot8",
+            "Aprs Tg8",
+            "Call Type8",
+            "APRS TG",
+            "Call Type",
+            "Repeater Activation Delay[ms]",
+            "APRS TX Tone",
+            "TOCALL",
+            "TOCALL SSID",
+            "Your Call Sign",
+            "Your SSID",
+            "APRS Symbol Table",
+            "APRS Map Icon",
+            "Digipeater Path",
+            "Enter Your Sending Text",
+            "Transmission Frequency [MHz]",
+            "Transmit Delay[ms]",
+            "Send Sub Tone",
+            "CTCSS",
+            "DCS",
+            "Prewave Time[ms]",
+            "Transmit Power",
+            "Receive Filter1",
+            "Call Sign1",
+            "SSID1",
+            "Receive Filter2",
+            "Call Sign2",
+            "SSID2",
+            "Receive Filter3",
+            "Call Sign3",
+            "SSID3",
+            "Receive Filter4",
+            "Call Sign4",
+            "SSID4",
+            "Receive Filter5",
+            "Call Sign5",
+            "SSID5",
+            "Receive Filter6",
+            "Call Sign6",
+            "SSID6",
+            "Receive Filter7",
+            "Call Sign7",
+            "SSID7",
+            "Receive Filter8",
+            "Call Sign8",
+            "SSID8",
+            "Receive Filter9",
+            "Call Sign9",
+            "SSID9",
+            "Receive Filter10",
+            "Call Sign10",
+            "SSID10",
+            "Receive Filter11",
+            "Call Sign11",
+            "SSID11",
+            "Receive Filter12",
+            "Call Sign12",
+            "SSID12",
+            "Receive Filter13",
+            "Call Sign13",
+            "SSID13",
+            "Receive Filter14",
+            "Call Sign14",
+            "SSID14",
+            "Receive Filter15",
+            "Call Sign15",
+            "SSID15",
+            "Receive Filter16",
+            "Call Sign16",
+            "SSID16",
+            "Receive Filter17",
+            "Call Sign17",
+            "SSID17",
+            "Receive Filter18",
+            "Call Sign18",
+            "SSID18",
+            "Receive Filter19",
+            "Call Sign19",
+            "SSID19",
+            "Receive Filter20",
+            "Call Sign20",
+            "SSID20",
+            "Receive Filter21",
+            "Call Sign21",
+            "SSID21",
+            "Receive Filter22",
+            "Call Sign22",
+            "SSID22",
+            "Receive Filter23",
+            "Call Sign23",
+            "SSID23",
+            "Receive Filter24",
+            "Call Sign24",
+            "SSID24",
+            "Receive Filter25",
+            "Call Sign25",
+            "SSID25",
+            "Receive Filter26",
+            "Call Sign26",
+            "SSID26",
+            "Receive Filter27",
+            "Call Sign27",
+            "SSID27",
+            "Receive Filter28",
+            "Call Sign28",
+            "SSID28",
+            "Receive Filter29",
+            "Call Sign29",
+            "SSID29",
+            "Receive Filter30",
+            "Call Sign30",
+            "SSID30",
+            "Receive Filter31",
+            "Call Sign31",
+            "SSID31",
+            "Receive Filter32",
+            "Call Sign32",
+            "SSID32",
+            "POSITION",
+            "MIC-E",
+            "OBJECT",
+            "ITEM",
+            "MESSAGE",
+            "WX REPORT",
+            "NMEA REPORT",
+            "STATUS REPORT",
+            "OTHER",
+            "Transmission Frequency0",
+            "Transmission Frequency1",
+            "Transmission Frequency2",
+            "Transmission Frequency3",
+            "Transmission Frequency4",
+            "Transmission Frequency5",
+            "Transmission Frequency6",
+            "Transmission Frequency7",
+        ]
+
+        writer.writerow(header)
+
+        contents = [
+            "0",  # Manual TX Interval[s]
+            "10",  # APRS Auto TX Interval[s]
+            "1",  # Support For Roaming
+            "0",  # Fixed Location Beacon
+            "23",  # LatiDegree
+            "0",  # LatiMinInt
+            "0",  # LatiMinMark
+            "0",  # North or South
+            "113",  # LongtiDegree
+            "0",  # LongtiMinInt
+            "0",  # LongtiMinMark
+            "0",  # East or West Hemisphere
+            "0",  # channel1
+            "2",  # slot1
+            "268967",  # Aprs Tg1
+            "0",  # Call Type1
+            "0",  # channel2
+            "0",  # slot2
+            "268967",  # Aprs Tg2
+            "0",  # Call Type2
+            "0",  # channel3
+            "0",  # slot3
+            "268967",  # Aprs Tg3
+            "0",  # Call Type3
+            "0",  # channel4
+            "0",  # slot4
+            "268967",  # Aprs Tg4
+            "0",  # Call Type4
+            "0",  # channel5
+            "0",  # slot5
+            "268967",  # Aprs Tg5
+            "0",  # Call Type5
+            "0",  # channel6
+            "0",  # slot6
+            "268967",  # Aprs Tg6
+            "0",  # Call Type6
+            "0",  # channel7
+            "0",  # slot7
+            "268967",  # Aprs Tg7
+            "0",  # Call Type7
+            "0",  # channel8
+            "0",  # slot8
+            "268967",  # Aprs Tg8
+            "0",  # Call Type8
+            "1",  # APRS TG
+            "0",  # Call Type
+            "0",  # Repeater Activation Delay[ms]
+            "0",  # APRS TX Tone
+            "APAT81",  # TOCALL
+            "0",  # TOCALL SSID
+            "CQ0ZZZ",  # Your Call Sign
+            "7",  # Your SSID
+            "/",  # APRS Symbol Table
+            "[",  # APRS Map Icon
+            "WIDE1-1,WIDE2-1",  # Digipeater Path
+            "portaldoradioamador.pt. Plz QSO!",  # Enter Your Sending Text
+            "145",  # Transmission Frequency [MHz]
+            "0",  # Transmit Delay[ms]
+            "0",  # Send Sub Tone
+            "0",  # CTCSS
+            "17",  # DCS
+            "0",  # Prewave Time[ms]
+            "2",  # Transmit Power
+            "0",  # Receive Filter1
+            "",  # Call Sign1
+            "16",  # SSID1
+            "0",  # Receive Filter2
+            "",  # Call Sign2
+            "16",  # SSID2
+            "0",  # Receive Filter3
+            "",  # Call Sign3
+            "16",  # SSID3
+            "0",  # Receive Filter4
+            "",  # Call Sign4
+            "16",  # SSID4
+            "0",  # Receive Filter5
+            "",  # Call Sign5
+            "16",  # SSID5
+            "0",  # Receive Filter6
+            "",  # Call Sign6
+            "16",  # SSID6
+            "0",  # Receive Filter7
+            "",  # Call Sign7
+            "16",  # SSID7
+            "0",  # Receive Filter8
+            "",  # Call Sign8
+            "16",  # SSID8
+            "0",  # Receive Filter9
+            "",  # Call Sign9
+            "16",  # SSID9
+            "0",  # Receive Filter10
+            "",  # Call Sign10
+            "16",  # SSID10
+            "0",  # Receive Filter11
+            "",  # Call Sign11
+            "16",  # SSID11
+            "0",  # Receive Filter12
+            "",  # Call Sign12
+            "16",  # SSID12
+            "0",  # Receive Filter13
+            "",  # Call Sign13
+            "16",  # SSID13
+            "0",  # Receive Filter14
+            "",  # Call Sign14
+            "16",  # SSID14
+            "0",  # Receive Filter15
+            "",  # Call Sign15
+            "16",  # SSID15
+            "0",  # Receive Filter16
+            "",  # Call Sign16
+            "16",  # SSID16
+            "0",  # Receive Filter17
+            "",  # Call Sign17
+            "16",  # SSID17
+            "0",  # Receive Filter18
+            "",  # Call Sign18
+            "16",  # SSID18
+            "0",  # Receive Filter19
+            "",  # Call Sign19
+            "16",  # SSID19
+            "0",  # Receive Filter20
+            "",  # Call Sign20
+            "16",  # SSID20
+            "0",  # Receive Filter21
+            "",  # Call Sign21
+            "16",  # SSID21
+            "0",  # Receive Filter22
+            "",  # Call Sign22
+            "16",  # SSID22
+            "0",  # Receive Filter23
+            "",  # Call Sign23
+            "16",  # SSID23
+            "0",  # Receive Filter24
+            "",  # Call Sign24
+            "16",  # SSID24
+            "0",  # Receive Filter25
+            "",  # Call Sign25
+            "16",  # SSID25
+            "0",  # Receive Filter26
+            "",  # Call Sign26
+            "16",  # SSID26
+            "0",  # Receive Filter27
+            "",  # Call Sign27
+            "16",  # SSID27
+            "0",  # Receive Filter28
+            "",  # Call Sign28
+            "16",  # SSID28
+            "0",  # Receive Filter29
+            "",  # Call Sign29
+            "16",  # SSID29
+            "0",  # Receive Filter30
+            "",  # Call Sign30
+            "16",  # SSID30
+            "0",  # Receive Filter31
+            "",  # Call Sign31
+            "16",  # SSID31
+            "0",  # Receive Filter32
+            "",  # Call Sign32
+            "16",  # SSID32
+            "0",  # POSITION
+            "0",  # MIC-E
+            "0",  # OBJECT
+            "0",  # ITEM
+            "0",  # MESSAGE
+            "0",  # WX REPORT
+            "0",  # NMEA REPORT
+            "0",  # STATUS REPORT
+            "0",  # OTHER
+            "144.8",  # Transmission Frequency0
+            "144.8",  # Transmission Frequency1
+            "144.8",  # Transmission Frequency2
+            "144.8",  # Transmission Frequency3
+            "144.8",  # Transmission Frequency4
+            "144.8",  # Transmission Frequency5
+            "144.8",  # Transmission Frequency6
+            "144.8",  # Transmission Frequency7
+        ]
+
+        writer.writerow(contents)
+
+        return sio
+
+
+class DTMFEncodeCSVSerializer:
+    @property
+    def filename(self) -> str:
+        return "DTMFEncode.CSV"
+
+    def write(self) -> io.StringIO:
+        sio = io.StringIO()
+        writer = csv.writer(sio, dialect="d878uviiplus")
+
+        header = ["DTMF ID", "DTMF Encode"]
+
+        writer.writerow(header)
+
+        return sio
+
+
+class FiveToneEncodeCSVSerializer:
+    @property
+    def filename(self) -> str:
+        return "5ToneEncode.CSV"
+
+    def write(self) -> io.StringIO:
+        sio = io.StringIO()
+        writer = csv.writer(sio, dialect="d878uviiplus")
+
+        header = [
+            "NO.",
+            "Encode ID",
+            "Encode/Decode Standard",
+            "Time Of Encode Tone[ms]",
+            "Name",
+        ]
+
+        writer.writerow(header)
+
+        return sio
+
+
+class PrefabricatedSMSCSVSerializer:
+    @property
+    def filename(self) -> str:
+        return "PrefabricatedSMS.CSV"
+
+    def write(self) -> io.StringIO:
+        sio = io.StringIO()
+        writer = csv.writer(sio, dialect="d878uviiplus")
+
+        header = ["No.", "Text"]
+
+        writer.writerow(header)
+
+        content = ["1", "SOTA_REF FREQ_MHz MODE CALLSIGN COMMENT"]
+
+        writer.writerow(content)
+
+        return sio
+
+
+class TwoToneEncodeCSVSerializer:
+    @property
+    def filename(self) -> str:
+        return "2ToneEncode.CSV"
+
+    def write(self) -> io.StringIO:
+        sio = io.StringIO()
+        writer = csv.writer(sio, dialect="d878uviiplus")
+
+        header = [
+            "NO.",
+            "1st Tone Frequency[Hz]",
+            "2nd Tone Frequency[Hz]",
+            "Name",
+        ]
+
+        writer.writerow(header)
+
+        return sio
+
+
+class RadioIDListCSVSerializer:
+    def __init__(self):
+        self._radio_ids: List[RadioId] = []
+
+    @property
+    def filename(self) -> str:
+        return "RadioIDList.CSV"
+
+    @property
+    def radio_ids(self) -> List[RadioId]:
+        return self._radio_ids
+
+    def add_radio_id(self, radio_id: int, name: str) -> RadioId:
+        self._radio_ids.append(RadioId(len(self.radio_ids) + 1, radio_id, name))
+        return self.radio_ids[-1]
+
+    def write(self) -> io.StringIO:
+        sio = io.StringIO()
+        writer = csv.writer(sio, dialect="d878uviiplus")
+
+        header = ["No.", "Radio ID", "Name"]
+
+        writer.writerow(header)
+
+        for radio_id in self.radio_ids:
+            writer.writerow(radio_id.serialize())
+
+        return sio
+
+
+class FMCSVSerializer:
+    @property
+    def filename(self) -> str:
+        return "FM.CSV"
+
+    def write(self) -> io.StringIO:
+        sio = io.StringIO()
+        writer = csv.writer(sio, dialect="d878uviiplus")
+
+        header = ["No.", "Frequency[MHz]", "Scan"]
+
+        writer.writerow(header)
+
+        contents = [
+            ["1", "88.700", "Add"],
+            ["2", "87.800", "Add"],
+            ["3", "87.700", "Add"],
+            ["4", "100.100", "Add"],
+            ["5", "101.300", "Add"],
+            ["6", "91.800", "Add"],
+        ]
+
+        for content in contents:
+            writer.writerow(content)
+
+        return sio
+
+
+class DigitalContactListCSVSerializer:
+    @property
+    def filename(self) -> str:
+        return "DigitalContactList.CSV"
+
+    def write(self) -> io.StringIO:
+        sio = io.StringIO()
+        writer = csv.writer(sio, dialect="d878uviiplus")
+
+        header = [
+            "No.",
+            "Radio ID",
+            "Callsign",
+            "Name",
+            "City",
+            "State",
+            "Country",
+            "Remarks",
+            "Call Type",
+            "Call Alert",
+        ]
+
+        writer.writerow(header)
+
+        data = json.load(
+            requests.get(
+                "https://radioid.net/api/dmr/user/?country=Portugal", timeout=5.0
+            ).json()
+        )["results"]
+
+        for idx, user in enumerate(data):
+            writer.writerow(
+                [
+                    f"{idx+1}",
+                    f"{user['id']}",
+                    user["callsign"],
+                    unidecode(user["fname"]),
+                    unidecode(user["city"]),
+                    unidecode(user["state"]),
+                    unidecode(user["country"]),
+                    unidecode(user["remarks"]),
+                    CallType.PRIVATE,
+                    "None",
+                ]
+            )
+
+        return sio
+
+
+class ZoneCSVSerializer:
+    def __init__(self):
+        self._zones: List[Zone] = []
+
+    @property
+    def filename(self) -> str:
+        return "Zone.CSV"
+
+    @property
+    def zones(self) -> List[Zone]:
+        return self._zones
+
+    def add_zone(self, name: str) -> Zone:
+        self._zones.append(Zone(len(self.zones) + 1, name))
+        return self.zones[-1]
+
+    def write(self) -> io.StringIO:
+        sio = io.StringIO()
+        writer = csv.writer(sio, dialect="d878uviiplus")
+
+        header = [
+            "No.",
+            "Zone Name",
+            "Zone Channel Member",
+            "Zone Channel Member RX Frequency",
+            "Zone Channel Member TX Frequency",
+            "A Channel",
+            "A Channel RX Frequency",
+            "A Channel TX Frequency",
+            "B Channel",
+            "B Channel RX Frequency",
+            "B Channel TX Frequency",
+            "Zone Hide ",
+        ]
+
+        writer.writerow(header)
+
+        for zone in self.zones:
+            writer.writerow(zone.serialize())
+
+        return sio
+
+
+class TalkGroupsCSVSerializer:
+    def __init__(self):
+        self._tgs: List[TalkGroup] = []
+
+    @property
+    def filename(self) -> str:
+        return "TalkGroups.CSV"
+
+    @property
+    def tgs(self) -> List[TalkGroup]:
+        return self._tgs
+
+    def add_tg(self, radio_id: int, name: str, call_type: CallType) -> TalkGroup:
+        self._tgs.append(TalkGroup(len(self.tgs) + 1, radio_id, name, call_type))
+        return self.tgs[-1]
+
+    def write(self) -> io.StringIO:
+        sio = io.StringIO()
+        writer = csv.writer(sio, dialect="d878uviiplus")
+
+        header = [
+            "No.",
+            "Radio ID",
+            "Name",
+            "Call Type",
+            "Call Alert",
+        ]
+
+        writer.writerow(header)
+
+        for tg in self.tgs:
+            writer.writerow(tg.serialize())
+
+        return sio
+
+
+class ReceiveGroupCallListCSVSerializer:
+    def __init__(self):
+        self._rx_lists: List[RxList] = []
+
+    @property
+    def filename(self) -> str:
+        return "ReceiveGroupCallList.CSV"
+
+    @property
+    def rx_lists(self) -> List[RxList]:
+        return self._rx_lists
+
+    def add_rx_list(self, name: str) -> RxList:
+        self._rx_lists.append(RxList(len(self.rx_lists) + 1, name))
+        return self.rx_lists[-1]
+
+    def write(self) -> io.StringIO:
+        sio = io.StringIO()
+        writer = csv.writer(sio, dialect="d878uviiplus")
+
+        header = [
+            "No.",
+            "Group Name",
+            "Contact",
+            "Contact TG/DMR ID",
+        ]
+
+        writer.writerow(header)
+
+        for rx_list in self.rx_lists:
+            writer.writerow(rx_list.serialize())
+
+        return sio
+
+
+class ScanListCSVSerializer:
+    def __init__(self):
+        self._scan_lists: List[ScanList] = []
+
+    @property
+    def filename(self) -> str:
+        return "ScanList.CSV"
+
+    @property
+    def scan_lists(self) -> List[ScanList]:
+        return self._scan_lists
+
+    def add_scan_list(self, name: str) -> ScanList:
+        self._scan_lists.append(ScanList(len(self.scan_lists) + 1, name))
+        return self.scan_lists[-1]
+
+    def write(self) -> io.StringIO:
+        sio = io.StringIO()
+        writer = csv.writer(sio, dialect="d878uviiplus")
+
+        header = [
+            "No.",
+            "Scan List Name",
+            "Scan Channel Member",
+            "Scan Channel Member RX Frequency",
+            "Scan Channel Member TX Frequency",
+            "Scan Mode",
+            "Priority Channel Select",
+            "Priority Channel 1",
+            "Priority Channel 1 RX Frequency",
+            "Priority Channel 1 TX Frequency",
+            "Priority Channel 2",
+            "Priority Channel 2 RX Frequency",
+            "Priority Channel 2 TX Frequency",
+            "Revert Channel",
+            "Look Back Time A[s]",
+            "Look Back Time B[s]",
+            "Dropout Delay Time[s]",
+            "Dwell Time[s]",
+        ]
+
+        writer.writerow(header)
+
+        for scan_list in self.scan_lists:
+            writer.writerow(scan_list.serialize())
+
+        return sio
+
+
+class ChannelCSVSerializer:
+    def __init__(self):
+        self._channels: List[Channel] = []
+
+    @property
+    def filename(self) -> str:
+        return "Channel.CSV"
+
+    @property
+    def channels(self) -> List[Channel]:
+        return self._channels
+
+    def add_channel(
+        self,
+        name: str,
+        rx_mhz: float,
+        tx_mhz: float,
+        mode: ChannelMode,
+        tg: TalkGroup,
+        radio_id: RadioId,
+        scan_list: ScanList,
+        rx_list: RxList,
+        bw: str = _NFM,
+        ctcss: Optional[float] = None,
+        color_code: int = 1,
+        slot: int = 1,
+    ) -> Channel:
+        self._channels.append(
+            Channel(
+                len(self.channels) + 1,
+                name,
+                rx_mhz,
+                tx_mhz,
+                mode,
+                tg,
+                radio_id,
+                scan_list,
+                rx_list,
+                bw,
+                ctcss,
+                color_code,
+                slot,
+            )
+        )
+        return self.channels[-1]
+
+    def write(self) -> io.StringIO:
+        sio = io.StringIO()
+        writer = csv.writer(sio, dialect="d878uv")
 
         header = [
             "No.",
@@ -463,261 +1187,226 @@ class ChannelAnytoneUVIIPlusSerializer:  # pylint: disable=too-few-public-method
             "Auto Scan",
             "Ana Aprs Mute",
             "Send Talker Alias",
+            "AnaAprsTxPath",
+            "ARC4",
+            "ex_emg_kind",
         ]
+
         writer.writerow(header)
 
-        for key, data in self.data.items():
-            for elem in data:
-                if "fm" in key:
-                    # Write data for FM repeaters
-                    writer.writerow(
-                        [
-                            elem["no"],  # No.
-                            elem["name"],  # Channel Name
-                            elem["rx"],  # Receive Frequency
-                            elem["tx"],  # Transmit Frequency
-                            "A-Analog",  # Channel Type
-                            "High",  # Transmit Power
-                            elem["bw"],  # Band Width
-                            "Off",  # CTCSS/DCS Decode
-                            elem["ctcss"],  # CTCSS/DCS Encode
-                            "Portugal",  # Contact
-                            "Group Call",  # Contact Call Type
-                            "268",  # Contact TG/DMR ID
-                            "CT0ZZZ",  # Radio ID
-                            "Off",  # Busy Lock/TX Permit
-                            "Carrier",  # Squelch Mode
-                            "Off",  # Optional Signal
-                            "1",  # DTMF ID
-                            "1",  # 2Tone ID
-                            "1",  # 5Tone ID
-                            "Off",  # PTT ID
-                            "1",  # Color Code
-                            "1",  # Slot
-                            "None",  # Scan List
-                            "None",  # Receive Group List
-                            "Off",  # PTT Prohibit
-                            "Off",  # Reverse
-                            "Off",  # Simplex TDMA
-                            "Off",  # Slot Suit
-                            "Normal Encryption",  # AES Digital Encryption
-                            "Off",  # Digital Encryption
-                            "Off",  # Call Confirmation
-                            "Off",  # Talk Around(Simplex)
-                            "Off",  # Work Alone
-                            "251.1",  # Custom CTCSS
-                            "1",  # 2TONE Decode
-                            "Off",  # Ranging
-                            "On",  # Through Mode
-                            "Off",  # APRS RX
-                            "Off",  # Analog APRS PTT Mode
-                            "Off",  # Digital APRS PTT Mode
-                            "Off",  # APRS Report Type
-                            "1",  # Digital APRS Report Channel
-                            "0",  # Correct Frequency[Hz]
-                            "Off",  # SMS Confirmation
-                            "0",  # Exclude channel from roaming
-                            "0",  # DMR MODE
-                            "0",  # DataACK Disable
-                            "0",  # R5toneBot
-                            "0",  # R5ToneEot
-                            "0",  # Auto Scan
-                            "0",  # Ana Aprs Mute
-                            "0",  # Send Talker Alias
-                        ]
-                    )
-                elif "dmr" in key:
-                    # Write data for DMR repeaters
-                    writer.writerow(
-                        [
-                            elem["no"],  # No.
-                            elem["name"],  # Channel Name
-                            elem["rx"],  # Receive Frequency
-                            elem["tx"],  # Transmit Frequency
-                            "D-Digital",  # Channel Type
-                            "High",  # Transmit Power
-                            "12.5K",  # Band Width
-                            "Off",  # CTCSS/DCS Decode
-                            "Off",  # CTCSS/DCS Encode
-                            elem["contact"],  # Contact
-                            elem["contact_call_type"],  # Contact Call Type
-                            elem["contact_id"],  # Contact TG/DMR ID
-                            "CT0ZZZ",  # Radio ID
-                            "Off",  # Busy Lock/TX Permit
-                            "Carrier",  # Squelch Mode
-                            "Off",  # Optional Signal
-                            "1",  # DTMF ID
-                            "1",  # 2Tone ID
-                            "1",  # 5Tone ID
-                            "Off",  # PTT ID
-                            elem["color_code"],  # Color Code
-                            elem["slot"],  # Slot
-                            "None",  # Scan List
-                            "Todos TGs",  # Receive Group List
-                            "Off",  # PTT Prohibit
-                            "Off",  # Reverse
-                            "Off",  # Simplex TDMA
-                            "Off",  # Slot Suit
-                            "Normal Encryption",  # AES Digital Encryption
-                            "Off",  # Digital Encryption
-                            "Off",  # Call Confirmation
-                            "Off",  # Talk Around(Simplex)
-                            "Off",  # Work Alone
-                            "251.1",  # Custom CTCSS
-                            "1",  # 2TONE Decode
-                            "Off",  # Ranging
-                            "On",  # Through Mode
-                            "Off",  # APRS RX
-                            "Off",  # Analog APRS PTT Mode
-                            "Off",  # Digital APRS PTT Mode
-                            "Off",  # APRS Report Type
-                            "1",  # Digital APRS Report Channel
-                            "0",  # Correct Frequency[Hz]
-                            "Off",  # SMS Confirmation
-                            "0",  # Exclude channel from roaming
-                            "0",  # DMR MODE
-                            "0",  # DataACK Disable
-                            "0",  # R5toneBot
-                            "0",  # R5ToneEot
-                            "0",  # Auto Scan
-                            "0",  # Ana Aprs Mute
-                            "0",  # Send Talker Alias
-                        ]
-                    )
+        for channel in self.channels:
+            writer.writerow(channel.serialize())
 
         return sio
 
 
-class ZoneAnytoneUVIIPlusSerializer:  # pylint: disable=too-few-public-methods
-    """
-    Generates `Zone.csv` as a StringIO.
-    """
+class RepeatersSerializer:
+    def __init__(self):
+        self._channel_csv = ChannelCSVSerializer()
+        self._radio_id_list_csv = RadioIDListCSVSerializer()
+        self._zone_csv = ZoneCSVSerializer()
+        self._scan_list_csv = ScanListCSVSerializer()
+        self._analog_address_book_csv = AnalogAddressBookCSVSerializer()
+        self._talk_groups_csv = TalkGroupsCSVSerializer()
+        self._prefabricated_sms_csv = PrefabricatedSMSCSVSerializer()
+        self._fm_csv = FMCSVSerializer()
+        self._receive_group_call_list_csv = ReceiveGroupCallListCSVSerializer()
+        self._five_tone_encode_csv = FiveToneEncodeCSVSerializer()
+        self._two_tone_encode_csv = TwoToneEncodeCSVSerializer()
+        self._dtmf_encode_csv = DTMFEncodeCSVSerializer()
+        self._digital_contact_list_csv = DigitalContactListCSVSerializer()
+        self._auto_repeater_offset_frequencys_csv = (
+            AutoRepeaterOffsetFrequencysCSVSerializer()
+        )
+        self._aprs_csv = APRSCSVSerializer()
+        self._aes_encryption_code_csv = AESEncryptionCodeCSVSerializer()
+        self._ar4_encryption_code_csv = AR4EncryptionCodeCSVSerializer()
 
-    def __init__(self, channel_serializer: ChannelAnytoneUVIIPlusSerializer):
-        """
-        We shall make zones for PT, Madeira and Azores.
-        Each zone will have a max of 16 channels.
-        A different zone for each combination of FM/DMR 2m/70cm.
-        """
+        self._add_radio_ids()
+        self._add_tgs()
+        self._add_rx_lists()
+        self._add_fm_channels()
 
-        # Generate the data to be written to the CSV file
-        raw_data = {}
+    @property
+    def _data(self) -> dict[str, dict[str, dict[str, BaseManager[FactRepeater]]]]:
+        return {
+            _CPT: {
+                _B_2M: {
+                    _FM: FactRepeater.objects.filter(
+                        Q(info_location__region=_CPT)
+                        & Q(info_rf__band=_B_2M)
+                        & Q(modes__contains=[_FM])
+                    ).order_by("-info_location__latitude"),
+                    _DMR: FactRepeater.objects.filter(
+                        Q(info_location__region=_CPT)
+                        & Q(info_rf__band=_B_2M)
+                        & Q(modes__contains=[_DMR])
+                    ).order_by("-info_location__latitude"),
+                },
+                _B_70CM: {
+                    _FM: FactRepeater.objects.filter(
+                        Q(info_location__region=_CPT)
+                        & Q(info_rf__band=_B_70CM)
+                        & Q(modes__contains=[_FM])
+                    ).order_by("-info_location__latitude"),
+                    _DMR: FactRepeater.objects.filter(
+                        Q(info_location__region=_CPT)
+                        & Q(info_rf__band=_B_70CM)
+                        & Q(modes__contains=[_DMR])
+                    ).order_by("-info_location__latitude"),
+                },
+            },
+            _MDA: {
+                _B_2M: {
+                    _FM: FactRepeater.objects.filter(
+                        Q(info_location__region=_MDA)
+                        & Q(info_rf__band=_B_2M)
+                        & Q(modes__contains=[_FM])
+                    ).order_by("info_location__longitude"),
+                    _DMR: FactRepeater.objects.filter(
+                        Q(info_location__region=_MDA)
+                        & Q(info_rf__band=_B_2M)
+                        & Q(modes__contains=[_DMR])
+                    ).order_by("info_location__longitude"),
+                },
+                _B_70CM: {
+                    _FM: FactRepeater.objects.filter(
+                        Q(info_location__region=_MDA)
+                        & Q(info_rf__band=_B_70CM)
+                        & Q(modes__contains=[_FM])
+                    ).order_by("info_location__longitude"),
+                    _DMR: FactRepeater.objects.filter(
+                        Q(info_location__region=_MDA)
+                        & Q(info_rf__band=_B_70CM)
+                        & Q(modes__contains=[_DMR])
+                    ).order_by("info_location__longitude"),
+                },
+            },
+            _AZR: {
+                _B_2M: {
+                    _FM: FactRepeater.objects.filter(
+                        Q(info_location__region=_AZR)
+                        & Q(info_rf__band=_B_2M)
+                        & Q(modes__contains=[_FM])
+                    ).order_by("info_location__longitude"),
+                    _DMR: FactRepeater.objects.filter(
+                        Q(info_location__region=_AZR)
+                        & Q(info_rf__band=_B_2M)
+                        & Q(modes__contains=[_DMR])
+                    ).order_by("info_location__longitude"),
+                },
+                _B_70CM: {
+                    _FM: FactRepeater.objects.filter(
+                        Q(info_location__region=_AZR)
+                        & Q(info_rf__band=_B_70CM)
+                        & Q(modes__contains=[_FM])
+                    ).order_by("info_location__longitude"),
+                    _DMR: FactRepeater.objects.filter(
+                        Q(info_location__region=_AZR)
+                        & Q(info_rf__band=_B_70CM)
+                        & Q(modes__contains=[_DMR])
+                    ).order_by("info_location__longitude"),
+                },
+            },
+        }
 
-        for zone_prefix, dict_name in [
-            ("CPT 2m FM", "continent_2m_fm"),
-            ("CPT 70cm FM", "continent_70cm_fm"),
-            ("CPT 2m DMR", "continent_2m_dmr"),
-            ("CPT 70cm DMR", "continent_70cm_dmr"),
-            ("MDA 2m FM", "madeira_2m_fm"),
-            ("MDA 70cm FM", "madeira_70cm_fm"),
-            ("MDA 2m DMR", "madeira_2m_dmr"),
-            ("MDA 70cm DMR", "madeira_70cm_dmr"),
-            ("AZR 2m FM", "azores_2m_fm"),
-            ("AZR 70cm FM", "azores_70cm_fm"),
-            ("AZR 2m DMR", "azores_2m_dmr"),
-            ("AZR 70cm DMR", "azores_70cm_dmr"),
-        ]:
-            count = 0
+    def _add_radio_ids(self, id: int = 268000, name: str = "CT0ZZZ") -> None:
+        self._radio_id_list_csv.add_radio_id(id, name)
 
-            for idx, elem in enumerate(channel_serializer.data[dict_name]):
-                # Check whether we need to create a new zone (pt. 1)
-                if idx % 16 == 0:
-                    count += 1
-
-                zone_name = f"{zone_prefix} {count}"
-
-                # Check whether we need to create a new zone (pt. 2)
-                if zone_name not in raw_data.keys():
-                    raw_data[zone_name] = {
-                        "members": [],
-                        "rxs": [],
-                        "txs": [],
-                    }
-
-                raw_data[zone_name]["members"].append(elem["name"])
-                raw_data[zone_name]["rxs"].append(elem["rx"])
-                raw_data[zone_name]["txs"].append(elem["tx"])
-
-        self.data = {}
-        for idx, (zone_name, zone_data) in enumerate(raw_data.items()):
-            self.data[zone_name] = {
-                "no": f"{idx+1}",
-                "members": "|".join(zone_data["members"]),
-                "rxs": "|".join(zone_data["rxs"]),
-                "txs": "|".join(zone_data["txs"]),
-                "a_chan": zone_data["members"][0],
-                "a_rx": zone_data["rxs"][0],
-                "a_tx": zone_data["txs"][0],
-                "b_chan": zone_data["members"][0],
-                "b_rx": zone_data["rxs"][0],
-                "b_tx": zone_data["txs"][0],
-            }
-
-    def generate_csv(self) -> io.StringIO:
-        """
-        Generate the CSV file as a StringIO object.
-        """
-
-        sio = io.StringIO()
-        writer = csv.writer(sio, dialect="d878uviiplus")
-
-        header = [
-            "No.",
-            "Zone Name",
-            "Zone Channel Member",
-            "Zone Channel Member RX Frequency",
-            "Zone Channel Member TX Frequency",
-            "A Channel",
-            "A Channel RX Frequency",
-            "A Channel TX Frequency",
-            "B Channel",
-            "B Channel RX Frequency",
-            "B Channel TX Frequency",
-            "Zone Hide ",  # For some reason the trailing space is part of the name...
-        ]
-        writer.writerow(header)
-
-        for zone_name, zone_data in self.data.items():
-            writer.writerow(
-                [
-                    zone_data["no"],  # No.
-                    zone_name,  # Zone Name
-                    zone_data["members"],  # Zone Channel Member
-                    zone_data["rxs"],  # Zone Channel Member RX Frequency
-                    zone_data["txs"],  # Zone Channel Member TX Frequency
-                    zone_data["a_chan"],  # A Channel
-                    zone_data["a_rx"],  # A Channel RX Frequency
-                    zone_data["a_tx"],  # A Channel TX Frequency
-                    zone_data["b_chan"],  # B Channel
-                    zone_data["b_rx"],  # B Channel RX Frequency
-                    zone_data["b_tx"],  # B Channel TX Frequency
-                    "0",  # Zone Hide
-                ]
+    def _add_tgs(self):
+        tgs = DimDmrTg.objects.all().order_by("id")
+        for tg in tgs:
+            call_type = (
+                CallType.GROUP if tg.call_mode == _GROUP_CALL else CallType.PRIVATE
             )
+            self._talk_groups_csv.add_tg(tg.id, tg.name, call_type)
 
-        return sio
+    def _add_rx_lists(self):
+        used_ts1_alternative_tgs = DimDmrTg.objects.filter(
+            dimdmr_ts1_alternative_tgs__isnull=False
+        ).distinct()
 
+        rx_list = None
+        for idx, tg_db in enumerate(used_ts1_alternative_tgs):
+            if idx % _MAXIMUM_TGS_PER_RX_LIST == 0:
+                rx_list = self._receive_group_call_list_csv.add_rx_list(
+                    f"TS1 TGs {idx // 50 + 1}"
+                )
+                # Find the TG in the talk groups CSV
+                tg = filter(
+                    lambda tg: tg.name == tg_db.name, self._talk_groups_csv.tgs
+                )[0]
+                rx_list.tgs.append(tg)
 
-def codeplug_zip() -> io.BytesIO:
-    """
-    Makes a .zip file with the necessary csv files.
-    """
-    tgs_serializer = DimDmrTgAnytoneUVIIPlusSerializer()
-    rx_group_call_list_serializer = ReceiveGroupsAnytoneUVIIPlusSerializer(
-        tgs_serializer
-    )
-    channel_serializer = ChannelAnytoneUVIIPlusSerializer()
-    zones_serializer = ZoneAnytoneUVIIPlusSerializer(channel_serializer)
+        # Do the same for TS2
+        used_ts2_alternative_tgs = DimDmrTg.objects.filter(
+            dimdmr_ts2_alternative_tgs__isnull=False
+        ).distinct()
 
-    file_io = io.BytesIO()
-    with zipfile.ZipFile(file_io, "w") as zip_file:
-        for fname, fdata in (
-            ("TalkGroups.csv", tgs_serializer),
-            ("ReceiveGroupCallList.csv", rx_group_call_list_serializer),
-            ("Channel.csv", channel_serializer),
-            ("Zone.csv", zones_serializer),
-        ):
-            with zip_file.open(fname, "w") as csv_file:
-                csv_file.write(fdata.generate_csv().getvalue().encode("utf-8"))
+        rx_list = None
+        for idx, tg_db in enumerate(used_ts2_alternative_tgs):
+            if idx % _MAXIMUM_TGS_PER_RX_LIST == 0:
+                rx_list = self._receive_group_call_list_csv.add_rx_list(
+                    f"TS2 TGs {idx // 50 + 1}"
+                )
+                # Find the TG in the talk groups CSV
+                tg = filter(
+                    lambda tg: tg.name == tg_db.name, self._talk_groups_csv.tgs
+                )[0]
+                rx_list.tgs.append(tg)
 
-    return file_io
+    def _add_fm_channels(self):
+        for region in [_CPT, _MDA, _AZR]:
+            for band in [_B_2M, _B_70CM]:
+                zone = self._zone_csv.add_zone(f"{region} {band} FM")
+                scan_list = None
+                for idx, repeater in enumerate(self._data[region][band][_FM]):
+                    if idx % _MAXIMUM_CHANNELS_PER_SCAN_ZONE == 0:
+                        scan_list = self._scan_list_csv.add_scan_list(
+                            f"{region} {band} FM {idx // 50 + 1}"
+                        )
+                    channel = self._channel_csv.add_channel(
+                        repeater.callsign,
+                        repeater.info_rf.tx_mhz,  # Repeater Tx is radio Rx
+                        repeater.info_rf.rx_mhz,  # Repeater Rx is radio Tx
+                        ChannelMode.FM,
+                        self._talk_groups_csv.tgs[0],  # Doesn't matter
+                        self._radio_id_list_csv.radio_ids[0],  # Doesn't matter
+                        scan_list,
+                        self._receive_group_call_list_csv.rx_lists[0],  # Doesn't matter
+                        repeater.info_fm.bandwidth,
+                        repeater.info_fm.ctcss,
+                    )
+                    zone.channels.append(channel)
+
+    @property
+    def codeplug(self) -> io.BytesIO:
+        """
+        Makes a .zip file with the files needed to import into the radio.
+        """
+        file_io = io.BytesIO()
+
+        with zipfile.ZipFile(file_io, "w") as zip_file:
+            for serializer in (
+                self._channel_csv,
+                self._radio_id_list_csv,
+                self._zone_csv,
+                self._scan_list_csv,
+                self._analog_address_book_csv,
+                self._talk_groups_csv,
+                self._prefabricated_sms_csv,
+                self._fm_csv,
+                self._receive_group_call_list_csv,
+                self._five_tone_encode_csv,
+                self._two_tone_encode_csv,
+                self._dtmf_encode_csv,
+                self._digital_contact_list_csv,
+                self._auto_repeater_offset_frequencys_csv,
+                self._aprs_csv,
+                self._aes_encryption_code_csv,
+                self._ar4_encryption_code_csv,
+            ):
+                with zip_file.open(serializer.filename, "w") as csv_file:
+                    csv_file.write(serializer.write().getvalue().encode("utf-8"))
+
+        return file_io
