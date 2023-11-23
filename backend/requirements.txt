@@ -15,6 +15,7 @@ django-admin-geomap
 # Dependencies
 psycopg2
 Pillow
+unidecode
 # Deployment
 whitenoise
 uwsgi
