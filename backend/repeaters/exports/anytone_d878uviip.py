@@ -221,7 +221,7 @@ class Channel:
             "1",  # "5Tone ID"
             "Off",  # "PTT ID"
             f"{self.color_code}",  # "Color Code"
-            f"{self.color_code}",  # "Slot"
+            f"{self.slot}",  # "Slot"
             scan_list,  # "Scan List"
             rx_list,  # "Receive Group List"
             "Off",  # "PTT Prohibit"
@@ -1599,6 +1599,7 @@ class RepeatersSerializer:
                                 for test_rx_list in self._receive_group_call_list_csv.rx_lists
                                 if tg in test_rx_list.tgs
                             ][0]
+                            color_code = repeater.info_dmr.color_code
                             # Create the channel
                             channel = self._channel_csv.add_channel(
                                 f"{repeater.callsign} {tg_db.id}",
@@ -1609,6 +1610,7 @@ class RepeatersSerializer:
                                 self._radio_id_list_csv.radio_ids[0],
                                 self._scan_list_csv.scan_lists[0],  # TODO: fix
                                 rx_list,
+                                color_code=color_code,
                                 slot=tg_slot,
                             )
                             zone.channels.append(channel)
