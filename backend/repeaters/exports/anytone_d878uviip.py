@@ -1507,16 +1507,12 @@ class RepeatersSerializer:
             self._talk_groups_csv.add_tg(tg.id, tg.name, call_type)
 
     def _add_rx_lists(self):
-        used_ts1_alternative_tgs = DimDmrTg.objects.filter(
-            dimdmr_ts1_alternative_tgs__isnull=False
-        ).distinct()
-        used_ts2_alternative_tgs = DimDmrTg.objects.filter(
-            dimdmr_ts2_alternative_tgs__isnull=False
-        ).distinct()
+        used_ts1_tgs = DimDmrTg.objects.filter(dimdmr_ts1_tgs__isnull=False).distinct()
+        used_ts2_tgs = DimDmrTg.objects.filter(dimdmr_ts2_tgs__isnull=False).distinct()
 
         for tg_list, name in (
-            (used_ts1_alternative_tgs, "TS1 TGs"),
-            (used_ts2_alternative_tgs, "TS2 TGs"),
+            (used_ts1_tgs, "TS1 TGs"),
+            (used_ts2_tgs, "TS2 TGs"),
         ):
             rx_list = None
             for idx, tg_db in enumerate(tg_list):
@@ -1583,8 +1579,8 @@ class RepeatersSerializer:
                     idx += 1
                     # Add channels for each TS1 and TS2 channels
                     for tg_set in (
-                        repeater.info_dmr.ts1_alternative_tgs,
-                        repeater.info_dmr.ts2_alternative_tgs,
+                        repeater.info_dmr.ts1_tgs,
+                        repeater.info_dmr.ts2_tgs,
                     ):
                         for tg_db in tg_set.all():
                             # Find the TG in the talk groups CSV

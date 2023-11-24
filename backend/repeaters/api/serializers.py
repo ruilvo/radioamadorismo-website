@@ -164,10 +164,8 @@ class DimDmrSerializer(  # pylint: disable=too-many-ancestors
     __doc__ = DimDmr.__doc__
 
     tg = DimDmrTgSerializer(many=False, required=True)
-    ts1_default_tg = DimDmrTgSerializer(many=False, required=True)
-    ts2_default_tg = DimDmrTgSerializer(many=False, required=True)
-    ts1_alternative_tgs = DimDmrTgSerializer(many=True, required=True)
-    ts2_alternative_tgs = DimDmrTgSerializer(many=True, required=True)
+    ts1_tgs = DimDmrTgSerializer(many=True, required=True)
+    ts2_tgs = DimDmrTgSerializer(many=True, required=True)
 
     class Meta:
         model = DimDmr

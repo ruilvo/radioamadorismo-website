@@ -280,10 +280,6 @@ class FactRepeaterFilter(FilterSet):
             # DimDmr
             "info_dmr__tg__name": ["iexact", "icontains"],
             "info_dmr__tg__id": ["exact"],
-            "info_dmr__ts1_default_tg__name": ["iexact", "icontains"],
-            "info_dmr__ts1_default_tg__id": ["exact"],
-            "info_dmr__ts2_default_tg__name": ["iexact", "icontains"],
-            "info_dmr__ts2_default_tg__id": ["exact"],
             # DimTETRA
             "info_tetra__mnc": ["exact", "gte", "lte"],
             "info_tetra__mcc": ["exact", "gte", "lte"],

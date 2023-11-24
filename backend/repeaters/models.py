@@ -324,25 +324,15 @@ class DimDmr(models.Model):
     # A DMR repeater has an unique DMR TG associated.
     tg = models.ForeignKey(DimDmrTg, on_delete=models.RESTRICT)
     color_code = models.IntegerField(verbose_name="C.C.")
-    ts1_default_tg = models.ForeignKey(
-        DimDmrTg,
-        on_delete=models.RESTRICT,
-        related_name="%(class)s_ts1_default_tg",
-    )
-    ts2_default_tg = models.ForeignKey(
-        DimDmrTg,
-        on_delete=models.RESTRICT,
-        related_name="%(class)s_ts2_default_tg",
-    )
-    ts1_alternative_tgs = models.ManyToManyField(
+    ts1_tgs = models.ManyToManyField(
         DimDmrTg,
         blank=True,
-        related_name="%(class)s_ts1_alternative_tgs",
+        related_name="%(class)s_ts1_tgs",
     )
-    ts2_alternative_tgs = models.ManyToManyField(
+    ts2_tgs = models.ManyToManyField(
         DimDmrTg,
         blank=True,
-        related_name="%(class)s_ts2_alternative_tgs",
+        related_name="%(class)s_ts2_tgs",
     )
     ts_configuration = models.TextField(blank=True, verbose_name="TS config.")
 

@@ -549,18 +549,8 @@
         "name": "CQ1DAT",
         "call_mode": "GROUP_CALL"
       },
-      "ts1_default_tg": {
-        "id": 268,
-        "name": "Portugal",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts2_default_tg": {
-        "id": 2,
-        "name": "Local",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts1_alternative_tgs": [],
-      "ts2_alternative_tgs": [],
+      "ts1_tgs": [],
+      "ts2_tgs": [],
       "color_code": 1,
       "ts_configuration": ""
     },
@@ -634,18 +624,8 @@
         "name": "CQ1DCG",
         "call_mode": "GROUP_CALL"
       },
-      "ts1_default_tg": {
-        "id": 268915,
-        "name": "PT Hotspot 2",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts2_default_tg": {
-        "id": 2686,
-        "name": "Ilhas Azores",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts1_alternative_tgs": [],
-      "ts2_alternative_tgs": [
+      "ts1_tgs": [],
+      "ts2_tgs": [
         {
           "id": 26867,
           "name": "CU7-Faial Ils.",
@@ -904,18 +884,8 @@
         "name": "CQ1USC",
         "call_mode": "GROUP_CALL"
       },
-      "ts1_default_tg": {
-        "id": 2,
-        "name": "Local",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts2_default_tg": {
-        "id": 2,
-        "name": "Local",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts1_alternative_tgs": [],
-      "ts2_alternative_tgs": [],
+      "ts1_tgs": [],
+      "ts2_tgs": [],
       "color_code": 1,
       "ts_configuration": ""
     },
@@ -993,18 +963,8 @@
         "name": "CQ1UPB",
         "call_mode": "GROUP_CALL"
       },
-      "ts1_default_tg": {
-        "id": 268,
-        "name": "Portugal",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts2_default_tg": {
-        "id": 2,
-        "name": "Local",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts1_alternative_tgs": [],
-      "ts2_alternative_tgs": [],
+      "ts1_tgs": [],
+      "ts2_tgs": [],
       "color_code": 1,
       "ts_configuration": ""
     },
@@ -1117,17 +1077,7 @@
         "name": "CQ1UB",
         "call_mode": "GROUP_CALL"
       },
-      "ts1_default_tg": {
-        "id": 268,
-        "name": "Portugal",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts2_default_tg": {
-        "id": 2686,
-        "name": "Ilhas Azores",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts1_alternative_tgs": [
+      "ts1_tgs": [
         {
           "id": 91,
           "name": "Worldwide English",
@@ -1139,7 +1089,7 @@
           "call_mode": "GROUP_CALL"
         }
       ],
-      "ts2_alternative_tgs": [],
+      "ts2_tgs": [],
       "color_code": 1,
       "ts_configuration": "Slot 1 estático: 268.91.915\r\nSlot 2 estático: 2686"
     },
@@ -1181,18 +1131,8 @@
         "name": "CQ1UPDL",
         "call_mode": "GROUP_CALL"
       },
-      "ts1_default_tg": {
-        "id": 268,
-        "name": "Portugal",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts2_default_tg": {
-        "id": 2,
-        "name": "Local",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts1_alternative_tgs": [],
-      "ts2_alternative_tgs": [],
+      "ts1_tgs": [],
+      "ts2_tgs": [],
       "color_code": 1,
       "ts_configuration": ""
     },
@@ -1271,18 +1211,8 @@
         "name": "CQ1UPA",
         "call_mode": "GROUP_CALL"
       },
-      "ts1_default_tg": {
-        "id": 268,
-        "name": "Portugal",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts2_default_tg": {
-        "id": 2686,
-        "name": "Ilhas Azores",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts1_alternative_tgs": [],
-      "ts2_alternative_tgs": [],
+      "ts1_tgs": [],
+      "ts2_tgs": [],
       "color_code": 11,
       "ts_configuration": ""
     },
@@ -1465,24 +1395,14 @@
         "name": "CQ0USA",
         "call_mode": "GROUP_CALL"
       },
-      "ts1_default_tg": {
-        "id": 268,
-        "name": "Portugal",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts2_default_tg": {
-        "id": 2,
-        "name": "Local",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts1_alternative_tgs": [
+      "ts1_tgs": [
         {
           "id": 915,
           "name": "Portugues",
           "call_mode": "GROUP_CALL"
         }
       ],
-      "ts2_alternative_tgs": [],
+      "ts2_tgs": [],
       "color_code": 1,
       "ts_configuration": "Slot 1 estático: 268. 915\r\nSlot 2 estático: 2\r\nLocal 2: (2->)268111"
     },
@@ -1666,17 +1586,7 @@
         "name": "CQ0DBO",
         "call_mode": "GROUP_CALL"
       },
-      "ts1_default_tg": {
-        "id": 268,
-        "name": "Portugal",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts2_default_tg": {
-        "id": 8,
-        "name": "Regional",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts1_alternative_tgs": [
+      "ts1_tgs": [
         {
           "id": 91,
           "name": "Worldwide English",
@@ -1693,7 +1603,7 @@
           "call_mode": "GROUP_CALL"
         }
       ],
-      "ts2_alternative_tgs": [],
+      "ts2_tgs": [],
       "color_code": 1,
       "ts_configuration": "Slot 1 estático: 268. 915. 91. 92\r\nSlot 2 estático: 8\r\nLocal 2: (2->)268102\r\nRegional: (8->)268903"
     },
@@ -1830,18 +1740,8 @@
         "name": "CQ0DPD",
         "call_mode": "GROUP_CALL"
       },
-      "ts1_default_tg": {
-        "id": 268,
-        "name": "Portugal",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts2_default_tg": {
-        "id": 8,
-        "name": "Regional",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts1_alternative_tgs": [],
-      "ts2_alternative_tgs": [
+      "ts1_tgs": [],
+      "ts2_tgs": [
         {
           "id": 2,
           "name": "Local",
@@ -1891,18 +1791,8 @@
         "name": "CQ0VMI",
         "call_mode": "GROUP_CALL"
       },
-      "ts1_default_tg": {
-        "id": 268,
-        "name": "Portugal",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts2_default_tg": {
-        "id": 2,
-        "name": "Local",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts1_alternative_tgs": [],
-      "ts2_alternative_tgs": [
+      "ts1_tgs": [],
+      "ts2_tgs": [
         {
           "id": 8,
           "name": "Regional",
@@ -2129,18 +2019,8 @@
         "name": "CQ0DAM",
         "call_mode": "GROUP_CALL"
       },
-      "ts1_default_tg": {
-        "id": 268,
-        "name": "Portugal",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts2_default_tg": {
-        "id": 2,
-        "name": "Local",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts1_alternative_tgs": [],
-      "ts2_alternative_tgs": [
+      "ts1_tgs": [],
+      "ts2_tgs": [
         {
           "id": 915,
           "name": "Portugues",
@@ -2573,17 +2453,7 @@
         "name": "CQ0DGM",
         "call_mode": "GROUP_CALL"
       },
-      "ts1_default_tg": {
-        "id": 268,
-        "name": "Portugal",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts2_default_tg": {
-        "id": 8,
-        "name": "Regional",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts1_alternative_tgs": [
+      "ts1_tgs": [
         {
           "id": 91,
           "name": "Worldwide English",
@@ -2595,7 +2465,7 @@
           "call_mode": "GROUP_CALL"
         }
       ],
-      "ts2_alternative_tgs": [],
+      "ts2_tgs": [],
       "color_code": 1,
       "ts_configuration": "Slot 1 estático: 268. 91. 915\r\nSlot 2 estático: 8\r\nRegional: (8->)268901"
     },
@@ -2669,17 +2539,7 @@
         "name": "CQ0DMV",
         "call_mode": "GROUP_CALL"
       },
-      "ts1_default_tg": {
-        "id": 268,
-        "name": "Portugal",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts2_default_tg": {
-        "id": 8,
-        "name": "Regional",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts1_alternative_tgs": [
+      "ts1_tgs": [
         {
           "id": 91,
           "name": "Worldwide English",
@@ -2691,7 +2551,7 @@
           "call_mode": "GROUP_CALL"
         }
       ],
-      "ts2_alternative_tgs": [],
+      "ts2_tgs": [],
       "color_code": 1,
       "ts_configuration": "(8->)268901"
     },
@@ -2819,24 +2679,14 @@
         "name": "CQ0DFR",
         "call_mode": "GROUP_CALL"
       },
-      "ts1_default_tg": {
-        "id": 268,
-        "name": "Portugal",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts2_default_tg": {
-        "id": 8,
-        "name": "Regional",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts1_alternative_tgs": [
+      "ts1_tgs": [
         {
           "id": 915,
           "name": "Portugues",
           "call_mode": "GROUP_CALL"
         }
       ],
-      "ts2_alternative_tgs": [],
+      "ts2_tgs": [],
       "color_code": 1,
       "ts_configuration": "(8->)268901"
     },
@@ -2978,17 +2828,7 @@
         "name": "CQ0DLU",
         "call_mode": "GROUP_CALL"
       },
-      "ts1_default_tg": {
-        "id": 268,
-        "name": "Portugal",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts2_default_tg": {
-        "id": 8,
-        "name": "Regional",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts1_alternative_tgs": [
+      "ts1_tgs": [
         {
           "id": 91,
           "name": "Worldwide English",
@@ -3000,7 +2840,7 @@
           "call_mode": "GROUP_CALL"
         }
       ],
-      "ts2_alternative_tgs": [],
+      "ts2_tgs": [],
       "color_code": 1,
       "ts_configuration": "(8->)268901"
     },
@@ -3177,17 +3017,7 @@
         "name": "CQ0DTRZ",
         "call_mode": "GROUP_CALL"
       },
-      "ts1_default_tg": {
-        "id": 268,
-        "name": "Portugal",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts2_default_tg": {
-        "id": 2,
-        "name": "Local",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts1_alternative_tgs": [
+      "ts1_tgs": [
         {
           "id": 91,
           "name": "Worldwide English",
@@ -3199,7 +3029,7 @@
           "call_mode": "GROUP_CALL"
         }
       ],
-      "ts2_alternative_tgs": [],
+      "ts2_tgs": [],
       "color_code": 1,
       "ts_configuration": "(2->)268201"
     },
@@ -3446,17 +3276,7 @@
         "name": "CQ0DAB",
         "call_mode": "GROUP_CALL"
       },
-      "ts1_default_tg": {
-        "id": 268,
-        "name": "Portugal",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts2_default_tg": {
-        "id": 2,
-        "name": "Local",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts1_alternative_tgs": [
+      "ts1_tgs": [
         {
           "id": 91,
           "name": "Worldwide English",
@@ -3468,7 +3288,7 @@
           "call_mode": "GROUP_CALL"
         }
       ],
-      "ts2_alternative_tgs": [],
+      "ts2_tgs": [],
       "color_code": 1,
       "ts_configuration": "(2->)268230"
     },
@@ -4018,17 +3838,7 @@
         "name": "CQ0DRX",
         "call_mode": "GROUP_CALL"
       },
-      "ts1_default_tg": {
-        "id": 268,
-        "name": "Portugal",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts2_default_tg": {
-        "id": 8,
-        "name": "Regional",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts1_alternative_tgs": [
+      "ts1_tgs": [
         {
           "id": 91,
           "name": "Worldwide English",
@@ -4040,7 +3850,7 @@
           "call_mode": "GROUP_CALL"
         }
       ],
-      "ts2_alternative_tgs": [
+      "ts2_tgs": [
         {
           "id": 2,
           "name": "Local",
@@ -4154,17 +3964,7 @@
         "name": "CQ0DCO",
         "call_mode": "GROUP_CALL"
       },
-      "ts1_default_tg": {
-        "id": 268,
-        "name": "Portugal",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts2_default_tg": {
-        "id": 2,
-        "name": "Local",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts1_alternative_tgs": [
+      "ts1_tgs": [
         {
           "id": 91,
           "name": "Worldwide English",
@@ -4176,7 +3976,7 @@
           "call_mode": "GROUP_CALL"
         }
       ],
-      "ts2_alternative_tgs": [
+      "ts2_tgs": [
         {
           "id": 8,
           "name": "Regional",
@@ -4698,17 +4498,7 @@
         "name": "CQ0DUG",
         "call_mode": "GROUP_CALL"
       },
-      "ts1_default_tg": {
-        "id": 268,
-        "name": "Portugal",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts2_default_tg": {
-        "id": 2,
-        "name": "Local",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts1_alternative_tgs": [
+      "ts1_tgs": [
         {
           "id": 91,
           "name": "Worldwide English",
@@ -4720,7 +4510,7 @@
           "call_mode": "GROUP_CALL"
         }
       ],
-      "ts2_alternative_tgs": [],
+      "ts2_tgs": [],
       "color_code": 1,
       "ts_configuration": "(2->)268210"
     },
@@ -4827,24 +4617,14 @@
         "name": "CQ0DLIZ",
         "call_mode": "GROUP_CALL"
       },
-      "ts1_default_tg": {
-        "id": 268,
-        "name": "Portugal",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts2_default_tg": {
-        "id": 2,
-        "name": "Local",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts1_alternative_tgs": [
+      "ts1_tgs": [
         {
           "id": 915,
           "name": "Portugues",
           "call_mode": "GROUP_CALL"
         }
       ],
-      "ts2_alternative_tgs": [],
+      "ts2_tgs": [],
       "color_code": 1,
       "ts_configuration": "(2->)268207"
     },
@@ -5015,17 +4795,7 @@
         "name": "CQ0DCD",
         "call_mode": "GROUP_CALL"
       },
-      "ts1_default_tg": {
-        "id": 268,
-        "name": "Portugal",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts2_default_tg": {
-        "id": 2,
-        "name": "Local",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts1_alternative_tgs": [
+      "ts1_tgs": [
         {
           "id": 91,
           "name": "Worldwide English",
@@ -5037,7 +4807,7 @@
           "call_mode": "GROUP_CALL"
         }
       ],
-      "ts2_alternative_tgs": [],
+      "ts2_tgs": [],
       "color_code": 1,
       "ts_configuration": "(2->)268206"
     },
@@ -5287,17 +5057,7 @@
         "name": "CQ0DCRE",
         "call_mode": "GROUP_CALL"
       },
-      "ts1_default_tg": {
-        "id": 268,
-        "name": "Portugal",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts2_default_tg": {
-        "id": 2,
-        "name": "Local",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts1_alternative_tgs": [
+      "ts1_tgs": [
         {
           "id": 91,
           "name": "Worldwide English",
@@ -5309,7 +5069,7 @@
           "call_mode": "GROUP_CALL"
         }
       ],
-      "ts2_alternative_tgs": [],
+      "ts2_tgs": [],
       "color_code": 1,
       "ts_configuration": "(2->)268401"
     },
@@ -5690,24 +5450,14 @@
         "name": "CQ0DPG",
         "call_mode": "GROUP_CALL"
       },
-      "ts1_default_tg": {
-        "id": 268,
-        "name": "Portugal",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts2_default_tg": {
-        "id": 2,
-        "name": "Local",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts1_alternative_tgs": [
+      "ts1_tgs": [
         {
           "id": 915,
           "name": "Portugues",
           "call_mode": "GROUP_CALL"
         }
       ],
-      "ts2_alternative_tgs": [],
+      "ts2_tgs": [],
       "color_code": 1,
       "ts_configuration": "Slot 1 estático: 268915\r\nSlot 2 estático: 2\r\nLocal 2: (2->)268408"
     },
@@ -5819,18 +5569,8 @@
         "name": "CQ0DCM",
         "call_mode": "GROUP_CALL"
       },
-      "ts1_default_tg": {
-        "id": 268915,
-        "name": "PT Hotspot 2",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts2_default_tg": {
-        "id": 2,
-        "name": "Local",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts1_alternative_tgs": [],
-      "ts2_alternative_tgs": [],
+      "ts1_tgs": [],
+      "ts2_tgs": [],
       "color_code": 2,
       "ts_configuration": "(2->)268409"
     },
@@ -5904,17 +5644,7 @@
         "name": "CQ0DMJ",
         "call_mode": "GROUP_CALL"
       },
-      "ts1_default_tg": {
-        "id": 268,
-        "name": "Portugal",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts2_default_tg": {
-        "id": 2,
-        "name": "Local",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts1_alternative_tgs": [
+      "ts1_tgs": [
         {
           "id": 91,
           "name": "Worldwide English",
@@ -5926,7 +5656,7 @@
           "call_mode": "GROUP_CALL"
         }
       ],
-      "ts2_alternative_tgs": [
+      "ts2_tgs": [
         {
           "id": 268112,
           "name": "Emergencia",
@@ -6114,24 +5844,14 @@
         "name": "CQ0DKE",
         "call_mode": "GROUP_CALL"
       },
-      "ts1_default_tg": {
-        "id": 268,
-        "name": "Portugal",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts2_default_tg": {
-        "id": 2,
-        "name": "Local",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts1_alternative_tgs": [
+      "ts1_tgs": [
         {
           "id": 915,
           "name": "Portugues",
           "call_mode": "GROUP_CALL"
         }
       ],
-      "ts2_alternative_tgs": [],
+      "ts2_tgs": [],
       "color_code": 1,
       "ts_configuration": "Slot 1 estático: 268. 915\r\nSlot 2 estático: 2\r\nLocal 2: (2->)268308"
     },
@@ -6272,18 +5992,8 @@
         "name": "CQ0DMTV",
         "call_mode": "GROUP_CALL"
       },
-      "ts1_default_tg": {
-        "id": 268,
-        "name": "Portugal",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts2_default_tg": {
-        "id": 2,
-        "name": "Local",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts1_alternative_tgs": [],
-      "ts2_alternative_tgs": [],
+      "ts1_tgs": [],
+      "ts2_tgs": [],
       "color_code": 1,
       "ts_configuration": ""
     },
@@ -6519,17 +6229,7 @@
         "name": "CQ0DMQ",
         "call_mode": "GROUP_CALL"
       },
-      "ts1_default_tg": {
-        "id": 268,
-        "name": "Portugal",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts2_default_tg": {
-        "id": 2,
-        "name": "Local",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts1_alternative_tgs": [
+      "ts1_tgs": [
         {
           "id": 91,
           "name": "Worldwide English",
@@ -6541,7 +6241,7 @@
           "call_mode": "GROUP_CALL"
         }
       ],
-      "ts2_alternative_tgs": [],
+      "ts2_tgs": [],
       "color_code": 1,
       "ts_configuration": "(2->)268305"
     },
@@ -6752,24 +6452,14 @@
         "name": "CQ0DMS",
         "call_mode": "GROUP_CALL"
       },
-      "ts1_default_tg": {
-        "id": 268,
-        "name": "Portugal",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts2_default_tg": {
-        "id": 268911,
-        "name": "PT Hotspot 1",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts1_alternative_tgs": [
+      "ts1_tgs": [
         {
           "id": 915,
           "name": "Portugues",
           "call_mode": "GROUP_CALL"
         }
       ],
-      "ts2_alternative_tgs": [],
+      "ts2_tgs": [],
       "color_code": 1,
       "ts_configuration": ""
     },
@@ -6808,24 +6498,14 @@
         "name": "CQ0DOD",
         "call_mode": "GROUP_CALL"
       },
-      "ts1_default_tg": {
-        "id": 268,
-        "name": "Portugal",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts2_default_tg": {
-        "id": 2,
-        "name": "Local",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts1_alternative_tgs": [
+      "ts1_tgs": [
         {
           "id": 915,
           "name": "Portugues",
           "call_mode": "GROUP_CALL"
         }
       ],
-      "ts2_alternative_tgs": [],
+      "ts2_tgs": [],
       "color_code": 1,
       "ts_configuration": "(2->)268302"
     },
@@ -6968,24 +6648,14 @@
         "name": "CQ0DST",
         "call_mode": "GROUP_CALL"
       },
-      "ts1_default_tg": {
-        "id": 268,
-        "name": "Portugal",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts2_default_tg": {
-        "id": 2,
-        "name": "Local",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts1_alternative_tgs": [
+      "ts1_tgs": [
         {
           "id": 915,
           "name": "Portugues",
           "call_mode": "GROUP_CALL"
         }
       ],
-      "ts2_alternative_tgs": [],
+      "ts2_tgs": [],
       "color_code": 1,
       "ts_configuration": "(2->)268310"
     },
@@ -7271,17 +6941,7 @@
         "name": "CQ0DCSC",
         "call_mode": "GROUP_CALL"
       },
-      "ts1_default_tg": {
-        "id": 268,
-        "name": "Portugal",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts2_default_tg": {
-        "id": 8,
-        "name": "Regional",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts1_alternative_tgs": [
+      "ts1_tgs": [
         {
           "id": 91,
           "name": "Worldwide English",
@@ -7293,7 +6953,7 @@
           "call_mode": "GROUP_CALL"
         }
       ],
-      "ts2_alternative_tgs": [
+      "ts2_tgs": [
         {
           "id": 2,
           "name": "Local",
@@ -7409,18 +7069,8 @@
         "name": "CQ0DSS",
         "call_mode": "GROUP_CALL"
       },
-      "ts1_default_tg": {
-        "id": 268915,
-        "name": "PT Hotspot 2",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts2_default_tg": {
-        "id": 2,
-        "name": "Local",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts1_alternative_tgs": [],
-      "ts2_alternative_tgs": [],
+      "ts1_tgs": [],
+      "ts2_tgs": [],
       "color_code": 1,
       "ts_configuration": "(2->)268410"
     },
@@ -7493,17 +7143,7 @@
         "name": "CQ0DEC",
         "call_mode": "GROUP_CALL"
       },
-      "ts1_default_tg": {
-        "id": 268,
-        "name": "Portugal",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts2_default_tg": {
-        "id": 2,
-        "name": "Local",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts1_alternative_tgs": [
+      "ts1_tgs": [
         {
           "id": 91,
           "name": "Worldwide English",
@@ -7520,7 +7160,7 @@
           "call_mode": "GROUP_CALL"
         }
       ],
-      "ts2_alternative_tgs": [],
+      "ts2_tgs": [],
       "color_code": 1,
       "ts_configuration": "(2->)268320"
     },
@@ -7700,17 +7340,7 @@
         "name": "CQ0UCSC",
         "call_mode": "GROUP_CALL"
       },
-      "ts1_default_tg": {
-        "id": 268,
-        "name": "Portugal",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts2_default_tg": {
-        "id": 2,
-        "name": "Local",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts1_alternative_tgs": [
+      "ts1_tgs": [
         {
           "id": 91,
           "name": "Worldwide English",
@@ -7722,7 +7352,7 @@
           "call_mode": "GROUP_CALL"
         }
       ],
-      "ts2_alternative_tgs": [],
+      "ts2_tgs": [],
       "color_code": 1,
       "ts_configuration": "Slot 1 estático: 268. 91. 915\r\nSlot 2 estático: 2\r\nLocal 2: (2->)268301"
     },
@@ -8088,17 +7718,7 @@
         "name": "CQ0DMA",
         "call_mode": "GROUP_CALL"
       },
-      "ts1_default_tg": {
-        "id": 268,
-        "name": "Portugal",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts2_default_tg": {
-        "id": 2,
-        "name": "Local",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts1_alternative_tgs": [
+      "ts1_tgs": [
         {
           "id": 91,
           "name": "Worldwide English",
@@ -8110,7 +7730,7 @@
           "call_mode": "GROUP_CALL"
         }
       ],
-      "ts2_alternative_tgs": [],
+      "ts2_tgs": [],
       "color_code": 1,
       "ts_configuration": "(2->)268303"
     },
@@ -8321,17 +7941,7 @@
         "name": "CQ0DLA",
         "call_mode": "GROUP_CALL"
       },
-      "ts1_default_tg": {
-        "id": 268,
-        "name": "Portugal",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts2_default_tg": {
-        "id": 2,
-        "name": "Local",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts1_alternative_tgs": [
+      "ts1_tgs": [
         {
           "id": 91,
           "name": "Worldwide English",
@@ -8343,7 +7953,7 @@
           "call_mode": "GROUP_CALL"
         }
       ],
-      "ts2_alternative_tgs": [],
+      "ts2_tgs": [],
       "color_code": 1,
       "ts_configuration": "(2->)268402"
     },
@@ -8898,17 +8508,7 @@
         "name": "CQ0UML",
         "call_mode": "GROUP_CALL"
       },
-      "ts1_default_tg": {
-        "id": 268,
-        "name": "Portugal",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts2_default_tg": {
-        "id": 2,
-        "name": "Local",
-        "call_mode": "GROUP_CALL"
-      },
-      "ts1_alternative_tgs": [
+      "ts1_tgs": [
         {
           "id": 91,
           "name": "Worldwide English",
@@ -8920,7 +8520,7 @@
           "call_mode": "GROUP_CALL"
         }
       ],
-      "ts2_alternative_tgs": [],
+      "ts2_tgs": [],
       "color_code": 1,
       "ts_configuration": "Slot 1 estático: 268. 91. 915\r\nSlot 2 estático: 2\r\nLocal 2: (2->)268504"
     },
