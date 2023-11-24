@@ -1579,9 +1579,9 @@ class RepeatersSerializer:
                     roaming_zone.channels.append(roaming_channel)
                     idx += 1
                     # Add channels for each TS1 and TS2 channels
-                    for tg_set in (
-                        repeater.info_dmr.ts1_tgs,
-                        repeater.info_dmr.ts2_tgs,
+                    for tg_set, tg_slot in (
+                        (repeater.info_dmr.ts1_tgs, 1),
+                        (repeater.info_dmr.ts2_tgs, 2),
                     ):
                         for tg_db in tg_set.all():
                             # Find the TG in the talk groups CSV
@@ -1607,9 +1607,9 @@ class RepeatersSerializer:
                                 ChannelMode.DMR,
                                 tg,
                                 self._radio_id_list_csv.radio_ids[0],
-                                self._scan_list_csv.scan_lists[0],
+                                self._scan_list_csv.scan_lists[0],  # TODO: fix
                                 rx_list,
-                                slot=1,
+                                slot=tg_slot,
                             )
                             zone.channels.append(channel)
 
