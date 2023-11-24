@@ -8,7 +8,7 @@
     <q-btn
       color="primary"
       label="Ficheiro para Anytone D878UVII+"
-      href="/backend/repeaters/export/d878uvii/codeplug/"
+      href="/backend/repeaters/export/anytone_d878uviip/"
     />
   </div>
 </template>
