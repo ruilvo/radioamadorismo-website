@@ -198,6 +198,7 @@ class Channel:
         scan_list = "None" if not self.scan_list else self.scan_list.name
         rx_list = "None" if not self.rx_list else self.rx_list.name  # TODO: implement
         send_talker_alias = "0" if self.mode == ChannelMode.FM else "1"
+        aprs_report_type = "Off" if self.mode == ChannelMode.FM else "Digital"
         return [
             f"{self.idx}",  # "No."
             self.name,  # "Channel Name"
@@ -239,7 +240,7 @@ class Channel:
             "Off",  # "APRS RX"
             "Off",  # "Analog APRS PTT Mode"
             "Off",  # "Digital APRS PTT Mode"
-            "Off",  # "APRS Report Type"
+            aprs_report_type,  # "APRS Report Type"
             "1",  # "Digital APRS Report Channel"
             "0",  # "Correct Frequency[Hz]"
             "Off",  # "SMS Confirmation"
