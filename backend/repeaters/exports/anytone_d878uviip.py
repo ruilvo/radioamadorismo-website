@@ -4,13 +4,13 @@ Codeplug generation for the Anytone D878UVII+.
 
 import io
 import csv
-import requests
-import json
 import zipfile
 
 from enum import StrEnum
 from dataclasses import dataclass, field
-from typing import List, Optional
+from typing import List, Optional, Tuple
+
+import requests
 
 from django.db.models import Q
 from django.db.models.manager import BaseManager
@@ -48,6 +48,7 @@ _PRIVATE_CALL = DimDmrTg.CallModeOptions.PRIVATE_CALL
 
 _MAXIMUM_CHANNELS_PER_SCAN_ZONE = 48
 _MAXIMUM_TGS_PER_RX_LIST = 64
+_MAXIMUM_CHANNELS_PER_ROAMING_ZONE = 64
 
 
 class ChannelMode(StrEnum):
@@ -58,6 +59,42 @@ class ChannelMode(StrEnum):
 class CallType(StrEnum):
     GROUP = "Group Call"
     PRIVATE = "Private Call"
+
+
+@dataclass
+class RoamingChannel:
+    idx: int
+    rx_mhz: float
+    tx_mhz: float
+    cc: int
+    slot: int
+    name: str
+
+    def serialize(self) -> List[str]:
+        return [
+            f"{self.idx}",  # "No."
+            f"{self.rx_mhz:.5f}",  # "Receive Frequency"
+            f"{self.rx_mhz:.5f}",  # "Transmit Frequency"
+            f"{self.cc}",  # "Color Code"
+            f"{self.slot}",  # "Slot"
+            self.name,  # "Name"
+        ]
+
+
+@dataclass
+class RoamingZone:
+    idx: int
+    name: str
+    channels: list[RoamingChannel] = field(default_factory=lambda: [])
+
+    def serialize(self) -> List[str]:
+        return [
+            f"{self.idx}",  # "No."
+            self.name,  # "Name"
+            "|".join(
+                [channel.name for channel in self.channels]
+            ),  # "Roaming Channel Member"
+        ]
 
 
 @dataclass
@@ -247,6 +284,74 @@ class Zone:
         ]
 
 
+@dataclass
+class GPSRoamingChannel:
+    idx: int
+    zone: Zone
+    latitude: float
+    longitude: float
+    radius: int
+
+    @property
+    def latitude_degrees(self) -> int:
+        return abs(int(self.latitude))
+
+    @property
+    def latitude_minutes(self):
+        return (abs(self.latitude) - self.latitude_degrees) * 60
+
+    @property
+    def latitude_minutes_integer_part(self) -> int:
+        return int(self.latitude_minutes)
+
+    @property
+    def latitude_minutes_decimal_part(self) -> int:
+        return int((self.latitude_minutes - self.latitude_minutes_integer_part) * 100)
+
+    @property
+    def latitude_hemisphere(self) -> str:
+        if self.latitude > 0:
+            return "0"
+        return "1"
+
+    @property
+    def longitude_degrees(self) -> int:
+        return abs(int(self.longitude))
+
+    @property
+    def longitude_minutes(self):
+        return (abs(self.longitude) - self.longitude_degrees) * 60
+
+    @property
+    def longitude_minutes_integer_part(self) -> int:
+        return int(self.longitude_minutes)
+
+    @property
+    def longitude_minutes_decimal_part(self) -> int:
+        return int((self.longitude_minutes - self.longitude_minutes_integer_part) * 100)
+
+    @property
+    def longitude_hemisphere(self) -> str:
+        if self.longitude > 0:
+            return "0"
+        return "1"
+
+    def serialize(self) -> List[str]:
+        return [
+            "1",  # "OnOff"
+            f"{self.zone.idx}",  # "Zone"
+            f"{self.latitude_degrees}",  # "Latitude Degree"
+            self.latitude_hemisphere,  # "North or South"
+            self.longitude_degrees,  # "Longtitude Degree"
+            self.longitude_hemisphere,  # "East or West"
+            f"{self.latitude_minutes_integer_part:02.2f}",  # "Latitude Minute"
+            f"{self.latitude_minutes_decimal_part:02.2f}",  # "Latitude Minute1"
+            f"{self.longitude_minutes_integer_part:02.2f}",  # "Longtitude Minute"
+            f"{self.longitude_minutes_decimal_part:02.2f}",  # "Longtitude Minute1"
+            "30000",  # "Radius(Meter)"
+        ]
+
+
 # 23
 # 0,"Channel.CSV"  -> ChannelCSVSerializer
 # 1,"RadioIDList.CSV"  -> RadioIDListCSVSerializer
@@ -265,8 +370,8 @@ class Zone:
 # 14,"HotKey_HotKey.CSV"
 # 15,"DigitalContactList.CSV"  -> DigitalContactListCSVSerializer
 # 16,"AutoRepeaterOffsetFrequencys.CSV"  -> AutoRepeaterOffsetFrequencysCSVSerializer
-# 17,"RoamingChannel.CSV"
-# 18,"RoamingZone.CSV"
+# 17,"RoamingChannel.CSV"  -> RoamingChannelCSVSerializer
+# 18,"RoamingZone.CSV"  -> RoamingZoneCSVSerializer
 # 19,"APRS.CSV"  -> APRSCSVSerializer
 # 20,"GPSRoaming.CSV"
 # 21,"AESEncryptionCode.CSV"  -> AESEncryptionCodeCSVSerializer
@@ -1198,8 +1303,85 @@ class ChannelCSVSerializer:
         return sio
 
 
-class RepeatersSerializer:
+class RoamingChannelCSVSerializer:
     def __init__(self):
+        self._roaming_channels: List[RoamingChannel] = []
+
+    @property
+    def filename(self) -> str:
+        return "RoamingChannel.CSV"
+
+    @property
+    def roaming_channels(self) -> List[RoamingChannel]:
+        return self._roaming_channels
+
+    def add_roaming_channel(
+        self, rx_mhz: float, tx_mhz: float, cc: int, slot: int, name: str
+    ) -> RoamingChannel:
+        self._roaming_channels.append(
+            RoamingChannel(
+                len(self.roaming_channels) + 1, rx_mhz, tx_mhz, cc, slot, name
+            )
+        )
+        return self._roaming_channels[-1]
+
+    def write(self) -> io.StringIO:
+        sio = io.StringIO()
+        writer = csv.writer(sio, dialect="d878uviiplus")
+
+        header = [
+            "No.",
+            "Receive Frequency",
+            "Transmit Frequency",
+            "Color Code",
+            "Slot",
+            "Name",
+        ]
+
+        writer.writerow(header)
+
+        for roaming_channel in self.roaming_channels:
+            writer.writerow(roaming_channel.serialize())
+
+        return sio
+
+
+class RoamingZoneCSVSerializer:
+    def __init__(self):
+        self._roaming_zones: List[RoamingZone] = []
+
+    @property
+    def filename(self) -> str:
+        return "RoamingZone.CSV"
+
+    @property
+    def roaming_zones(self) -> List[RoamingZone]:
+        return self._roaming_zones
+
+    def add_roaming_zone(self, name: str) -> RoamingZone:
+        self._roaming_zones.append(RoamingZone(len(self.roaming_zones) + 1, name))
+        return self._roaming_zones[-1]
+
+    def write(self) -> io.StringIO:
+        sio = io.StringIO()
+        writer = csv.writer(sio, dialect="d878uviiplus")
+
+        header = [
+            "No.",
+            "Name",
+            "Roaming Channel Member",
+        ]
+
+        writer.writerow(header)
+
+        for roaming_zone in self.roaming_zones:
+            writer.writerow(roaming_zone.serialize())
+
+        return sio
+
+
+class RepeatersSerializer:
+    def __init__(self, radio_id: int = 268000, name: str = "CT0ZZZ"):
         self._channel_csv = ChannelCSVSerializer()
         self._radio_id_list_csv = RadioIDListCSVSerializer()
         self._zone_csv = ZoneCSVSerializer()
@@ -1220,10 +1402,14 @@ class RepeatersSerializer:
         self._aes_encryption_code_csv = AESEncryptionCodeCSVSerializer()
         self._ar4_encryption_code_csv = AR4EncryptionCodeCSVSerializer()
 
-        self._add_radio_ids()
+        self._roaming_channel_csv = RoamingChannelCSVSerializer()
+        self._roaming_zone_csv = RoamingZoneCSVSerializer()
+
+        self._add_radio_ids([(radio_id, name)])
         self._add_tgs()
         self._add_rx_lists()
         self._add_fm_channels()
+        self._add_dmr_channels()
 
     @property
     def _data(self) -> dict[str, dict[str, dict[str, BaseManager[FactRepeater]]]]:
@@ -1308,8 +1494,9 @@ class RepeatersSerializer:
             },
         }
 
-    def _add_radio_ids(self, id: int = 268000, name: str = "CT0ZZZ") -> None:
-        self._radio_id_list_csv.add_radio_id(id, name)
+    def _add_radio_ids(self, ids: List[Tuple[int, str]]) -> None:
+        for radio_id, name in ids:
+            self._radio_id_list_csv.add_radio_id(radio_id, name)
 
     def _add_tgs(self):
         tgs = DimDmrTg.objects.all().order_by("id")
@@ -1338,9 +1525,11 @@ class RepeatersSerializer:
                         f"{name} {idx // _MAXIMUM_TGS_PER_RX_LIST + 1}"
                     )
                 # Find the TG in the talk groups CSV
-                tg = list(
-                    filter(lambda tg: tg.name == tg_db.name, self._talk_groups_csv.tgs)
-                )[0]
+                tg = [
+                    test_tg
+                    for test_tg in self._talk_groups_csv.tgs
+                    if test_tg.radio_id == tg_db.id
+                ][0]
                 rx_list.tgs.append(tg)
 
     def _add_fm_channels(self):
@@ -1368,6 +1557,65 @@ class RepeatersSerializer:
                     zone.channels.append(channel)
                     scan_list.channels.append(channel)
 
+    def _add_dmr_channels(self):
+        idx = 0
+        # Don't add a roaming zone if it's going to be empty
+        roaming_zone = None
+        for region in [_CPT, _MDA, _AZR]:
+            for band in [_B_2M, _B_70CM]:
+                for repeater in self._data[region][band][_DMR]:
+                    # Don't add a Zone if it's going to be empty
+                    zone = None
+                    # Determine the roaming zone
+                    if idx % _MAXIMUM_CHANNELS_PER_ROAMING_ZONE == 0:
+                        roaming_zone = self._roaming_zone_csv.add_roaming_zone(
+                            f"DMR TS1 {idx // _MAXIMUM_CHANNELS_PER_ROAMING_ZONE + 1}"
+                        )
+                    # Create the roaming channel
+                    roaming_channel = self._roaming_channel_csv.add_roaming_channel(
+                        repeater.info_rf.tx_mhz,  # Repeater Tx is radio Rx
+                        repeater.info_rf.rx_mhz,  # Repeater Rx is radio Tx
+                        repeater.info_dmr.color_code,
+                        1,
+                        f"{repeater.callsign} TS1",
+                    )
+                    roaming_zone.channels.append(roaming_channel)
+                    idx += 1
+                    # Add channels for each TS1 and TS2 channels
+                    for tg_set in (
+                        repeater.info_dmr.ts1_alternative_tgs,
+                        repeater.info_dmr.ts2_alternative_tgs,
+                    ):
+                        for tg_db in tg_set.all():
+                            # Find the TG in the talk groups CSV
+                            tg = [
+                                test_tg
+                                for test_tg in self._talk_groups_csv.tgs
+                                if test_tg.radio_id == tg_db.id
+                            ][0]
+                            if zone is None:
+                                # Add a zone for each repeater
+                                zone = self._zone_csv.add_zone(f"{repeater.callsign}")
+                            # Find the Rx list in the Rx list CSV
+                            rx_list = [
+                                test_rx_list
+                                for test_rx_list in self._receive_group_call_list_csv.rx_lists
+                                if tg in test_rx_list.tgs
+                            ][0]
+                            # Create the channel
+                            channel = self._channel_csv.add_channel(
+                                f"{repeater.callsign} {tg_db.id}",
+                                repeater.info_rf.tx_mhz,  # Repeater Tx is radio Rx
+                                repeater.info_rf.rx_mhz,  # Repeater Rx is radio Tx
+                                ChannelMode.DMR,
+                                tg,
+                                self._radio_id_list_csv.radio_ids[0],
+                                self._scan_list_csv.scan_lists[0],
+                                rx_list,
+                                slot=1,
+                            )
+                            zone.channels.append(channel)
+
     @property
     def codeplug(self) -> io.BytesIO:
         """
@@ -1394,6 +1642,8 @@ class RepeatersSerializer:
                 self._aprs_csv,
                 self._aes_encryption_code_csv,
                 self._ar4_encryption_code_csv,
+                self._roaming_channel_csv,
+                self._roaming_zone_csv,
             ):
                 with zip_file.open(serializer.filename, "w") as csv_file:
                     csv_file.write(serializer.write().getvalue().encode("utf-8"))
