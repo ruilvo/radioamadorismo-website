@@ -12,8 +12,7 @@ from typing import List, Optional, Tuple
 
 import requests
 
-from django.db.models import Q
-from django.db.models.manager import BaseManager
+from django.db.models import Q, QuerySet
 
 from unidecode import unidecode
 
@@ -198,7 +197,7 @@ class Channel:
         scan_list = "None" if not self.scan_list else self.scan_list.name
         rx_list = "None" if not self.rx_list else self.rx_list.name  # TODO: implement
         send_talker_alias = "0" if self.mode == ChannelMode.FM else "1"
-        aprs_report_type = "Off" if self.mode == ChannelMode.FM else "Digital"
+        aprs_report_type = "Analog" if self.mode == ChannelMode.FM else "Digital"
         return [
             f"{self.idx}",  # "No."
             self.name,  # "Channel Name"
@@ -211,7 +210,7 @@ class Channel:
             ctcss,  # "CTCSS/DCS Encode"
             self.tg.name,  # "Contact"
             self.tg.call_type,  # "Contact Call Type"
-            self.tg.radio_id,  # "Contact TG/DMR ID"
+            f"{self.tg.radio_id}",  # "Contact TG/DMR ID"
             self.radio_id.name,  # "Radio ID"
             "Off",  # "Busy Lock/TX Permit"
             "Carrier",  # "Squelch Mode"
@@ -220,7 +219,7 @@ class Channel:
             "1",  # "2Tone ID"
             "1",  # "5Tone ID"
             "Off",  # "PTT ID"
-            f"{self.color_code}",  # "Color Code"
+            f"{self.color_code}",  # "RX Color Code"
             f"{self.slot}",  # "Slot"
             scan_list,  # "Scan List"
             rx_list,  # "Receive Group List"
@@ -255,6 +254,7 @@ class Channel:
             "0",  # "AnaAprsTxPath"
             "0",  # "ARC4"
             "0",  # "ex_emg_kind"
+            f"{self.color_code}",  # "TxCC"
         ]
 
 
@@ -343,7 +343,7 @@ class GPSRoamingChannel:
             f"{self.zone.idx}",  # "Zone"
             f"{self.latitude_degrees}",  # "Latitude Degree"
             self.latitude_hemisphere,  # "North or South"
-            self.longitude_degrees,  # "Longtitude Degree"
+            f"{self.longitude_degrees}",  # "Longtitude Degree"
             self.longitude_hemisphere,  # "East or West"
             f"{self.latitude_minutes_integer_part:02.2f}",  # "Latitude Minute"
             f"{self.latitude_minutes_decimal_part:02.2f}",  # "Latitude Minute1"
@@ -1259,7 +1259,7 @@ class ChannelCSVSerializer:
             "2Tone ID",
             "5Tone ID",
             "PTT ID",
-            "Color Code",
+            "RX Color Code",
             "Slot",
             "Scan List",
             "Receive Group List",
@@ -1294,6 +1294,7 @@ class ChannelCSVSerializer:
             "AnaAprsTxPath",
             "ARC4",
             "ex_emg_kind",
+            "TxCC",
         ]
 
         writer.writerow(header)
@@ -1413,7 +1414,7 @@ class RepeatersSerializer:
         self._add_dmr_channels()
 
     @property
-    def _data(self) -> dict[str, dict[str, dict[str, BaseManager[FactRepeater]]]]:
+    def _data(self) -> dict[str, dict[str, dict[str, QuerySet[FactRepeater]]]]:
         return {
             _CPT: {
                 _B_2M: {
